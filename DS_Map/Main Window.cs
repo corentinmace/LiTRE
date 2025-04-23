@@ -10018,7 +10018,7 @@ namespace DSPRE {
             string[] abilityNames = RomInfo.GetAbilityNames();
             string[] moveNames = RomInfo.GetAttackNames();
 
-            Helpers.statusLabelMessage("Setting up Pokemon Data Editor...");
+            Helpers.statusLabelMessage("Setting up Pokémon Data Editor...");
             Update();
 
             DSUtils.TryUnpackNarcs(new List<DirNames> { DirNames.personalPokeData, DirNames.learnsets, DirNames.evolutions, DirNames.monIcons });

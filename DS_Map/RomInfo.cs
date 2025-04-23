@@ -204,7 +204,7 @@ namespace DSPRE
             }
             catch (KeyNotFoundException)
             {
-                MessageBox.Show("The ROM you attempted to load is not supported.\nYou can only load Gen IV Pok�mon ROMS, for now.", "Unsupported ROM",
+                MessageBox.Show("The ROM you attempted to load is not supported.\nYou can only load Gen IV Pokémon ROMS, for now.", "Unsupported ROM",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -910,6 +910,7 @@ namespace DSPRE
                     {
                         case GameLanguages.English:
                         case GameLanguages.Italian:
+                        case GameLanguages.French:
                             monIconPalTableAddress = BitConverter.ToUInt32(ARM9.ReadBytes(0x74408, 4), 0);
                             break;
 
@@ -924,7 +925,6 @@ namespace DSPRE
                             }
                             break;
 
-                        case GameLanguages.French:
                         case GameLanguages.Spanish:
                             if (gameVersion == GameVersions.HeartGold)
                             {

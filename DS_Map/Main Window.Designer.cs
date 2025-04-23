@@ -2627,7 +2627,7 @@
             this.setSpawnPointButton.Image = global::DSPRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
             this.setSpawnPointButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.setSpawnPointButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.setSpawnPointButton.Location = new System.Drawing.Point(11, -3679);
+            this.setSpawnPointButton.Location = new System.Drawing.Point(11, -73);
             this.setSpawnPointButton.Name = "setSpawnPointButton";
             this.setSpawnPointButton.Size = new System.Drawing.Size(117, 43);
             this.setSpawnPointButton.TabIndex = 35;
@@ -2643,7 +2643,7 @@
             this.saveMatrixButton.Image = global::DSPRE.Properties.Resources.save_rom;
             this.saveMatrixButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveMatrixButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.saveMatrixButton.Location = new System.Drawing.Point(11, -3618);
+            this.saveMatrixButton.Location = new System.Drawing.Point(11, 589);
             this.saveMatrixButton.Name = "saveMatrixButton";
             this.saveMatrixButton.Size = new System.Drawing.Size(117, 43);
             this.saveMatrixButton.TabIndex = 34;
@@ -2667,7 +2667,7 @@
             // 
             this.resetColorTableButton.Image = global::DSPRE.Properties.Resources.resetColorTable;
             this.resetColorTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.resetColorTableButton.Location = new System.Drawing.Point(11, 446);
+            this.resetColorTableButton.Location = new System.Drawing.Point(11, 451);
             this.resetColorTableButton.Name = "resetColorTableButton";
             this.resetColorTableButton.Size = new System.Drawing.Size(117, 32);
             this.resetColorTableButton.TabIndex = 31;
@@ -2680,7 +2680,7 @@
             // 
             this.importColorTableButton.Image = global::DSPRE.Properties.Resources.loadColorTable;
             this.importColorTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importColorTableButton.Location = new System.Drawing.Point(11, 479);
+            this.importColorTableButton.Location = new System.Drawing.Point(11, 484);
             this.importColorTableButton.Name = "importColorTableButton";
             this.importColorTableButton.Size = new System.Drawing.Size(117, 32);
             this.importColorTableButton.TabIndex = 30;
@@ -2745,7 +2745,7 @@
             // 
             this.removeHeightsButton.Image = ((System.Drawing.Image)(resources.GetObject("removeHeightsButton.Image")));
             this.removeHeightsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.removeHeightsButton.Location = new System.Drawing.Point(11, 402);
+            this.removeHeightsButton.Location = new System.Drawing.Point(11, 403);
             this.removeHeightsButton.Name = "removeHeightsButton";
             this.removeHeightsButton.Size = new System.Drawing.Size(117, 35);
             this.removeHeightsButton.TabIndex = 26;
@@ -2771,7 +2771,7 @@
             // 
             this.addHeightsButton.Image = ((System.Drawing.Image)(resources.GetObject("addHeightsButton.Image")));
             this.addHeightsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addHeightsButton.Location = new System.Drawing.Point(11, 366);
+            this.addHeightsButton.Location = new System.Drawing.Point(11, 367);
             this.addHeightsButton.Name = "addHeightsButton";
             this.addHeightsButton.Size = new System.Drawing.Size(117, 35);
             this.addHeightsButton.TabIndex = 24;
@@ -2797,7 +2797,7 @@
             // 
             this.labelMatrices.AutoSize = true;
             this.labelMatrices.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelMatrices.Location = new System.Drawing.Point(10, 11);
+            this.labelMatrices.Location = new System.Drawing.Point(9, 11);
             this.labelMatrices.Name = "labelMatrices";
             this.labelMatrices.Size = new System.Drawing.Size(47, 13);
             this.labelMatrices.TabIndex = 21;
@@ -4438,7 +4438,7 @@
             this.radio3D.AutoSize = true;
             this.radio3D.Checked = true;
             this.radio3D.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.radio3D.Location = new System.Drawing.Point(-5811, -4172);
+            this.radio3D.Location = new System.Drawing.Point(147, -566);
             this.radio3D.Name = "radio3D";
             this.radio3D.Size = new System.Drawing.Size(31, 23);
             this.radio3D.TabIndex = 26;
@@ -4453,7 +4453,7 @@
             this.radio2D.Appearance = System.Windows.Forms.Appearance.Button;
             this.radio2D.AutoSize = true;
             this.radio2D.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.radio2D.Location = new System.Drawing.Point(-5811, -4201);
+            this.radio2D.Location = new System.Drawing.Point(147, -595);
             this.radio2D.Name = "radio2D";
             this.radio2D.Size = new System.Drawing.Size(31, 23);
             this.radio2D.TabIndex = 25;
@@ -4468,7 +4468,7 @@
             this.wireframeCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.wireframeCheckBox.AutoSize = true;
             this.wireframeCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.wireframeCheckBox.Location = new System.Drawing.Point(1140, -4143);
+            this.wireframeCheckBox.Location = new System.Drawing.Point(1140, -537);
             this.wireframeCheckBox.Name = "wireframeCheckBox";
             this.wireframeCheckBox.Size = new System.Drawing.Size(31, 23);
             this.wireframeCheckBox.TabIndex = 27;
