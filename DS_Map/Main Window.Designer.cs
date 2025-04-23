@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.PictureBox pictureBox1;
+            System.Windows.Forms.PictureBox pictureBox2;
+            System.Windows.Forms.PictureBox pictureBox3;
+            System.Windows.Forms.PictureBox pictureBox4;
+            System.Windows.Forms.PictureBox pictureBox5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainProgram));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -255,6 +260,7 @@
             this.zBuildUpDown = new System.Windows.Forms.NumericUpDown();
             this.buildingsListBox = new System.Windows.Forms.ListBox();
             this.permissionsTabPage = new System.Windows.Forms.TabPage();
+            this.transparencyBar = new System.Windows.Forms.TrackBar();
             this.scanUnusedCollisionTypesButton = new System.Windows.Forms.Button();
             this.clearCurrentButton = new System.Windows.Forms.Button();
             this.typeLabel = new System.Windows.Forms.Label();
@@ -387,6 +393,13 @@
             this.spawnableScriptUpDown = new System.Windows.Forms.NumericUpDown();
             this.spawnablesListBox = new System.Windows.Forms.ListBox();
             this.overworldsTabPage = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.lateNightCheckbox = new System.Windows.Forms.CheckBox();
+            this.nightCheckbox = new System.Windows.Forms.CheckBox();
+            this.twilightCheckbox = new System.Windows.Forms.CheckBox();
+            this.dayCheckbox = new System.Windows.Forms.CheckBox();
+            this.morningCheckbox = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.sortOWsByIDDescButton = new System.Windows.Forms.Button();
             this.sortOWsByIDAscButton = new System.Windows.Forms.Button();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
@@ -732,8 +745,8 @@
             this.trainerClassListBox = new System.Windows.Forms.ListBox();
             this.addTrainerButton = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
-            this.trainerComboBox = new DSPRE.InputComboBox();
             this.trainerSaveCurrentButton = new System.Windows.Forms.Button();
+            this.trainerComboBox = new DSPRE.InputComboBox();
             this.tableEditorTabPage = new System.Windows.Forms.TabPage();
             this.label73 = new System.Windows.Forms.Label();
             this.pbEffectsGroupBox = new System.Windows.Forms.GroupBox();
@@ -788,9 +801,11 @@
             this.openROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.romToolboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.headerSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addressHelperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptCommandsDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diamondAndPearlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.platinumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -843,6 +858,7 @@
             this.nsbmdRemoveTexButton = new System.Windows.Forms.ToolStripButton();
             this.nsbmdExportTexButton = new System.Windows.Forms.ToolStripButton();
             this.separator_afterNsbmdUtils = new System.Windows.Forms.ToolStripSeparator();
+            this.weatherMapEditor = new System.Windows.Forms.ToolStripButton();
             this.buildingEditorButton = new System.Windows.Forms.ToolStripButton();
             this.wildEditorButton = new System.Windows.Forms.ToolStripButton();
             this.scriptCommandsButton = new System.Windows.Forms.ToolStripButton();
@@ -852,6 +868,16 @@
             this.separator_afterMiscButtons = new System.Windows.Forms.ToolStripSeparator();
             this.versionLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).BeginInit();
             this.mainTabControl.SuspendLayout();
             this.headerEditorTabPage.SuspendLayout();
             this.worldmapCoordsGroupBox.SuspendLayout();
@@ -916,6 +942,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xBuildUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zBuildUpDown)).BeginInit();
             this.permissionsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transparencyBar)).BeginInit();
             this.typeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typePainterUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typePainterPictureBox)).BeginInit();
@@ -958,6 +985,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnableYMapUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spawnableScriptUpDown)).BeginInit();
             this.overworldsTabPage.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox22.SuspendLayout();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.owYMatrixUpDown)).BeginInit();
@@ -1091,6 +1119,61 @@
             this.statusStrip1.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = global::DSPRE.Properties.Resources.time_0;
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.Location = new System.Drawing.Point(29, 19);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(20, 20);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(pictureBox1, "4am => 10am");
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = global::DSPRE.Properties.Resources.time_1;
+            pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox2.Location = new System.Drawing.Point(73, 19);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(20, 20);
+            pictureBox2.TabIndex = 4;
+            pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(pictureBox2, "10am => 5pm");
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImage = global::DSPRE.Properties.Resources.time_2;
+            pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox3.Location = new System.Drawing.Point(115, 19);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(20, 20);
+            pictureBox3.TabIndex = 6;
+            pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(pictureBox3, "5pm => 8pm");
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackgroundImage = global::DSPRE.Properties.Resources.time_4;
+            pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox4.Location = new System.Drawing.Point(201, 19);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(20, 20);
+            pictureBox4.TabIndex = 10;
+            pictureBox4.TabStop = false;
+            this.toolTip1.SetToolTip(pictureBox4, "12am => 4am");
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackgroundImage = global::DSPRE.Properties.Resources.time_3;
+            pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox5.Location = new System.Drawing.Point(159, 19);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(20, 20);
+            pictureBox5.TabIndex = 8;
+            pictureBox5.TabStop = false;
+            this.toolTip1.SetToolTip(pictureBox5, "8pm => 12am");
             // 
             // mainTabControl
             // 
@@ -2544,7 +2627,7 @@
             this.setSpawnPointButton.Image = global::DSPRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
             this.setSpawnPointButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.setSpawnPointButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.setSpawnPointButton.Location = new System.Drawing.Point(11, -73);
+            this.setSpawnPointButton.Location = new System.Drawing.Point(11, -3679);
             this.setSpawnPointButton.Name = "setSpawnPointButton";
             this.setSpawnPointButton.Size = new System.Drawing.Size(117, 43);
             this.setSpawnPointButton.TabIndex = 35;
@@ -2560,7 +2643,7 @@
             this.saveMatrixButton.Image = global::DSPRE.Properties.Resources.save_rom;
             this.saveMatrixButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveMatrixButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.saveMatrixButton.Location = new System.Drawing.Point(11, 589);
+            this.saveMatrixButton.Location = new System.Drawing.Point(11, -3618);
             this.saveMatrixButton.Name = "saveMatrixButton";
             this.saveMatrixButton.Size = new System.Drawing.Size(117, 43);
             this.saveMatrixButton.TabIndex = 34;
@@ -2584,7 +2667,7 @@
             // 
             this.resetColorTableButton.Image = global::DSPRE.Properties.Resources.resetColorTable;
             this.resetColorTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.resetColorTableButton.Location = new System.Drawing.Point(11, 451);
+            this.resetColorTableButton.Location = new System.Drawing.Point(11, 446);
             this.resetColorTableButton.Name = "resetColorTableButton";
             this.resetColorTableButton.Size = new System.Drawing.Size(117, 32);
             this.resetColorTableButton.TabIndex = 31;
@@ -2597,7 +2680,7 @@
             // 
             this.importColorTableButton.Image = global::DSPRE.Properties.Resources.loadColorTable;
             this.importColorTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importColorTableButton.Location = new System.Drawing.Point(11, 484);
+            this.importColorTableButton.Location = new System.Drawing.Point(11, 479);
             this.importColorTableButton.Name = "importColorTableButton";
             this.importColorTableButton.Size = new System.Drawing.Size(117, 32);
             this.importColorTableButton.TabIndex = 30;
@@ -2662,7 +2745,7 @@
             // 
             this.removeHeightsButton.Image = ((System.Drawing.Image)(resources.GetObject("removeHeightsButton.Image")));
             this.removeHeightsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.removeHeightsButton.Location = new System.Drawing.Point(11, 403);
+            this.removeHeightsButton.Location = new System.Drawing.Point(11, 402);
             this.removeHeightsButton.Name = "removeHeightsButton";
             this.removeHeightsButton.Size = new System.Drawing.Size(117, 35);
             this.removeHeightsButton.TabIndex = 26;
@@ -2688,7 +2771,7 @@
             // 
             this.addHeightsButton.Image = ((System.Drawing.Image)(resources.GetObject("addHeightsButton.Image")));
             this.addHeightsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addHeightsButton.Location = new System.Drawing.Point(11, 367);
+            this.addHeightsButton.Location = new System.Drawing.Point(11, 366);
             this.addHeightsButton.Name = "addHeightsButton";
             this.addHeightsButton.Size = new System.Drawing.Size(117, 35);
             this.addHeightsButton.TabIndex = 24;
@@ -2714,7 +2797,7 @@
             // 
             this.labelMatrices.AutoSize = true;
             this.labelMatrices.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelMatrices.Location = new System.Drawing.Point(9, 11);
+            this.labelMatrices.Location = new System.Drawing.Point(10, 11);
             this.labelMatrices.Name = "labelMatrices";
             this.labelMatrices.Size = new System.Drawing.Size(47, 13);
             this.labelMatrices.TabIndex = 21;
@@ -3822,6 +3905,7 @@
             // 
             // permissionsTabPage
             // 
+            this.permissionsTabPage.Controls.Add(this.transparencyBar);
             this.permissionsTabPage.Controls.Add(this.scanUnusedCollisionTypesButton);
             this.permissionsTabPage.Controls.Add(this.clearCurrentButton);
             this.permissionsTabPage.Controls.Add(this.typeLabel);
@@ -3840,11 +3924,24 @@
             this.permissionsTabPage.Text = "Move Permissions";
             this.permissionsTabPage.UseVisualStyleBackColor = true;
             // 
+            // transparencyBar
+            // 
+            this.transparencyBar.BackColor = System.Drawing.SystemColors.Menu;
+            this.transparencyBar.Location = new System.Drawing.Point(12, 391);
+            this.transparencyBar.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.transparencyBar.Maximum = 255;
+            this.transparencyBar.Name = "transparencyBar";
+            this.transparencyBar.Size = new System.Drawing.Size(445, 45);
+            this.transparencyBar.TabIndex = 42;
+            this.transparencyBar.TickFrequency = 255;
+            this.transparencyBar.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.transparencyBar.Scroll += new System.EventHandler(this.transparencyBar_Scroll);
+            // 
             // scanUnusedCollisionTypesButton
             // 
             this.scanUnusedCollisionTypesButton.Image = global::DSPRE.Properties.Resources.SearchMiniIcon;
             this.scanUnusedCollisionTypesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.scanUnusedCollisionTypesButton.Location = new System.Drawing.Point(345, 110);
+            this.scanUnusedCollisionTypesButton.Location = new System.Drawing.Point(345, 108);
             this.scanUnusedCollisionTypesButton.Name = "scanUnusedCollisionTypesButton";
             this.scanUnusedCollisionTypesButton.Size = new System.Drawing.Size(111, 27);
             this.scanUnusedCollisionTypesButton.TabIndex = 33;
@@ -3891,9 +3988,9 @@
             this.typeGroupBox.Controls.Add(this.collisionTypePainterComboBox);
             this.typeGroupBox.Controls.Add(this.typePainterPictureBox);
             this.typeGroupBox.Enabled = false;
-            this.typeGroupBox.Location = new System.Drawing.Point(12, 301);
+            this.typeGroupBox.Location = new System.Drawing.Point(13, 272);
             this.typeGroupBox.Name = "typeGroupBox";
-            this.typeGroupBox.Size = new System.Drawing.Size(444, 134);
+            this.typeGroupBox.Size = new System.Drawing.Size(444, 113);
             this.typeGroupBox.TabIndex = 25;
             this.typeGroupBox.TabStop = false;
             this.typeGroupBox.Text = "Type Painter";
@@ -3914,7 +4011,7 @@
             // valueTypeRadioButton
             // 
             this.valueTypeRadioButton.AutoSize = true;
-            this.valueTypeRadioButton.Location = new System.Drawing.Point(135, 78);
+            this.valueTypeRadioButton.Location = new System.Drawing.Point(341, 19);
             this.valueTypeRadioButton.Name = "valueTypeRadioButton";
             this.valueTypeRadioButton.Size = new System.Drawing.Size(52, 17);
             this.valueTypeRadioButton.TabIndex = 4;
@@ -3926,7 +4023,7 @@
             // 
             this.typePainterUpDown.Enabled = false;
             this.typePainterUpDown.Hexadecimal = true;
-            this.typePainterUpDown.Location = new System.Drawing.Point(134, 101);
+            this.typePainterUpDown.Location = new System.Drawing.Point(341, 45);
             this.typePainterUpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -3945,7 +4042,7 @@
             this.collisionTypePainterComboBox.Location = new System.Drawing.Point(135, 44);
             this.collisionTypePainterComboBox.MaxDropDownItems = 10;
             this.collisionTypePainterComboBox.Name = "collisionTypePainterComboBox";
-            this.collisionTypePainterComboBox.Size = new System.Drawing.Size(283, 21);
+            this.collisionTypePainterComboBox.Size = new System.Drawing.Size(200, 21);
             this.collisionTypePainterComboBox.TabIndex = 2;
             this.collisionTypePainterComboBox.SelectedIndexChanged += new System.EventHandler(this.typePainterComboBox_SelectedIndexChanged);
             // 
@@ -3955,7 +4052,7 @@
             this.typePainterPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.typePainterPictureBox.Location = new System.Drawing.Point(18, 31);
             this.typePainterPictureBox.Name = "typePainterPictureBox";
-            this.typePainterPictureBox.Size = new System.Drawing.Size(80, 80);
+            this.typePainterPictureBox.Size = new System.Drawing.Size(66, 64);
             this.typePainterPictureBox.TabIndex = 1;
             this.typePainterPictureBox.TabStop = false;
             // 
@@ -3965,7 +4062,7 @@
             this.collisionGroupBox.Controls.Add(this.collisionPainterPictureBox);
             this.collisionGroupBox.Location = new System.Drawing.Point(12, 167);
             this.collisionGroupBox.Name = "collisionGroupBox";
-            this.collisionGroupBox.Size = new System.Drawing.Size(444, 118);
+            this.collisionGroupBox.Size = new System.Drawing.Size(444, 99);
             this.collisionGroupBox.TabIndex = 24;
             this.collisionGroupBox.TabStop = false;
             this.collisionGroupBox.Text = "Collision Painter";
@@ -3974,7 +4071,7 @@
             // 
             this.collisionPainterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.collisionPainterComboBox.FormattingEnabled = true;
-            this.collisionPainterComboBox.Location = new System.Drawing.Point(134, 50);
+            this.collisionPainterComboBox.Location = new System.Drawing.Point(134, 23);
             this.collisionPainterComboBox.Name = "collisionPainterComboBox";
             this.collisionPainterComboBox.Size = new System.Drawing.Size(284, 21);
             this.collisionPainterComboBox.TabIndex = 1;
@@ -3986,7 +4083,7 @@
             this.collisionPainterPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.collisionPainterPictureBox.Location = new System.Drawing.Point(18, 23);
             this.collisionPainterPictureBox.Name = "collisionPainterPictureBox";
-            this.collisionPainterPictureBox.Size = new System.Drawing.Size(80, 80);
+            this.collisionPainterPictureBox.Size = new System.Drawing.Size(66, 64);
             this.collisionPainterPictureBox.TabIndex = 0;
             this.collisionPainterPictureBox.TabStop = false;
             // 
@@ -4341,7 +4438,7 @@
             this.radio3D.AutoSize = true;
             this.radio3D.Checked = true;
             this.radio3D.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.radio3D.Location = new System.Drawing.Point(147, -566);
+            this.radio3D.Location = new System.Drawing.Point(-5811, -4172);
             this.radio3D.Name = "radio3D";
             this.radio3D.Size = new System.Drawing.Size(31, 23);
             this.radio3D.TabIndex = 26;
@@ -4356,7 +4453,7 @@
             this.radio2D.Appearance = System.Windows.Forms.Appearance.Button;
             this.radio2D.AutoSize = true;
             this.radio2D.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.radio2D.Location = new System.Drawing.Point(147, -595);
+            this.radio2D.Location = new System.Drawing.Point(-5811, -4201);
             this.radio2D.Name = "radio2D";
             this.radio2D.Size = new System.Drawing.Size(31, 23);
             this.radio2D.TabIndex = 25;
@@ -4371,7 +4468,7 @@
             this.wireframeCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.wireframeCheckBox.AutoSize = true;
             this.wireframeCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.wireframeCheckBox.Location = new System.Drawing.Point(1140, -537);
+            this.wireframeCheckBox.Location = new System.Drawing.Point(1140, -4143);
             this.wireframeCheckBox.Name = "wireframeCheckBox";
             this.wireframeCheckBox.Size = new System.Drawing.Size(31, 23);
             this.wireframeCheckBox.TabIndex = 27;
@@ -5170,7 +5267,7 @@
             this.eventsTabControl.Location = new System.Drawing.Point(9, 236);
             this.eventsTabControl.Name = "eventsTabControl";
             this.eventsTabControl.SelectedIndex = 0;
-            this.eventsTabControl.Size = new System.Drawing.Size(452, 378);
+            this.eventsTabControl.Size = new System.Drawing.Size(452, 433);
             this.eventsTabControl.TabIndex = 25;
             this.eventsTabControl.SelectedIndexChanged += new System.EventHandler(this.eventsTabControl_SelectedIndexChanged);
             // 
@@ -5190,7 +5287,7 @@
             this.signsTabPage.Location = new System.Drawing.Point(4, 22);
             this.signsTabPage.Name = "signsTabPage";
             this.signsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.signsTabPage.Size = new System.Drawing.Size(444, 352);
+            this.signsTabPage.Size = new System.Drawing.Size(444, 407);
             this.signsTabPage.TabIndex = 0;
             this.signsTabPage.Text = "Spawnables";
             this.signsTabPage.UseVisualStyleBackColor = true;
@@ -5458,6 +5555,7 @@
             // 
             // overworldsTabPage
             // 
+            this.overworldsTabPage.Controls.Add(this.groupBox8);
             this.overworldsTabPage.Controls.Add(this.sortOWsByIDDescButton);
             this.overworldsTabPage.Controls.Add(this.sortOWsByIDAscButton);
             this.overworldsTabPage.Controls.Add(this.groupBox22);
@@ -5482,10 +5580,90 @@
             this.overworldsTabPage.Location = new System.Drawing.Point(4, 22);
             this.overworldsTabPage.Name = "overworldsTabPage";
             this.overworldsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.overworldsTabPage.Size = new System.Drawing.Size(444, 352);
+            this.overworldsTabPage.Size = new System.Drawing.Size(444, 407);
             this.overworldsTabPage.TabIndex = 1;
             this.overworldsTabPage.Text = "Overworlds";
             this.overworldsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(pictureBox4);
+            this.groupBox8.Controls.Add(this.lateNightCheckbox);
+            this.groupBox8.Controls.Add(pictureBox5);
+            this.groupBox8.Controls.Add(this.nightCheckbox);
+            this.groupBox8.Controls.Add(pictureBox3);
+            this.groupBox8.Controls.Add(this.twilightCheckbox);
+            this.groupBox8.Controls.Add(pictureBox2);
+            this.groupBox8.Controls.Add(this.dayCheckbox);
+            this.groupBox8.Controls.Add(pictureBox1);
+            this.groupBox8.Controls.Add(this.morningCheckbox);
+            this.groupBox8.Controls.Add(this.checkBox1);
+            this.groupBox8.Location = new System.Drawing.Point(197, 148);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(232, 49);
+            this.groupBox8.TabIndex = 31;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Time Dependency";
+            // 
+            // lateNightCheckbox
+            // 
+            this.lateNightCheckbox.AutoSize = true;
+            this.lateNightCheckbox.Location = new System.Drawing.Point(185, 24);
+            this.lateNightCheckbox.Name = "lateNightCheckbox";
+            this.lateNightCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.lateNightCheckbox.TabIndex = 9;
+            this.lateNightCheckbox.UseVisualStyleBackColor = true;
+            this.lateNightCheckbox.CheckStateChanged += new System.EventHandler(this.lateNightCheckbox_CheckStateChanged);
+            // 
+            // nightCheckbox
+            // 
+            this.nightCheckbox.AutoSize = true;
+            this.nightCheckbox.Location = new System.Drawing.Point(143, 24);
+            this.nightCheckbox.Name = "nightCheckbox";
+            this.nightCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.nightCheckbox.TabIndex = 7;
+            this.nightCheckbox.UseVisualStyleBackColor = true;
+            this.nightCheckbox.CheckStateChanged += new System.EventHandler(this.nightCheckbox_CheckStateChanged);
+            // 
+            // twilightCheckbox
+            // 
+            this.twilightCheckbox.AutoSize = true;
+            this.twilightCheckbox.Location = new System.Drawing.Point(99, 24);
+            this.twilightCheckbox.Name = "twilightCheckbox";
+            this.twilightCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.twilightCheckbox.TabIndex = 5;
+            this.twilightCheckbox.UseVisualStyleBackColor = true;
+            this.twilightCheckbox.CheckStateChanged += new System.EventHandler(this.twilightCheckbox_CheckStateChanged);
+            // 
+            // dayCheckbox
+            // 
+            this.dayCheckbox.AutoSize = true;
+            this.dayCheckbox.Location = new System.Drawing.Point(57, 24);
+            this.dayCheckbox.Name = "dayCheckbox";
+            this.dayCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.dayCheckbox.TabIndex = 3;
+            this.dayCheckbox.UseVisualStyleBackColor = true;
+            this.dayCheckbox.CheckStateChanged += new System.EventHandler(this.dayCheckbox_CheckStateChanged);
+            // 
+            // morningCheckbox
+            // 
+            this.morningCheckbox.AutoSize = true;
+            this.morningCheckbox.Location = new System.Drawing.Point(13, 24);
+            this.morningCheckbox.Name = "morningCheckbox";
+            this.morningCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.morningCheckbox.TabIndex = 1;
+            this.morningCheckbox.UseVisualStyleBackColor = true;
+            this.morningCheckbox.CheckStateChanged += new System.EventHandler(this.morningCheckbox_CheckStateChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Image = global::DSPRE.Properties.Resources.time_1;
+            this.checkBox1.Location = new System.Drawing.Point(18, -21);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(31, 16);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // sortOWsByIDDescButton
             // 
@@ -5518,7 +5696,7 @@
             this.groupBox22.Controls.Add(this.normalRadioButton);
             this.groupBox22.Controls.Add(this.isTrainerRadioButton);
             this.groupBox22.Controls.Add(this.isItemRadioButton);
-            this.groupBox22.Location = new System.Drawing.Point(197, 98);
+            this.groupBox22.Location = new System.Drawing.Point(197, 97);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(162, 45);
             this.groupBox22.TabIndex = 28;
@@ -5645,7 +5823,7 @@
             this.owMovementGroupBox.Controls.Add(this.label4);
             this.owMovementGroupBox.Controls.Add(this.owOrientationComboBox);
             this.owMovementGroupBox.Controls.Add(this.owMovementComboBox);
-            this.owMovementGroupBox.Location = new System.Drawing.Point(197, 256);
+            this.owMovementGroupBox.Location = new System.Drawing.Point(197, 311);
             this.owMovementGroupBox.Name = "owMovementGroupBox";
             this.owMovementGroupBox.Size = new System.Drawing.Size(232, 90);
             this.owMovementGroupBox.TabIndex = 18;
@@ -5850,7 +6028,7 @@
             this.owSpecialGroupBox.Controls.Add(this.owSightRangeUpDown);
             this.owSpecialGroupBox.Controls.Add(this.owTrainerLabel);
             this.owSpecialGroupBox.Enabled = false;
-            this.owSpecialGroupBox.Location = new System.Drawing.Point(197, 150);
+            this.owSpecialGroupBox.Location = new System.Drawing.Point(197, 203);
             this.owSpecialGroupBox.Name = "owSpecialGroupBox";
             this.owSpecialGroupBox.Size = new System.Drawing.Size(232, 102);
             this.owSpecialGroupBox.TabIndex = 14;
@@ -5990,7 +6168,7 @@
             // owSpriteLabel
             // 
             this.owSpriteLabel.AutoSize = true;
-            this.owSpriteLabel.Location = new System.Drawing.Point(197, 51);
+            this.owSpriteLabel.Location = new System.Drawing.Point(197, 56);
             this.owSpriteLabel.Name = "owSpriteLabel";
             this.owSpriteLabel.Size = new System.Drawing.Size(45, 13);
             this.owSpriteLabel.TabIndex = 9;
@@ -6000,7 +6178,7 @@
             // 
             this.owSpriteComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.owSpriteComboBox.FormattingEnabled = true;
-            this.owSpriteComboBox.Location = new System.Drawing.Point(200, 67);
+            this.owSpriteComboBox.Location = new System.Drawing.Point(200, 72);
             this.owSpriteComboBox.Name = "owSpriteComboBox";
             this.owSpriteComboBox.Size = new System.Drawing.Size(159, 21);
             this.owSpriteComboBox.TabIndex = 8;
@@ -6097,7 +6275,7 @@
             this.warpsTabPage.Location = new System.Drawing.Point(4, 22);
             this.warpsTabPage.Name = "warpsTabPage";
             this.warpsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.warpsTabPage.Size = new System.Drawing.Size(444, 352);
+            this.warpsTabPage.Size = new System.Drawing.Size(444, 407);
             this.warpsTabPage.TabIndex = 2;
             this.warpsTabPage.Text = "Warps";
             this.warpsTabPage.UseVisualStyleBackColor = true;
@@ -6407,7 +6585,7 @@
             this.triggersTabPage.Location = new System.Drawing.Point(4, 22);
             this.triggersTabPage.Name = "triggersTabPage";
             this.triggersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.triggersTabPage.Size = new System.Drawing.Size(444, 352);
+            this.triggersTabPage.Size = new System.Drawing.Size(444, 407);
             this.triggersTabPage.TabIndex = 3;
             this.triggersTabPage.Text = "Triggers";
             this.triggersTabPage.UseVisualStyleBackColor = true;
@@ -7629,8 +7807,8 @@
             this.trainerEditorTabPage.Controls.Add(this.groupBox25);
             this.trainerEditorTabPage.Controls.Add(this.addTrainerButton);
             this.trainerEditorTabPage.Controls.Add(this.label42);
-            this.trainerEditorTabPage.Controls.Add(this.trainerComboBox);
             this.trainerEditorTabPage.Controls.Add(this.trainerSaveCurrentButton);
+            this.trainerEditorTabPage.Controls.Add(this.trainerComboBox);
             this.trainerEditorTabPage.ImageIndex = 8;
             this.trainerEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.trainerEditorTabPage.Name = "trainerEditorTabPage";
@@ -9611,17 +9789,6 @@
             this.label42.TabIndex = 28;
             this.label42.Text = "Trainer File";
             // 
-            // trainerComboBox
-            // 
-            this.trainerComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.trainerComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.trainerComboBox.FormattingEnabled = true;
-            this.trainerComboBox.Location = new System.Drawing.Point(15, 22);
-            this.trainerComboBox.Name = "trainerComboBox";
-            this.trainerComboBox.Size = new System.Drawing.Size(199, 21);
-            this.trainerComboBox.TabIndex = 27;
-            this.trainerComboBox.SelectedIndexChanged += new System.EventHandler(this.trainerComboBox_SelectedIndexChanged);
-            // 
             // trainerSaveCurrentButton
             // 
             this.trainerSaveCurrentButton.Image = global::DSPRE.Properties.Resources.saveButton;
@@ -9633,6 +9800,17 @@
             this.trainerSaveCurrentButton.Text = "&Save Full Trainer File";
             this.trainerSaveCurrentButton.UseVisualStyleBackColor = true;
             this.trainerSaveCurrentButton.Click += new System.EventHandler(this.trainerSaveCurrentButton_Click);
+            // 
+            // trainerComboBox
+            // 
+            this.trainerComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.trainerComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.trainerComboBox.FormattingEnabled = true;
+            this.trainerComboBox.Location = new System.Drawing.Point(15, 22);
+            this.trainerComboBox.Name = "trainerComboBox";
+            this.trainerComboBox.Size = new System.Drawing.Size(199, 21);
+            this.trainerComboBox.TabIndex = 27;
+            this.trainerComboBox.SelectedIndexChanged += new System.EventHandler(this.trainerComboBox_SelectedIndexChanged);
             // 
             // tableEditorTabPage
             // 
@@ -10193,7 +10371,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openROMToolStripMenuItem,
             this.openFolderToolStripMenuItem,
-            this.saveROMToolStripMenuItem});
+            this.saveROMToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -10226,11 +10405,22 @@
             this.saveROMToolStripMenuItem.Text = "Save ROM";
             this.saveROMToolStripMenuItem.Click += new System.EventHandler(this.saveRom_Click);
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Image = global::DSPRE.Properties.Resources.wrenchIcon;
+            this.settingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.RightToLeftAutoMirrorImage = true;
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.romToolboxToolStripMenuItem,
             this.headerSearchToolStripMenuItem,
+            this.addressHelperToolStripMenuItem,
             this.scriptCommandsDatabaseToolStripMenuItem,
             this.NarcUtilityToolStripMenuItem,
             this.listBasedBatchRenameToolStripMenuItem,
@@ -10255,6 +10445,14 @@
             this.headerSearchToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.headerSearchToolStripMenuItem.Text = "Advanced Header Search";
             this.headerSearchToolStripMenuItem.Click += new System.EventHandler(this.advancedHeaderSearchToolStripMenuItem_Click);
+            // 
+            // addressHelperToolStripMenuItem
+            // 
+            this.addressHelperToolStripMenuItem.Enabled = false;
+            this.addressHelperToolStripMenuItem.Name = "addressHelperToolStripMenuItem";
+            this.addressHelperToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.addressHelperToolStripMenuItem.Text = "Address Helper";
+            this.addressHelperToolStripMenuItem.Click += new System.EventHandler(this.addressHelperToolStripMenuItem_Click);
             // 
             // scriptCommandsDatabaseToolStripMenuItem
             // 
@@ -10551,6 +10749,7 @@
             this.nsbmdRemoveTexButton,
             this.nsbmdExportTexButton,
             this.separator_afterNsbmdUtils,
+            this.weatherMapEditor,
             this.buildingEditorButton,
             this.wildEditorButton,
             this.scriptCommandsButton,
@@ -10769,6 +10968,19 @@
             this.separator_afterNsbmdUtils.Name = "separator_afterNsbmdUtils";
             this.separator_afterNsbmdUtils.Size = new System.Drawing.Size(6, 44);
             // 
+            // weatherMapEditor
+            // 
+            this.weatherMapEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.weatherMapEditor.Image = global::DSPRE.Properties.Resources.weather_editor;
+            this.weatherMapEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.weatherMapEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.weatherMapEditor.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.weatherMapEditor.Name = "weatherMapEditor";
+            this.weatherMapEditor.Size = new System.Drawing.Size(36, 36);
+            this.weatherMapEditor.Text = "Weather Map Editor";
+            this.weatherMapEditor.ToolTipText = "Weather Map Editor";
+            this.weatherMapEditor.Click += new System.EventHandler(this.weatherMapEditor_Click);
+            // 
             // buildingEditorButton
             // 
             this.buildingEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -10887,6 +11099,12 @@
             this.Name = "MainProgram";
             this.Text = "DS Pokémon Rom Editor Reloaded 1.11.1 (Nømura, AdAstra/LD3005, Mixone)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainProgram_FormClosing);
+            this.Load += new System.EventHandler(this.MainProgram_Load);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).EndInit();
             this.mainTabControl.ResumeLayout(false);
             this.headerEditorTabPage.ResumeLayout(false);
             this.headerEditorTabPage.PerformLayout();
@@ -10966,6 +11184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.zBuildUpDown)).EndInit();
             this.permissionsTabPage.ResumeLayout(false);
             this.permissionsTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transparencyBar)).EndInit();
             this.typeGroupBox.ResumeLayout(false);
             this.typeGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typePainterUpDown)).EndInit();
@@ -11023,6 +11242,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnableScriptUpDown)).EndInit();
             this.overworldsTabPage.ResumeLayout(false);
             this.overworldsTabPage.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
             this.groupBox17.ResumeLayout(false);
@@ -12002,6 +12223,17 @@
         private System.Windows.Forms.ToolStripMenuItem overlayEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spawnEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveDataEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton weatherMapEditor;
+        private System.Windows.Forms.TrackBar transparencyBar;
+        private System.Windows.Forms.ToolStripMenuItem addressHelperToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox morningCheckbox;
+        private System.Windows.Forms.CheckBox lateNightCheckbox;
+        private System.Windows.Forms.CheckBox nightCheckbox;
+        private System.Windows.Forms.CheckBox twilightCheckbox;
+        private System.Windows.Forms.CheckBox dayCheckbox;
     }
 }
 

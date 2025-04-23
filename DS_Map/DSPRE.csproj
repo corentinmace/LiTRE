@@ -95,6 +95,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddressHelper.Designer.cs">
+      <DependentUpon>AddressHelper.cs</DependentUpon>
+    </Compile>
     <Compile Include="DSUtils\ARM9.cs" />
     <Compile Include="DSUtils\DSUtils.cs" />
     <Compile Include="DSUtils\ModelUtils.cs" />
@@ -164,6 +170,12 @@
     <Compile Include="Editors\ScriptEditor.Designer.cs">
       <DependentUpon>ScriptEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\WeatherEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\WeatherEditor.Designer.cs">
+      <DependentUpon>WeatherEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventFileImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +191,12 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Filesystem.cs" />
+    <Compile Include="settingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settingsWindow.Designer.cs">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameCamera.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="InputComboBox.cs">
@@ -285,6 +303,13 @@
       <DependentUpon>ScriptTooltip.cs</DependentUpon>
     </Compile>
     <Compile Include="ScintillaUtils\SearchManager.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsWindow.Designer.cs">
+      <DependentUpon>SettingsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpawnEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +317,12 @@
       <DependentUpon>SpawnEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="UniqueList.cs" />
+    <Compile Include="WeatherEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeatherEditor.Designer.cs">
+      <DependentUpon>WeatherEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="WildEditorHGSS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +405,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\writeText.Designer.cs" />
+    <EmbeddedResource Include="AddressHelper.resx">
+      <DependentUpon>AddressHelper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVCalculator\DVCalc.resx" />
     <EmbeddedResource Include="DVCalculator\DVCalcNatureViewerForm.resx" />
     <EmbeddedResource Include="Editors\EncountersEditor.resx">
@@ -443,8 +477,14 @@
     <EmbeddedResource Include="ScintillaUtils\ScriptTooltip.resx">
       <DependentUpon>ScriptTooltip.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="settingsWindow.resx">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpawnEditor.resx">
       <DependentUpon>SpawnEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeatherEditor.resx">
+      <DependentUpon>WeatherEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WildEditorHGSS.resx">
       <DependentUpon>WildEditorHGSS.cs</DependentUpon>
@@ -563,6 +603,8 @@
     <None Include="Resources\Graphics\Program Icons\exploreKit.png" />
     <None Include="Resources\Graphics\Program Icons\buildingEditorButton.png" />
     <None Include="Resources\alphabgCheckerboard.png" />
+    <None Include="Resources\code_70x70.png" />
+    <None Include="Resources\code_70x701.png" />
     <Content Include="Resources\Graphics\Area Icons\hgsslake.png" />
     <Content Include="Resources\Graphics\Camera Angles\DPPt\dpcamera0.png" />
     <Content Include="Resources\Graphics\Camera Angles\DPPt\dpcamera1.png" />
@@ -668,6 +710,7 @@
     <Content Include="Resources\Graphics\Program Icons\sortAscending.png" />
     <Content Include="Resources\Graphics\Program Icons\sortDescending.png" />
     <Content Include="Resources\Graphics\Program Icons\tableEditor.png" />
+    <None Include="Resources\Graphics\Program Icons\weather_editor.png" />
     <Content Include="Resources\Graphics\Weather\DPPt\ptblueish.png" />
     <Content Include="Resources\Graphics\Weather\DPPt\ptdarkfog.png" />
     <Content Include="Resources\Graphics\Weather\DPPt\ptdim.png" />
@@ -681,6 +724,17 @@
     <None Include="Resources\Graphics\Program Icons\sortAscending.png" />
     <None Include="Resources\Graphics\Program Icons\sortDescending.png" />
     <None Include="Resources\RenameIcon.png" />
+    <None Include="Resources\weather_editor.bmp" />
+    <None Include="Resources\time_0.png" />
+    <None Include="Resources\time_1.png" />
+    <None Include="Resources\time_2.png" />
+    <None Include="Resources\time_3.png" />
+    <None Include="Resources\time_4.png" />
+    <None Include="Resources\time_01.png" />
+    <None Include="Resources\time_11.png" />
+    <None Include="Resources\time_21.png" />
+    <None Include="Resources\time_31.png" />
+    <None Include="Resources\time_41.png" />
     <Content Include="Tools\apicula.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -698,7 +752,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 e x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 et x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

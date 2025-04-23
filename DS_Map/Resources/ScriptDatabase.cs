@@ -153,6 +153,20 @@ namespace DSPRE.Resources {
             [0x0065] = "WaitJumpSite",
             [0x0067] = "WaitDoubleExclamation",
             [0x0068] = "WaitMoveForever",
+            [0x009e] = "Heart",
+            [0x009f] = "Smile",
+            [0x00A0] = "Anger",
+            [0x00A1] = "Sad",
+            [0x00A2] = "Grin",
+            [0x00A3] = "Suspecting",
+            [0x00A4] = "MusicNote",
+            [0x00A5] = "Question",
+            [0x00A6] = "BigExclamation",
+            [0x00A7] = "Water",
+            [0x00A8] = "Exhaust",
+            [0x00A9] = "Poison",
+            [0x00AA] = "Ellipsis",
+            [0x00AB] = "Asleep",
             [0x00FE] = "End"
         };
 
@@ -161,8 +175,8 @@ namespace DSPRE.Resources {
         };
 
         public static Dictionary<ushort, string> DPPtScrCmdNames = new Dictionary<ushort, string>() {
-            [0x0000] = "Nop",
-            [0x0001] = "Dummy",
+            [0x0000] = "Debug",
+            [0x0001] = "LinkScriptOW", //Replaced dummy by LinkScriptOW
             [0x0002] = "End",
             [0x0003] = "WaitTime",
             [0x0004] = "RegValueSet",
@@ -172,10 +186,10 @@ namespace DSPRE.Resources {
             [0x0008] = "AdrsRegSet",
             [0x0009] = "RegRegSet",
             [0x000A] = "AdrsAdrsSet",
-            [0x000B] = "CompareRegs",
-            [0x000C] = "CompareRegValue",
-            [0x000D] = "CompareRegAdrs",
-            [0x000E] = "CompareAdrsReg",
+            [0x000B] = "GetStack",
+            [0x000C] = "SetBrightness",
+            [0x000D] = "PlayBuildingAnim",
+            [0x000E] = "SetGender",
             [0x000F] = "CompareAdrsValue",
             [0x0010] = "CompareAdrsAdrs",
             [0x0011] = "CompareVarValue",
@@ -247,7 +261,7 @@ namespace DSPRE.Resources {
             [0x0053] = "SetMusic",
             [0x0054] = "FadeOutMusic",
             [0x0055] = "FadeInMusic",
-
+            [0x0056] = "SetMusicPauseStatus",
             [0x0057] = "PlayFieldBGM",
 
             [0x0059] = "CheckChatotCry",
@@ -290,7 +304,7 @@ namespace DSPRE.Resources {
             [0x007E] = "CheckItem",
             [0x007F] = "CheckItemIsMachine",
             [0x0080] = "GetItemPocket",
-            [0x0081] = "DummyGivePCItem",
+            [0x0081] = "FullscreenMessage",
             [0x0082] = "DummyCheckPCItem",
             [0x0083] = "GiveGoods",
             [0x0084] = "DummyTakeGoods",
@@ -317,7 +331,7 @@ namespace DSPRE.Resources {
             [0x0099] = "CheckMove",
             [0x009A] = "CheckMoveInParty",
 
-            [0x009C] = "DummySetWeather",
+            [0x009C] = "SetWeather",
             [0x009D] = "DummyInitWeather",
             [0x009E] = "DummyUpdateWeather",
             [0x009F] = "DummyCheckMapPosition",
@@ -437,7 +451,7 @@ namespace DSPRE.Resources {
             [0x0148] = "SpMartScreen",
             [0x0149] = "GoodsMartScreen",
             [0x014A] = "SealMartScreen",
-            [0x014B] = "DummyLostBattle",
+            [0x014B] = "BlackCenterText",
             [0x014C] = "SetLastWarp",
             [0x014D] = "CheckPlayerGender",
             [0x014E] = "HealPokemon",
@@ -491,7 +505,7 @@ namespace DSPRE.Resources {
             [0x0182] = "SetBerryMulch",
             [0x0183] = "SetBerrySpecies",
             [0x0184] = "WateringAnimation",
-            [0x0185] = "HarvestBerries",
+            [0x0185] = "TakeBerries",
             [0x0186] = "SetOWDefaultPosition",
             [0x0187] = "SetOWPosition",
             [0x0188] = "SetOWDefaultMovement",
@@ -622,7 +636,6 @@ namespace DSPRE.Resources {
 
             [0x0246] = "CheckVersion",
             [0x0247] = "FirstPokemonInParty",
-            [0x0248] = "GetPartyPokemonTypes",
 
             [0x024E] = "GetLottoNumber",
             [0x024F] = "CheckWinLotto",
@@ -686,12 +699,24 @@ namespace DSPRE.Resources {
             [0x02C1] = "ShowSaveBox",
             [0x02C2] = "HideSaveBox",
             [0x02C3] = "ScopeMode",
-
+            [0x360] = "CollisionZone",  // Command by AdAstra, big collision zone
+            [0x35D] = "SpawnBuilding", // Command by AdAstra, add building to the map
+            [0x35E] = "DeleteBuilding", // Remove previously added building
+            [0x35F] = "CollisionTile", // Command by AdAstra, small collision (tile)
+            [0x349] = "MultiplyVar", // Command by me, multiplies variables
+            [0x34A] = "CreateOW", // 
             [0x0333] = "SetFieldVolume",
+
+            [0x0360] = "CollisionZone",  // Command by AdAstra, big collision zone
+            [0x035D] = "SpawnBuilding", // Command by AdAstra, add building to the map
+            [0x035E] = "DeleteBuilding", // Remove previously added building
+            [0x035F] = "CollisionTile", // Command by AdAstra, small collision (tile)
+            [0x0349] = "MultiplyVar", // Command by Kuha, multiplies variables
+            [0x034A] = "CreateOW", // 
         };
         public static Dictionary<ushort, byte[]> DPPtScrCmdParameters = new Dictionary<ushort, byte[]>() {
-            [0x0000] = new byte[1] { 0 },
-            [0x0001] = new byte[1] { 0 },
+            [0x0000] = new byte[] { 2 }, // Debug
+            [0x0001] = new byte[] { 2, 2 }, // LinkScriptOW
             [0x0002] = new byte[1] { 0 },
             [0x0003] = new byte[] { 2, 2 },
             [0x0004] = new byte[] { 1, 1 },
@@ -701,10 +726,10 @@ namespace DSPRE.Resources {
             [0x0008] = new byte[] { 4, 1 },
             [0x0009] = new byte[] { 1, 1 },
             [0x000A] = new byte[] { 4, 4 },
-            [0x000B] = new byte[] { 1, 1 },
-            [0x000C] = new byte[] { 1, 1 },
-            [0x000D] = new byte[] { 1, 4 },
-            [0x000E] = new byte[] { 4, 1 },
+            [0x000B] = new byte[] { 2 },
+            [0x000C] = new byte[] { 2, 2, 2 },
+            [0x000D] = new byte[] { 1, 1 },
+            [0x000E] = new byte[] { 2 },
             [0x000F] = new byte[] { 4, 1 },
             [0x0010] = new byte[] { 4, 4 },
             [0x0011] = new byte[] { 2, 2 },
@@ -819,7 +844,7 @@ namespace DSPRE.Resources {
             [0x007E] = new byte[] { 2, 2, 2 },
             [0x007F] = new byte[] { 2, 2 },
             [0x0080] = new byte[] { 2, 2 },
-            [0x0081] = new byte[1] { 0 },
+            [0x0081] = new byte[] { 2 },
             [0x0082] = new byte[1] { 0 },
             [0x0083] = new byte[] { 2, 2, 2 },
             [0x0084] = new byte[1] { 0 },
@@ -846,7 +871,7 @@ namespace DSPRE.Resources {
             [0x0099] = new byte[] { 2, 2, 2 },
             [0x009A] = new byte[] { 2, 2 },
             [0x009B] = new byte[] { 2, 2 },
-            [0x009C] = new byte[1] { 0 },
+            [0x009C] = new byte[] { 2 },
             [0x009D] = new byte[1] { 0 },
             [0x009E] = new byte[1] { 0 },
             [0x009F] = new byte[1] { 0 },
@@ -1021,7 +1046,7 @@ namespace DSPRE.Resources {
             [0x0148] = new byte[] { 2 },
             [0x0149] = new byte[] { 2 },
             [0x014A] = new byte[] { 2 },
-            [0x014B] = new byte[1] { 0 },
+            [0x014B] = new byte[] { 2 },
             [0x014C] = new byte[] { 2 },
             [0x014D] = new byte[] { 2 },
             [0x014E] = new byte[1] { 0 },
@@ -1440,6 +1465,12 @@ namespace DSPRE.Resources {
             [0x02C1] = new byte[1] { 0 },
             [0x02C2] = new byte[1] { 0 },
             [0x02C3] = new byte[1] { 1 },
+            [0x360] = new byte[] { 2, 2, 2, 2, 1, 2, 2 }, // big collision?
+            [0x35D] = new byte[] { 2, 2, 2, 2, 2, 2, 2, 2 }, // spawn bld
+            [0x35E] = new byte[] { 2 }, // despawn bld
+            [0x35F] = new byte[] { 2, 2, 1, 2, 2 }, // small collision? ,
+            [0x349] = new byte[] { 2, 2 }, // multiply var
+            [0x34A] = new byte[] { 2, 2, 2, 2, 2, 2 } // createOW
         };
 
         public static Dictionary<ushort, string> DPScrCmdNames = new Dictionary<ushort, string>() {
@@ -1655,11 +1686,11 @@ namespace DSPRE.Resources {
             [0x0336] = new byte[] { 2 },
 
             //International release exclusive
-            [0x0337] = new byte[] { 2, 2 },
+            [0x0337] = new byte[1] { 0 },
             [0x0338] = new byte[1] { 0 },
             [0x0339] = new byte[1] { 0 },
             [0x033A] = new byte[] { 1 },
-            [0x033B] = new byte[] { 1 },
+            [0x033B] = new byte[1] { 0 },
             [0x033C] = new byte[] { 1, 2 },
             [0x033D] = new byte[] { 1, 2 },
             [0x033E] = new byte[] { 1, 2 },
@@ -1761,7 +1792,7 @@ namespace DSPRE.Resources {
             [0x0053] = "SetMusic",
             [0x0054] = "FadeOutMusic",
             [0x0055] = "FadeInMusic",
-
+            [0x0056] = "SetMusicPauseStatus",
             [0x0059] = "CheckChatotCry",
             [0x005A] = "StartChatotCry",
             [0x005B] = "StopChatotCry",
@@ -2042,7 +2073,6 @@ namespace DSPRE.Resources {
 
             [0x01EF] = "CheckVersion",
             [0x01F0] = "FirstPokemonInParty",
-            [0x01F1] = "GetPartyPokemonTypes",
 
             [0x01F7] = "GetLottoNumber",
             [0x01F8] = "CheckWinLotto",
@@ -2104,10 +2134,6 @@ namespace DSPRE.Resources {
             [0x026A] = "CheckAlbumPhoto",
 
             [0x026E] = "GetOWDirection",
-            [0x026F] = "HarvestApricorn",
-            [0x0270] = "GetApricornColor",
-            [0x0271] = "GiveApricorn",
-            [0x0272] = "TextApricorn",
 
             [0x0289] = "ScratchOffScreen",
             [0x028A] = "ReleaseScriptApp",
@@ -2550,7 +2576,7 @@ namespace DSPRE.Resources {
             [0x017E] = new byte[] { 2, 2 },
             [0x017F] = new byte[] { 2, 2 },
             [0x0180] = new byte[] { 2, 2 },
-            [0x0181] = new byte[] { 2, 2, 2, 2 },
+            [0x0181] = new byte[] { 2, 2 },
             [0x0182] = new byte[] { 2 },
             [0x0183] = new byte[] { 2 },
             [0x0184] = new byte[] { 2 },

@@ -13,7 +13,7 @@ using Path = System.IO.Path;
 namespace DSPRE
 {
     /// <summary>
-    /// Class to store ROM data from GEN IV Pokémon games
+    /// Class to store ROM data from GEN IV PokÃ©mon games
     /// </summary>
 
     public class RomInfo
@@ -84,6 +84,8 @@ namespace DSPRE
         public static readonly byte internalNameLength = 16;
         public static string internalNamesPath { get; private set; }
 
+        public static string exportedScriptsPath { get; private set; }
+
         public static int cameraSize { get; private set; }
 
         public Dictionary<List<uint>, (Color background, Color foreground)> MapCellsColorDictionary;
@@ -152,6 +154,7 @@ namespace DSPRE
             OWSprites,
 
             scripts,
+            script_export,
 
             encounters,
             headbutt,
@@ -193,6 +196,7 @@ namespace DSPRE
             headerPath = Path.Combine(workDir, @"header.bin");
             unpackedPath = Path.Combine(workDir, @"unpacked");
             internalNamesPath = Path.Combine(workDir, $@"{dataFolderName}\fielddata\maptable\mapname.bin");
+            exportedScriptsPath = Path.Combine(workDir, @"../script_export");
 
             try
             {
@@ -200,7 +204,7 @@ namespace DSPRE
             }
             catch (KeyNotFoundException)
             {
-                MessageBox.Show("The ROM you attempted to load is not supported.\nYou can only load Gen IV Pokémon ROMS, for now.", "Unsupported ROM",
+                MessageBox.Show("The ROM you attempted to load is not supported.\nYou can only load Gen IV Pokï¿½mon ROMS, for now.", "Unsupported ROM",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -603,7 +607,9 @@ namespace DSPRE
                     break;
 
                 case GameFamilies.Plat:
-                    OWtablePath = OverlayUtils.GetPath(5);
+                    // OWtablePath = DSUtils.GetOverlayPath(5);
+                    int fileID = 65;
+                    OWtablePath = Path.Combine(gameDirs[DirNames.synthOverlay].unpackedDir, fileID.ToString("D4"));
                     switch (gameLanguage)
                     { // Go to the beginning of the overworld table
                         case GameLanguages.Italian:
@@ -624,7 +630,8 @@ namespace DSPRE
                             break;
 
                         default:
-                            OWTableOffset = 0x2BC34;
+                            //OWTableOffset = 0x2BC34;
+                            OWTableOffset = 0x7B40;
                             break;
                     }
                     break;
@@ -903,7 +910,6 @@ namespace DSPRE
                     {
                         case GameLanguages.English:
                         case GameLanguages.Italian:
-                        case GameLanguages.French:
                             monIconPalTableAddress = BitConverter.ToUInt32(ARM9.ReadBytes(0x74408, 4), 0);
                             break;
 
@@ -918,6 +924,7 @@ namespace DSPRE
                             }
                             break;
 
+                        case GameLanguages.French:
                         case GameLanguages.Spanish:
                             if (gameVersion == GameVersions.HeartGold)
                             {
@@ -1117,6 +1124,9 @@ namespace DSPRE
         private static void SetMoveTextNumbers() {
             switch (gameFamily) {
                 case GameFamilies.DP:
+                    moveDescriptionsTextNumbers = 587;
+                    moveNamesTextNumbers = 588;
+                    break;
                 case GameFamilies.Plat:
                     moveDescriptionsTextNumbers = 646;
                     moveNamesTextNumbers = 647;
@@ -1408,6 +1418,7 @@ namespace DSPRE
                         [DirNames.trainerProperties] = @"data\poketool\trainer\trdata.narc",
                         [DirNames.trainerParty] = @"data\poketool\trainer\trpoke.narc",
                         [DirNames.trainerGraphics] = @"data\poketool\trgra\trfgra.narc",
+                        [DirNames.moveData] = @"data\poketool\waza\waza_tbl.narc",
 
                         [DirNames.monIcons] = @"data\poketool\icongra\poke_icon.narc",
 

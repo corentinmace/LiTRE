@@ -117,4 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="WeatherId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="WeatherName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Percentage.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABMLAAATCwAAAAAAAAAA
+        AAD///8AAAAAIwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAI///
+        /wD///8A////AKSkosCvr63/rq6r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+urqv/r6+t/6Sk
+        osD///8A////AP///wCwsK3//////9Cxj/+2hEz/tYNJ/7aCSP+2gkj/toJI/7aETf/XvZ//////////
+        //+wsK3/////AP///wD///8Arq6r//////+/g0P/////////////////////////////////toRN//39
+        /f//////rq6r/////wD///8A////AK2tq///////vXw5////+v9YuHX/TLBq/0yxa/9YuHX////8/7aD
+        Sf/6+Pj//////62tq/////8A////AP///wCtrav//////7x7OP////n/RMB2/0K+c/9DvnT/RsB3////
+        +v+1g0n/9vb2//////+trav/////AP///wD///8Ara2r//////+7ezj////8/0XAev9DvXj/Qr13/0XA
+        ev////3/tYNJ//T08///////ra2r/////wD///8A////AK2tq///////unw6//////91z5r/edCb/3rR
+        mv94z5v//////7WDSv/x8fD//////62tq/////8A////AP///wCtrav//////799O/////D////r////
+        6v///+r////p////9P+5hEv/7u3t//////+trav/////AP///wD///8Ara2r///////NsJD/wHw6/8B/
+        PP/BgT3/wYI9/8GBPf/Cg0H/0ruh/+vq6f//////ra2r/////wD///8A////AK6uq///////8+7n//nx
+        6P/78uj/+fHo//Pu5//39fL//////////////////////66uq/////8A////AP///wCvrqv//////2Kn
+        5/8MgOr/DoDp/wt/6v9hpuf//////8zMyv+mpqT/paWi//////+vr63/////AP///wD///8AsK+r////
+        //8Ifun/z/b//8/1///O9f//Npnw//////+op6T/+/v6///////p6en/sLCurP///wD///8A////AK+v
+        rP//////X6Tk/wt+6f8Nf+j/Cn7p/12j5P//////pqai///////n5+j/r6+spwAAAAD///8A////AP//
+        /wCwsK3////////////////////////////////////////////p6en/rq6spgAAAAAAAAAA////AP//
+        /wD///8As7Ox77Cwrf+wr6v/sK+r/7Cvq/+wr6v/r66r/66uq/+vr63/sLCu6gAAAAAAAAAAAAAAAP//
+        /wD///8AgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIAH
+        AACADwAAgB8AAA==
+</value>
+  </data>
 </root>
