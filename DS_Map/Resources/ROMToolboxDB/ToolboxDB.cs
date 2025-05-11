@@ -130,6 +130,7 @@ namespace DSPRE.Resources.ROMToolboxDB {
             public static uint getDynamicHeadersInitOffset(string romID) {
                 switch (romID) {
                     case "CPUE":
+                    case "PLIT":
                         return 0x3A024;
                     case "CPUS":
                     case "CPUI":
@@ -150,6 +151,7 @@ namespace DSPRE.Resources.ROMToolboxDB {
             public static string getDynamicHeadersInitString(string romID) {
                 switch (romID) {
                     case "CPUE":
+                    case "PLIT":
                         return "00 B5 01 1C 94 20 00 22 CC F7 48 FD 03 1C DE F7 C7 F8 00 BD";
                     case "CPUS":
                     case "CPUI":

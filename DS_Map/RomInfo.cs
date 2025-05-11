@@ -1320,6 +1320,7 @@ namespace DSPRE
                 case "ADAE":
                 case "APAE":
                 case "CPUE":
+                case "PLIT":
                 case "IPKE":
                 case "IPGE":
                     gameLanguage = GameLanguages.English;

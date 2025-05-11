@@ -634,6 +634,7 @@ namespace DSPRE.Resources {
                 ["CPUD"] = GameVersions.Platinum,
                 ["CPUJ"] = GameVersions.Platinum,
                 ["CPUP"] = GameVersions.Platinum,
+                ["PLIT"] = GameVersions.Platinum,
 
                 ["IPKE"] = GameVersions.HeartGold,
                 ["IPKS"] = GameVersions.HeartGold,
