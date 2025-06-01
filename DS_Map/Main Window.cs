@@ -21,6 +21,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using ScintillaNET;
 using ScintillaNET.Utils;
 using System.Globalization;
+using MaterialSkin;
 using static DSPRE.ROMFiles.Event;
 using NSMBe4.NSBMD;
 using static DSPRE.ROMFiles.SpeciesFile;
@@ -28,11 +29,12 @@ using System.Reflection;
 using System.ComponentModel;
 using DSPRE.Editors;
 using static OpenTK.Graphics.OpenGL.GL;
+using MaterialSkin.Controls;
 
 namespace DSPRE {
 
 
-    public partial class MainProgram : Form {
+    public partial class MainProgram :  Form {
 
         public MainProgram() {
             InitializeComponent();
