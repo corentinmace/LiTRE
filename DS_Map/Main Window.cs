@@ -689,6 +689,7 @@ namespace DSPRE {
             headerSearchToolStripButton.Enabled = true;
             headerSearchToolStripMenuItem.Enabled = true;
             addressHelperToolStripMenuItem.Enabled = true;
+            scrcmdTableHelperToolStripMenuItem.Enabled = true;
             spawnEditorToolStripMenuItem.Enabled = true;
             otherEditorsToolStripMenuItem.Enabled = true;
 
@@ -10145,6 +10146,13 @@ namespace DSPRE {
             {
                 updateTimeForOverworld(selectedOw);
             }
+        }
+
+        private void scrcmdTableHelperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+ 
+            ScrcmdTableHelper form = new ScrcmdTableHelper();
+            form.Show();
         }
     }
 }

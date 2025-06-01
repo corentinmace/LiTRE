@@ -191,6 +191,12 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Filesystem.cs" />
+    <Compile Include="ScrcmdTableHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScrcmdTableHelper.Designer.cs">
+      <DependentUpon>ScrcmdTableHelper.cs</DependentUpon>
+    </Compile>
     <Compile Include="settingsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,6 +482,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScintillaUtils\ScriptTooltip.resx">
       <DependentUpon>ScriptTooltip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScrcmdTableHelper.resx">
+      <DependentUpon>ScrcmdTableHelper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="settingsWindow.resx">
       <DependentUpon>settingsWindow.cs</DependentUpon>

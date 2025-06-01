@@ -89,8 +89,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.addressesGrid);
@@ -145,6 +145,7 @@
             this.MinimumSize = new System.Drawing.Size(350, 250);
             this.Name = "AddressHelper";
             this.Text = "AddressHelper";
+            this.Load += new System.EventHandler(this.AddressHelper_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.addressesGrid)).EndInit();
             this.ResumeLayout(false);
