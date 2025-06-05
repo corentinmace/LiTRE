@@ -146,6 +146,7 @@
             this.MaximumSize = new System.Drawing.Size(350, 248);
             this.MinimumSize = new System.Drawing.Size(248, 248);
             this.Name = "BtxEditor";
+            this.ShowIcon = false;
             this.Text = "Overworld (BTX) Editor";
             ((System.ComponentModel.ISupportInitialize)(this.overworldPictureBox)).EndInit();
             this.panel1.ResumeLayout(false);

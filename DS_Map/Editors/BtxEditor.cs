@@ -139,7 +139,7 @@ namespace DSPRE.Editors
                     string path = RomInfo.gameDirs[DirNames.OWSprites].unpackedDir + "\\" + spriteID.ToString("D4");
                     try { 
                         System.IO.File.WriteAllBytes(path, BTXFile);
-                        MessageBox.Show($"BTX {spriteID} has been saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"BTX {spriteID.ToString("D4")} (OW Entry {overlayTableEntryID}) has been saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     } catch (Exception err)
                     {
                         MessageBox.Show($"Error while saving the file: {err.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
