@@ -8570,7 +8570,7 @@ namespace DSPRE {
             int spriteFileID = (trClassID * 5 + 2);
             string spriteFilename = spriteFileID.ToString("D4");
             trainerSprite = new NCER(gameDirs[DirNames.trainerGraphics].unpackedDir + "\\" + spriteFilename, spriteFileID, spriteFilename);
-
+           
             return trainerSprite.Banks.Length - 1;
         }
         private void UpdateTrainerClassPic(PictureBox pb, int frameNumber = 0) {
@@ -10154,6 +10154,18 @@ namespace DSPRE {
         {
  
             ScrcmdTableHelper form = new ScrcmdTableHelper();
+            form.Show();
+        }
+
+        private void overworldEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BtxEditor form = new BtxEditor();
+            form.Show();
+        }
+
+        private void textFormatterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextFormatter form = new TextFormatter();
             form.Show();
         }
     }
