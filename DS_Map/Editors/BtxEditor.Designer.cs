@@ -36,6 +36,8 @@
             this.importImagePng = new System.Windows.Forms.Button();
             this.shinyCheckbox = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveSelected_Button = new System.Windows.Forms.Button();
+            this.SaveAll_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.overworldPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,9 +63,10 @@
             // overworldPictureBox
             // 
             this.overworldPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.overworldPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.overworldPictureBox.Location = new System.Drawing.Point(3, 0);
             this.overworldPictureBox.Name = "overworldPictureBox";
-            this.overworldPictureBox.Size = new System.Drawing.Size(88, 209);
+            this.overworldPictureBox.Size = new System.Drawing.Size(117, 209);
+            this.overworldPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.overworldPictureBox.TabIndex = 2;
             this.overworldPictureBox.TabStop = false;
             // 
@@ -72,7 +75,7 @@
             this.showBtxFileButton.Enabled = false;
             this.showBtxFileButton.Image = global::DSPRE.Properties.Resources.lens;
             this.showBtxFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.showBtxFileButton.Location = new System.Drawing.Point(16, 175);
+            this.showBtxFileButton.Location = new System.Drawing.Point(148, 27);
             this.showBtxFileButton.Name = "showBtxFileButton";
             this.showBtxFileButton.Size = new System.Drawing.Size(121, 23);
             this.showBtxFileButton.TabIndex = 3;
@@ -86,7 +89,7 @@
             this.exportImagePng.Enabled = false;
             this.exportImagePng.Image = global::DSPRE.Properties.Resources.exportArrow;
             this.exportImagePng.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exportImagePng.Location = new System.Drawing.Point(16, 117);
+            this.exportImagePng.Location = new System.Drawing.Point(148, 145);
             this.exportImagePng.Name = "exportImagePng";
             this.exportImagePng.Size = new System.Drawing.Size(121, 23);
             this.exportImagePng.TabIndex = 4;
@@ -100,7 +103,7 @@
             this.importImagePng.Enabled = false;
             this.importImagePng.Image = global::DSPRE.Properties.Resources.importArrow;
             this.importImagePng.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importImagePng.Location = new System.Drawing.Point(16, 146);
+            this.importImagePng.Location = new System.Drawing.Point(16, 145);
             this.importImagePng.Name = "importImagePng";
             this.importImagePng.Size = new System.Drawing.Size(121, 23);
             this.importImagePng.TabIndex = 5;
@@ -123,19 +126,47 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.overworldPictureBox);
-            this.panel1.Location = new System.Drawing.Point(143, 1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(283, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(88, 204);
+            this.panel1.Size = new System.Drawing.Size(123, 209);
             this.panel1.TabIndex = 7;
+            // 
+            // saveSelected_Button
+            // 
+            this.saveSelected_Button.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveSelected_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveSelected_Button.Location = new System.Drawing.Point(16, 174);
+            this.saveSelected_Button.Name = "saveSelected_Button";
+            this.saveSelected_Button.Size = new System.Drawing.Size(121, 23);
+            this.saveSelected_Button.TabIndex = 8;
+            this.saveSelected_Button.Text = "Save Selected";
+            this.saveSelected_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.saveSelected_Button.UseVisualStyleBackColor = true;
+            this.saveSelected_Button.Click += new System.EventHandler(this.saveSelected_Button_Click);
+            // 
+            // SaveAll_Button
+            // 
+            this.SaveAll_Button.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.SaveAll_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SaveAll_Button.Location = new System.Drawing.Point(148, 174);
+            this.SaveAll_Button.Name = "SaveAll_Button";
+            this.SaveAll_Button.Size = new System.Drawing.Size(121, 23);
+            this.SaveAll_Button.TabIndex = 9;
+            this.SaveAll_Button.Text = "Save All";
+            this.SaveAll_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.SaveAll_Button.UseVisualStyleBackColor = true;
+            this.SaveAll_Button.Click += new System.EventHandler(this.SaveAll_Button_Click);
             // 
             // BtxEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 209);
+            this.ClientSize = new System.Drawing.Size(406, 209);
+            this.Controls.Add(this.SaveAll_Button);
+            this.Controls.Add(this.saveSelected_Button);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.shinyCheckbox);
             this.Controls.Add(this.importImagePng);
@@ -143,11 +174,11 @@
             this.Controls.Add(this.showBtxFileButton);
             this.Controls.Add(this.overworldList);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(350, 248);
             this.MinimumSize = new System.Drawing.Size(248, 248);
             this.Name = "BtxEditor";
             this.ShowIcon = false;
             this.Text = "Overworld (BTX) Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BtxEditor_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.overworldPictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -165,5 +196,7 @@
         private System.Windows.Forms.Button importImagePng;
         private System.Windows.Forms.CheckBox shinyCheckbox;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button saveSelected_Button;
+        private System.Windows.Forms.Button SaveAll_Button;
     }
 }
