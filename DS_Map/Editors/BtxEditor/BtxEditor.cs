@@ -1,21 +1,13 @@
 ﻿using DSPRE.LibNDSFormats;
-using Ekona.Images;
-using MS.WindowsAPICodePack.Internal;
-using NSMBe4.NSBMD;
-using ScintillaNET;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DSPRE.RomInfo;
 
-namespace DSPRE.Editors
+namespace DSPRE.Editors.BtxEditor
 {
     public partial class BtxEditor : Form
     {
@@ -214,94 +206,25 @@ namespace DSPRE.Editors
                 MessageBox.Show($"Failed to save OW Entry {overlayTableEntryID}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void ShowModifiedFilesList()
-        {
-            Form detailsForm = new Form
-            {
-                Text = "Modified Overworld (BTX) Files",
-                Size = new Size(400, 300),
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                StartPosition = FormStartPosition.CenterParent
-            };
-
-            ListBox listBox = new ListBox
-            {
-                Dock = DockStyle.Fill,
-                Font = new Font("Consolas", 10),
-                HorizontalScrollbar = true
-            };
-
-            foreach (var entryID in modifiedBTXFiles.Keys)
-            {
-                uint spriteID = RomInfo.OverworldTable[entryID].spriteID;
-                listBox.Items.Add($"OW Entry {entryID} → Sprite {spriteID:D4}");
-            }
-
-            Button closeBtn = new Button
-            {
-                Text = "Close",
-                Dock = DockStyle.Bottom,
-                Height = 30
-            };
-            closeBtn.Click += (s, e) => detailsForm.Close();
-
-            detailsForm.Controls.Add(listBox);
-            detailsForm.Controls.Add(closeBtn);
-            detailsForm.ShowDialog();
-        }
+        private bool isConfirmingExit = false;
 
         private void BtxEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (modifiedBTXFiles.Count == 0) return;
+            if (modifiedBTXFiles.Count == 0 || isConfirmingExit || e.Cancel)
+                return;
 
-            using (var dialog = new Form())
+            BtxExitConfirmation dialog = new BtxExitConfirmation(modifiedBTXFiles, RomInfo.OverworldTable);
+            DialogResult result = dialog.ShowDialog();
+
+            if (result == DialogResult.No)
             {
-                dialog.Text = "Unsaved modifications";
-                dialog.Size = new Size(400, 180);
-                dialog.FormBorderStyle = FormBorderStyle.FixedDialog;
-                dialog.MaximizeBox = false;
-                dialog.MinimizeBox = false;
-                dialog.StartPosition = FormStartPosition.CenterParent;
-                dialog.ControlBox = false;
-
-                var label = new Label
-                {
-                    Text = $"{modifiedBTXFiles.Count} BTX file(s) unsaved",
-                    Dock = DockStyle.Top,
-                    Height = 50,
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-
-                var quitButton = new Button { Text = "Exit without saving", DialogResult = DialogResult.Yes, Dock = DockStyle.Left, Width = 120 };
-                var cancelButton = new Button { Text = "Cancel", DialogResult = DialogResult.Cancel, Dock = DockStyle.Right, Width = 80 };
-                var detailButton = new Button { Text = "Details", Dock = DockStyle.Fill };
-
-                quitButton.Click += (s, args) => dialog.Close();
-                cancelButton.Click += (s, args) => dialog.Close();
-                detailButton.Click += (s, args) => ShowModifiedFilesList();
-
-                var buttonsPanel = new Panel { Dock = DockStyle.Bottom, Height = 40 };
-                buttonsPanel.Controls.Add(quitButton);
-                buttonsPanel.Controls.Add(cancelButton);
-                buttonsPanel.Controls.Add(detailButton);
-
-                dialog.Controls.Add(label);
-                dialog.Controls.Add(buttonsPanel);
-
-                DialogResult result = dialog.ShowDialog();
-
-                if (result == DialogResult.Yes)
-                {
-                    // Allow exit
-                    return;
-                }
-                else
-                {
-                    // Cancel close
-                    e.Cancel = true;
-                }
+                e.Cancel = true;
+            } else
+            {
+                isConfirmingExit = true;
             }
+
         }
+
     }
 }

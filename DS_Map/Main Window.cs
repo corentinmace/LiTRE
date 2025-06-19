@@ -18,18 +18,12 @@ using static DSPRE.RomInfo;
 using Images;
 using Ekona.Images;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using ScintillaNET;
-using ScintillaNET.Utils;
 using System.Globalization;
-using MaterialSkin;
-using static DSPRE.ROMFiles.Event;
 using NSMBe4.NSBMD;
 using static DSPRE.ROMFiles.SpeciesFile;
 using System.Reflection;
-using System.ComponentModel;
 using DSPRE.Editors;
-using static OpenTK.Graphics.OpenGL.GL;
-using MaterialSkin.Controls;
+using DSPRE.Editors.BtxEditor;
 
 namespace DSPRE {
 
@@ -4408,7 +4402,36 @@ namespace DSPRE {
                     textBrush = new SolidBrush(Color.White);
                     textFont = new Font("Arial", 9.0f);
                     break;
+                case 0x6:
+                    paintPen = new Pen(Color.FromArgb(128, Color.YellowGreen));
+                    paintBrush = new SolidBrush(Color.FromArgb(128, Color.YellowGreen));
+                    textBrush = new SolidBrush(Color.White);
+                    textFont = new Font("Arial", 9.0f);
+                    break;
+                case 0x7:
+                    paintPen = new Pen(Color.FromArgb(128, Color.DarkGreen));
+                    paintBrush = new SolidBrush(Color.FromArgb(128, Color.DarkGreen));
+                    textBrush = new SolidBrush(Color.White);
+                    textFont = new Font("Arial", 9.0f);
+                    break;
                 case 0x8:
+                    paintPen = new Pen(Color.FromArgb(128, Color.BurlyWood));
+                    paintBrush = new SolidBrush(Color.FromArgb(128, Color.BurlyWood));
+                    textBrush = new SolidBrush(Color.White);
+                    textFont = new Font("Arial", 8.65f);
+                    break;
+                case 0x9:
+                    paintPen = new Pen(Color.FromArgb(128, Color.SlateBlue));
+                    paintBrush = new SolidBrush(Color.FromArgb(128, Color.SlateBlue));
+                    textBrush = new SolidBrush(Color.White);
+                    textFont = new Font("Arial", 9.0f);
+                    break;
+                case 0xA:
+                    paintPen = new Pen(Color.FromArgb(128, Color.Tomato));
+                    paintBrush = new SolidBrush(Color.FromArgb(128, Color.Tomato));
+                    textBrush = new SolidBrush(Color.White);
+                    textFont = new Font("Arial", 9.0f);
+                    break;
                 case 0xC:
                     paintPen = new Pen(Color.FromArgb(Transparency, Color.BurlyWood));
                     paintBrush = new SolidBrush(Color.FromArgb(Transparency, Color.BurlyWood));
@@ -7982,6 +8005,7 @@ namespace DSPRE {
             pokemonSpecies = new SpeciesFile[numPokemonSpecies];
 
             RomInfo.SetMonIconsPalTableAddress();
+            RomInfo.SetAIBackportEnabled();
 
             partyPokemonComboboxList.Clear();
             partyPokemonComboboxList.Add(partyPokemon1ComboBox);
@@ -8339,10 +8363,13 @@ namespace DSPRE {
         }
 
         private void DVExplainButton_Click(object sender, EventArgs e) {
-            DVCalc DVcalcForm = new DVCalc(trainerComboBox.SelectedIndex, trainerClassListBox.SelectedIndex);
+            uint trainerIdx = (uint)trainerComboBox.SelectedIndex;
+            uint trainerClassIdx = (uint)trainerClassListBox.SelectedIndex;
+
+            DVCalc DVcalcForm = new DVCalc(trainerIdx, trainerClassIdx);
             DVcalcForm.ShowDialog();
         }
-
+        
         private void partyCountUpDown_ValueChanged(object sender, EventArgs e) {
             for (int i = 0; i < TrainerFile.POKE_IN_PARTY; i++) {
                 partyGroupboxList[i].Enabled = (partyCountUpDown.Value > i);
@@ -8416,6 +8443,9 @@ namespace DSPRE {
                 currentTrainerFile.party[i].moves = trainerMovesCheckBox.Checked ? new ushort[4] : null;
             }
 
+            // Need to account for the case where ability 2 was set on a previous mon. If so then ability one flag needs to be set on other mons with ability 1
+            bool wasAbility2Set = false;
+
             for (int i = 0; i < partyCountUpDown.Value; i++) {
                 currentTrainerFile.party[i].pokeID = (ushort)partyPokemonComboboxList[i].SelectedIndex;
                 currentTrainerFile.party[i].formID = (ushort)partyFormComboBoxList[i].SelectedIndex;
@@ -8434,7 +8464,7 @@ namespace DSPRE {
 
                 currentTrainerFile.party[i].difficulty = (byte)partyIVUpdownList[i].Value;
 
-                if (hasMoreThanOneGender((int)currentTrainerFile.party[i].pokeID, pokemonSpecies) && gameFamily == GameFamilies.HGSS) {
+                if (hasMoreThanOneGender((int)currentTrainerFile.party[i].pokeID, pokemonSpecies) && (gameFamily == GameFamilies.HGSS || RomInfo.AIBackportEnabled)) {
                     switch (partyGenderComboBoxList[i].SelectedIndex) {
                         case TRAINER_PARTY_POKEMON_GENDER_DEFAULT_INDEX:
                             currentTrainerFile.party[i].genderAndAbilityFlags = PartyPokemon.GenderAndAbilityFlags.NO_FLAGS;
@@ -8453,6 +8483,11 @@ namespace DSPRE {
 
                 if (partyAbilityComboBoxList[i].SelectedIndex == TRAINER_PARTY_POKEMON_ABILITY_SLOT2_INDEX) {
                     currentTrainerFile.party[i].genderAndAbilityFlags |= PartyPokemon.GenderAndAbilityFlags.ABILITY_SLOT2;
+                    wasAbility2Set = true;
+                }
+                // If ability 2 was set previously force ability 1 must be set here other wise the pokemon will have ability 2
+                else if (wasAbility2Set && partyAbilityComboBoxList[i].SelectedIndex == TRAINER_PARTY_POKEMON_ABILITY_SLOT1_INDEX) {
+                    currentTrainerFile.party[i].genderAndAbilityFlags |= PartyPokemon.GenderAndAbilityFlags.ABILITY_SLOT1;
                 }
                 //ability slot 1 flag must be set if the pokemon's gender is forced to male or female, otherwise the pokemon will have ability2 even if the ability2 flag is not set
                 //the ability 1 flag should not be set if neither of the gender flags are set, otherwise this will cause a problem with using alternate forms
@@ -8758,7 +8793,7 @@ namespace DSPRE {
             partyAbilityComboBoxList[partyPokemonPosition].Items.Add(ability1);
             
             //if the name " -" is returned for ability 2 then there is no ability 2
-            if (ability2.Equals(" -") || gameFamily != GameFamilies.HGSS) {
+            if (ability2.Equals(" -") || (gameFamily != GameFamilies.HGSS && !RomInfo.AIBackportEnabled)) {
                 partyAbilityComboBoxList[partyPokemonPosition].Enabled = false;
             } else {
                 string stringAbi2 = ability2;
@@ -8777,7 +8812,7 @@ namespace DSPRE {
             int currentPokemonGenderRatio = pokemonSpecies[partyPokemonComboboxList[partyPokemonPosition].SelectedIndex].GenderRatioMaleToFemale;
             PartyPokemon.GenderAndAbilityFlags currentPokemonGenderAndAbilityFlags = currentTrainerFile.party[partyPokemonPosition].genderAndAbilityFlags;
 
-            if (gameFamily == GameFamilies.HGSS) {
+            if (gameFamily == GameFamilies.HGSS || RomInfo.AIBackportEnabled) {
                 switch (currentPokemonGenderRatio) {
                     case GENDER_RATIO_MALE:
                         partyGenderComboBoxList[partyPokemonPosition].SelectedIndex = TRAINER_PARTY_POKEMON_GENDER_MALE_INDEX;
@@ -10159,6 +10194,7 @@ namespace DSPRE {
 
         private void overworldEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             BtxEditor form = new BtxEditor();
             form.Show();
         }
@@ -10167,6 +10203,38 @@ namespace DSPRE {
         {
             TextFormatter form = new TextFormatter();
             form.Show();
+        }
+		
+		private void generateCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Helpers.statusLabelMessage("Exporting to CSV...");
+            Update();
+            DocTool.ExportAll();
+
+            Helpers.statusLabelMessage();
+            Update();
+        }
+
+        private void flyWarpEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var flyEditor = new FlyEditor(gameFamily, headerListBoxNames);
+            flyEditor.Show();
+        }
+
+        private void itemEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Helpers.statusLabelMessage("Setting up Item Data Editor...");
+            Update();
+
+            DSUtils.TryUnpackNarcs(new List<DirNames> { DirNames.itemData });
+
+            ItemEditor itemEditor = new ItemEditor(
+                RomInfo.GetItemNames()
+            );
+            itemEditor.ShowDialog();
+
+            Helpers.statusLabelMessage();
+            Update();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 
 namespace DSPRE
 {
@@ -19,39 +21,32 @@ namespace DSPRE
 
     internal static class DVCalculator
     {
-        private static long seed;
-
-        public static void setSeed(long seed)
+        private static uint state;
+        public static void setSeed(uint seed)
         {
-            DVCalculator.seed = seed;
+
+            DVCalculator.state = seed;
+
         }
 
-        public static long getSeed()
-        {
-            return DVCalculator.seed;
-        }
-
-
-        // This function is lifted from turtleisaac's Pokeditor (with permission)
+        // this code is partially lifted from turtleisaac's Pokeditor
         // See https://github.com/turtleisaac/PokEditor-v2/blob/72ca6ab641f616b8be9a87624b81896baa45f947/src/com/turtleisaac/pokeditor/utilities/TrainerPersonalityCalculator.java
-        public static long getNextRandom()
+        // and the pokeplatinum / pokeheartgold projects See: https://github.com/pret
+        public static uint getNextRandom()
         {
-            long random = 0x41c64e6d * seed + 0x6073;
+            state = 1103515245 * state + 24691;
 
-            //last 32 bits is new seed
-            seed = random & 0xFFFFFFFFL;
-
-            return random;
+            // Upper 16 bit are random value
+            return state >> 16;
         }
 
-        public static int findHighestDV(int trainerIdx, int trainerClassIdx, bool trainerClassMale, int pokeIdx, int pokeLevel, uint nature)
+        public static int findHighestDV(uint trainerIdx, uint trainerClassIdx, bool trainerClassMale, uint pokeIdx, byte pokeLevel, byte baseGenderRatio, int genderOverride, int abilityOverride, uint nature)
         {
-            int DV;
+            byte DV;
 
-            // Iterate over all possible PIDs and return highest DV that yields the desired nature
-            for (DV = 255; DV >= 0; DV--)
+            for (DV = 255; DV > 0; DV--)
             {
-                if (getNatureFromPID(generatePID(trainerIdx, trainerClassIdx, trainerClassMale, pokeIdx, pokeLevel, DV)) == nature)
+                if (getNatureFromPID(generatePID(trainerIdx, trainerClassIdx, trainerClassMale, pokeIdx, pokeLevel, baseGenderRatio, genderOverride, abilityOverride, DV)) == nature)
                 { return DV; }
             }
 
@@ -59,15 +54,13 @@ namespace DSPRE
 
         }
 
-        // this function is lifted from turtleisaac's Pokeditor (with permission)
-        // See https://github.com/turtleisaac/PokEditor-v2/blob/72ca6ab641f616b8be9a87624b81896baa45f947/src/com/turtleisaac/pokeditor/utilities/TrainerPersonalityCalculator.java
-        public static uint generatePID(int trainerIdx, int trainerClassIdx, bool trainerClassMale, int pokeIdx, int pokeLevel, int difficultyValue)
+        public static uint generatePID(uint trainerIdx, uint trainerClassIdx, bool trainerClassMale, uint pokeIdx, byte pokeLevel, byte baseGenderRatio, int genderOverride, int abilityOverride, byte difficultyValue)
         {
-            long newSeed = trainerIdx + pokeIdx + pokeLevel + difficultyValue;
-
-            long random = 0;
+            uint newSeed = (uint)(trainerIdx + pokeIdx + pokeLevel + difficultyValue);
 
             setSeed(newSeed);
+
+            uint random = 0;
 
             while (trainerClassIdx > 0)
             {
@@ -75,12 +68,38 @@ namespace DSPRE
                 random = getNextRandom();
             }
 
-            // Don't really get this part? Why are we shifting to the right then left again?
-            long PID = (random >> 16) & 0xffff;
-            PID = PID * 256;
+            uint genderMod = 0;
 
-            // This seems super arbitrary (wtf GameFreak?)
-            PID += trainerClassMale ? 136 : 120;
+            // this is always the case in platinum
+            if (genderOverride == 0)
+            {
+                genderMod = trainerClassMale ? 136u : 120u;
+            }
+
+            // Code from here in is HGSS exclusive
+            if (genderOverride == 1)
+            {
+                genderMod = baseGenderRatio + 2u;
+            }
+
+            else if (genderOverride == 2)
+            {
+                genderMod = baseGenderRatio - 2u;
+            }
+
+            // Force Ability 1 --> Force lowest bit to 0
+            if (abilityOverride == 1)
+            {
+                genderMod = (uint)(genderMod & ~1);
+            }
+
+            // Force Ability 2 --> Force lowest bit to 1
+            else if (abilityOverride == 2)
+            {
+                genderMod = (uint)(genderMod | 1);
+            }
+
+            uint PID = (random << 8) + genderMod;
 
             return (uint)PID;
         }
@@ -90,54 +109,163 @@ namespace DSPRE
             return (PID % 100) % 25;
         }
 
-        public static List<DVIVNatureTriplet> getAllNatures(int trainerIdx, int trainerClassIdx, bool trainerClassMale, int pokeIdx, int pokeLevel)
+        public static List<DVIVNatureTriplet> getAllNatures(uint trainerIdx, uint trainerClassIdx, bool trainerClassMale, uint pokeIdx, byte pokeLevel, byte baseGenderRatio, int genderOverride, int abilityOverride)
         {
-            List<DVIVNatureTriplet> natureList = new List<DVIVNatureTriplet>();
+            List<DVIVNatureTriplet> natureDict = new List<DVIVNatureTriplet>();
 
-            int DV;
+            byte DV;
             uint natureIdx;
 
-            // Iterate over all possible PIDs and store the DV IV and Nature String in the custom data type
-            for (DV = 255; DV >= 0; DV--)
+            for (DV = 255; DV > 0; DV--)
             {
-                natureIdx = getNatureFromPID(generatePID(trainerIdx, trainerClassIdx, trainerClassMale, pokeIdx, pokeLevel, DV));
+                natureIdx = getNatureFromPID(generatePID(trainerIdx, trainerClassIdx, trainerClassMale, pokeIdx, pokeLevel, baseGenderRatio, genderOverride, abilityOverride, DV));
 
-                natureList.Add(new DVIVNatureTriplet(DV, DV*31/255 , Natures[(int)natureIdx]));
+                natureDict.Add(new DVIVNatureTriplet(DV, DV * 31 / 255, Natures[(int)natureIdx]));
 
             }
 
-            return natureList;
+            return natureDict;
         }
 
         public static readonly List<string> Natures = new List<string>
-        {
-        "Hardy: Neutral",
-        "Lonely: +Atk, -Def",
-        "Brave: +Atk, -Spe",
-        "Adamant: +Atk, -SpA",
-        "Naughty: +Atk, -SpD",
-        "Bold: +Def, -Atk",
-        "Docile: Neutral",
-        "Relaxed: +Def, -Spe",
-        "Impish: +Def, -SpA",
-        "Lax: +Def, -SpD",
-        "Timid: +Spe, -Atk",
-        "Hasty: +Spe, -Def",
-        "Serious: Neutral",
-        "Jolly: +Spe, -SpA",
-        "Naive: +Spe, -SpD",
-        "Modest: +SpA, -Atk",
-        "Mild: +SpA, -Def",
-        "Quiet: +SpA, -Spe",
-        "Bashful: Neutral",
-        "Rash: +SpA, -SpD",
-        "Calm: +SpD, -Atk",
-        "Gentle: +SpD, -Def",
-        "Sassy: +SpD, -Spe",
-        "Careful: +SpD, -SpA",
-        "Quirky: Neutral"
-        };
+            {
+            "Hardy: Neutral",
+            "Lonely: +Atk, -Def",
+            "Brave: +Atk, -Spe",
+            "Adamant: +Atk, -SpA",
+            "Naughty: +Atk, -SpD",
+            "Bold: +Def, -Atk",
+            "Docile: Neutral",
+            "Relaxed: +Def, -Spe",
+            "Impish: +Def, -SpA",
+            "Lax: +Def, -SpD",
+            "Timid: +Spe, -Atk",
+            "Hasty: +Spe, -Def",
+            "Serious: Neutral",
+            "Jolly: +Spe, -SpA",
+            "Naive: +Spe, -SpD",
+            "Modest: +SpA, -Atk",
+            "Mild: +SpA, -Def",
+            "Quiet: +SpA, -Spe",
+            "Bashful: Neutral",
+            "Rash: +SpA, -SpD",
+            "Calm: +SpD, -Atk",
+            "Gentle: +SpD, -Def",
+            "Sassy: +SpD, -Spe",
+            "Careful: +SpD, -SpA",
+            "Quirky: Neutral"
+            };
 
+        public static class TrainerClassGender
+        {
+
+            // true represents male, false represents female
+            private static List<bool> trainerClassGenders = new List<bool>();
+
+            private static bool tableLoaded = false;
+
+            public static bool GetTrainerClassGender(int trainerClassID)
+            {
+                if (!tableLoaded)
+                {
+                    ReadTrainerClassGenderTable();
+                }
+                return trainerClassGenders[trainerClassID];
+            }
+                
+            public static void ReadTrainerClassGenderTable()
+            {
+                uint offset = GetTableOffset();
+                uint length = GetTableLength();
+                if (offset == 0 || length == 0)
+                {
+                    MessageBox.Show("Couldn't load trainer class gender table from arm9." +
+                        "\nTrainers will default to male when calculating natures.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tableLoaded = true;
+                    return;
+                }
+
+                byte[] table = ARM9.ReadBytes(offset, length);
+
+                for (int i = 0; i < table.Length; i++)
+                {
+                    trainerClassGenders.Add(table[i] == 1 ? false : true);
+                }
+                tableLoaded = true;
+
+            }
+
+            private static uint GetTableLength()
+            {
+                switch (RomInfo.gameFamily)
+                {
+                    case RomInfo.GameFamilies.Plat:
+                        return 105; // Platinum has 105 trainer classes
+                    case RomInfo.GameFamilies.HGSS:
+                        return 128;
+                    case RomInfo.GameFamilies.DP:
+                        return 0;
+                    default:
+                        // Unknown game family
+                        return 0;
+                }
+                    
+            }
+
+            private static uint GetTableOffset()
+            {
+                switch (RomInfo.gameFamily)
+                {
+                    case RomInfo.GameFamilies.Plat:
+                        switch(RomInfo.gameLanguage)
+                        {
+                            case RomInfo.GameLanguages.English:
+                                return 0xF0714;
+                            case RomInfo.GameLanguages.Japanese:
+                                return 0xEFDA4;
+                            case RomInfo.GameLanguages.Spanish:
+                                return 0xF078A;
+                            case RomInfo.GameLanguages.German:
+                                return 0xF076C;
+                            case RomInfo.GameLanguages.French:
+                                return 0xF079C;
+                            case RomInfo.GameLanguages.Italian:
+                                return 0xF0730;
+                            default:
+                                // Unknown game language
+                                return 0;
+                        }
+                    case RomInfo.GameFamilies.HGSS:
+                        switch (RomInfo.gameLanguage)
+                        {
+                            case RomInfo.GameLanguages.English:
+                                return 0xFFB90;
+                            case RomInfo.GameLanguages.Japanese:
+                                return 0xFF310;
+                            case RomInfo.GameLanguages.Spanish:
+                                return 0xFFB90;
+                            case RomInfo.GameLanguages.German:
+                                return 0xFFB44;
+                            case RomInfo.GameLanguages.French:
+                                return 0xFFB74;
+                            case RomInfo.GameLanguages.Italian:
+                                return 0xFFB08;
+                            default:
+                                // Unknown game language
+                                return 0;
+                        }
+                    case RomInfo.GameFamilies.DP:
+                        // Dummy offset for DP
+                        return 0;
+                    default:
+                        // Unknown game family
+                        return 0;
+                }
+            }
+
+        }
+
+            
 
     }
 }

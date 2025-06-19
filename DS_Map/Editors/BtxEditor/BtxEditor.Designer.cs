@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace DSPRE.Editors.BtxEditor
 {
     partial class BtxEditor
     {
@@ -174,7 +174,8 @@
             this.Controls.Add(this.showBtxFileButton);
             this.Controls.Add(this.overworldList);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(248, 248);
+            this.MaximumSize = new System.Drawing.Size(422, 248);
+            this.MinimumSize = new System.Drawing.Size(422, 248);
             this.Name = "BtxEditor";
             this.ShowIcon = false;
             this.Text = "Overworld (BTX) Editor";

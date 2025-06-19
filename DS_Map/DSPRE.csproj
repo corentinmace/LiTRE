@@ -73,6 +73,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,6 +102,7 @@
     <Compile Include="AddressHelper.Designer.cs">
       <DependentUpon>AddressHelper.cs</DependentUpon>
     </Compile>
+    <Compile Include="DocTool.cs" />
     <Compile Include="DSUtils\ARM9.cs" />
     <Compile Include="DSUtils\DSUtils.cs" />
     <Compile Include="DSUtils\ModelUtils.cs" />
@@ -117,11 +119,17 @@
     <Compile Include="DVCalculator\DVCalcNatureViewerForm.Designer.cs" />
     <Compile Include="DVCalculator\DVCalculator.cs" />
     <Compile Include="EditorPanels.cs" />
-    <Compile Include="Editors\BtxEditor.cs">
+    <Compile Include="Editors\BtxEditor\BtxEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editors\BtxEditor.Designer.cs">
+    <Compile Include="Editors\BtxEditor\BtxEditor.Designer.cs">
       <DependentUpon>BtxEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\BtxEditor\BtxExitConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\BtxEditor\BtxExitConfirmation.Designer.cs">
+      <DependentUpon>BtxExitConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\EncountersEditor.cs">
       <SubType>UserControl</SubType>
@@ -140,6 +148,12 @@
     </Compile>
     <Compile Include="Editors\HeadbuttEncounterEditorTab.Designer.cs">
       <DependentUpon>HeadbuttEncounterEditorTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\ItemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\ItemEditor.Designer.cs">
+      <DependentUpon>ItemEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\LevelScriptEditor.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +218,12 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Filesystem.cs" />
+    <Compile Include="FlyEditor\Data\FlyTableRowDpPlat.cs" />
+    <Compile Include="FlyEditor\Data\FlyTableRowHgss.cs" />
+    <Compile Include="FlyEditor\FlyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlyEditor\FlyEditor.Designer.cs" />
     <Compile Include="LibNDSFormats\BTX0.cs" />
     <Compile Include="ScrcmdTableHelper.cs">
       <SubType>Form</SubType>
@@ -283,6 +303,7 @@
     <Compile Include="ROMFiles\HeadbuttEncounterMap.cs" />
     <Compile Include="ROMFiles\HeadbuttTree.cs" />
     <Compile Include="ROMFiles\HeadbuttTreeGroup.cs" />
+    <Compile Include="ROMFiles\ItemData.cs" />
     <Compile Include="ROMFiles\LearnsetData.cs" />
     <Compile Include="ROMFiles\LevelScriptFile.cs" />
     <Compile Include="ROMFiles\LevelScriptTrigger.cs" />
@@ -430,8 +451,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVCalculator\DVCalc.resx" />
     <EmbeddedResource Include="DVCalculator\DVCalcNatureViewerForm.resx" />
-    <EmbeddedResource Include="Editors\BtxEditor.resx">
+    <EmbeddedResource Include="Editors\BtxEditor\BtxEditor.resx">
       <DependentUpon>BtxEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\BtxEditor\BtxExitConfirmation.resx">
+      <DependentUpon>BtxExitConfirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\EncountersEditor.resx">
       <DependentUpon>EncountersEditor.cs</DependentUpon>
@@ -441,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\HeadbuttEncounterEditorTab.resx">
       <DependentUpon>HeadbuttEncounterEditorTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\ItemEditor.resx">
+      <DependentUpon>ItemEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\LevelScriptEditor.resx">
       <DependentUpon>LevelScriptEditor.cs</DependentUpon>
@@ -469,6 +496,7 @@
     <EmbeddedResource Include="EvolutionsEditor.resx">
       <DependentUpon>EvolutionsEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FlyEditor\FlyEditor.resx" />
     <EmbeddedResource Include="HeaderSearch.resx">
       <DependentUpon>HeaderSearch.cs</DependentUpon>
     </EmbeddedResource>
