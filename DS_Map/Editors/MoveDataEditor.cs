@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using static DSPRE.MoveData;
 using MessageBox = System.Windows.Forms.MessageBox;
@@ -63,7 +64,7 @@ namespace DSPRE {
 
             contestConditionComboBox.Items.AddRange(Enum.GetNames(typeof(MoveData.ContestCondition)));
 
-            moveTypeComboBox.Items.AddRange(Enum.GetNames(typeof(PokemonType)));
+            moveTypeComboBox.Items.AddRange(RomInfo.GetTypeNames());
 
             disableHandlers = false;
 
