@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace DSPRE
 {
     partial class WeatherEditor
     {
@@ -272,7 +272,7 @@
             // 
             // removeLastRow
             // 
-            this.removeLastRow.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeLastRow.Image = global::DSPRE.Properties.Resources.deleteIcon1;
             this.removeLastRow.Location = new System.Drawing.Point(501, 467);
             this.removeLastRow.Name = "removeLastRow";
             this.removeLastRow.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -285,7 +285,7 @@
             // 
             // removeFirstRow
             // 
-            this.removeFirstRow.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeFirstRow.Image = global::DSPRE.Properties.Resources.deleteIcon1;
             this.removeFirstRow.Location = new System.Drawing.Point(324, 467);
             this.removeFirstRow.Name = "removeFirstRow";
             this.removeFirstRow.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);

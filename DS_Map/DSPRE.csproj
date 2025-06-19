@@ -357,9 +357,6 @@
     <Compile Include="ScintillaUtils\SearchManager.cs" />
     <Compile Include="ROMFiles\VariableValueTrigger.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="SettingsWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
@@ -370,12 +367,6 @@
       <DependentUpon>SpawnEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="UniqueList.cs" />
-    <Compile Include="WeatherEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WeatherEditor.Designer.cs">
-      <DependentUpon>WeatherEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editors\WildEditorHGSS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -502,6 +493,9 @@
     <EmbeddedResource Include="Editors\TextFormatter.resx">
       <DependentUpon>TextFormatter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editors\WeatherEditor.resx">
+      <DependentUpon>WeatherEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventFileImport.resx">
       <DependentUpon>EventFileImport.cs</DependentUpon>
     </EmbeddedResource>
@@ -551,9 +545,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\SpawnEditor.resx">
       <DependentUpon>SpawnEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WeatherEditor.resx">
-      <DependentUpon>WeatherEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\WildEditorHGSS.resx">
       <DependentUpon>WildEditorHGSS.cs</DependentUpon>
@@ -672,7 +663,6 @@
     <None Include="Resources\Graphics\Program Icons\exploreKit.png" />
     <None Include="Resources\Graphics\Program Icons\buildingEditorButton.png" />
     <None Include="Resources\alphabgCheckerboard.png" />
-    <None Include="Resources\code_70x70.png" />
     <None Include="Resources\code_70x701.png" />
     <Content Include="Resources\Graphics\Area Icons\hgsslake.png" />
     <Content Include="Resources\Graphics\Camera Angles\DPPt\dpcamera0.png" />

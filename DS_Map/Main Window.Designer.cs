@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.PictureBox pictureBox1;
-            System.Windows.Forms.PictureBox pictureBox2;
-            System.Windows.Forms.PictureBox pictureBox3;
-            System.Windows.Forms.PictureBox pictureBox4;
-            System.Windows.Forms.PictureBox pictureBox5;
+            System.Windows.Forms.PictureBox morningPictureBox;
+            System.Windows.Forms.PictureBox dayPictureBox;
+            System.Windows.Forms.PictureBox twilightPictureBox;
+            System.Windows.Forms.PictureBox lateNightPictureBox;
+            System.Windows.Forms.PictureBox nightPictureBox;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainProgram));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -395,7 +395,7 @@
             this.spawnableScriptUpDown = new System.Windows.Forms.NumericUpDown();
             this.spawnablesListBox = new System.Windows.Forms.ListBox();
             this.overworldsTabPage = new System.Windows.Forms.TabPage();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.timeDependencyBox = new System.Windows.Forms.GroupBox();
             this.lateNightCheckbox = new System.Windows.Forms.CheckBox();
             this.nightCheckbox = new System.Windows.Forms.CheckBox();
             this.twilightCheckbox = new System.Windows.Forms.CheckBox();
@@ -747,8 +747,8 @@
             this.trainerClassListBox = new System.Windows.Forms.ListBox();
             this.addTrainerButton = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
-            this.trainerComboBox = new DSPRE.InputComboBox();
             this.trainerSaveCurrentButton = new System.Windows.Forms.Button();
+            this.trainerComboBox = new DSPRE.InputComboBox();
             this.tableEditorTabPage = new System.Windows.Forms.TabPage();
             this.label73 = new System.Windows.Forms.Label();
             this.pbEffectsGroupBox = new System.Windows.Forms.GroupBox();
@@ -838,8 +838,9 @@
             this.overlayEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spawnEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveDataEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flyWarpEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overworldEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.flyWarpEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -866,7 +867,6 @@
             this.nsbmdExportTexButton = new System.Windows.Forms.ToolStripButton();
             this.separator_afterNsbmdUtils = new System.Windows.Forms.ToolStripSeparator();
             this.weatherMapEditor = new System.Windows.Forms.ToolStripButton();
-			this.itemEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildingEditorButton = new System.Windows.Forms.ToolStripButton();
             this.wildEditorButton = new System.Windows.Forms.ToolStripButton();
             this.scriptCommandsButton = new System.Windows.Forms.ToolStripButton();
@@ -874,20 +874,18 @@
             this.headerSearchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.spawnEditorToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.separator_afterMiscButtons = new System.Windows.Forms.ToolStripSeparator();
-            this.weatherMapEditor = new System.Windows.Forms.ToolStripButton();
             this.versionLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
-            pictureBox3 = new System.Windows.Forms.PictureBox();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            pictureBox5 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).BeginInit();
+            morningPictureBox = new System.Windows.Forms.PictureBox();
+            dayPictureBox = new System.Windows.Forms.PictureBox();
+            twilightPictureBox = new System.Windows.Forms.PictureBox();
+            lateNightPictureBox = new System.Windows.Forms.PictureBox();
+            nightPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(morningPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dayPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(twilightPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lateNightPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(nightPictureBox)).BeginInit();
             this.mainTabControl.SuspendLayout();
             this.headerEditorTabPage.SuspendLayout();
             this.worldmapCoordsGroupBox.SuspendLayout();
@@ -997,6 +995,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnableYMapUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spawnableScriptUpDown)).BeginInit();
             this.overworldsTabPage.SuspendLayout();
+            this.timeDependencyBox.SuspendLayout();
             this.groupBox22.SuspendLayout();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.owYMatrixUpDown)).BeginInit();
@@ -1129,63 +1128,62 @@
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // morningPictureBox
             // 
-            pictureBox1.BackgroundImage = global::DSPRE.Properties.Resources.time_0;
-            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox1.Location = new System.Drawing.Point(29, 19);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(20, 20);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(pictureBox1, "4am => 10am");
+            morningPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_0;
+            morningPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            morningPictureBox.Location = new System.Drawing.Point(29, 19);
+            morningPictureBox.Name = "morningPictureBox";
+            morningPictureBox.Size = new System.Drawing.Size(20, 20);
+            morningPictureBox.TabIndex = 2;
+            morningPictureBox.TabStop = false;
+            this.toolTip1.SetToolTip(morningPictureBox, "4am => 10am");
             // 
-            // pictureBox2
+            // dayPictureBox
             // 
-            pictureBox2.BackgroundImage = global::DSPRE.Properties.Resources.time_1;
-            pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox2.Location = new System.Drawing.Point(73, 19);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(20, 20);
-            pictureBox2.TabIndex = 4;
-            pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(pictureBox2, "10am => 5pm");
+            dayPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_1;
+            dayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            dayPictureBox.Location = new System.Drawing.Point(73, 19);
+            dayPictureBox.Name = "dayPictureBox";
+            dayPictureBox.Size = new System.Drawing.Size(20, 20);
+            dayPictureBox.TabIndex = 4;
+            dayPictureBox.TabStop = false;
+            this.toolTip1.SetToolTip(dayPictureBox, "10am => 5pm");
             // 
-            // pictureBox3
+            // twilightPictureBox
             // 
-            pictureBox3.BackgroundImage = global::DSPRE.Properties.Resources.time_2;
-            pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox3.Location = new System.Drawing.Point(115, 19);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(20, 20);
-            pictureBox3.TabIndex = 6;
-            pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(pictureBox3, "5pm => 8pm");
+            twilightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_2;
+            twilightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            twilightPictureBox.Location = new System.Drawing.Point(115, 19);
+            twilightPictureBox.Name = "twilightPictureBox";
+            twilightPictureBox.Size = new System.Drawing.Size(20, 20);
+            twilightPictureBox.TabIndex = 6;
+            twilightPictureBox.TabStop = false;
+            this.toolTip1.SetToolTip(twilightPictureBox, "5pm => 8pm");
             // 
-            // pictureBox4
+            // lateNightPictureBox
             // 
-            pictureBox4.BackgroundImage = global::DSPRE.Properties.Resources.time_4;
-            pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox4.Location = new System.Drawing.Point(201, 19);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(20, 20);
-            pictureBox4.TabIndex = 10;
-            pictureBox4.TabStop = false;
-            this.toolTip1.SetToolTip(pictureBox4, "12am => 4am");
+            lateNightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_4;
+            lateNightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            lateNightPictureBox.Location = new System.Drawing.Point(201, 19);
+            lateNightPictureBox.Name = "lateNightPictureBox";
+            lateNightPictureBox.Size = new System.Drawing.Size(20, 20);
+            lateNightPictureBox.TabIndex = 10;
+            lateNightPictureBox.TabStop = false;
+            this.toolTip1.SetToolTip(lateNightPictureBox, "12am => 4am");
             // 
-            // pictureBox5
+            // nightPictureBox
             // 
-            pictureBox5.BackgroundImage = global::DSPRE.Properties.Resources.time_3;
-            pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox5.Location = new System.Drawing.Point(159, 19);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(20, 20);
-            pictureBox5.TabIndex = 8;
-            pictureBox5.TabStop = false;
-            this.toolTip1.SetToolTip(pictureBox5, "8pm => 12am");
+            nightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_3;
+            nightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            nightPictureBox.Location = new System.Drawing.Point(159, 19);
+            nightPictureBox.Name = "nightPictureBox";
+            nightPictureBox.Size = new System.Drawing.Size(20, 20);
+            nightPictureBox.TabIndex = 8;
+            nightPictureBox.TabStop = false;
+            this.toolTip1.SetToolTip(nightPictureBox, "8pm => 12am");
             // 
             // mainTabControl
             // 
@@ -5591,7 +5589,7 @@
             // 
             // overworldsTabPage
             // 
-            this.overworldsTabPage.Controls.Add(this.groupBox8);
+            this.overworldsTabPage.Controls.Add(this.timeDependencyBox);
             this.overworldsTabPage.Controls.Add(this.sortOWsByIDDescButton);
             this.overworldsTabPage.Controls.Add(this.sortOWsByIDAscButton);
             this.overworldsTabPage.Controls.Add(this.groupBox22);
@@ -5621,25 +5619,25 @@
             this.overworldsTabPage.Text = "Overworlds";
             this.overworldsTabPage.UseVisualStyleBackColor = true;
             // 
-            // groupBox8
+            // timeDependencyBox
             // 
-            this.groupBox8.Controls.Add(pictureBox4);
-            this.groupBox8.Controls.Add(this.lateNightCheckbox);
-            this.groupBox8.Controls.Add(pictureBox5);
-            this.groupBox8.Controls.Add(this.nightCheckbox);
-            this.groupBox8.Controls.Add(pictureBox3);
-            this.groupBox8.Controls.Add(this.twilightCheckbox);
-            this.groupBox8.Controls.Add(pictureBox2);
-            this.groupBox8.Controls.Add(this.dayCheckbox);
-            this.groupBox8.Controls.Add(pictureBox1);
-            this.groupBox8.Controls.Add(this.morningCheckbox);
-            this.groupBox8.Controls.Add(this.checkBox1);
-            this.groupBox8.Location = new System.Drawing.Point(197, 148);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(232, 49);
-            this.groupBox8.TabIndex = 31;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Time Dependency";
+            this.timeDependencyBox.Controls.Add(lateNightPictureBox);
+            this.timeDependencyBox.Controls.Add(this.lateNightCheckbox);
+            this.timeDependencyBox.Controls.Add(nightPictureBox);
+            this.timeDependencyBox.Controls.Add(this.nightCheckbox);
+            this.timeDependencyBox.Controls.Add(twilightPictureBox);
+            this.timeDependencyBox.Controls.Add(this.twilightCheckbox);
+            this.timeDependencyBox.Controls.Add(dayPictureBox);
+            this.timeDependencyBox.Controls.Add(this.dayCheckbox);
+            this.timeDependencyBox.Controls.Add(morningPictureBox);
+            this.timeDependencyBox.Controls.Add(this.morningCheckbox);
+            this.timeDependencyBox.Controls.Add(this.checkBox1);
+            this.timeDependencyBox.Location = new System.Drawing.Point(197, 148);
+            this.timeDependencyBox.Name = "timeDependencyBox";
+            this.timeDependencyBox.Size = new System.Drawing.Size(232, 49);
+            this.timeDependencyBox.TabIndex = 31;
+            this.timeDependencyBox.TabStop = false;
+            this.timeDependencyBox.Text = "Time Dependency";
             // 
             // lateNightCheckbox
             // 
@@ -7933,7 +7931,6 @@
             // importReplacePartyButton
             // 
             this.importReplacePartyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.importReplacePartyButton.Image = ((System.Drawing.Image)(resources.GetObject("importReplacePartyButton.Image")));
             this.importReplacePartyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importReplacePartyButton.Location = new System.Drawing.Point(121, 3);
             this.importReplacePartyButton.Name = "importReplacePartyButton";
@@ -7947,7 +7944,6 @@
             // exportPartyButton
             // 
             this.exportPartyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportPartyButton.Image = ((System.Drawing.Image)(resources.GetObject("exportPartyButton.Image")));
             this.exportPartyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportPartyButton.Location = new System.Drawing.Point(3, 3);
             this.exportPartyButton.Name = "exportPartyButton";
@@ -9827,17 +9823,6 @@
             this.label42.TabIndex = 28;
             this.label42.Text = "Trainer File";
             // 
-            // trainerComboBox
-            // 
-            this.trainerComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.trainerComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.trainerComboBox.FormattingEnabled = true;
-            this.trainerComboBox.Location = new System.Drawing.Point(15, 22);
-            this.trainerComboBox.Name = "trainerComboBox";
-            this.trainerComboBox.Size = new System.Drawing.Size(199, 21);
-            this.trainerComboBox.TabIndex = 27;
-            this.trainerComboBox.SelectedIndexChanged += new System.EventHandler(this.trainerComboBox_SelectedIndexChanged);
-            // 
             // trainerSaveCurrentButton
             // 
             this.trainerSaveCurrentButton.Image = global::DSPRE.Properties.Resources.saveButton;
@@ -9849,6 +9834,17 @@
             this.trainerSaveCurrentButton.Text = "&Save Full Trainer File";
             this.trainerSaveCurrentButton.UseVisualStyleBackColor = true;
             this.trainerSaveCurrentButton.Click += new System.EventHandler(this.trainerSaveCurrentButton_Click);
+            // 
+            // trainerComboBox
+            // 
+            this.trainerComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.trainerComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.trainerComboBox.FormattingEnabled = true;
+            this.trainerComboBox.Location = new System.Drawing.Point(15, 22);
+            this.trainerComboBox.Name = "trainerComboBox";
+            this.trainerComboBox.Size = new System.Drawing.Size(199, 21);
+            this.trainerComboBox.TabIndex = 27;
+            this.trainerComboBox.SelectedIndexChanged += new System.EventHandler(this.trainerComboBox_SelectedIndexChanged);
             // 
             // tableEditorTabPage
             // 
@@ -10720,7 +10716,7 @@
             this.overlayEditorToolStripMenuItem,
             this.spawnEditorToolStripMenuItem,
             this.moveDataEditorToolStripMenuItem,
-  			this.flyWarpEditorToolStripMenuItem,
+            this.flyWarpEditorToolStripMenuItem,
             this.itemEditorToolStripMenuItem,
             this.overworldEditorToolStripMenuItem});
             this.otherEditorsToolStripMenuItem.Enabled = false;
@@ -10759,18 +10755,24 @@
             // flyWarpEditorToolStripMenuItem
             // 
             this.flyWarpEditorToolStripMenuItem.Name = "flyWarpEditorToolStripMenuItem";
-            this.flyWarpEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.flyWarpEditorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.flyWarpEditorToolStripMenuItem.Text = "Fly Warp Editor";
             this.flyWarpEditorToolStripMenuItem.Click += new System.EventHandler(this.flyWarpEditorToolStripMenuItem_Click);
-			
-			//  
+            // 
+            // itemEditorToolStripMenuItem
+            // 
+            this.itemEditorToolStripMenuItem.Name = "itemEditorToolStripMenuItem";
+            this.itemEditorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.itemEditorToolStripMenuItem.Text = "Item Editor";
+            this.itemEditorToolStripMenuItem.Click += new System.EventHandler(this.itemEditorToolStripMenuItem_Click);
+            // 
             // overworldEditorToolStripMenuItem
             // 
             this.overworldEditorToolStripMenuItem.Name = "overworldEditorToolStripMenuItem";
             this.overworldEditorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.overworldEditorToolStripMenuItem.Text = "Overworld Editor";
             this.overworldEditorToolStripMenuItem.Click += new System.EventHandler(this.overworldEditorToolStripMenuItem_Click);
-
+            // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
@@ -11049,6 +11051,19 @@
             this.separator_afterNsbmdUtils.Name = "separator_afterNsbmdUtils";
             this.separator_afterNsbmdUtils.Size = new System.Drawing.Size(6, 44);
             // 
+            // weatherMapEditor
+            // 
+            this.weatherMapEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.weatherMapEditor.Image = global::DSPRE.Properties.Resources.weather_editor;
+            this.weatherMapEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.weatherMapEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.weatherMapEditor.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.weatherMapEditor.Name = "weatherMapEditor";
+            this.weatherMapEditor.Size = new System.Drawing.Size(36, 36);
+            this.weatherMapEditor.Text = "Weather Map Editor";
+            this.weatherMapEditor.ToolTipText = "Weather Map Editor";
+            this.weatherMapEditor.Click += new System.EventHandler(this.weatherMapEditor_Click);
+            // 
             // buildingEditorButton
             // 
             this.buildingEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -11136,19 +11151,6 @@
             this.separator_afterMiscButtons.Name = "separator_afterMiscButtons";
             this.separator_afterMiscButtons.Size = new System.Drawing.Size(6, 44);
             // 
-            // weatherMapEditor
-            // 
-            this.weatherMapEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.weatherMapEditor.Image = global::DSPRE.Properties.Resources.weather_editor;
-            this.weatherMapEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.weatherMapEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.weatherMapEditor.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.weatherMapEditor.Name = "weatherMapEditor";
-            this.weatherMapEditor.Size = new System.Drawing.Size(36, 36);
-            this.weatherMapEditor.Text = "Weather Map Editor";
-            this.weatherMapEditor.ToolTipText = "Weather Map Editor";
-            this.weatherMapEditor.Click += new System.EventHandler(this.weatherMapEditor_Click);
-            // 
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
@@ -11158,27 +11160,6 @@
             this.versionLabel.TabIndex = 9;
             this.versionLabel.Text = "ROM:";
             this.versionLabel.Visible = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.mapScreenshotButton);
-            this.flowLayoutPanel1.Controls.Add(this.wireframeCheckBox);
-            this.flowLayoutPanel1.Controls.Add(this.radio2D);
-            this.flowLayoutPanel1.Controls.Add(this.radio3D);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1134, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(48, 669);
-            this.flowLayoutPanel1.TabIndex = 42;
-		  	// 
-            // itemEditorToolStripMenuItem
-            // 
-            this.itemEditorToolStripMenuItem.Name = "itemEditorToolStripMenuItem";
-            this.itemEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.itemEditorToolStripMenuItem.Text = "Item Editor";
-            this.itemEditorToolStripMenuItem.Click += new System.EventHandler(this.itemEditorToolStripMenuItem_Click);
-
             // 
             // MainProgram
             // 
@@ -11201,11 +11182,11 @@
             this.Text = "DS Pokémon Rom Editor Reloaded 1.11.1 (Nømura, AdAstra/LD3005, Mixone)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainProgram_FormClosing);
             this.Load += new System.EventHandler(this.MainProgram_Load);
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(morningPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dayPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(twilightPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lateNightPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(nightPictureBox)).EndInit();
             this.mainTabControl.ResumeLayout(false);
             this.headerEditorTabPage.ResumeLayout(false);
             this.headerEditorTabPage.PerformLayout();
@@ -11346,8 +11327,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnableScriptUpDown)).EndInit();
             this.overworldsTabPage.ResumeLayout(false);
             this.overworldsTabPage.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.timeDependencyBox.ResumeLayout(false);
+            this.timeDependencyBox.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
             this.groupBox17.ResumeLayout(false);
@@ -11515,8 +11496,6 @@
             this.statusStrip1.PerformLayout();
             this.mainToolStrip.ResumeLayout(false);
             this.mainToolStrip.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -12333,7 +12312,7 @@
         private System.Windows.Forms.ToolStripButton weatherMapEditor;
         private System.Windows.Forms.TrackBar transparencyBar;
         private System.Windows.Forms.ToolStripMenuItem addressHelperToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox timeDependencyBox;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox morningCheckbox;
         private System.Windows.Forms.CheckBox lateNightCheckbox;

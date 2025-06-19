@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DSPRE.RomInfo;
 
-namespace DSPRE.Editors
+namespace DSPRE
 {
     public partial class WeatherEditor : Form
     {
@@ -24,7 +24,7 @@ namespace DSPRE.Editors
         private String baseFunction = "";
 
         private void WeatherEditor_Load(object sender, EventArgs e)
-        {
+        {   
             weatherSelector.Items.Clear();
             weatherSelector.Items.AddRange(PokeDatabase.Weather.PtWeatherDict.Values.ToArray());
             weatherSelector.SelectedIndex = 0;
@@ -33,7 +33,7 @@ namespace DSPRE.Editors
             updateImage();
 
             totalPercentage.Value = 100;
-
+        
             totalPercentageFill.Maximum = (int)totalPercentage.Value;
             totalPercentageFill.Minimum = 0;
 
@@ -49,7 +49,7 @@ namespace DSPRE.Editors
         private void weatherSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             weatherUpOrDown.Value = PokeDatabase.Weather.PtWeatherDict.Keys.ElementAt(weatherSelector.SelectedIndex);
-
+   
         }
         private void weatherUpOrDown_ValueChanged(object sender, EventArgs e)
         {
@@ -61,7 +61,7 @@ namespace DSPRE.Editors
             {
                 weatherSelector.SelectedItem = 0;
             }
-
+           
             updateImage();
         }
 
@@ -118,8 +118,8 @@ namespace DSPRE.Editors
                 {
                     int currentRow = (int)dataGridView1.Rows[rows].Cells[2].Value;
                     currentPercentage += currentRow;
-
-                }
+                  
+                }  
             }
             catch (Exception ex)
             {
@@ -139,11 +139,10 @@ namespace DSPRE.Editors
 
             }
 
-            if (currentPercentage >= totalPercentage.Value)
+            if(currentPercentage >= totalPercentage.Value)
             {
                 addWeatherButton.Enabled = false;
-            }
-            else
+            } else
             {
                 addWeatherButton.Enabled = true;
             }
