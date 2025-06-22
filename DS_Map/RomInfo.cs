@@ -82,6 +82,7 @@ namespace DSPRE
         public static int trainerFunnyScriptNumber { get; private set; }
 
         public static int typesTextNumber { get; private set; }
+
         public static string internalNamesLocation { get; private set; }
         public static readonly byte internalNameLength = 16;
         public static string internalNamesPath { get; private set; }
@@ -176,7 +177,8 @@ namespace DSPRE
             learnsets,
             evolutions,
 
-            itemData
+            itemData,
+            itemIcons
         };
 
         public static Dictionary<DirNames, (string packedDir, string unpackedDir)> gameDirs { get; private set; }
@@ -1475,7 +1477,8 @@ namespace DSPRE
                         [DirNames.pokemonBattleSprites] = @"data\poketool\pokegra\pokegra.narc",
                         [DirNames.otherPokemonBattleSprites] = @"data\poketool\pokegra\otherpoke.narc",
 
-                        [DirNames.itemData] = @"data\itemtool\item_data.narc",
+                        [DirNames.itemData] = @"data\itemtool\itemdata\item_data.narc",
+                        [DirNames.itemIcons] = @"data\itemtool\itemdata\item_icon.narc"
                     };
 
                     //Personal Data archive is different for Pearl
@@ -1530,6 +1533,7 @@ namespace DSPRE
                         [DirNames.evolutions] = @"data\poketool\personal\evo.narc",
 
                         [DirNames.itemData] = @"data\itemtool\itemdata\pl_item_data.narc",
+                        [DirNames.itemIcons] = @"data\itemtool\itemdata\item_icon.narc"
                     };
                     break;
 
@@ -1570,6 +1574,8 @@ namespace DSPRE
                         [DirNames.learnsets] = @"data\a\0\3\3",
                         [DirNames.evolutions] = @"data\a\0\3\4",
                         [DirNames.itemData] = @"data\a\0\1\7",
+                        [DirNames.itemIcons] = @"data\a\0\1\8",
+
                         [DirNames.safariZone] = @"data\a\2\3\0",
                         [DirNames.headbutt] = @"data\a\2\5\2", //both versions use the same folder with different data
                     };
