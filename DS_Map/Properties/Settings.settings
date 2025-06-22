@@ -35,5 +35,11 @@
     <Setting Name="vscPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">code</Value>
     </Setting>
+    <Setting Name="openDefaultRom" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="neverAskForOpening" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

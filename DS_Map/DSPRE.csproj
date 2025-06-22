@@ -239,12 +239,6 @@
     <Compile Include="ScrcmdTableHelper.Designer.cs">
       <DependentUpon>ScrcmdTableHelper.cs</DependentUpon>
     </Compile>
-    <Compile Include="settingsWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="settingsWindow.Designer.cs">
-      <DependentUpon>settingsWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="GameCamera.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="InputComboBox.cs">
@@ -279,6 +273,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReopenProjectConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReopenProjectConfirmation.Designer.cs">
+      <DependentUpon>ReopenProjectConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Resources\ROMToolboxDB\ToolboxDB.cs" />
     <Compile Include="Resources\ScriptDatabase.cs" />
@@ -357,6 +357,9 @@
     <Compile Include="ScintillaUtils\SearchManager.cs" />
     <Compile Include="ROMFiles\VariableValueTrigger.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SettingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
@@ -518,6 +521,9 @@
     <EmbeddedResource Include="Editors\PokemonEditor.resx">
       <DependentUpon>PokemonEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReopenProjectConfirmation.resx">
+      <DependentUpon>ReopenProjectConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ROMToolboxDB\BDHCAMPatchDB.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BDHCAMPatchDB.Designer.cs</LastGenOutput>
@@ -540,9 +546,6 @@
     <EmbeddedResource Include="ScrcmdTableHelper.resx">
       <DependentUpon>ScrcmdTableHelper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="settingsWindow.resx">
-      <DependentUpon>settingsWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Editors\SpawnEditor.resx">
       <DependentUpon>SpawnEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -561,6 +564,9 @@
     <EmbeddedResource Include="Resources\writeText.resx" />
     <EmbeddedResource Include="Editors\WildEditorDPPt.resx">
       <DependentUpon>WildEditorDPPt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsWindow.resx">
+      <DependentUpon>SettingsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -794,6 +800,22 @@
     <None Include="Resources\time_21.png" />
     <None Include="Resources\time_31.png" />
     <None Include="Resources\time_41.png" />
+    <None Include="Resources\ptcamera0.png" />
+    <None Include="Resources\ptcamera1.png" />
+    <None Include="Resources\ptcamera2.png" />
+    <None Include="Resources\ptcamera3.png" />
+    <None Include="Resources\ptcamera4.png" />
+    <None Include="Resources\ptcamera5.png" />
+    <None Include="Resources\ptcamera6.png" />
+    <None Include="Resources\ptcamera7.png" />
+    <None Include="Resources\ptcamera8.png" />
+    <None Include="Resources\ptcamera9.png" />
+    <None Include="Resources\ptcamera10.png" />
+    <None Include="Resources\ptcamera11.png" />
+    <None Include="Resources\ptcamera12.png" />
+    <None Include="Resources\ptcamera13.png" />
+    <None Include="Resources\ptcamera14.png" />
+    <None Include="Resources\ptcamera15.png" />
     <Content Include="Tools\apicula.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

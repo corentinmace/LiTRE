@@ -7218,7 +7218,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1161, 70);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1161, 85);
             this.tableLayoutPanel1.TabIndex = 66;
             // 
             // label6
@@ -7272,7 +7272,7 @@
             this.saveTextArchiveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveTextArchiveButton.Location = new System.Drawing.Point(3, 43);
             this.saveTextArchiveButton.Name = "saveTextArchiveButton";
-            this.saveTextArchiveButton.Size = new System.Drawing.Size(184, 30);
+            this.saveTextArchiveButton.Size = new System.Drawing.Size(184, 39);
             this.saveTextArchiveButton.TabIndex = 21;
             this.saveTextArchiveButton.Text = "&Save Current Archive";
             this.saveTextArchiveButton.UseVisualStyleBackColor = true;
@@ -7286,7 +7286,7 @@
             this.importTextFileButton.Location = new System.Drawing.Point(193, 16);
             this.importTextFileButton.Name = "importTextFileButton";
             this.tableLayoutPanel1.SetRowSpan(this.importTextFileButton, 2);
-            this.importTextFileButton.Size = new System.Drawing.Size(94, 57);
+            this.importTextFileButton.Size = new System.Drawing.Size(94, 66);
             this.importTextFileButton.TabIndex = 22;
             this.importTextFileButton.Text = "&Replace\r\nCurrent";
             this.importTextFileButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -7301,7 +7301,7 @@
             this.exportTextFileButton.Location = new System.Drawing.Point(293, 16);
             this.exportTextFileButton.Name = "exportTextFileButton";
             this.tableLayoutPanel1.SetRowSpan(this.exportTextFileButton, 2);
-            this.exportTextFileButton.Size = new System.Drawing.Size(94, 57);
+            this.exportTextFileButton.Size = new System.Drawing.Size(94, 66);
             this.exportTextFileButton.TabIndex = 23;
             this.exportTextFileButton.Text = "&Export File";
             this.exportTextFileButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -7316,7 +7316,7 @@
             this.addTextArchiveButton.Location = new System.Drawing.Point(413, 16);
             this.addTextArchiveButton.Name = "addTextArchiveButton";
             this.tableLayoutPanel1.SetRowSpan(this.addTextArchiveButton, 2);
-            this.addTextArchiveButton.Size = new System.Drawing.Size(91, 57);
+            this.addTextArchiveButton.Size = new System.Drawing.Size(91, 66);
             this.addTextArchiveButton.TabIndex = 19;
             this.addTextArchiveButton.Text = "Add Text \r\nArchive";
             this.addTextArchiveButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -7331,7 +7331,7 @@
             this.removeMessageFileButton.Location = new System.Drawing.Point(510, 16);
             this.removeMessageFileButton.Name = "removeMessageFileButton";
             this.tableLayoutPanel1.SetRowSpan(this.removeMessageFileButton, 2);
-            this.removeMessageFileButton.Size = new System.Drawing.Size(97, 57);
+            this.removeMessageFileButton.Size = new System.Drawing.Size(97, 66);
             this.removeMessageFileButton.TabIndex = 20;
             this.removeMessageFileButton.Text = "Remove \r\nLast Archive";
             this.removeMessageFileButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -7553,12 +7553,12 @@
             this.textEditorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.textEditorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.messageColumn});
-            this.textEditorDataGridView.Location = new System.Drawing.Point(12, 77);
+            this.textEditorDataGridView.Location = new System.Drawing.Point(12, 97);
             this.textEditorDataGridView.Name = "textEditorDataGridView";
             this.textEditorDataGridView.RowHeadersWidth = 68;
             dataGridViewCellStyle47.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEditorDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle47;
-            this.textEditorDataGridView.Size = new System.Drawing.Size(655, 406);
+            this.textEditorDataGridView.Size = new System.Drawing.Size(873, 480);
             this.textEditorDataGridView.TabIndex = 24;
             this.textEditorDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.textEditorDataGridView_CellValueChanged);
             this.textEditorDataGridView.CurrentCellChanged += new System.EventHandler(this.textEditorDataGridView_CurrentCellChanged);

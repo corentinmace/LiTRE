@@ -50,6 +50,17 @@ namespace DSPRE {
             Helpers.Initialize(this);
             SetMenuLayout(Properties.Settings.Default.menuLayout); //Read user settings for menu layout
             Text = "Lost in Time Rom Editor " + GetDSPREVersion() + " (Nømura, AdAstra/LD3005, Mixone, Kuha)";
+
+            string romFolder = Properties.Settings.Default.openDefaultRom;
+            if (romFolder != string.Empty)
+            {
+                if(!Properties.Settings.Default.neverAskForOpening) {
+                    ReopenProjectConfirmation confirmOpen = new ReopenProjectConfirmation();
+                    if (confirmOpen.ShowDialog() == DialogResult.No) return;
+                }
+
+                OpenRomFromFolder(romFolder);
+            }
         }
 
         #region Program Window
@@ -79,11 +90,20 @@ namespace DSPRE {
 
         #region Subroutines
         private void MainProgram_FormClosing(object sender, FormClosingEventArgs e) {
-            if (MessageBox.Show("Are you sure you want to quit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+            if (e.CloseReason != CloseReason.ApplicationExitCall && MessageBox.Show("Are you sure you want to quit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
                 e.Cancel = true;
             }
             Properties.Settings.Default.Save();
         }
+
+        private void MainProgram_Shown(object sender, EventArgs e) {
+            if (!DetectRequiredTools())
+            {
+                BeginInvoke(new Action(() => Application.Exit()));
+                return;
+            }
+        }
+
         private string[] GetBuildingsList(bool interior) {
             List<string> names = new List<string>();
             string path = romInfo.GetBuildingModelsDirPath(interior);
@@ -699,9 +719,52 @@ namespace DSPRE {
             {
                 MessageBox.Show("Unpacking will not be possible without a valid work directory.", "Unpacking aborted", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }           
-
+            }               
+        }
+        private bool DetectRequiredTools()
+        {
             
+            bool toolsMissing = false;
+            List<string> missingToolsList = new List<string>();
+
+            if (!File.Exists(@"Tools\ndstool.exe"))
+            {
+                toolsMissing = true;
+                missingToolsList.Add("ndstool.exe");
+            }
+            if (!File.Exists(@"Tools\blz.exe"))
+            {
+                toolsMissing = true;
+                missingToolsList.Add("blz.exe");
+            }
+            if (!File.Exists(@"Tools\apicula.exe"))
+            {
+                toolsMissing = true;
+                missingToolsList.Add("apicula.exe");
+            }
+
+            if (toolsMissing)
+            {
+                string message = "The following required tools are missing from the DSPRE Tools folder:\n-" +
+                    string.Join("\n-", missingToolsList) + "\n\n" +
+                    "Please ensure that the Tools folder is intact and contains all necessary files.\n" +
+                    "Common causes for this issue are:\n" +
+                    "   - DSPRE is stored in OneDrive\n" +
+                    "   - You opened DSPRE from Windows search\n" +
+                    "   - Your Antivirus software has removed critical files\n\n" +
+                    "DSPRE will now close.";
+                MessageBox.Show(message, "Missing Tools", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // If the program somehow doesn't close after this, we also disable the buttons and hope this is enough to dissuade the user from using it.
+                this.loadRomButton.Enabled = false; // Disable Load ROM button
+                this.readDataFromFolderButton.Enabled = false; // Disable Read Data from Folder button
+                this.fileToolStripMenuItem.DropDownItems[0].Enabled = false; // Disable Open ROM menu item
+                this.fileToolStripMenuItem.DropDownItems[1].Enabled = false; // Disable Open Folder menu item
+
+                return false;
+            }            
+
+            return true;
         }
 
         private void CheckROMLanguage() {
@@ -729,28 +792,40 @@ namespace DSPRE {
                 return;
             }
 
+            string fileName = romFolder.FileName;
+            OpenRomFromFolder(fileName);
+
+        }
+
+        private void OpenRomFromFolder(string romFolderPath)
+        {
             // Validate path and check for OneDrive
-            if (!ValidateFilePath(romFolder.FileName)) {
+            if (!ValidateFilePath(romFolderPath))
+            {
                 return;
             }
 
-            if (!detectAndHandleWSL(romFolder.FileName)) {
+            if (!detectAndHandleWSL(romFolderPath))
+            {
                 return; // User chose not to create a new work directory
             }
 
-            string fileName = romFolder.FileName;
+          
 
             try
             {
-                SetupROMLanguage(Directory.GetFiles(fileName).First(x => x.Contains("header.bin")));
-            } catch (InvalidOperationException) {
+                SetupROMLanguage(Directory.GetFiles(romFolderPath).First(x => x.Contains("header.bin")));
+            }
+            catch (InvalidOperationException)
+            {
                 MessageBox.Show("This folder does not seem to contain any data from a NDS Pokémon ROM.", "No ROM Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             /* Set ROM gameVersion and language */
-            romInfo = new RomInfo(gameCode, fileName, useSuffix: false);
+            romInfo = new RomInfo(gameCode, romFolderPath, useSuffix: false);
 
-            if (string.IsNullOrWhiteSpace(RomInfo.romID) || string.IsNullOrWhiteSpace(RomInfo.fileName)) {
+            if (string.IsNullOrWhiteSpace(RomInfo.romID) || string.IsNullOrWhiteSpace(RomInfo.fileName))
+            {
                 return;
             }
 
@@ -895,40 +970,13 @@ namespace DSPRE {
             Properties.Settings.Default.Save();
             Helpers.statusLabelMessage();
             var date = DateTime.Now;
-            var StringDate = formatTime(date.Hour) + ":" + formatTime(date.Minute) + ":" + formatTime(date.Second);
-            int timeSpent = CalculateTimeDifferenceInSeconds(dateBegin.Hour, dateBegin.Minute, dateBegin.Second, date.Hour, date.Minute, date.Second);
+            var StringDate = Helpers.formatTime(date.Hour) + ":" + Helpers.formatTime(date.Minute) + ":" + Helpers.formatTime(date.Second);
+            int timeSpent = Helpers.CalculateTimeDifferenceInSeconds(dateBegin.Hour, dateBegin.Minute, dateBegin.Second, date.Hour, date.Minute, date.Second);
 
-            Helpers.statusLabelMessage("Ready - " + StringDate + " | Build time: " + timeSpent.ToString() + "s");
+            Helpers.statusLabelMessage("Ready - " + StringDate + " | Build time: " + timeSpent.ToString() + "s | " + saveRom.FileName);
         }
 
-        static int CalculateTimeDifferenceInSeconds(int startHour, int startMinute, int startSecond, int endHour, int endMinute, int endSecond)
-        {
-            // Convert start time and end time to seconds since midnight
-            int startTimeInSeconds = (startHour * 3600) + (startMinute * 60) + startSecond;
-            int endTimeInSeconds = (endHour * 3600) + (endMinute * 60) + endSecond;
-
-            // Calculate difference
-            int timeDifference = endTimeInSeconds - startTimeInSeconds;
-
-            // If time difference is negative (end time is past midnight), adjust
-            if (timeDifference < 0)
-            {
-                timeDifference += 24 * 3600; // Add 24 hours in seconds
-            }
-
-            return timeDifference;
-        }
-
-        private String formatTime(int time)
-        {
-            string stringTime = time.ToString();
-            if (time < 10)
-            {
-                stringTime = "0" + stringTime;
-            }
-
-            return stringTime;
-        }
+ 
         private void unpackAllButton_Click(object sender, EventArgs e) {
             Helpers.statusLabelMessage("Awaiting user response...");
             DialogResult d = MessageBox.Show("Do you wish to unpack all extracted NARCS?\n" +
@@ -4884,7 +4932,7 @@ namespace DSPRE {
             OpenFileDialog im = new OpenFileDialog {
                 Filter = MapFile.NSBMDFilter,
                 InitialDirectory = Properties.Settings.Default.mapImportStarterPoint
-        };
+            };
             if (im.ShowDialog(this) != DialogResult.OK) {
                 return;
             }
@@ -5373,7 +5421,6 @@ namespace DSPRE {
                 overworldsListBox.Items.Add(i.ToString("D" + Math.Max(0, count - 1).ToString().Length) + ": " + currentEvFile.overworlds[i].ToString());
             }
         }
-
         private void FillWarpsBox() {
             warpsListBox.Items.Clear();
             int count = currentEvFile.warps.Count;
@@ -5888,7 +5935,7 @@ namespace DSPRE {
 
         private void ChangeLoadedEventFile(int evfile, ushort mapHeader) {
             Helpers.DisableHandlers();
-
+           
             /* Load events data into EventFile class instance */
             currentEvFile = new EventFile(evfile);
 
@@ -5929,6 +5976,7 @@ namespace DSPRE {
 
             CenterEventViewOnEntities();
         }
+
         private void showEventsCheckBoxes_CheckedChanged(object sender, EventArgs e) {
             if (Helpers.HandlersDisabled) {
                 return;
@@ -9473,7 +9521,7 @@ namespace DSPRE {
 
         private void unpackToFolderToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenFileDialog of = new OpenFileDialog {
-                Filter = "NARC File (*.narc)|*.narc"
+                Filter = "NARC File (*.narc)|*.narc|All files (*.*)|*.*"
             };
             if (of.ShowDialog(this) != DialogResult.OK) {
                 return;
@@ -10375,6 +10423,7 @@ namespace DSPRE {
             Update();
 
             DSUtils.TryUnpackNarcs(new List<DirNames> { DirNames.itemData });
+            DSUtils.TryUnpackNarcs(new List<DirNames> { DirNames.itemIcons });
 
             ItemEditor itemEditor = new ItemEditor(
                 RomInfo.GetItemNames()

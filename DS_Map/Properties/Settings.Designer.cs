@@ -154,5 +154,29 @@ namespace DSPRE.Properties {
                 this["vscPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string openDefaultRom {
+            get {
+                return ((string)(this["openDefaultRom"]));
+            }
+            set {
+                this["openDefaultRom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool neverAskForOpening {
+            get {
+                return ((bool)(this["neverAskForOpening"]));
+            }
+            set {
+                this["neverAskForOpening"] = value;
+            }
+        }
     }
 }
