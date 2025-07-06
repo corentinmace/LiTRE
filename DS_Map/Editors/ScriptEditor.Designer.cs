@@ -686,7 +686,7 @@ namespace DSPRE.Editors
             // viewLevelScriptButton
             // 
             this.viewLevelScriptButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.viewLevelScriptButton.Location = new System.Drawing.Point(481, 681);
+            this.viewLevelScriptButton.Location = new System.Drawing.Point(94, 618);
             this.viewLevelScriptButton.Name = "viewLevelScriptButton";
             this.viewLevelScriptButton.Size = new System.Drawing.Size(91, 25);
             this.viewLevelScriptButton.TabIndex = 6;
@@ -732,7 +732,7 @@ namespace DSPRE.Editors
             // 
             this.addScriptFileButton.Image = ((System.Drawing.Image)(resources.GetObject("addScriptFileButton.Image")));
             this.addScriptFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addScriptFileButton.Location = new System.Drawing.Point(369, 667);
+            this.addScriptFileButton.Location = new System.Drawing.Point(316, 24);
             this.addScriptFileButton.Name = "addScriptFileButton";
             this.addScriptFileButton.Size = new System.Drawing.Size(106, 25);
             this.addScriptFileButton.TabIndex = 4;
@@ -757,7 +757,7 @@ namespace DSPRE.Editors
             // 
             this.removeScriptFileButton.Image = ((System.Drawing.Image)(resources.GetObject("removeScriptFileButton.Image")));
             this.removeScriptFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.removeScriptFileButton.Location = new System.Drawing.Point(369, 694);
+            this.removeScriptFileButton.Location = new System.Drawing.Point(316, 51);
             this.removeScriptFileButton.Name = "removeScriptFileButton";
             this.removeScriptFileButton.Size = new System.Drawing.Size(106, 25);
             this.removeScriptFileButton.TabIndex = 5;
@@ -806,7 +806,7 @@ namespace DSPRE.Editors
             // 
             this.exportScriptFileButton.Image = ((System.Drawing.Image)(resources.GetObject("exportScriptFileButton.Image")));
             this.exportScriptFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exportScriptFileButton.Location = new System.Drawing.Point(294, 667);
+            this.exportScriptFileButton.Location = new System.Drawing.Point(241, 24);
             this.exportScriptFileButton.Name = "exportScriptFileButton";
             this.exportScriptFileButton.Size = new System.Drawing.Size(70, 52);
             this.exportScriptFileButton.TabIndex = 3;
@@ -819,7 +819,7 @@ namespace DSPRE.Editors
             // 
             this.importScriptFileButton.Image = ((System.Drawing.Image)(resources.GetObject("importScriptFileButton.Image")));
             this.importScriptFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importScriptFileButton.Location = new System.Drawing.Point(219, 667);
+            this.importScriptFileButton.Location = new System.Drawing.Point(166, 24);
             this.importScriptFileButton.Name = "importScriptFileButton";
             this.importScriptFileButton.Size = new System.Drawing.Size(70, 52);
             this.importScriptFileButton.TabIndex = 2;
@@ -832,11 +832,11 @@ namespace DSPRE.Editors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.viewLevelScriptButton);
             this.Controls.Add(this.openInVSC);
             this.Controls.Add(this.exportallcustom_button);
             this.Controls.Add(this.locateCurrentScriptFile);
             this.Controls.Add(this.groupBox24);
-            this.Controls.Add(this.viewLevelScriptButton);
             this.Controls.Add(this.selectScriptFileComboBox);
             this.Controls.Add(this.groupBox26);
             this.Controls.Add(this.label5);
@@ -853,7 +853,7 @@ namespace DSPRE.Editors
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.scriptEditorTabControl);
             this.Name = "ScriptEditor";
-            this.Size = new System.Drawing.Size(1177, 735);
+            this.Size = new System.Drawing.Size(1177, 650);
             this.scriptEditorTabControl.ResumeLayout(false);
             this.scriptsTabPage.ResumeLayout(false);
             this.PanelSearchScripts.ResumeLayout(false);

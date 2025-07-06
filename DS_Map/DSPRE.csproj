@@ -205,6 +205,12 @@
     <Compile Include="Editors\SpriteCropper.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Editors\TextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\TextEditor.Designer.cs">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editors\WeatherEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -492,6 +498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\ScriptEditor.resx">
       <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\TextEditor.resx">
+      <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\TextFormatter.resx">
       <DependentUpon>TextFormatter.cs</DependentUpon>
@@ -816,6 +825,8 @@
     <None Include="Resources\ptcamera13.png" />
     <None Include="Resources\ptcamera14.png" />
     <None Include="Resources\ptcamera15.png" />
+    <None Include="Resources\oui--popout.svg" />
+    <None Include="Resources\oui--popout.png" />
     <Content Include="Tools\apicula.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

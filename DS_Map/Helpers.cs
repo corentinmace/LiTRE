@@ -404,5 +404,61 @@ namespace DSPRE {
 
             return stringTime;
         }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+        extern static bool DestroyIcon(IntPtr handle);
+
+
+        public static void PopOutEditor<T>(T control, string title, Image icon, Action<T> onClose = null) where T : Control
+        {
+            var originalParent = control.Parent;
+            var originalIndex = originalParent?.Controls.IndexOf(control) ?? -1;
+
+            originalParent?.Controls.Remove(control);
+            Icon _icon = null;
+            if(icon != null)
+            {
+                Bitmap bitmap = new Bitmap(icon);
+                _icon = Icon.FromHandle(bitmap.GetHicon());
+            }
+        
+
+            var form = new Form
+            {
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.FixedSingle,
+                MaximizeBox = false,
+                ClientSize = control.Size,
+                ShowIcon = icon == null ? false : true,
+                Icon = _icon
+                
+            };
+
+            control.Dock = DockStyle.Fill;
+            form.Controls.Add(control);
+
+            form.FormClosing += (s, e) =>
+            {
+                form.Controls.Remove(control);
+                if(_icon != null)
+                {
+                    DestroyIcon(_icon.Handle);
+                }
+                if (originalParent != null && !originalParent.IsDisposed)
+                {
+                    if (originalIndex >= 0 && originalIndex <= originalParent.Controls.Count)
+                        originalParent.Controls.Add(control);
+                    else
+                        originalParent.Controls.Add(control);
+
+                    originalParent.Controls.SetChildIndex(control, originalIndex);
+                }
+
+                onClose?.Invoke(control);
+            };
+
+            form.Show();
+        }
     }
 }

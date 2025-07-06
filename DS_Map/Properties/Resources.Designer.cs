@@ -1403,6 +1403,16 @@ namespace DSPRE.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap popout {
+            get {
+                object obj = ResourceManager.GetObject("popout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ptblizzard {
             get {
                 object obj = ResourceManager.GetObject("ptblizzard", resourceCulture);
