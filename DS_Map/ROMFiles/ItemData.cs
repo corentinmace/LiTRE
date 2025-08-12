@@ -397,7 +397,7 @@ namespace DSPRE.ROMFiles
                 if (PreventToss) bitfield |= (1 << 5);
                 if (Selectable) bitfield |= (1 << 6);
                 bitfield |= (ushort)(((byte)fieldPocket & 0b1111) << 7);
-                bitfield |= (ushort)(((byte)battlePocket & 0b11111) << 11);
+                bitfield |= (ushort)((bitfield & ~(0b11111 << 11)) | (((byte)battlePocket & 0b11111) << 11));
                 writer.Write(bitfield);
 
                 writer.Write((byte)fieldUseFunc);

@@ -32,6 +32,7 @@ namespace DSPRE.Editors
         private bool actionsDirty = false;
         private string cmdKeyWords = "";
         private string secondaryKeyWords = "";
+        private string altCaseKeywords = "";
         private ScriptFile currentScriptFile;
         MainProgram _parent;
 
@@ -149,9 +150,7 @@ namespace DSPRE.Editors
         {
             //PREPARE SCRIPT EDITOR KEYWORDS
             cmdKeyWords = String.Join(" ", RomInfo.ScriptCommandNamesDict.Values) +
-                          " " + String.Join(" ",
-                              ScriptDatabase.movementsDict.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Name).Values);
-            cmdKeyWords += " " + cmdKeyWords.ToUpper() + " " + cmdKeyWords.ToLower();
+                          " " + String.Join(" ", ScriptDatabase.movementsDictIDName.Values);
 
             secondaryKeyWords = String.Join(" ", RomInfo.ScriptComparisonOperatorsDict.Values) +
                                 " " + String.Join(" ", ScriptDatabase.specialOverworlds.Values) +
@@ -166,7 +165,9 @@ namespace DSPRE.Editors
                                 " " + ScriptFile.ContainerTypes.Action.ToString() +
                                 " " + Event.EventType.Overworld +
                                 " " + Overworld.MovementCodeKW;
-            secondaryKeyWords += " " + secondaryKeyWords.ToUpper() + " " + secondaryKeyWords.ToLower();
+
+            altCaseKeywords += " " + cmdKeyWords.ToUpper() + " " + cmdKeyWords.ToLower();
+            altCaseKeywords += " " + secondaryKeyWords.ToUpper() + " " + secondaryKeyWords.ToLower();
 
             // CREATE CONTROLS
             ScriptTextArea = new Scintilla();
@@ -194,6 +195,10 @@ namespace DSPRE.Editors
             ScriptTextArea.TextChanged += (OnTextChangedScript);
             FunctionTextArea.TextChanged += (OnTextChangedFunction);
             ActionTextArea.TextChanged += (OnTextChangedAction);
+
+            ScriptTextArea.CharAdded += OnCharAdded;
+            FunctionTextArea.CharAdded += OnCharAdded;
+            ActionTextArea.CharAdded += OnCharAdded;
 
             // INITIAL VIEW CONFIG
             InitialViewConfig(ScriptTextArea);
@@ -259,6 +264,13 @@ namespace DSPRE.Editors
             textArea.CaretForeColor = Color.White;
             textArea.SetSelectionBackColor(true, Color.FromArgb(0x114D9C));
             textArea.WrapIndentMode = WrapIndentMode.Same;
+
+            // Auto Completion
+            textArea.AutoCMaxHeight = 20;
+            textArea.AutoCIgnoreCase = true;
+            textArea.AutoCOrder = Order.Custom;
+            textArea.AutoCCancelAtStart = false;
+            textArea.AutoCAutoHide = false;
         }
 
         private void InitSyntaxColoring(Scintilla textArea)
@@ -285,6 +297,7 @@ namespace DSPRE.Editors
 
             textArea.SetKeywords(0, cmdKeyWords);
             textArea.SetKeywords(1, secondaryKeyWords);
+            textArea.SetKeywords(2, altCaseKeywords);
         }
 
         private void InitNumberMargin(Scintilla textArea, EventHandler<MarginClickEventArgs> textArea_MarginClick)
@@ -371,15 +384,29 @@ namespace DSPRE.Editors
             HotKeyManager.AddHotKey(scintillaTb, () => ZoomOut(scintillaTb), Keys.OemMinus, true);
             HotKeyManager.AddHotKey(scintillaTb, () => ZoomDefault(scintillaTb), Keys.D0, true);
             HotKeyManager.AddHotKey(scintillaTb, sm.CloseSearch, Keys.Escape);
+            HotKeyManager.AddHotKey(scintillaTb, () => ToggleAutoComplete(scintillaTb), Keys.Space, true);
+            HotKeyManager.AddHotKey(scintillaTb, () => SaveScriptFile(scintillaTb, false), Keys.S, true);
+            HotKeyManager.AddHotKey(scintillaTb, () => FileMovedOnDisk(), Keys.R, true);
 
             // remove conflicting hotkeys from scintilla
             scintillaTb.ClearCmdKey(Keys.Control | Keys.F);
-            scintillaTb.ClearCmdKey(Keys.Control | Keys.R);
+            scintillaTb.ClearCmdKey(Keys.Control | Keys.Space);
             scintillaTb.ClearCmdKey(Keys.Control | Keys.H);
             scintillaTb.ClearCmdKey(Keys.Control | Keys.L);
             scintillaTb.ClearCmdKey(Keys.Control | Keys.U);
-        }
+            scintillaTb.ClearCmdKey(Keys.Control | Keys.S);
+            scintillaTb.ClearCmdKey(Keys.Control | Keys.R);
 
+            // remove ctrl + space
+            scintillaTb.KeyDown += (sender, e) =>
+            {
+                if (e.Control && e.KeyCode == Keys.Space)
+                {
+                    e.SuppressKeyPress = true; // Prevents the space from being inserted
+                }
+            };
+
+        }
         private void Uppercase(Scintilla textArea)
         {
             // save the selection
@@ -421,6 +448,75 @@ namespace DSPRE.Editors
             textArea.Zoom = 0;
         }
 
+        private void ToggleAutoComplete(Scintilla textArea)
+        {
+            if (textArea.AutoCActive)
+            {
+                textArea.AutoCCancel();
+                return;
+            }
+            CompleteCurrent(textArea);
+        }
+
+        private void CompleteCurrent(Scintilla textArea)
+        {
+            int currentPos = textArea.CurrentPosition;
+            int wordStartPos = textArea.WordStartPosition(currentPos, true);
+
+            int wordLen = Math.Max(currentPos - wordStartPos, 0);
+
+            string currentWord = textArea.GetTextRange(wordStartPos, wordLen);
+
+            textArea.AutoCShow(wordLen, cmdKeyWords + secondaryKeyWords);
+        }
+
+        private void SaveScriptFile(Scintilla textArea, bool showMessage)
+        {
+            int fileID = currentScriptFile.fileID;
+			ScriptTextArea.ReadOnly = true;
+            FunctionTextArea.ReadOnly = true;
+            ActionTextArea.ReadOnly = true;
+            ScriptFile scriptFile = new ScriptFile(ScriptTextArea.Lines.ToStringsList(allowEmpty: true, trim: true), FunctionTextArea.Lines.ToStringsList(allowEmpty: true, trim: true), ActionTextArea.Lines.ToStringsList(allowEmpty: true, trim: true), fileID);
+            string path = RomInfo.workDir + "..\\script_export";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string text = ScriptTextArea.Text;
+            string text2 = FunctionTextArea.Text;
+            string text3 = ActionTextArea.Text;
+            string path2 = RomInfo.workDir + "..\\script_export\\" + fileID.ToString("D4") + "_script.script";
+            string path3 = RomInfo.workDir + "..\\script_export\\" + fileID.ToString("D4") + "_func.script";
+            string path4 = RomInfo.workDir + "..\\script_export\\" + fileID.ToString("D4") + "_action.action";
+            WriteAllLinesBetter(path2, text);
+            WriteAllLinesBetter(path3, text2);
+            WriteAllLinesBetter(path4, text3);
+            _ = scriptFile.fileID;
+            if (scriptFile.fileID == int.MaxValue)
+            {
+                MessageBox.Show("This " + typeof(ScriptFile).Name + " is couldn't be saved since it's empty.", "Can't save", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                scriptFile.SaveToFileDefaultDir(selectScriptFileComboBox.SelectedIndex, showMessage);
+                currentScriptFile = scriptFile;
+                ScriptEditorSetClean();
+            }
+            if (scriptFile.hasNoScripts)
+            {
+                MessageBox.Show("This ScriptFile couldn't be saved. A minimum of one script is required.", "Can't save", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (scriptFile.SaveToFileDefaultDir(fileID))
+            {
+                currentScriptFile = scriptFile;
+                ScriptEditorSetClean();
+            }
+
+            ScriptTextArea.ReadOnly = false;
+            FunctionTextArea.ReadOnly = false;
+            ActionTextArea.ReadOnly = false;
+        }
+
         private void ScriptEditorSetClean()
         {
             Helpers.DisableHandlers();
@@ -436,6 +532,12 @@ namespace DSPRE.Editors
         private void OnTextChangedScript(object sender, EventArgs e)
         {
             ScriptTextArea.Margins[NUMBER_MARGIN].Width = ScriptTextArea.Lines.Count.ToString().Length * 13;
+
+            if (scriptsDirty)
+            {
+                return;
+            }
+
             scriptsDirty = true;
             scriptsTabPage.Text = ScriptFile.ContainerTypes.Script.ToString() + "s" + "*";
         }
@@ -443,6 +545,12 @@ namespace DSPRE.Editors
         private void OnTextChangedFunction(object sender, EventArgs e)
         {
             FunctionTextArea.Margins[NUMBER_MARGIN].Width = FunctionTextArea.Lines.Count.ToString().Length * 13;
+
+            if (functionsDirty)
+            {
+                return;
+            }
+
             functionsDirty = true;
             functionsTabPage.Text = ScriptFile.ContainerTypes.Function.ToString() + "s" + "*";
         }
@@ -450,8 +558,31 @@ namespace DSPRE.Editors
         private void OnTextChangedAction(object sender, EventArgs e)
         {
             ActionTextArea.Margins[NUMBER_MARGIN].Width = ActionTextArea.Lines.Count.ToString().Length * 13;
+
+            if (actionsDirty)
+            {
+                return;
+            }
+
             actionsDirty = true;
             actionsTabPage.Text = ScriptFile.ContainerTypes.Action.ToString() + "s" + "*";
+        }
+
+        private void OnCharAdded(object sender, EventArgs e)
+        {
+            if (!(sender is Scintilla textArea))
+            {
+                return;
+            }
+
+            if (!textArea.AutoCActive)
+            {
+                // If the AutoComplete is active, we don't want to do anything else
+                return;
+            }
+
+            //CompleteCurrent(textArea);
+
         }
 
         private void ScriptTextArea_MarginClick(object sender, MarginClickEventArgs e)
@@ -557,9 +688,7 @@ namespace DSPRE.Editors
 
             if (scriptsDirty || functionsDirty || actionsDirty)
             {
-                DialogResult d =
-                    MessageBox.Show("There are unsaved changes in this Script File.\nDo you wish to discard them?",
-                        "Unsaved work", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult d = MessageBox.Show("There are unsaved changes in this Script File.\nDo you wish to discard them?", "Unsaved work", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (!d.Equals(DialogResult.Yes))
                 {
@@ -1454,6 +1583,10 @@ namespace DSPRE.Editors
 
         public void FileMovedOnDisk()
         {
+            ScriptTextArea.ReadOnly = true;
+            FunctionTextArea.ReadOnly = true;
+            ActionTextArea.ReadOnly = true;
+
             int fileID = (int)currentScriptFile.fileID;
             AppLogger.Info("Comparing opened  files with the ones on disk");
             string path_script = RomInfo.workDir + "..\\script_export\\" + fileID.ToString("D4") + "_script.script";
@@ -1501,7 +1634,7 @@ namespace DSPRE.Editors
                     scriptsEqual = false;
                     break;
                 }
-            }                                  
+            }
 
             if (!scriptsEqual)
             {
@@ -1512,6 +1645,9 @@ namespace DSPRE.Editors
                         "Script File Modified", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
+                    ScriptTextArea.ReadOnly = false;
+                    FunctionTextArea.ReadOnly = false;
+                    ActionTextArea.ReadOnly = false;
                     DisplayScript();
                 }
             }
@@ -1519,6 +1655,12 @@ namespace DSPRE.Editors
             {
                 AppLogger.Info("No changes detected in the script file.");
             }
+
+            ScriptTextArea.ReadOnly = false;
+            FunctionTextArea.ReadOnly = false;
+            ActionTextArea.ReadOnly = false;
+
+
         }
     }
 
