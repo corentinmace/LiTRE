@@ -3,7 +3,7 @@ name: LITRE Build
 on:
   push:
     branches:
-      - main  # Trigger only on pushes to the main branch
+      - canary  # Trigger only on pushes to the main branch
 
 permissions:
   contents: write

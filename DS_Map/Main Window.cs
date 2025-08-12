@@ -206,6 +206,12 @@ namespace DSPRE
             }
             SettingsManager.Save();
         }
+        
+        private void MainProgram_Activated(object sender, EventArgs e)
+        {
+            if(EditorPanels.mainTabControl.SelectedTab == EditorPanels.scriptEditorTabPage)
+                EditorPanels.scriptEditor.FileMovedOnDisk();
+        }
 
         private void MainProgram_Shown(object sender, EventArgs e)
         {
@@ -1907,6 +1913,5 @@ namespace DSPRE
                 Helpers.PopOutEditor(cfg.Control, currentTabInfos.Text, cfg.PlaceholderLabel, cfg.PopoutButton, mainTabImageList.Images[currentTabInfos.ImageIndex]);
         }
         #endregion
-
     }
 }

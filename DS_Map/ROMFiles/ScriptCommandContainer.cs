@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace DSPRE.ROMFiles {
   public class ScriptCommandContainer {
-    public List<ScriptCommand> commands;
+    public List<ScriptCommand> commands =  new List<ScriptCommand>();
     public uint manualUserID;
     public int usedScriptID; //useScript ID referenced by this Script/Function
     public ScriptFile.ContainerTypes containerType;
@@ -12,6 +12,8 @@ namespace DSPRE.ROMFiles {
       manualUserID = scriptNumber;
       this.usedScriptID = usedScriptID;
       this.containerType = containerType;
+      if(commandList==null)
+        commandList = new List<ScriptCommand>();
       commands = commandList;
     }
 
