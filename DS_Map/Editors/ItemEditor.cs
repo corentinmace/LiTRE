@@ -58,11 +58,11 @@ namespace DSPRE.Editors
                 itemNarcTable[i] = itemNarcTableEntry;
                 iconIdSet.Add(itemNarcTableEntry.itemIcon);
                 paletteIdSet.Add(itemNarcTableEntry.itemPalette);
-                //if (itemFileNames[i] == null || itemFileNames[i] == "???")
-                //{
-                //    cleanNames.RemoveAt(i - killCount);
-                //    killCount++;
-                //}
+                if (itemFileNames[i] == null || itemFileNames[i] == "???")
+                {
+                    cleanNames.RemoveAt(i-killCount);
+                    killCount++;
+                }
             }
             this.itemFileNames = cleanNames.ToArray();
             //this.itemDescriptions = itemDescriptions;
@@ -91,7 +91,6 @@ namespace DSPRE.Editors
             itemNameInputComboBox.Items.AddRange(this.itemFileNames);
             holdEffectComboBox.Items.AddRange(Enum.GetNames(typeof(HoldEffect)));
             fieldPocketComboBox.Items.AddRange(Enum.GetNames(typeof(FieldPocket)));
-            battlePocketComboBox.Items.AddRange(Enum.GetNames(typeof(BattlePocket)));
             naturalGiftTypeComboBox.Items.AddRange(Enum.GetNames(typeof(NaturalGiftType)));
             fieldFunctionComboBox.Items.AddRange(Enum.GetNames(typeof(FieldUseFunc)));
             battleFunctionComboBox.Items.AddRange(Enum.GetNames(typeof(BattleUseFunc)));
@@ -122,6 +121,17 @@ namespace DSPRE.Editors
 
             imageComboBox.EndUpdate();
             paletteComboBox.EndUpdate();
+        }
+
+        public void UpdateBattlePocketCheckBoxes()
+        {
+            BattlePocket battlePocket = currentLoadedFile.battlePocket;
+
+            pokeBallsBattlePocketCheck.Checked = (battlePocket & BattlePocket.PokeBalls) != 0;
+            battleItemsBattlePocketCheck.Checked = (battlePocket & BattlePocket.BattleItems) != 0;
+            hpRestoreBattlePocketCheck.Checked = (battlePocket & BattlePocket.HpRestore) != 0;
+            statusHealersBattlePocketCheck.Checked = (battlePocket & BattlePocket.StatusHealers) != 0;
+            ppRestoreBattlePocketCheck.Checked = (battlePocket & BattlePocket.PpRestore) != 0;
         }
 
 
@@ -287,9 +297,7 @@ namespace DSPRE.Editors
             // Pockets
             fieldPocketComboBox.SelectedIndex = (int)currentLoadedFile.fieldPocket;
             // Set the selected value for non sequential enums
-            BattlePocket battlePocket = (BattlePocket)currentLoadedFile.battlePocket;
-            string battlePocketEnum = Enum.GetName(typeof(BattlePocket), battlePocket);
-            battlePocketComboBox.SelectedItem = battlePocketEnum;
+            UpdateBattlePocketCheckBoxes();
 
             // Move Related
             // Set the selected value for non sequential enums
@@ -317,9 +325,7 @@ namespace DSPRE.Editors
             itemParamsTabControl.Enabled = partyUseCheckBox.Checked;
             PopulateItemPartyParamsUI();
 
-
-
-            var entry = itemNarcTable[(int)itemNumberNumericUpDown.Value];
+            var entry = itemNarcTable[currentLoadedFile.RealID];
 
             string iconID = entry.itemIcon.ToString("D4");
             string paletteID = entry.itemPalette.ToString("D4");
@@ -340,8 +346,8 @@ namespace DSPRE.Editors
 
         private void SetUpIcon()
         {
-            var itemIconId = itemNarcTable[(int)itemNumberNumericUpDown.Value].itemIcon;
-            var itemPaletteId = itemNarcTable[(int)itemNumberNumericUpDown.Value].itemPalette;
+            var itemIconId = itemNarcTable[currentLoadedFile.RealID].itemIcon;
+            var itemPaletteId = itemNarcTable[currentLoadedFile.RealID].itemPalette;
 
             string paletteFilename = itemPaletteId.ToString("D4");
             var itemPalette = new NCLR(gameDirs[DirNames.itemIcons].unpackedDir + "\\" + paletteFilename, (int)itemPaletteId, paletteFilename);
@@ -503,8 +509,7 @@ namespace DSPRE.Editors
                 int newId = itemNameInputComboBox.SelectedIndex;
                 Console.WriteLine("ItemEditor: itemNameInputComboBox_SelectedIndexChanged: newId = " + newId);
                 itemNumberNumericUpDown.Value = newId;
-
-                ChangeLoadedFile((int)itemNarcTable[newId].itemData);
+                ChangeLoadedFile(newId);
             }
 
             Helpers.EnableHandlers();
@@ -524,8 +529,7 @@ namespace DSPRE.Editors
                 int newId = (int)itemNumberNumericUpDown.Value;
                 itemNameInputComboBox.SelectedIndex = newId;
                 Console.WriteLine("ItemEditor: itemNumberNumericUpDown_ValueChanged: newId = " + newId);
-
-                ChangeLoadedFile((int)itemNarcTable[newId].itemData);
+                ChangeLoadedFile(newId);
             }
 
             Helpers.EnableHandlers();
@@ -559,17 +563,6 @@ namespace DSPRE.Editors
             setDirty(true);
         }
 
-        private void battlePocketComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Helpers.HandlersDisabled)
-            {
-                return;
-            }
-
-            currentLoadedFile.battlePocket = (BattlePocket)Enum.Parse(typeof(BattlePocket), (string)battlePocketComboBox.SelectedItem);
-            setDirty(true);
-
-        }
 
         private void priceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -782,7 +775,7 @@ namespace DSPRE.Editors
             if (Helpers.HandlersDisabled || imageComboBox.SelectedItem == null) return;
 
             uint newIconID = uint.Parse(imageComboBox.SelectedItem.ToString());
-            itemNarcTable[(int)itemNumberNumericUpDown.Value].itemIcon = newIconID;
+            itemNarcTable[currentLoadedFile.RealID].itemIcon = newIconID;
 
             SetUpIcon();
             setDirty(true);
@@ -793,7 +786,7 @@ namespace DSPRE.Editors
             if (Helpers.HandlersDisabled || paletteComboBox.SelectedItem == null) return;
 
             uint newPaletteID = uint.Parse(paletteComboBox.SelectedItem.ToString());
-            itemNarcTable[(int)itemNumberNumericUpDown.Value].itemPalette = newPaletteID;
+            itemNarcTable[currentLoadedFile.RealID].itemPalette = newPaletteID;
 
             SetUpIcon();
             setDirty(true);
@@ -814,17 +807,41 @@ namespace DSPRE.Editors
                 if (itemNarcTable[i].itemIcon != itemNarcTableEntry.itemIcon)
                 {
                     byte[] bytes = BitConverter.GetBytes((ushort)itemNarcTableEntry.itemIcon);
-                    ARM9.WriteBytes(bytes, itemNarcTableOffset + (uint)(itemNarcTable[(int)itemNumberNumericUpDown.Value].itemIcon * 8 + 2));
+                    ARM9.WriteBytes(bytes, itemNarcTableOffset + (uint)(currentLoadedFile.RealID * 8 + 2));
                 }   
                 itemNarcTableEntry.itemPalette = ARM9.ReadWordLE((uint)(itemNarcTableOffset + i * 8 + 4));
                 if (itemNarcTable[i].itemPalette != itemNarcTableEntry.itemPalette)
                 {
                     byte[] bytes = BitConverter.GetBytes((ushort)itemNarcTableEntry.itemPalette);
-                    ARM9.WriteBytes(bytes, itemNarcTableOffset + (uint)(itemNarcTable[(int)itemNumberNumericUpDown.Value].itemIcon * 8 + 4));
+                    ARM9.WriteBytes(bytes, itemNarcTableOffset + (uint)(currentLoadedFile.RealID * 8 + 4));
                 }
                 itemNarcTableEntry.itemAGB = ARM9.ReadWordLE((uint)(itemNarcTableOffset + i * 8 + 6));
             }
             setDirty(false);
+        }
+
+        private void BattlePocketCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Helpers.HandlersDisabled)
+            {
+                return;
+            }
+
+            // Build battlePocket from checkbox states
+            BattlePocket battlePocket = BattlePocket.None;
+            if (pokeBallsBattlePocketCheck.Checked)
+                battlePocket |= BattlePocket.PokeBalls;
+            if (battleItemsBattlePocketCheck.Checked)
+                battlePocket |= BattlePocket.BattleItems;
+            if (hpRestoreBattlePocketCheck.Checked)
+                battlePocket |= BattlePocket.HpRestore;
+            if (statusHealersBattlePocketCheck.Checked)
+                battlePocket |= BattlePocket.StatusHealers;
+            if (ppRestoreBattlePocketCheck.Checked)
+                battlePocket |= BattlePocket.PpRestore;
+
+            currentLoadedFile.battlePocket = battlePocket;
+            setDirty(true);
         }
     }
 }

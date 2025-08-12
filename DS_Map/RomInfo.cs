@@ -1,13 +1,12 @@
-using System.IO;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Drawing;
-using System.Linq;
 using DSPRE.Resources;
-using System;
 using DSPRE.ROMFiles;
-using static DSPRE.RomInfo;
-using System.Windows.Shapes;
+using LibGit2Sharp;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 using Path = System.IO.Path;
 
 namespace DSPRE
@@ -178,7 +177,9 @@ namespace DSPRE
             evolutions,
 
             itemData,
-            itemIcons
+            itemIcons,
+
+            tradeData
         };
 
         public static Dictionary<DirNames, (string packedDir, string unpackedDir)> gameDirs { get; private set; }
@@ -192,7 +193,7 @@ namespace DSPRE
                 folderSuffix = "";
             }
 
-            string path = System.IO.Path.GetDirectoryName(romName) + "\\" + Path.GetFileNameWithoutExtension(romName) + folderSuffix + "\\";
+            string path = Path.GetDirectoryName(romName) + "\\" + Path.GetFileNameWithoutExtension(romName) + folderSuffix + "\\";
 
             workDir = path;
             arm9Path = Path.Combine(workDir, @"arm9.bin");
@@ -241,6 +242,8 @@ namespace DSPRE
             SetMoveTextNumbers();
             SetTypesTextNumber();
 
+            InitScriptDBs();
+
             /* System */
             ScriptCommandParametersDict = BuildCommandParametersDatabase(gameFamily);
 
@@ -251,11 +254,17 @@ namespace DSPRE
             ScriptCommandNamesReverseDict = ScriptCommandNamesDict.Reverse();
             ScriptActionNamesReverseDict = ScriptActionNamesDict.Reverse();
             ScriptComparisonOperatorsReverseDict = ScriptComparisonOperatorsDict.Reverse();
+
         }
 
         #endregion Constructors (1)
 
         #region Methods (22)
+
+        public static void InitScriptDBs()
+        {
+            Helpers.InitializeScriptDatabase(fileName, gameFamily, gameVersion);
+            }
 
         public static Dictionary<ushort, string> BuildCommandNamesDatabase(GameFamilies gameFam)
         {
@@ -265,13 +274,14 @@ namespace DSPRE
             switch (gameFam)
             {
                 case GameFamilies.DP:
-                    commonDictionaryNames = ScriptDatabase.DPPtScrCmdNames;
-                    specificDictionaryNames = ScriptDatabase.DPScrCmdNames;
+                    commonDictionaryNames = ScriptDatabase.DPScrCmdNames;
+                    specificDictionaryNames = new Dictionary<ushort, string>();
                     break;
 
                 case GameFamilies.Plat:
-                    commonDictionaryNames = ScriptDatabase.DPPtScrCmdNames;
-                    specificDictionaryNames = ScriptDatabase.PlatScrCmdNames;
+                    //commonDictionaryNames = ScriptDatabase.DPPtScrCmdNames;
+                    commonDictionaryNames = ScriptDatabase.PlatScrCmdNames;
+                    specificDictionaryNames = new Dictionary<ushort, string>();
                     break;
 
                 default:
@@ -294,13 +304,13 @@ namespace DSPRE
             switch (gameFam)
             {
                 case GameFamilies.DP:
-                    commonDictionaryParams = ScriptDatabase.DPPtScrCmdParameters;
-                    specificDictionaryParams = ScriptDatabase.DPScrCmdParameters;
+                    commonDictionaryParams = ScriptDatabase.DPScrCmdParameters;
+                    specificDictionaryParams = new Dictionary<ushort, byte[]>();
                     break;
 
                 case GameFamilies.Plat:
-                    commonDictionaryParams = ScriptDatabase.DPPtScrCmdParameters;
-                    specificDictionaryParams = ScriptDatabase.PlatScrCmdParameters;
+                    commonDictionaryParams = ScriptDatabase.PlatScrCmdParameters;
+                    specificDictionaryParams = new Dictionary<ushort, byte[]>();
                     break;
 
                 default:
@@ -317,21 +327,7 @@ namespace DSPRE
 
         public static Dictionary<ushort, string> BuildActionNamesDatabase(GameFamilies gameFam)
         {
-            switch (gameFam)
-            {
-                case GameFamilies.DP:
-                case GameFamilies.Plat:
-                    return ScriptDatabase.movementsDictIDName;
-
-                default:
-#if false
-                    var commonDictionaryParams = ScriptDatabase.movementsDictIDName;
-                    var customDictionaryParams = ScriptDatabase.customMovementsDictIDName;
-                    return commonDictionaryParams.Concat(customDictionaryParams).ToLookup(x => x.Key, x => x.Value).ToDictionary(x => x.Key, g => g.First());
-#else
-                    return ScriptDatabase.movementsDictIDName;
-#endif
-            }
+            return ScriptDatabase.movementsDict.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Name);
         }
 
         public static Dictionary<ushort, string> BuildComparisonOperatorsDatabase(GameFamilies gameFam)
@@ -1031,7 +1027,7 @@ namespace DSPRE
             switch (gameFamily)
             {
                 case GameFamilies.DP:
-                    itemNamesTextNumber = 344;
+                    itemNamesTextNumber = gameLanguage == GameLanguages.Japanese ? 341 : 344;
                     itemDescriptionsTextNumber = 0;
                     break;
 
@@ -1478,7 +1474,9 @@ namespace DSPRE
                         [DirNames.otherPokemonBattleSprites] = @"data\poketool\pokegra\otherpoke.narc",
 
                         [DirNames.itemData] = @"data\itemtool\itemdata\item_data.narc",
-                        [DirNames.itemIcons] = @"data\itemtool\itemdata\item_icon.narc"
+                        [DirNames.itemIcons] = @"data\itemtool\itemdata\item_icon.narc",
+
+                        [DirNames.tradeData] = @"data\fielddata\pokemon_trade\fld_trade.narc"
                     };
 
                     //Personal Data archive is different for Pearl
@@ -1489,6 +1487,11 @@ namespace DSPRE
                     }
                     personal += @"\personal.narc";
                     packedDirsDict[DirNames.personalPokeData] = personal;
+
+                    if (gameLanguage != GameLanguages.Japanese)
+                    {
+                        packedDirsDict[DirNames.tradeData] = $@"data\resource\{GetLangResFolderName()}\pokemon_trade\fld_trade.narc";
+                    }
 
                     break;
 
@@ -1533,8 +1536,16 @@ namespace DSPRE
                         [DirNames.evolutions] = @"data\poketool\personal\evo.narc",
 
                         [DirNames.itemData] = @"data\itemtool\itemdata\pl_item_data.narc",
-                        [DirNames.itemIcons] = @"data\itemtool\itemdata\item_icon.narc"
+                        [DirNames.itemIcons] = @"data\itemtool\itemdata\item_icon.narc",
+
+                        [DirNames.tradeData] = @"data\fielddata\pokemon_trade\fld_trade.narc"
                     };
+
+                    if (gameLanguage != GameLanguages.Japanese && gameLanguage != GameLanguages.English)
+                    {
+                        packedDirsDict[DirNames.tradeData] = $@"data\resource\{GetLangResFolderName()}\pokemon_trade\fld_trade.narc";
+                    }
+
                     break;
 
                 case GameFamilies.HGSS:
@@ -1575,6 +1586,7 @@ namespace DSPRE
                         [DirNames.evolutions] = @"data\a\0\3\4",
                         [DirNames.itemData] = @"data\a\0\1\7",
                         [DirNames.itemIcons] = @"data\a\0\1\8",
+                        [DirNames.tradeData] = @"data\a\1\1\2",
 
                         [DirNames.safariZone] = @"data\a\2\3\0",
                         [DirNames.headbutt] = @"data\a\2\5\2", //both versions use the same folder with different data
@@ -1589,6 +1601,25 @@ namespace DSPRE
             foreach (KeyValuePair<DirNames, string> kvp in packedDirsDict)
             {
                 gameDirs.Add(kvp.Key, (workDir + kvp.Value, workDir + @"unpacked" + '\\' + kvp.Key.ToString()));
+            }
+        }
+
+        public static string GetLangResFolderName()
+        {
+            switch (gameLanguage)
+            {
+                case GameLanguages.English:
+                    return "eng";
+                case GameLanguages.Italian:
+                    return "ita";
+                case GameLanguages.French:
+                    return "fra";
+                case GameLanguages.German:
+                    return "ger";
+                case GameLanguages.Spanish:
+                    return "spa";
+                default:
+                    return "";
             }
         }
 

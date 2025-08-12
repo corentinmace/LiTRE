@@ -595,7 +595,8 @@ namespace DSPRE
                     for (int i = 0; i < itemScriptFile.allScripts.Count - 1; i++)
                     {
                         vanillaItemsArray[i] = BitConverter.ToInt16(itemScriptFile.allScripts[i].commands[0].cmdParams[1], 0);
-                    };
+                    }
+                    ;
 
                     // Parse all event files and fix instances of ground items according to the new order
                     int cnt = Filesystem.GetEventFileCount();

@@ -1,20 +1,25 @@
-﻿using System;
+﻿using DSPRE.ROMFiles;
+using Ekona.Images;
+using Images;
+using LibGit2Sharp;
+using LibNDSFormats.NSBMD;
+using LibNDSFormats.NSBTX;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using ScintillaNET;
+using ScintillaNET.Utils;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using Tao.OpenGl;
-using LibNDSFormats.NSBMD;
-using LibNDSFormats.NSBTX;
-using DSPRE.ROMFiles;
-using Images;
-using Ekona.Images;
-using ScintillaNET;
-using ScintillaNET.Utils;
-using Tao.Platform.Windows;
-using NSMBe4.DSFileSystem;
+using Velopack;
+using Velopack.Sources;
+using static DSPRE.RomInfo;
 
 namespace DSPRE {
     public static class Helpers {
@@ -30,6 +35,130 @@ namespace DSPRE {
         public static void Initialize(MainProgram mainProgram) {
             MainProgram = mainProgram;
             mapRenderer = new NSBMDGlRenderer();
+        }
+
+        public static void CheckForUpdates(bool silent = true)
+        {
+            AppLogger.Info("Checking for updates...");
+            var mgr = new UpdateManager(new GithubSource("https://github.com/Mixone-FinallyHere/DS-Pokemon-Rom-Editor", "", prerelease: false));
+
+            var newVersion = mgr.CheckForUpdates();
+            if (newVersion == null)
+            {
+                AppLogger.Info("No updates available.");
+                if (!silent)
+                    MessageBox.Show("No update is available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                DialogResult update = MessageBox.Show($"A new DSPRE version is available: {newVersion.TargetFullRelease.Version}.\nDo you want to install it?", "New update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (update == DialogResult.Yes)
+                {
+                    AppLogger.Info($"New version available: {newVersion.TargetFullRelease.Version} (Current: {mgr.CurrentVersion})");
+                    mgr.DownloadUpdates(newVersion);
+
+                    AppLogger.Info($"Installing update {newVersion.TargetFullRelease.Version} and restarting app...");
+                    mgr.ApplyUpdatesAndRestart(newVersion);
+                }
+                else
+                {
+                    AppLogger.Info("User declined to update the application.");
+                }
+            }
+        }
+
+        public static void CheckForDatabaseUpdates(bool silent = true)
+        {
+            AppLogger.Info("Checking for script database updates...");
+            string pathToDbRepo = Program.DatabasePath;
+
+            try
+            {
+                using (var repo = new Repository(pathToDbRepo))
+                {
+                    var remote = repo.Network.Remotes["origin"];
+                    try
+                    {
+                        Commands.Fetch(repo, remote.Name, remote.FetchRefSpecs.Select(x => x.Specification), null, null);
+                        var remoteMaster = repo.Branches["origin/main"];
+                        Commands.Checkout(repo, repo.Branches["main"]);
+                        repo.Reset(ResetMode.Hard, remoteMaster.Tip);
+
+                        AppLogger.Info("Script databases updated successfully");
+                        if (!silent)
+                        {
+                            MessageBox.Show("Script database updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        AppLogger.Warn($"Could not fetch updates: {ex.Message}");
+                        if (!silent)
+                        {
+                            MessageBox.Show("Could not fetch database updates. Using local database files.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppLogger.Warn($"Could not access git repository: {ex.Message}");
+                if (!silent)
+                {
+                    MessageBox.Show("Could not access database repository. Using local database files.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        public static void InitializeScriptDatabase(string romFileName, GameFamilies gameFamily, GameVersions gameVersion)
+        {
+            string baseFileName = Path.GetFileNameWithoutExtension(romFileName);
+            string romFileNameClean = baseFileName.EndsWith("_DSPRE_contents")
+                ? baseFileName.Substring(0, baseFileName.Length - "_DSPRE_contents".Length)
+                : baseFileName;
+
+            if (SettingsManager.Settings.automaticallyUpdateDBs)
+            {
+                CheckForDatabaseUpdates();
+            }
+
+            string editedDatabasesDir = Path.Combine(Program.DatabasePath, "edited_databases");
+            Directory.CreateDirectory(editedDatabasesDir);
+
+            string targetJsonPath = Path.Combine(editedDatabasesDir, $"{romFileNameClean}_scrcmd_database.json");
+            string databaseJsonPath;
+
+            switch (gameFamily)
+            {
+                case GameFamilies.DP:
+                    databaseJsonPath = Path.Combine(Program.DatabasePath, "dppt_scrcmd_database.json");
+                    break;
+                case GameFamilies.HGSS:
+                    databaseJsonPath = Path.Combine(Program.DatabasePath, "hgss_scrcmd_database.json");
+                    break;
+                case GameFamilies.Plat:
+                    databaseJsonPath = Path.Combine(Program.DatabasePath, "platinum_scrcmd_database.json");
+                    break;
+                default:
+                    throw new Exception("Unknown game family");
+            }
+
+            if (!File.Exists(targetJsonPath))
+            {
+                File.Copy(databaseJsonPath, targetJsonPath);
+            }
+
+            try
+            {
+                ScriptDatabaseJsonLoader.InitializeFromJson(targetJsonPath, gameVersion);
+                ScriptDatabaseJsonLoader.LoadParameterTypes(targetJsonPath, gameVersion);
+            }
+            catch (Exception ex)
+            {
+                AppLogger.Error($"Failed to load script database: {ex.Message}");
+                MessageBox.Show("Failed to load script database. Script editing features may be limited.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         static bool disableHandlersOld;
@@ -52,6 +181,12 @@ namespace DSPRE {
 
         public static void EnableHandlers() {
             disableHandlers = false;
+        }
+
+        public static string GetDSPREVersion()
+        {
+            return "" + Assembly.GetExecutingAssembly().GetName().Version.Major + "." + Assembly.GetExecutingAssembly().GetName().Version.Minor +
+                "." + Assembly.GetExecutingAssembly().GetName().Version.Build;
         }
 
         public static void statusLabelMessage(string msg = "Ready") {
@@ -161,56 +296,62 @@ namespace DSPRE {
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
         }
 
-        public static void RenderMap(ref MapFile mapFile, int width, int height, float ang, float dist, float elev, float perspective, bool mapTexturesON = true, bool buildingTexturesON = true) {
+        public static void RenderMap(ref NSBMDGlRenderer mapRenderer, ref NSBMDGlRenderer buildingsRenderer, ref MapFile mapFile, float ang, float dist, float elev, float perspective, int width, int height, bool mapTexturesON = true, bool buildingTexturesON = true)
+        {
             #region Useless variables that the rendering API still needs
-
             MKDS_Course_Editor.NSBTA.NSBTA.NSBTA_File ani = new MKDS_Course_Editor.NSBTA.NSBTA.NSBTA_File();
             MKDS_Course_Editor.NSBTP.NSBTP.NSBTP_File tp = new MKDS_Course_Editor.NSBTP.NSBTP.NSBTP_File();
             MKDS_Course_Editor.NSBCA.NSBCA.NSBCA_File ca = new MKDS_Course_Editor.NSBCA.NSBCA.NSBCA_File();
             int[] aniframeS = new int[0];
-
             #endregion
+
+            /* Invalidate drawing surfaces */
+            EditorPanels.mapEditor.mapOpenGlControl.Invalidate();
+            EditorPanels.eventEditor.eventOpenGlControl.Invalidate();
 
             /* Adjust rendering settings */
             SetupRenderer(ang, dist, elev, perspective, width, height);
 
             /* Render the map model */
-            NSBMD model = mapFile.mapModel;
-            mapRenderer.Model = model.models[0];
-
-            // int scale = 64;
-            float scale = 0.015625f;
-            Gl.glScalef(mapRenderer.Model.modelScale * scale, mapRenderer.Model.modelScale * scale, mapRenderer.Model.modelScale * scale);
+            mapRenderer.Model = mapFile.mapModel.models[0];
+            Gl.glScalef(mapFile.mapModel.models[0].modelScale / 64, mapFile.mapModel.models[0].modelScale / 64, mapFile.mapModel.models[0].modelScale / 64);
 
             /* Determine if map textures must be rendered */
-            if (mapTexturesON) {
-                Gl.glEnable(Gl.GL_TEXTURE_2D);
-            } else {
+            if (!mapTexturesON)
+            {
                 Gl.glDisable(Gl.GL_TEXTURE_2D);
             }
-
-            // Render map model
-            mapRenderer.RenderModel("", ani, aniframeS, aniframeS, aniframeS, aniframeS, aniframeS, ca, false, -1, 0.0f, 0.0f, dist, elev, ang, true, tp, model);
-
-            if (hideBuildings) {
-                return;
-            }
-
-            if (buildingTexturesON) {
+            else
+            {
                 Gl.glEnable(Gl.GL_TEXTURE_2D);
-            } else {
-                Gl.glDisable(Gl.GL_TEXTURE_2D);
             }
 
-            for (int i = 0; i < mapFile.buildings.Count; i++) {
-                Building building = mapFile.buildings[i];
-                model = building.NSBMDFile;
-                if (model is null) {
-                    Console.WriteLine("Null building can't be rendered");
-                } else {
-                    mapRenderer.Model = model.models[0];
-                    ScaleTranslateRotateBuilding(building);
-                    mapRenderer.RenderModel("", ani, aniframeS, aniframeS, aniframeS, aniframeS, aniframeS, ca, false, -1, 0.0f, 0.0f, dist, elev, ang, true, tp, model);
+            mapRenderer.RenderModel("", ani, aniframeS, aniframeS, aniframeS, aniframeS, aniframeS, ca, false, -1, 0.0f, 0.0f, dist, elev, ang, true, tp, mapFile.mapModel); // Render map model
+
+            if (!hideBuildings)
+            {
+                if (buildingTexturesON)
+                {
+                    Gl.glEnable(Gl.GL_TEXTURE_2D);
+                }
+                else
+                {
+                    Gl.glDisable(Gl.GL_TEXTURE_2D);
+                }
+
+                for (int i = 0; i < mapFile.buildings.Count; i++)
+                {
+                    NSBMD file = mapFile.buildings[i].NSBMDFile;
+                    if (file is null)
+                    {
+                        Console.WriteLine("Null building can't be rendered");
+                    }
+                    else
+                    {
+                        buildingsRenderer.Model = file.models[0];
+                        ScaleTranslateRotateBuilding(mapFile.buildings[i]);
+                        buildingsRenderer.RenderModel("", ani, aniframeS, aniframeS, aniframeS, aniframeS, aniframeS, ca, false, -1, 0.0f, 0.0f, dist, elev, ang, true, tp, file);
+                    }
                 }
             }
         }
@@ -409,7 +550,7 @@ namespace DSPRE {
         extern static bool DestroyIcon(IntPtr handle);
 
 
-        public static void PopOutEditor<T>(T control, string title, Image icon, Action<T> onClose = null) where T : Control
+        public static void PopOutEditorHandler<T>(T control, string title, Image icon, Action<T> onClose = null) where T : Control
         {
             var originalParent = control.Parent;
             var originalIndex = originalParent?.Controls.IndexOf(control) ?? -1;
@@ -460,5 +601,272 @@ namespace DSPRE {
 
             form.Show();
         }
+
+
+        public static void PopOutEditor(Control control, string editorName, Label label, Button button, Image icon)
+        {
+            if (control == null)
+            {
+                MessageBox.Show("The editor control is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            label.Visible = true; // Show Editor popped-out label
+            button.Enabled = false; // Disable popout button
+
+            Helpers.PopOutEditorHandler(control, editorName, icon, onClose =>
+            {
+                label.Visible = false; // Hide Editor popped-out label
+                button.Enabled = true; // Enable popout button
+            });
+        }
+
+        public static void ExclusiveCBInvert(CheckBox cb)
+        {
+            if (Helpers.HandlersDisabled)
+            {
+                return;
+            }
+
+            Helpers.DisableHandlers();
+
+            if (cb.Checked)
+            {
+                cb.Checked = !cb.Checked;
+            }
+
+            Helpers.EnableHandlers();
+        }
+
+        public static void ContentBasedBatchRename(MainProgram parent, DirectoryInfo d = null)
+        {
+            (DirectoryInfo d, FileInfo[] files) dirData = OpenNonEmptyDir(d, title: "Content-Based Batch Rename Tool");
+            d = dirData.d;
+            FileInfo[] files = dirData.files;
+
+            if (d == null || files == null)
+            {
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("About to rename " + files.Length + " file" + (files.Length > 1 ? "s" : "") +
+                " from the input folder (taken in ascending order), according to their content.\n" +
+                "If a destination file already exists, DSPRE will append a number to its name.\n\n" +
+                "Do you want to proceed?", "Confirm operation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr.Equals(DialogResult.Yes))
+            {
+                List<string> enumerationFile = new List<string> {
+                    "#============================================================================",
+                    "# File enumeration definition for folder " + "\"" + d.Name + "\"",
+                    "#============================================================================"
+                };
+                int initialLength = enumerationFile.Count;
+
+                const byte toRead = 16;
+                foreach (FileInfo f in files)
+                {
+                    Console.WriteLine(f.Name);
+
+                    string fileNameOnly = Path.GetFileNameWithoutExtension(f.FullName);
+                    string dirNameOnly = Path.GetDirectoryName(f.FullName);
+
+                    string destName = "";
+                    byte[] b = DSUtils.ReadFromFile(f.FullName, 0, toRead);
+
+                    if (b == null || b.Length < toRead)
+                    {
+                        continue;
+                    }
+
+                    string magic = "";
+
+                    if (b[0] == 'B' && b[3] == '0')
+                    { //B**0
+                        ushort nameOffset;
+
+                        destName = dirNameOnly + "\\"; //Full filename can be changed
+                        nameOffset = (ushort)(52 + (4 * (BitConverter.ToUInt16(b, 0xE) - 1)));
+
+                        if (b[1] == 'T' && b[2] == 'X')
+                        { //BTX0
+#if false
+                            nameOffset += 0xEC;
+#else
+                            destName = fileNameOnly;
+#endif
+                        }
+
+                        string nameRead = Encoding.UTF8.GetString(DSUtils.ReadFromFile(f.FullName, nameOffset, 16)).TrimEnd(new char[] { (char)0 });
+
+                        if (nameRead.Length <= 0 || nameRead.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
+                        {
+                            destName = fileNameOnly; //Filename can't be changed, only extension
+                        }
+                        else
+                        {
+                            destName += nameRead;
+                        }
+
+                        destName += ".ns";
+                        for (int i = 0; i < 3; i++)
+                        {
+                            magic += Char.ToLower((char)b[i]);
+                        }
+                    }
+                    else
+                    {
+                        destName = fileNameOnly + ".";
+                        byte offset = 0;
+
+                        if (b[5] == 'R' && b[8] == 'N')
+                        {
+                            offset = 5;
+                        }
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            magic += Char.ToLower((char)b[offset + i]);
+                        }
+                    }
+
+                    if (string.IsNullOrWhiteSpace(magic) || !magic.All(char.IsLetterOrDigit))
+                    {
+                        continue;
+                    }
+
+                    destName += magic;
+
+                    if (string.IsNullOrWhiteSpace(destName))
+                    {
+                        continue;
+                    }
+
+                    destName = MakeUniqueName(destName, fileNameOnly = null, dirNameOnly);
+                    System.IO.File.Move(f.FullName, Path.Combine(Path.GetDirectoryName(f.FullName), Path.GetFileName(destName)));
+
+                    enumerationFile.Add(Path.GetFileName(destName));
+                }
+
+                if (enumerationFile.Count > initialLength)
+                {
+                    MessageBox.Show("Files inside folder \"" + d.FullName + "\" have been renamed according to their contents.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    DialogResult response = MessageBox.Show("Do you want to save a file enumeration list?", "Waiting for user", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (response.Equals(DialogResult.Yes))
+                    {
+                        MessageBox.Show("Choose where to save the output list file.", "Name your list file", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        SaveFileDialog sf = new SaveFileDialog
+                        {
+                            Filter = "List File (*.txt; *.list)|*.txt;*.list",
+                            FileName = d.Name + ".list"
+                        };
+                        if (sf.ShowDialog(parent) != DialogResult.OK)
+                        {
+                            return;
+                        }
+
+                        System.IO.File.WriteAllLines(sf.FileName, enumerationFile);
+                        MessageBox.Show("List file saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No file content could be recognized.", "Operation terminated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        public static (DirectoryInfo, FileInfo[]) OpenNonEmptyDir(DirectoryInfo d = null, string title = "Waiting for user")
+        {
+            /*==================================================================*/
+            if (d == null)
+            {
+                MessageBox.Show("Choose a source folder.", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CommonOpenFileDialog sourceDirDialog = new CommonOpenFileDialog
+                {
+                    IsFolderPicker = true,
+                    Multiselect = false
+                };
+
+                if (sourceDirDialog.ShowDialog() != CommonFileDialogResult.Ok)
+                {
+                    return (null, null);
+                }
+
+                d = new DirectoryInfo(sourceDirDialog.FileName);
+            }
+
+            FileInfo[] tempfiles = d.GetFiles();
+            FileInfo[] files = tempfiles.OrderBy(n => System.Text.RegularExpressions.Regex.Replace(n.Name, @"\d+", e => e.Value.PadLeft(tempfiles.Length.ToString().Length, '0'))).ToArray();
+
+            if (files.Length <= 0)
+            {
+                MessageBox.Show("Folder " + "\"" + d.FullName + "\"" + " is empty.\nCan't proceed.", "Invalid folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return (null, null);
+            };
+
+            return (d, files);
+        }
+
+        public static string MakeUniqueName(string fileName, string fileNameOnly = null, string dirNameOnly = null, string extension = null)
+        {
+            if (fileNameOnly == null)
+            {
+                fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
+            }
+            if (dirNameOnly == null)
+            {
+                dirNameOnly = Path.GetDirectoryName(fileName);
+            }
+            if (extension == null)
+            {
+                extension = Path.GetExtension(fileName);
+            }
+
+            int append = 1;
+
+            while (System.IO.File.Exists(Path.Combine(dirNameOnly, fileName)))
+            {
+                string tmp = fileNameOnly + "(" + (append++) + ")";
+                fileName = Path.Combine(dirNameOnly, tmp + extension);
+            }
+            return fileName;
+        }
+
+        public static void ExportTrainerUsageToCSV(Dictionary<string, Dictionary<string, int>> trainerUsage, string csvFilePath)
+        {
+            // Create the StreamWriter to write data to the CSV file
+            var sortedTrainerClasses = trainerUsage.Keys.OrderBy(className => className);
+
+            using (StreamWriter sw = new StreamWriter(csvFilePath))
+            {
+                // Write the header row
+                sw.WriteLine("Trainer Class;Pokemon Name;Occurrences");
+
+                // Iterate over the sorted trainer class names
+                foreach (string className in sortedTrainerClasses)
+                {
+                    Dictionary<string, int> innerDict = trainerUsage[className];
+
+                    // Sort the Pokemon names alphabetically
+                    var sortedPokemonNames = innerDict.Keys.OrderByDescending(pokeName => innerDict[pokeName]);
+
+                    // Iterate over the sorted mon names
+                    foreach (string pokeName in sortedPokemonNames)
+                    {
+                        int occurrences = innerDict[pokeName];
+
+                        // Write the data row
+                        sw.WriteLine($"{className};{pokeName};{occurrences}");
+                    }
+                    sw.WriteLine($"-;-;-");
+                }
+            }
+
+            Console.WriteLine("CSV file exported successfully.");
+        }
+
     }
 }

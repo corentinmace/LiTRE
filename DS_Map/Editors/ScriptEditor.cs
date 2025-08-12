@@ -11,6 +11,7 @@ using ScintillaNET.Utils;
 using System.Globalization;
 using static OpenTK.Graphics.OpenGL.GL;
 using System.Diagnostics;
+using System.Linq;
 
 namespace DSPRE.Editors {
     public partial class ScriptEditor : UserControl {
@@ -97,16 +98,20 @@ namespace DSPRE.Editors {
             addScriptFileButton.Enabled = false;
             removeScriptFileButton.Enabled = false;
             viewLevelScriptButton.Enabled = false;
-            if(Properties.Settings.Default.vscPath == "")
-            {
-                openInVSC.Enabled = false;
-            }
+            //if(SettingsManager.Settings.vscPath == string.Empty)
+            //{
+            //    openInVSC.Enabled = false;
+            //}
         }
 
         public void SetupScriptEditor(MainProgram parent, bool force = false) {
             if (scriptEditorIsReady && !force) { return; }
             scriptEditorIsReady = true;
             this._parent = parent;
+            ScriptDatabase.InitializePokemonNames();
+            ScriptDatabase.InitializeItemNames();
+            ScriptDatabase.InitializeMoveNames();
+            ScriptDatabase.InitializeTrainerNames();
             SetupScriptEditorTextAreas();
 
             /* Extract essential NARCs sub-archives*/
@@ -117,7 +122,7 @@ namespace DSPRE.Editors {
 
             populate_selectScriptFileComboBox(0);
 
-            UpdateScriptNumberCheckBox((NumberStyles)Properties.Settings.Default.scriptEditorFormatPreference);
+            UpdateScriptNumberCheckBox((NumberStyles)SettingsManager.Settings.scriptEditorFormatPreference);
             Helpers.statusLabelMessage();
         }
 
@@ -132,12 +137,17 @@ namespace DSPRE.Editors {
         private void SetupScriptEditorTextAreas() {
             //PREPARE SCRIPT EDITOR KEYWORDS
             cmdKeyWords = String.Join(" ", RomInfo.ScriptCommandNamesDict.Values) +
-                          " " + String.Join(" ", ScriptDatabase.movementsDictIDName.Values);
+                            " " + String.Join(" ", ScriptDatabase.movementsDict.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Name).Values);
             cmdKeyWords += " " + cmdKeyWords.ToUpper() + " " + cmdKeyWords.ToLower();
 
             secondaryKeyWords = String.Join(" ", RomInfo.ScriptComparisonOperatorsDict.Values) +
                                 " " + String.Join(" ", ScriptDatabase.specialOverworlds.Values) +
                                 " " + String.Join(" ", ScriptDatabase.overworldDirections.Values) +
+                                " " + String.Join(" ", ScriptDatabase.pokemonNames.Values) +
+                                " " + String.Join(" ", ScriptDatabase.itemNames.Values) +
+                                " " + String.Join(" ", ScriptDatabase.moveNames.Values) +
+                                " " + String.Join(" ", ScriptDatabase.soundNames.Values) +
+                                " " + String.Join(" ", ScriptDatabase.trainerNames.Values) +
                                 " " + ScriptFile.ContainerTypes.Script.ToString() +
                                 " " + ScriptFile.ContainerTypes.Function.ToString() +
                                 " " + ScriptFile.ContainerTypes.Action.ToString() +
@@ -437,9 +447,9 @@ namespace DSPRE.Editors {
 
         public void UpdateScriptNumberCheckBox(NumberStyles toSet) {
             Helpers.DisableHandlers();
-            Properties.Settings.Default.scriptEditorFormatPreference = (int)toSet;
+            SettingsManager.Settings.scriptEditorFormatPreference = (int)toSet;
 
-            switch ((NumberStyles)Properties.Settings.Default.scriptEditorFormatPreference) {
+            switch ((NumberStyles)SettingsManager.Settings.scriptEditorFormatPreference) {
                 case NumberStyles.None:
                     scriptEditorNumberFormatNoPreference.Checked = true;
                     break;
@@ -451,14 +461,14 @@ namespace DSPRE.Editors {
                     break;
             }
 
-            Console.WriteLine("changed style to " + Properties.Settings.Default.scriptEditorFormatPreference);
+            Console.WriteLine("changed style to " + SettingsManager.Settings.scriptEditorFormatPreference);
             Helpers.EnableHandlers();
         }
 
         private void UpdateScriptNumberFormat(NumberStyles numberStyle) {
             if (Helpers.HandlersEnabled) {
-                NumberStyles old = (NumberStyles)Properties.Settings.Default.scriptEditorFormatPreference; //Local Backup
-                Properties.Settings.Default.scriptEditorFormatPreference = (int)numberStyle;
+                NumberStyles old = (NumberStyles)SettingsManager.Settings.scriptEditorFormatPreference; //Local Backup
+                SettingsManager.Settings.scriptEditorFormatPreference = (int)numberStyle;
 
                 if (!DisplayScript()) {
                     UpdateScriptNumberCheckBox(old); //Restore old checkbox status! Script couldn't be redrawn
@@ -1166,7 +1176,7 @@ namespace DSPRE.Editors {
 
                 string arguments = $"\"{fullFolderPath}\" \"{fullFilePath}\"";
 
-                StartProcess(Properties.Settings.Default.vscPath, arguments);
+                StartProcess(SettingsManager.Settings.vscPath, arguments);
             }
         }
 

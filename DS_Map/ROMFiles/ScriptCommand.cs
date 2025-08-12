@@ -298,7 +298,7 @@ namespace DSPRE.ROMFiles {
             int paramLength = 0;
             int paramsProcessed = 0;
 
-            if (parametersSizeArr.First() == 0xFF) {
+            if (parametersSizeArr.Length > 0 && parametersSizeArr.First() == 0xFF) {
                 int firstParamValue = int.Parse(nameParts[1].PurgeSpecial(ScriptFile.specialChars), nameParts[1].GetNumberStyle());
                 byte firstParamSize = parametersSizeArr[1];
 
@@ -437,7 +437,7 @@ namespace DSPRE.ROMFiles {
             string formatOverride;
             string prefix;
 
-            if (Properties.Settings.Default.scriptEditorFormatPreference == (int)NumberStyles.HexNumber) {
+            if (SettingsManager.Settings.scriptEditorFormatPreference == (int)NumberStyles.HexNumber) {
                 formatOverride = "X";
                 prefix = "0x";
             } else { //(Properties.Settings.Default.scriptEditorFormatPreference == NumberStyles.Integer)
@@ -487,7 +487,7 @@ namespace DSPRE.ROMFiles {
                         }
                     }
                 default:
-                    if (Properties.Settings.Default.scriptEditorFormatPreference == (int)NumberStyles.None) {
+                    if (SettingsManager.Settings.scriptEditorFormatPreference == (int)NumberStyles.None) {
                         if (num >= 4000) {
                             formatOverride = "X";
                             prefix = "0x";

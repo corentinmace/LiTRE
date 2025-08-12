@@ -18,10 +18,10 @@ namespace DSPRE.Editors
     {
         MainProgram _parent;
         public bool textEditorIsReady { get; set; } = false;
-        private ComboBox _locationNameComboBox;
         public TextEditor()
         {
             InitializeComponent();
+            this.textSearchResultsListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textSearchResultsListBox_GoToEntryResult);
 
         }
 
@@ -30,20 +30,23 @@ namespace DSPRE.Editors
         #region Variables
         public TextArchive currentTextArchive;
         #endregion
-
-        #region Subroutines
-
-        #endregion
+        
 
         private void addTextArchiveButton_Click(object sender, EventArgs e)
         {
             /* Add copy of message 0 to text archives folder */
-            new TextArchive(0, new List<string>() { "Your text here." }, discardLines: true).SaveToFileDefaultDir(selectTextFileComboBox.Items.Count);
+            new TextArchive(0, new List<string>() { "Your text here." }, discardLines: true).SaveToFileDefaultDir(selectTextFileComboBox.Items.Count, false);
 
             /* Update ComboBox and select new file */
             selectTextFileComboBox.Items.Add("Text Archive " + selectTextFileComboBox.Items.Count);
             selectTextFileComboBox.SelectedIndex = selectTextFileComboBox.Items.Count - 1;
         }
+
+        private void locateCurrentTextArchive_Click(object sender, EventArgs e)
+        {
+            Helpers.ExplorerSelect(Path.Combine(gameDirs[DirNames.textArchives].unpackedDir, EditorPanels.textEditor.currentTextArchive.initialKey.ToString("D4")));
+        }
+
         private void addStringButton_Click(object sender, EventArgs e)
         {
             currentTextArchive.messages.Add("");
@@ -119,7 +122,7 @@ namespace DSPRE.Editors
 
             if (textSelection == RomInfo.locationNamesTextNumber)
             {
-                ReloadHeaderEditorLocationsList(currentTextArchive.messages);
+                ReloadHeaderEditorLocationsList(currentTextArchive.messages, _parent);
             }
         }
 
@@ -128,7 +131,7 @@ namespace DSPRE.Editors
             currentTextArchive.SaveToFileDefaultDir(selectTextFileComboBox.SelectedIndex);
             if (selectTextFileComboBox.SelectedIndex == RomInfo.locationNamesTextNumber)
             {
-                ReloadHeaderEditorLocationsList(currentTextArchive.messages);
+                ReloadHeaderEditorLocationsList(currentTextArchive.messages, _parent);
             }
         }
         private void selectedLineMoveUpButton_Click(object sender, EventArgs e)
@@ -161,18 +164,13 @@ namespace DSPRE.Editors
             }
         }
         //TODO : Externalize this function in a helper
-        public void ReloadHeaderEditorLocationsList(IEnumerable<string> contents, ComboBox forcedLocationNameComboBox=null)
+        public void ReloadHeaderEditorLocationsList(IEnumerable<string> contents, MainProgram parent=null)
         {
-            if (_locationNameComboBox == null && forcedLocationNameComboBox == null) return;
-            if (forcedLocationNameComboBox != null)
-            {
-                _locationNameComboBox = forcedLocationNameComboBox;
-            }
-            _locationNameComboBox = forcedLocationNameComboBox;
-            int selection = _locationNameComboBox.SelectedIndex;
-            _locationNameComboBox.Items.Clear();
-            _locationNameComboBox.Items.AddRange(contents.ToArray());
-            _locationNameComboBox.SelectedIndex = selection;
+            if(parent != null) _parent = parent;
+            int selection = EditorPanels.headerEditor.locationNameComboBox.SelectedIndex;
+            EditorPanels.headerEditor.locationNameComboBox.Items.Clear();
+            EditorPanels.headerEditor.locationNameComboBox.Items.AddRange(contents.ToArray());
+            EditorPanels.headerEditor.locationNameComboBox.SelectedIndex = selection;
         }
         private void importTextFileButton_Click(object sender, EventArgs e)
         {
@@ -538,7 +536,7 @@ namespace DSPRE.Editors
         private void hexRadiobutton_CheckedChanged(object sender, EventArgs e)
         {
             updateTextEditorLineNumbers();
-            Properties.Settings.Default.textEditorPreferHex = hexRadiobutton.Checked;
+            SettingsManager.Settings.textEditorPreferHex = hexRadiobutton.Checked;
         }
         private void updateTextEditorLineNumbers()
         {
@@ -557,19 +555,17 @@ namespace DSPRE.Editors
         public void OpenTextEditor(MainProgram parent, int TextArchiveID, ComboBox locationNameComboBox)
         {
 
-            SetupTextEditor(parent, locationNameComboBox);
+            SetupTextEditor(parent);
 
             selectTextFileComboBox.SelectedIndex = TextArchiveID;
             EditorPanels.mainTabControl.SelectedTab = EditorPanels.textEditorTabPage;
         }
 
-        public void SetupTextEditor(MainProgram parent, ComboBox locationNameComboBox, bool force = false)
+        public void SetupTextEditor(MainProgram parent, bool force = false)
         {
             if (textEditorIsReady && !force) { return; }
             textEditorIsReady = true;
             this._parent = parent;
-
-            _locationNameComboBox = locationNameComboBox;
 
             DSUtils.TryUnpackNarcs(new List<DirNames> { DirNames.textArchives });
             Helpers.statusLabelMessage("Setting up Text Editor...");
@@ -583,7 +579,7 @@ namespace DSPRE.Editors
             }
 
             Helpers.DisableHandlers();
-            hexRadiobutton.Checked = Properties.Settings.Default.textEditorPreferHex;
+            hexRadiobutton.Checked = SettingsManager.Settings.textEditorPreferHex;
             Helpers.EnableHandlers();
 
             selectTextFileComboBox.SelectedIndex = 0;

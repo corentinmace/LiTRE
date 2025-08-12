@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DSPRE.RomInfo;
+using static NSMBe4.ROM;
 
 namespace DSPRE
 {
@@ -37,21 +40,39 @@ namespace DSPRE
 
         private String oldExportPath;
         private String oldMapImportPath;
-        private String oldVscPath;
         private String oldOpenDefaultPath;
 
         private void SettingsWindow_Load(object sender, EventArgs e)
         {
-            romExportPathTextBox.Text = Properties.Settings.Default.exportPath;
-            oldExportPath = Properties.Settings.Default.exportPath;
-            mapImportPathTextBox.Text = Properties.Settings.Default.mapImportStarterPoint;
-            oldMapImportPath = Properties.Settings.Default.mapImportStarterPoint;
-            VSCPathTextBox.Text = Properties.Settings.Default.vscPath;
-            oldVscPath = Properties.Settings.Default.vscPath;
-            openDefaultRomTextBox.Text = Properties.Settings.Default.openDefaultRom;
-            oldOpenDefaultPath = Properties.Settings.Default.openDefaultRom;
-            dontAskOpenCheckbox.Checked = Properties.Settings.Default.neverAskForOpening;
+            currentVersionLabel.Text = $"DSPRE Version {Helpers.GetDSPREVersion()}";
+            romExportPathTextBox.Text = SettingsManager.Settings.exportPath;
+            oldExportPath = SettingsManager.Settings.exportPath;
+            mapImportPathTextBox.Text = SettingsManager.Settings.mapImportStarterPoint;
+            oldMapImportPath = SettingsManager.Settings.mapImportStarterPoint;
+            openDefaultRomTextBox.Text = SettingsManager.Settings.openDefaultRom;
+            oldOpenDefaultPath = SettingsManager.Settings.openDefaultRom;
+            dontAskOpenCheckbox.Checked = SettingsManager.Settings.neverAskForOpening;
+            automaticCheckUpdateCheckbox.Checked = SettingsManager.Settings.automaticallyCheckForUpdates;
+            automaticCheckDBUpdateCheckbox.Checked = SettingsManager.Settings.automaticallyUpdateDBs;
 
+        }
+
+        private void enabledAdvancedModeButton_Click(object sender, EventArgs e)
+        {
+            DialogResult d = MessageBox.Show("You are about to enable advanced mode, doing this will make the following changes:\n\n" +
+                "- Unpack all script files to plaintext .inc files that are compatible with decomps, allowing you to edit them in an IDE or port them between decomps and DSPRE" + "\n\n" +
+                "This will disable the built in script editor until you turn advanced mode off.\n\n" +
+                "Do you wish to continue?",
+                "Confirm to proceed", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (d == DialogResult.Yes)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("No changes have been made.", "Operation canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void changePathButton1_Click(object sender, EventArgs e)
@@ -70,7 +91,7 @@ namespace DSPRE
 
         private void changePathButton3_Click(object sender, EventArgs e)
         {
-            VSCPathTextBox.Text = getFolderPath();
+            //VSCPathTextBox.Text = getFolderPath();
         }
 
 
@@ -90,14 +111,21 @@ namespace DSPRE
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.exportPath = romExportPathTextBox.Text;
-            Properties.Settings.Default.mapImportStarterPoint = mapImportPathTextBox.Text;
-            Properties.Settings.Default.vscPath = VSCPathTextBox.Text;
-            Properties.Settings.Default.openDefaultRom = openDefaultRomTextBox.Text;
-            oldExportPath = Properties.Settings.Default.exportPath;
-            oldMapImportPath = Properties.Settings.Default.mapImportStarterPoint;
-            oldVscPath = Properties.Settings.Default.vscPath;
-            oldOpenDefaultPath = Properties.Settings.Default.openDefaultRom;
+            SettingsManager.Settings.exportPath = romExportPathTextBox.Text;
+            SettingsManager.Settings.mapImportStarterPoint = mapImportPathTextBox.Text;
+            SettingsManager.Settings.openDefaultRom = openDefaultRomTextBox.Text;
+
+            SettingsManager.Settings.neverAskForOpening = dontAskOpenCheckbox.Checked;
+            SettingsManager.Settings.automaticallyUpdateDBs = automaticCheckDBUpdateCheckbox.Checked;
+            SettingsManager.Settings.automaticallyCheckForUpdates = automaticCheckUpdateCheckbox.Checked;
+
+            oldExportPath = SettingsManager.Settings.exportPath;
+            oldMapImportPath = SettingsManager.Settings.mapImportStarterPoint;
+            oldOpenDefaultPath = SettingsManager.Settings.openDefaultRom;
+
+
+            SettingsManager.Save();
+            MessageBox.Show("Settings saved successfully!","", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -122,25 +150,19 @@ namespace DSPRE
         {
             mapImportPathTextBox.Text = "";
         }
-
-        private void mapImportBasePathLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void clearVSCPath_Click(object sender, EventArgs e)
-        {
-            VSCPathTextBox.Text = "";
-        }
-
         private void clearButtonOpenDefault_Click(object sender, EventArgs e)
         {
             openDefaultRomTextBox.Text = "";
         }
 
-        private void dontAskOpenCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void checkForUpdatesButton_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.neverAskForOpening = dontAskOpenCheckbox.Checked;
+            Helpers.CheckForUpdates(false);
+        }
+
+        private void checkDBUpdatesButton_Click(object sender, EventArgs e)
+        {
+            Helpers.CheckForDatabaseUpdates(false);
         }
     }
 }
