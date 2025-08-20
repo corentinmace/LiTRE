@@ -2629,5 +2629,10 @@ namespace DSPRE.Editors
                 updateTimeForOverworld(selectedOw);
             }
         }
+
+        private void positionGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

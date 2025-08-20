@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventEditorLiT));
             System.Windows.Forms.PictureBox dayPictureBox;
             System.Windows.Forms.PictureBox morningPictureBox;
             System.Windows.Forms.PictureBox lateNightPictureBox;
             System.Windows.Forms.PictureBox nightPictureBox;
             System.Windows.Forms.PictureBox twilightPictureBox;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventEditorLiT));
             this.locateCurrentEvFile = new System.Windows.Forms.Button();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.showTriggersCheckBox = new System.Windows.Forms.CheckBox();
@@ -80,6 +80,13 @@
             this.spawnableScriptUpDown = new System.Windows.Forms.NumericUpDown();
             this.spawnablesListBox = new System.Windows.Forms.ListBox();
             this.overworldsTabPage = new System.Windows.Forms.TabPage();
+            this.timeDependencyBox = new System.Windows.Forms.GroupBox();
+            this.lateNightCheckbox = new System.Windows.Forms.CheckBox();
+            this.nightCheckbox = new System.Windows.Forms.CheckBox();
+            this.twilightCheckbox = new System.Windows.Forms.CheckBox();
+            this.dayCheckbox = new System.Windows.Forms.CheckBox();
+            this.morningCheckbox = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.sortOWsByIDDescButton = new System.Windows.Forms.Button();
             this.sortOWsByIDAscButton = new System.Windows.Forms.Button();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
@@ -202,18 +209,16 @@
             this.importEventFileButton = new System.Windows.Forms.Button();
             this.saveEventsButton = new System.Windows.Forms.Button();
             this.screenshotButton = new System.Windows.Forms.Button();
-            this.twilightCheckbox = new System.Windows.Forms.CheckBox();
-            this.dayCheckbox = new System.Windows.Forms.CheckBox();
-            this.morningCheckbox = new System.Windows.Forms.CheckBox();
-            this.timeDependencyBox = new System.Windows.Forms.GroupBox();
-            this.lateNightCheckbox = new System.Windows.Forms.CheckBox();
-            this.nightCheckbox = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             dayPictureBox = new System.Windows.Forms.PictureBox();
             morningPictureBox = new System.Windows.Forms.PictureBox();
             lateNightPictureBox = new System.Windows.Forms.PictureBox();
             nightPictureBox = new System.Windows.Forms.PictureBox();
             twilightPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(dayPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(morningPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lateNightPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(nightPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(twilightPictureBox)).BeginInit();
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventAreaDataUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventMatrixYUpDown)).BeginInit();
@@ -231,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnableYMapUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spawnableScriptUpDown)).BeginInit();
             this.overworldsTabPage.SuspendLayout();
+            this.timeDependencyBox.SuspendLayout();
             this.groupBox22.SuspendLayout();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.owYMatrixUpDown)).BeginInit();
@@ -280,13 +286,57 @@
             ((System.ComponentModel.ISupportInitialize)(this.rightClickPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wheelClickPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftClickPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(dayPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(morningPictureBox)).BeginInit();
-            this.timeDependencyBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(lateNightPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(nightPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(twilightPictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dayPictureBox
+            // 
+            dayPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_1;
+            dayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            dayPictureBox.Location = new System.Drawing.Point(73, 19);
+            dayPictureBox.Name = "dayPictureBox";
+            dayPictureBox.Size = new System.Drawing.Size(20, 20);
+            dayPictureBox.TabIndex = 4;
+            dayPictureBox.TabStop = false;
+            // 
+            // morningPictureBox
+            // 
+            morningPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_0;
+            morningPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            morningPictureBox.Location = new System.Drawing.Point(29, 19);
+            morningPictureBox.Name = "morningPictureBox";
+            morningPictureBox.Size = new System.Drawing.Size(20, 20);
+            morningPictureBox.TabIndex = 2;
+            morningPictureBox.TabStop = false;
+            // 
+            // lateNightPictureBox
+            // 
+            lateNightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_4;
+            lateNightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            lateNightPictureBox.Location = new System.Drawing.Point(201, 19);
+            lateNightPictureBox.Name = "lateNightPictureBox";
+            lateNightPictureBox.Size = new System.Drawing.Size(20, 20);
+            lateNightPictureBox.TabIndex = 10;
+            lateNightPictureBox.TabStop = false;
+            // 
+            // nightPictureBox
+            // 
+            nightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_3;
+            nightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            nightPictureBox.Location = new System.Drawing.Point(159, 19);
+            nightPictureBox.Name = "nightPictureBox";
+            nightPictureBox.Size = new System.Drawing.Size(20, 20);
+            nightPictureBox.TabIndex = 8;
+            nightPictureBox.TabStop = false;
+            // 
+            // twilightPictureBox
+            // 
+            twilightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_2;
+            twilightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            twilightPictureBox.Location = new System.Drawing.Point(115, 19);
+            twilightPictureBox.Name = "twilightPictureBox";
+            twilightPictureBox.Size = new System.Drawing.Size(20, 20);
+            twilightPictureBox.TabIndex = 6;
+            twilightPictureBox.TabStop = false;
             // 
             // locateCurrentEvFile
             // 
@@ -525,7 +575,7 @@
             this.eventsTabControl.Location = new System.Drawing.Point(9, 236);
             this.eventsTabControl.Name = "eventsTabControl";
             this.eventsTabControl.SelectedIndex = 0;
-            this.eventsTabControl.Size = new System.Drawing.Size(452, 404);
+            this.eventsTabControl.Size = new System.Drawing.Size(452, 421);
             this.eventsTabControl.TabIndex = 25;
             this.eventsTabControl.SelectedIndexChanged += new System.EventHandler(this.eventsTabControl_SelectedIndexChanged);
             // 
@@ -545,7 +595,7 @@
             this.signsTabPage.Location = new System.Drawing.Point(4, 22);
             this.signsTabPage.Name = "signsTabPage";
             this.signsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.signsTabPage.Size = new System.Drawing.Size(444, 352);
+            this.signsTabPage.Size = new System.Drawing.Size(444, 378);
             this.signsTabPage.TabIndex = 0;
             this.signsTabPage.Text = "Spawnables";
             this.signsTabPage.UseVisualStyleBackColor = true;
@@ -838,10 +888,90 @@
             this.overworldsTabPage.Location = new System.Drawing.Point(4, 22);
             this.overworldsTabPage.Name = "overworldsTabPage";
             this.overworldsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.overworldsTabPage.Size = new System.Drawing.Size(444, 378);
+            this.overworldsTabPage.Size = new System.Drawing.Size(444, 395);
             this.overworldsTabPage.TabIndex = 1;
             this.overworldsTabPage.Text = "Overworlds";
             this.overworldsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // timeDependencyBox
+            // 
+            this.timeDependencyBox.Controls.Add(lateNightPictureBox);
+            this.timeDependencyBox.Controls.Add(this.lateNightCheckbox);
+            this.timeDependencyBox.Controls.Add(nightPictureBox);
+            this.timeDependencyBox.Controls.Add(this.nightCheckbox);
+            this.timeDependencyBox.Controls.Add(twilightPictureBox);
+            this.timeDependencyBox.Controls.Add(this.twilightCheckbox);
+            this.timeDependencyBox.Controls.Add(dayPictureBox);
+            this.timeDependencyBox.Controls.Add(this.dayCheckbox);
+            this.timeDependencyBox.Controls.Add(morningPictureBox);
+            this.timeDependencyBox.Controls.Add(this.morningCheckbox);
+            this.timeDependencyBox.Controls.Add(this.checkBox1);
+            this.timeDependencyBox.Location = new System.Drawing.Point(197, 137);
+            this.timeDependencyBox.Name = "timeDependencyBox";
+            this.timeDependencyBox.Size = new System.Drawing.Size(232, 49);
+            this.timeDependencyBox.TabIndex = 32;
+            this.timeDependencyBox.TabStop = false;
+            this.timeDependencyBox.Text = "Time Dependency";
+            // 
+            // lateNightCheckbox
+            // 
+            this.lateNightCheckbox.AutoSize = true;
+            this.lateNightCheckbox.Location = new System.Drawing.Point(185, 24);
+            this.lateNightCheckbox.Name = "lateNightCheckbox";
+            this.lateNightCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.lateNightCheckbox.TabIndex = 9;
+            this.lateNightCheckbox.UseVisualStyleBackColor = true;
+            this.lateNightCheckbox.CheckStateChanged += new System.EventHandler(this.lateNightCheckbox_CheckStateChanged);
+            // 
+            // nightCheckbox
+            // 
+            this.nightCheckbox.AutoSize = true;
+            this.nightCheckbox.Location = new System.Drawing.Point(143, 24);
+            this.nightCheckbox.Name = "nightCheckbox";
+            this.nightCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.nightCheckbox.TabIndex = 7;
+            this.nightCheckbox.UseVisualStyleBackColor = true;
+            this.nightCheckbox.CheckStateChanged += new System.EventHandler(this.nightCheckbox_CheckStateChanged);
+            // 
+            // twilightCheckbox
+            // 
+            this.twilightCheckbox.AutoSize = true;
+            this.twilightCheckbox.Location = new System.Drawing.Point(99, 24);
+            this.twilightCheckbox.Name = "twilightCheckbox";
+            this.twilightCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.twilightCheckbox.TabIndex = 5;
+            this.twilightCheckbox.UseVisualStyleBackColor = true;
+            this.twilightCheckbox.CheckStateChanged += new System.EventHandler(this.twilightCheckbox_CheckStateChanged);
+            // 
+            // dayCheckbox
+            // 
+            this.dayCheckbox.AutoSize = true;
+            this.dayCheckbox.Location = new System.Drawing.Point(57, 24);
+            this.dayCheckbox.Name = "dayCheckbox";
+            this.dayCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.dayCheckbox.TabIndex = 3;
+            this.dayCheckbox.UseVisualStyleBackColor = true;
+            this.dayCheckbox.CheckStateChanged += new System.EventHandler(this.dayCheckbox_CheckStateChanged);
+            // 
+            // morningCheckbox
+            // 
+            this.morningCheckbox.AutoSize = true;
+            this.morningCheckbox.Location = new System.Drawing.Point(13, 24);
+            this.morningCheckbox.Name = "morningCheckbox";
+            this.morningCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.morningCheckbox.TabIndex = 1;
+            this.morningCheckbox.UseVisualStyleBackColor = true;
+            this.morningCheckbox.CheckStateChanged += new System.EventHandler(this.morningCheckbox_CheckStateChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Image = global::DSPRE.Properties.Resources.time_1;
+            this.checkBox1.Location = new System.Drawing.Point(18, -21);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(31, 16);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // sortOWsByIDDescButton
             // 
@@ -874,7 +1004,7 @@
             this.groupBox22.Controls.Add(this.normalRadioButton);
             this.groupBox22.Controls.Add(this.isTrainerRadioButton);
             this.groupBox22.Controls.Add(this.isItemRadioButton);
-            this.groupBox22.Location = new System.Drawing.Point(197, 78);
+            this.groupBox22.Location = new System.Drawing.Point(197, 89);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(162, 45);
             this.groupBox22.TabIndex = 28;
@@ -919,7 +1049,7 @@
             // spriteIDlabel
             // 
             this.spriteIDlabel.AutoSize = true;
-            this.spriteIDlabel.Location = new System.Drawing.Point(359, 122);
+            this.spriteIDlabel.Location = new System.Drawing.Point(364, 121);
             this.spriteIDlabel.Name = "spriteIDlabel";
             this.spriteIDlabel.Size = new System.Drawing.Size(0, 13);
             this.spriteIDlabel.TabIndex = 27;
@@ -931,7 +1061,7 @@
             this.groupBox17.Controls.Add(this.label12);
             this.groupBox17.Controls.Add(this.owXMatrixUpDown);
             this.groupBox17.Controls.Add(this.label11);
-            this.groupBox17.Location = new System.Drawing.Point(9, 287);
+            this.groupBox17.Location = new System.Drawing.Point(9, 324);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(179, 59);
             this.groupBox17.TabIndex = 20;
@@ -1001,7 +1131,7 @@
             this.owMovementGroupBox.Controls.Add(this.label4);
             this.owMovementGroupBox.Controls.Add(this.owOrientationComboBox);
             this.owMovementGroupBox.Controls.Add(this.owMovementComboBox);
-            this.owMovementGroupBox.Location = new System.Drawing.Point(197, 282);
+            this.owMovementGroupBox.Location = new System.Drawing.Point(197, 293);
             this.owMovementGroupBox.Name = "owMovementGroupBox";
             this.owMovementGroupBox.Size = new System.Drawing.Size(232, 90);
             this.owMovementGroupBox.TabIndex = 18;
@@ -1107,12 +1237,13 @@
             this.positionGroupBox.Controls.Add(this.owXPositionLabel);
             this.positionGroupBox.Controls.Add(this.owYMapUpDown);
             this.positionGroupBox.Controls.Add(this.label10);
-            this.positionGroupBox.Location = new System.Drawing.Point(8, 231);
+            this.positionGroupBox.Location = new System.Drawing.Point(8, 265);
             this.positionGroupBox.Name = "positionGroupBox";
             this.positionGroupBox.Size = new System.Drawing.Size(180, 57);
             this.positionGroupBox.TabIndex = 19;
             this.positionGroupBox.TabStop = false;
             this.positionGroupBox.Text = "Local Coordinates [Map]";
+            this.positionGroupBox.Enter += new System.EventHandler(this.positionGroupBox_Enter);
             // 
             // label13
             // 
@@ -1206,7 +1337,7 @@
             this.owSpecialGroupBox.Controls.Add(this.owSightRangeUpDown);
             this.owSpecialGroupBox.Controls.Add(this.owTrainerLabel);
             this.owSpecialGroupBox.Enabled = false;
-            this.owSpecialGroupBox.Location = new System.Drawing.Point(197, 176);
+            this.owSpecialGroupBox.Location = new System.Drawing.Point(197, 187);
             this.owSpecialGroupBox.Name = "owSpecialGroupBox";
             this.owSpecialGroupBox.Size = new System.Drawing.Size(232, 102);
             this.owSpecialGroupBox.TabIndex = 14;
@@ -1388,7 +1519,7 @@
             // 
             this.duplicateOverworldsButton.Image = global::DSPRE.Properties.Resources.copyIcon_small;
             this.duplicateOverworldsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.duplicateOverworldsButton.Location = new System.Drawing.Point(116, 202);
+            this.duplicateOverworldsButton.Location = new System.Drawing.Point(116, 233);
             this.duplicateOverworldsButton.Name = "duplicateOverworldsButton";
             this.duplicateOverworldsButton.Size = new System.Drawing.Size(72, 25);
             this.duplicateOverworldsButton.TabIndex = 26;
@@ -1411,7 +1542,7 @@
             // 
             this.removeOverworldButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
             this.removeOverworldButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.removeOverworldButton.Location = new System.Drawing.Point(56, 202);
+            this.removeOverworldButton.Location = new System.Drawing.Point(56, 233);
             this.removeOverworldButton.Name = "removeOverworldButton";
             this.removeOverworldButton.Size = new System.Drawing.Size(60, 25);
             this.removeOverworldButton.TabIndex = 5;
@@ -1424,7 +1555,7 @@
             // 
             this.addOverworldButton.Image = global::DSPRE.Properties.Resources.addIcon;
             this.addOverworldButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addOverworldButton.Location = new System.Drawing.Point(8, 202);
+            this.addOverworldButton.Location = new System.Drawing.Point(8, 233);
             this.addOverworldButton.Name = "addOverworldButton";
             this.addOverworldButton.Size = new System.Drawing.Size(48, 25);
             this.addOverworldButton.TabIndex = 4;
@@ -1438,7 +1569,7 @@
             this.overworldsListBox.FormattingEnabled = true;
             this.overworldsListBox.Location = new System.Drawing.Point(8, 41);
             this.overworldsListBox.Name = "overworldsListBox";
-            this.overworldsListBox.Size = new System.Drawing.Size(180, 160);
+            this.overworldsListBox.Size = new System.Drawing.Size(180, 186);
             this.overworldsListBox.TabIndex = 3;
             this.overworldsListBox.SelectedIndexChanged += new System.EventHandler(this.overworldsListBox_SelectedIndexChanged);
             // 
@@ -1453,7 +1584,7 @@
             this.warpsTabPage.Location = new System.Drawing.Point(4, 22);
             this.warpsTabPage.Name = "warpsTabPage";
             this.warpsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.warpsTabPage.Size = new System.Drawing.Size(444, 352);
+            this.warpsTabPage.Size = new System.Drawing.Size(444, 378);
             this.warpsTabPage.TabIndex = 2;
             this.warpsTabPage.Text = "Warps";
             this.warpsTabPage.UseVisualStyleBackColor = true;
@@ -1763,7 +1894,7 @@
             this.triggersTabPage.Location = new System.Drawing.Point(4, 22);
             this.triggersTabPage.Name = "triggersTabPage";
             this.triggersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.triggersTabPage.Size = new System.Drawing.Size(444, 352);
+            this.triggersTabPage.Size = new System.Drawing.Size(444, 378);
             this.triggersTabPage.TabIndex = 3;
             this.triggersTabPage.Text = "Triggers";
             this.triggersTabPage.UseVisualStyleBackColor = true;
@@ -2316,136 +2447,6 @@
             this.screenshotButton.UseVisualStyleBackColor = true;
             this.screenshotButton.Click += new System.EventHandler(this.screenshotButton_Click);
             // 
-            // twilightCheckbox
-            // 
-            this.twilightCheckbox.AutoSize = true;
-            this.twilightCheckbox.Location = new System.Drawing.Point(99, 24);
-            this.twilightCheckbox.Name = "twilightCheckbox";
-            this.twilightCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.twilightCheckbox.TabIndex = 5;
-            this.twilightCheckbox.UseVisualStyleBackColor = true;
-            this.twilightCheckbox.CheckStateChanged += new System.EventHandler(this.twilightCheckbox_CheckStateChanged);
-            // 
-            // dayPictureBox
-            // 
-            dayPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_1;
-            dayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            dayPictureBox.Location = new System.Drawing.Point(73, 19);
-            dayPictureBox.Name = "dayPictureBox";
-            dayPictureBox.Size = new System.Drawing.Size(20, 20);
-            dayPictureBox.TabIndex = 4;
-            dayPictureBox.TabStop = false;
-            // 
-            // dayCheckbox
-            // 
-            this.dayCheckbox.AutoSize = true;
-            this.dayCheckbox.Location = new System.Drawing.Point(57, 24);
-            this.dayCheckbox.Name = "dayCheckbox";
-            this.dayCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.dayCheckbox.TabIndex = 3;
-            this.dayCheckbox.UseVisualStyleBackColor = true;
-            this.dayCheckbox.CheckStateChanged += new System.EventHandler(this.dayCheckbox_CheckStateChanged);
-            // 
-            // morningPictureBox
-            // 
-            morningPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_0;
-            morningPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            morningPictureBox.Location = new System.Drawing.Point(29, 19);
-            morningPictureBox.Name = "morningPictureBox";
-            morningPictureBox.Size = new System.Drawing.Size(20, 20);
-            morningPictureBox.TabIndex = 2;
-            morningPictureBox.TabStop = false;
-            // 
-            // morningCheckbox
-            // 
-            this.morningCheckbox.AutoSize = true;
-            this.morningCheckbox.Location = new System.Drawing.Point(13, 24);
-            this.morningCheckbox.Name = "morningCheckbox";
-            this.morningCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.morningCheckbox.TabIndex = 1;
-            this.morningCheckbox.UseVisualStyleBackColor = true;
-            this.morningCheckbox.CheckStateChanged += new System.EventHandler(this.morningCheckbox_CheckStateChanged);
-            // 
-            // timeDependencyBox
-            // 
-            this.timeDependencyBox.Controls.Add(lateNightPictureBox);
-            this.timeDependencyBox.Controls.Add(this.lateNightCheckbox);
-            this.timeDependencyBox.Controls.Add(nightPictureBox);
-            this.timeDependencyBox.Controls.Add(this.nightCheckbox);
-            this.timeDependencyBox.Controls.Add(twilightPictureBox);
-            this.timeDependencyBox.Controls.Add(this.twilightCheckbox);
-            this.timeDependencyBox.Controls.Add(dayPictureBox);
-            this.timeDependencyBox.Controls.Add(this.dayCheckbox);
-            this.timeDependencyBox.Controls.Add(morningPictureBox);
-            this.timeDependencyBox.Controls.Add(this.morningCheckbox);
-            this.timeDependencyBox.Controls.Add(this.checkBox1);
-            this.timeDependencyBox.Location = new System.Drawing.Point(197, 126);
-            this.timeDependencyBox.Name = "timeDependencyBox";
-            this.timeDependencyBox.Size = new System.Drawing.Size(232, 49);
-            this.timeDependencyBox.TabIndex = 32;
-            this.timeDependencyBox.TabStop = false;
-            this.timeDependencyBox.Text = "Time Dependency";
-            // 
-            // lateNightPictureBox
-            // 
-            lateNightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_4;
-            lateNightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            lateNightPictureBox.Location = new System.Drawing.Point(201, 19);
-            lateNightPictureBox.Name = "lateNightPictureBox";
-            lateNightPictureBox.Size = new System.Drawing.Size(20, 20);
-            lateNightPictureBox.TabIndex = 10;
-            lateNightPictureBox.TabStop = false;
-            // 
-            // lateNightCheckbox
-            // 
-            this.lateNightCheckbox.AutoSize = true;
-            this.lateNightCheckbox.Location = new System.Drawing.Point(185, 24);
-            this.lateNightCheckbox.Name = "lateNightCheckbox";
-            this.lateNightCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.lateNightCheckbox.TabIndex = 9;
-            this.lateNightCheckbox.UseVisualStyleBackColor = true;
-            this.lateNightCheckbox.CheckStateChanged += new System.EventHandler(this.lateNightCheckbox_CheckStateChanged);
-            // 
-            // nightPictureBox
-            // 
-            nightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_3;
-            nightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            nightPictureBox.Location = new System.Drawing.Point(159, 19);
-            nightPictureBox.Name = "nightPictureBox";
-            nightPictureBox.Size = new System.Drawing.Size(20, 20);
-            nightPictureBox.TabIndex = 8;
-            nightPictureBox.TabStop = false;
-            // 
-            // nightCheckbox
-            // 
-            this.nightCheckbox.AutoSize = true;
-            this.nightCheckbox.Location = new System.Drawing.Point(143, 24);
-            this.nightCheckbox.Name = "nightCheckbox";
-            this.nightCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.nightCheckbox.TabIndex = 7;
-            this.nightCheckbox.UseVisualStyleBackColor = true;
-            this.nightCheckbox.CheckStateChanged += new System.EventHandler(this.nightCheckbox_CheckStateChanged);
-            // 
-            // twilightPictureBox
-            // 
-            twilightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_2;
-            twilightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            twilightPictureBox.Location = new System.Drawing.Point(115, 19);
-            twilightPictureBox.Name = "twilightPictureBox";
-            twilightPictureBox.Size = new System.Drawing.Size(20, 20);
-            twilightPictureBox.TabIndex = 6;
-            twilightPictureBox.TabStop = false;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Image = global::DSPRE.Properties.Resources.time_1;
-            this.checkBox1.Location = new System.Drawing.Point(18, -21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(31, 16);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // EventEditorLiT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2483,7 +2484,12 @@
             this.Location = new System.Drawing.Point(4, 23);
             this.Name = "EventEditorLiT";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(1193, 646);
+            this.Size = new System.Drawing.Size(1193, 663);
+            ((System.ComponentModel.ISupportInitialize)(dayPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(morningPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lateNightPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(nightPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(twilightPictureBox)).EndInit();
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventAreaDataUpDown)).EndInit();
@@ -2506,6 +2512,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnableScriptUpDown)).EndInit();
             this.overworldsTabPage.ResumeLayout(false);
             this.overworldsTabPage.PerformLayout();
+            this.timeDependencyBox.ResumeLayout(false);
+            this.timeDependencyBox.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
             this.groupBox17.ResumeLayout(false);
@@ -2568,13 +2576,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rightClickPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wheelClickPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftClickPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dayPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(morningPictureBox)).EndInit();
-            this.timeDependencyBox.ResumeLayout(false);
-            this.timeDependencyBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(lateNightPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(nightPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(twilightPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
