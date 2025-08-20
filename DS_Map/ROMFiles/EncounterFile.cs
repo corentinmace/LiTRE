@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     /* ---------------------- WILD POKÉMON DATA STRUCTURE (DPPt):----------------------------
         
        0x0  //  byte:       Walking encounter rate

@@ -1,7 +1,7 @@
 ﻿// ScriptCommandPosition.cs
 using System;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public class ScriptCommandPosition {
         public ScriptCommand Command { get; set; }
         public int Offset { get; set; }

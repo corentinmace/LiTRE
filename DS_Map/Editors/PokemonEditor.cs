@@ -1,4 +1,4 @@
-﻿using DSPRE.Editors;
+﻿using LiTRE.Editors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class PokemonEditor : Form {
         PersonalDataEditor personalEditor;
         LearnsetEditor learnsetEditor;

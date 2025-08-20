@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace DSPRE {
+namespace LiTRE {
     public static class Filesystem {
         public static string eventFiles => RomInfo.gameDirs[RomInfo.DirNames.eventFiles].unpackedDir;
         public static string OWSprites => RomInfo.gameDirs[RomInfo.DirNames.OWSprites].unpackedDir;

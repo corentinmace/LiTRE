@@ -1,4 +1,4 @@
-﻿namespace DSPRE {
+﻿namespace LiTRE {
     partial class EvolutionsEditor {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,18 @@
             this.saveDataButton = new System.Windows.Forms.Button();
             this.pokemonPictureBox = new System.Windows.Forms.PictureBox();
             this.monNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pokemonNameInputComboBox = new DSPRE.InputComboBox();
+            this.pokemonNameInputComboBox = new LiTRE.InputComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.paramLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.evoMethodComboBox1 = new DSPRE.InputComboBox();
-            this.evoMethodComboBox2 = new DSPRE.InputComboBox();
-            this.evoMethodComboBox3 = new DSPRE.InputComboBox();
-            this.evoMethodComboBox4 = new DSPRE.InputComboBox();
-            this.evoMethodComboBox5 = new DSPRE.InputComboBox();
-            this.evoMethodComboBox6 = new DSPRE.InputComboBox();
-            this.evoMethodComboBox7 = new DSPRE.InputComboBox();
+            this.evoMethodComboBox1 = new LiTRE.InputComboBox();
+            this.evoMethodComboBox2 = new LiTRE.InputComboBox();
+            this.evoMethodComboBox3 = new LiTRE.InputComboBox();
+            this.evoMethodComboBox4 = new LiTRE.InputComboBox();
+            this.evoMethodComboBox5 = new LiTRE.InputComboBox();
+            this.evoMethodComboBox6 = new LiTRE.InputComboBox();
+            this.evoMethodComboBox7 = new LiTRE.InputComboBox();
             this.evoParamUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.evoParamUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.evoParamUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -47,13 +47,13 @@
             this.evoParamUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.evoParamUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.evoParamUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.evoTargetMonComboBox1 = new DSPRE.InputComboBox();
-            this.evoTargetMonComboBox2 = new DSPRE.InputComboBox();
-            this.evoTargetMonComboBox3 = new DSPRE.InputComboBox();
-            this.evoTargetMonComboBox4 = new DSPRE.InputComboBox();
-            this.evoTargetMonComboBox5 = new DSPRE.InputComboBox();
-            this.evoTargetMonComboBox6 = new DSPRE.InputComboBox();
-            this.evoTargetMonComboBox7 = new DSPRE.InputComboBox();
+            this.evoTargetMonComboBox1 = new LiTRE.InputComboBox();
+            this.evoTargetMonComboBox2 = new LiTRE.InputComboBox();
+            this.evoTargetMonComboBox3 = new LiTRE.InputComboBox();
+            this.evoTargetMonComboBox4 = new LiTRE.InputComboBox();
+            this.evoTargetMonComboBox5 = new LiTRE.InputComboBox();
+            this.evoTargetMonComboBox6 = new LiTRE.InputComboBox();
+            this.evoTargetMonComboBox7 = new LiTRE.InputComboBox();
             this.descLabel1 = new System.Windows.Forms.Label();
             this.descLabel2 = new System.Windows.Forms.Label();
             this.descLabel3 = new System.Windows.Forms.Label();

@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DSPRE.ScintillaUtils {
+namespace LiTRE.ScintillaUtils {
     public partial class ScriptTooltip : Form {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectangleRegion

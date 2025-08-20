@@ -1,4 +1,4 @@
-﻿using DSPRE.Resources;
+﻿using LiTRE.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE
+namespace LiTRE
 {
     public partial class WeatherEditor : Form
     {

@@ -8,7 +8,7 @@ using System.Runtime;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace DSPRE.Resources
+namespace LiTRE.Resources
 {
     public partial class CustomScrcmdManager : Form
     {
@@ -63,7 +63,7 @@ namespace DSPRE.Resources
                     File.Copy(newDBname, Path.Combine(CustomDBsPath, DBtoreplace));
 
                     UpdateDataGrid(CustomScrcmdDataGrid);
-                    MessageBox.Show("Database replaced. Restart DSPRE to apply.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Database replaced. Restart LiTRE to apply.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {

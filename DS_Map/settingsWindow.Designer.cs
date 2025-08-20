@@ -1,4 +1,4 @@
-﻿namespace DSPRE
+﻿namespace LiTRE
 {
     partial class SettingsWindow
     {
@@ -98,7 +98,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveButton.Image = global::LiTRE.Properties.Resources.saveButton;
             this.saveButton.Location = new System.Drawing.Point(769, 370);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";

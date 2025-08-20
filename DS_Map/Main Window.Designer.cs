@@ -1,4 +1,4 @@
-﻿namespace DSPRE
+﻿namespace LiTRE
 {
     partial class MainProgram
     {
@@ -132,18 +132,18 @@
             this.separator_afterMiscButtons = new System.Windows.Forms.ToolStripSeparator();
             this.versionLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.headerEditor = new DSPRE.Editors.HeaderEditor();
-            this.matrixEditor = new DSPRE.Editors.MatrixEditor();
-            this.mapEditor = new DSPRE.Editors.MapEditor();
-            this.nsbtxEditor = new DSPRE.Editors.NsbtxEditor();
-            this.eventEditorLiT = new DSPRE.Editors.EventEditorLiT();
-            this.scriptEditor = new DSPRE.Editors.ScriptEditor();
-            this.levelScriptEditor = new DSPRE.Editors.LevelScriptEditor();
-            this.textEditor = new DSPRE.Editors.TextEditor();
-            this.cameraEditor = new DSPRE.Editors.CameraEditor();
-            this.trainerEditor = new DSPRE.Editors.TrainerEditor();
-            this.tableEditor = new DSPRE.Editors.TableEditor();
-            this.encountersEditor = new DSPRE.Editors.EncountersEditor();
+            this.headerEditor = new LiTRE.Editors.HeaderEditor();
+            this.matrixEditor = new LiTRE.Editors.MatrixEditor();
+            this.mapEditor = new LiTRE.Editors.MapEditor();
+            this.nsbtxEditor = new LiTRE.Editors.NsbtxEditor();
+            this.eventEditorLiT = new LiTRE.Editors.EventEditorLiT();
+            this.scriptEditor = new LiTRE.Editors.ScriptEditor();
+            this.levelScriptEditor = new LiTRE.Editors.LevelScriptEditor();
+            this.textEditor = new LiTRE.Editors.TextEditor();
+            this.cameraEditor = new LiTRE.Editors.CameraEditor();
+            this.trainerEditor = new LiTRE.Editors.TrainerEditor();
+            this.tableEditor = new LiTRE.Editors.TableEditor();
+            this.encountersEditor = new LiTRE.Editors.EncountersEditor();
             this.mainTabControl.SuspendLayout();
             this.headerEditorTabPage.SuspendLayout();
             this.matrixEditorTabPage.SuspendLayout();
@@ -263,7 +263,7 @@
             // 
             // popoutScriptEditorButton
             // 
-            this.popoutScriptEditorButton.Image = global::DSPRE.Properties.Resources.popout;
+            this.popoutScriptEditorButton.Image = global::LiTRE.Properties.Resources.popout;
             this.popoutScriptEditorButton.Location = new System.Drawing.Point(1144, 634);
             this.popoutScriptEditorButton.Name = "popoutScriptEditorButton";
             this.popoutScriptEditorButton.Size = new System.Drawing.Size(35, 35);
@@ -300,7 +300,7 @@
             // 
             // popoutLevelScriptEditorButton
             // 
-            this.popoutLevelScriptEditorButton.Image = global::DSPRE.Properties.Resources.popout;
+            this.popoutLevelScriptEditorButton.Image = global::LiTRE.Properties.Resources.popout;
             this.popoutLevelScriptEditorButton.Location = new System.Drawing.Point(1144, 634);
             this.popoutLevelScriptEditorButton.Name = "popoutLevelScriptEditorButton";
             this.popoutLevelScriptEditorButton.Size = new System.Drawing.Size(35, 35);
@@ -337,7 +337,7 @@
             // 
             // popoutTextEditorButton
             // 
-            this.popoutTextEditorButton.Image = global::DSPRE.Properties.Resources.popout;
+            this.popoutTextEditorButton.Image = global::LiTRE.Properties.Resources.popout;
             this.popoutTextEditorButton.Location = new System.Drawing.Point(1144, 634);
             this.popoutTextEditorButton.Name = "popoutTextEditorButton";
             this.popoutTextEditorButton.Size = new System.Drawing.Size(35, 35);
@@ -384,7 +384,7 @@
             // 
             // popoutTrainerEditorButton
             // 
-            this.popoutTrainerEditorButton.Image = global::DSPRE.Properties.Resources.popout;
+            this.popoutTrainerEditorButton.Image = global::LiTRE.Properties.Resources.popout;
             this.popoutTrainerEditorButton.Location = new System.Drawing.Point(1147, 637);
             this.popoutTrainerEditorButton.Name = "popoutTrainerEditorButton";
             this.popoutTrainerEditorButton.Size = new System.Drawing.Size(35, 35);
@@ -496,7 +496,7 @@
             // 
             // openROMToolStripMenuItem
             // 
-            this.openROMToolStripMenuItem.Image = global::DSPRE.Properties.Resources.open_rom;
+            this.openROMToolStripMenuItem.Image = global::LiTRE.Properties.Resources.open_rom;
             this.openROMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.openROMToolStripMenuItem.Name = "openROMToolStripMenuItem";
             this.openROMToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
@@ -505,7 +505,7 @@
             // 
             // openFolderToolStripMenuItem
             // 
-            this.openFolderToolStripMenuItem.Image = global::DSPRE.Properties.Resources.open_file;
+            this.openFolderToolStripMenuItem.Image = global::LiTRE.Properties.Resources.open_file;
             this.openFolderToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
             this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
@@ -515,7 +515,7 @@
             // saveROMToolStripMenuItem
             // 
             this.saveROMToolStripMenuItem.Enabled = false;
-            this.saveROMToolStripMenuItem.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveROMToolStripMenuItem.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveROMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveROMToolStripMenuItem.Name = "saveROMToolStripMenuItem";
             this.saveROMToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
@@ -524,7 +524,7 @@
             // 
             // settingsToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.Image = global::DSPRE.Properties.Resources.wrenchIcon;
+            this.settingsToolStripMenuItem.Image = global::LiTRE.Properties.Resources.wrenchIcon;
             this.settingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.RightToLeftAutoMirrorImage = true;
@@ -585,7 +585,7 @@
             // 
             // diamondAndPearlToolStripMenuItem
             // 
-            this.diamondAndPearlToolStripMenuItem.Image = global::DSPRE.Properties.Resources.scriptDBIconDP;
+            this.diamondAndPearlToolStripMenuItem.Image = global::LiTRE.Properties.Resources.scriptDBIconDP;
             this.diamondAndPearlToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.diamondAndPearlToolStripMenuItem.Name = "diamondAndPearlToolStripMenuItem";
             this.diamondAndPearlToolStripMenuItem.Size = new System.Drawing.Size(222, 38);
@@ -594,7 +594,7 @@
             // 
             // platinumToolStripMenuItem
             // 
-            this.platinumToolStripMenuItem.Image = global::DSPRE.Properties.Resources.scriptDBIconPt;
+            this.platinumToolStripMenuItem.Image = global::LiTRE.Properties.Resources.scriptDBIconPt;
             this.platinumToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.platinumToolStripMenuItem.Name = "platinumToolStripMenuItem";
             this.platinumToolStripMenuItem.Size = new System.Drawing.Size(222, 38);
@@ -603,7 +603,7 @@
             // 
             // heartGoldAndSoulSilverToolStripMenuItem
             // 
-            this.heartGoldAndSoulSilverToolStripMenuItem.Image = global::DSPRE.Properties.Resources.scriptDBIconHGSS;
+            this.heartGoldAndSoulSilverToolStripMenuItem.Image = global::LiTRE.Properties.Resources.scriptDBIconHGSS;
             this.heartGoldAndSoulSilverToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.heartGoldAndSoulSilverToolStripMenuItem.Name = "heartGoldAndSoulSilverToolStripMenuItem";
             this.heartGoldAndSoulSilverToolStripMenuItem.Size = new System.Drawing.Size(222, 38);
@@ -612,7 +612,7 @@
             // 
             // manageDatabasesToolStripMenuItem
             // 
-            this.manageDatabasesToolStripMenuItem.Image = global::DSPRE.Properties.Resources.scriptDBIcon;
+            this.manageDatabasesToolStripMenuItem.Image = global::LiTRE.Properties.Resources.scriptDBIcon;
             this.manageDatabasesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageDatabasesToolStripMenuItem.Name = "manageDatabasesToolStripMenuItem";
             this.manageDatabasesToolStripMenuItem.Size = new System.Drawing.Size(222, 38);
@@ -630,7 +630,7 @@
             // 
             // buildFomFolderToolStripMenuItem
             // 
-            this.buildFomFolderToolStripMenuItem.Image = global::DSPRE.Properties.Resources.folderToNarcIcon;
+            this.buildFomFolderToolStripMenuItem.Image = global::LiTRE.Properties.Resources.folderToNarcIcon;
             this.buildFomFolderToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.buildFomFolderToolStripMenuItem.Name = "buildFomFolderToolStripMenuItem";
             this.buildFomFolderToolStripMenuItem.Size = new System.Drawing.Size(214, 38);
@@ -639,7 +639,7 @@
             // 
             // unpackToFolderToolStripMenuItem
             // 
-            this.unpackToFolderToolStripMenuItem.Image = global::DSPRE.Properties.Resources.narcToFolderIcon;
+            this.unpackToFolderToolStripMenuItem.Image = global::LiTRE.Properties.Resources.narcToFolderIcon;
             this.unpackToFolderToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.unpackToFolderToolStripMenuItem.Name = "unpackToFolderToolStripMenuItem";
             this.unpackToFolderToolStripMenuItem.Size = new System.Drawing.Size(214, 38);
@@ -657,7 +657,7 @@
             // 
             // listBasedToolStripMenuItem
             // 
-            this.listBasedToolStripMenuItem.Image = global::DSPRE.Properties.Resources.listbasedRenameIcon;
+            this.listBasedToolStripMenuItem.Image = global::LiTRE.Properties.Resources.listbasedRenameIcon;
             this.listBasedToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.listBasedToolStripMenuItem.Name = "listBasedToolStripMenuItem";
             this.listBasedToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
@@ -666,7 +666,7 @@
             // 
             // contentBasedToolStripMenuItem
             // 
-            this.contentBasedToolStripMenuItem.Image = global::DSPRE.Properties.Resources.contentbasedRenameIcon;
+            this.contentBasedToolStripMenuItem.Image = global::LiTRE.Properties.Resources.contentbasedRenameIcon;
             this.contentBasedToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.contentBasedToolStripMenuItem.Name = "contentBasedToolStripMenuItem";
             this.contentBasedToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
@@ -684,7 +684,7 @@
             // 
             // fromCEnumToolStripMenuItem
             // 
-            this.fromCEnumToolStripMenuItem.Image = global::DSPRE.Properties.Resources.enumToListIcon;
+            this.fromCEnumToolStripMenuItem.Image = global::LiTRE.Properties.Resources.enumToListIcon;
             this.fromCEnumToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.fromCEnumToolStripMenuItem.Name = "fromCEnumToolStripMenuItem";
             this.fromCEnumToolStripMenuItem.Size = new System.Drawing.Size(237, 38);
@@ -693,7 +693,7 @@
             // 
             // fromFolderContentsToolStripMenuItem
             // 
-            this.fromFolderContentsToolStripMenuItem.Image = global::DSPRE.Properties.Resources.folderToListIcon;
+            this.fromFolderContentsToolStripMenuItem.Image = global::LiTRE.Properties.Resources.folderToListIcon;
             this.fromFolderContentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.fromFolderContentsToolStripMenuItem.Name = "fromFolderContentsToolStripMenuItem";
             this.fromFolderContentsToolStripMenuItem.Size = new System.Drawing.Size(237, 38);
@@ -712,7 +712,7 @@
             // 
             // texturizeNSBMDToolStripMenuItem
             // 
-            this.texturizeNSBMDToolStripMenuItem.Image = global::DSPRE.Properties.Resources.addTextureToNSBMD;
+            this.texturizeNSBMDToolStripMenuItem.Image = global::LiTRE.Properties.Resources.addTextureToNSBMD;
             this.texturizeNSBMDToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.texturizeNSBMDToolStripMenuItem.Name = "texturizeNSBMDToolStripMenuItem";
             this.texturizeNSBMDToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
@@ -721,7 +721,7 @@
             // 
             // untexturizeToolStripMenuItem
             // 
-            this.untexturizeToolStripMenuItem.Image = global::DSPRE.Properties.Resources.removeTextureNSBMD;
+            this.untexturizeToolStripMenuItem.Image = global::LiTRE.Properties.Resources.removeTextureNSBMD;
             this.untexturizeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.untexturizeToolStripMenuItem.Name = "untexturizeToolStripMenuItem";
             this.untexturizeToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
@@ -730,7 +730,7 @@
             // 
             // extractNSBTXFromNSBMDToolStripMenuItem
             // 
-            this.extractNSBTXFromNSBMDToolStripMenuItem.Image = global::DSPRE.Properties.Resources.saveTextureFromNSBMD;
+            this.extractNSBTXFromNSBMDToolStripMenuItem.Image = global::LiTRE.Properties.Resources.saveTextureFromNSBMD;
             this.extractNSBTXFromNSBMDToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.extractNSBTXFromNSBMDToolStripMenuItem.Name = "extractNSBTXFromNSBMDToolStripMenuItem";
             this.extractNSBTXFromNSBMDToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
@@ -933,7 +933,7 @@
             // loadRomButton
             // 
             this.loadRomButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.loadRomButton.Image = global::DSPRE.Properties.Resources.open_rom;
+            this.loadRomButton.Image = global::LiTRE.Properties.Resources.open_rom;
             this.loadRomButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.loadRomButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.loadRomButton.Margin = new System.Windows.Forms.Padding(13, 6, 0, 2);
@@ -945,7 +945,7 @@
             // readDataFromFolderButton
             // 
             this.readDataFromFolderButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.readDataFromFolderButton.Image = global::DSPRE.Properties.Resources.open_file;
+            this.readDataFromFolderButton.Image = global::LiTRE.Properties.Resources.open_file;
             this.readDataFromFolderButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.readDataFromFolderButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.readDataFromFolderButton.Margin = new System.Windows.Forms.Padding(0, 6, 0, 2);
@@ -959,7 +959,7 @@
             // 
             this.saveRomButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveRomButton.Enabled = false;
-            this.saveRomButton.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveRomButton.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveRomButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveRomButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveRomButton.Margin = new System.Windows.Forms.Padding(0, 6, 0, 2);
@@ -977,7 +977,7 @@
             // 
             this.unpackAllButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.unpackAllButton.Enabled = false;
-            this.unpackAllButton.Image = global::DSPRE.Properties.Resources.unpackAllIcon;
+            this.unpackAllButton.Image = global::LiTRE.Properties.Resources.unpackAllIcon;
             this.unpackAllButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.unpackAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.unpackAllButton.Margin = new System.Windows.Forms.Padding(0, 6, 0, 2);
@@ -990,7 +990,7 @@
             // 
             this.updateMapNarcsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.updateMapNarcsButton.Enabled = false;
-            this.updateMapNarcsButton.Image = global::DSPRE.Properties.Resources.unpackBuildingNarcsIcon;
+            this.updateMapNarcsButton.Image = global::LiTRE.Properties.Resources.unpackBuildingNarcsIcon;
             this.updateMapNarcsButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.updateMapNarcsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.updateMapNarcsButton.Margin = new System.Windows.Forms.Padding(0, 6, 0, 2);
@@ -1007,7 +1007,7 @@
             // buildNarcFromFolderToolStripButton
             // 
             this.buildNarcFromFolderToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buildNarcFromFolderToolStripButton.Image = global::DSPRE.Properties.Resources.folderToNarcIcon;
+            this.buildNarcFromFolderToolStripButton.Image = global::LiTRE.Properties.Resources.folderToNarcIcon;
             this.buildNarcFromFolderToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.buildNarcFromFolderToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buildNarcFromFolderToolStripButton.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
@@ -1019,7 +1019,7 @@
             // unpackNARCtoFolderToolStripButton
             // 
             this.unpackNARCtoFolderToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.unpackNARCtoFolderToolStripButton.Image = global::DSPRE.Properties.Resources.narcToFolderIcon;
+            this.unpackNARCtoFolderToolStripButton.Image = global::LiTRE.Properties.Resources.narcToFolderIcon;
             this.unpackNARCtoFolderToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.unpackNARCtoFolderToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.unpackNARCtoFolderToolStripButton.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
@@ -1036,7 +1036,7 @@
             // listBasedBatchRenameToolStripButton
             // 
             this.listBasedBatchRenameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.listBasedBatchRenameToolStripButton.Image = global::DSPRE.Properties.Resources.listbasedRenameIcon;
+            this.listBasedBatchRenameToolStripButton.Image = global::LiTRE.Properties.Resources.listbasedRenameIcon;
             this.listBasedBatchRenameToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.listBasedBatchRenameToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.listBasedBatchRenameToolStripButton.Margin = new System.Windows.Forms.Padding(2, 6, 3, 2);
@@ -1048,7 +1048,7 @@
             // contentBasedBatchRenameToolStripButton
             // 
             this.contentBasedBatchRenameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.contentBasedBatchRenameToolStripButton.Image = global::DSPRE.Properties.Resources.contentbasedRenameIcon;
+            this.contentBasedBatchRenameToolStripButton.Image = global::LiTRE.Properties.Resources.contentbasedRenameIcon;
             this.contentBasedBatchRenameToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.contentBasedBatchRenameToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.contentBasedBatchRenameToolStripButton.Margin = new System.Windows.Forms.Padding(3, 6, 2, 2);
@@ -1065,7 +1065,7 @@
             // enumBasedListBuilderToolStripButton
             // 
             this.enumBasedListBuilderToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.enumBasedListBuilderToolStripButton.Image = global::DSPRE.Properties.Resources.enumToListIcon;
+            this.enumBasedListBuilderToolStripButton.Image = global::LiTRE.Properties.Resources.enumToListIcon;
             this.enumBasedListBuilderToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.enumBasedListBuilderToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.enumBasedListBuilderToolStripButton.Margin = new System.Windows.Forms.Padding(3, 6, 2, 2);
@@ -1077,7 +1077,7 @@
             // folderBasedListBuilderToolStriButton
             // 
             this.folderBasedListBuilderToolStriButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.folderBasedListBuilderToolStriButton.Image = global::DSPRE.Properties.Resources.folderToListIcon;
+            this.folderBasedListBuilderToolStriButton.Image = global::LiTRE.Properties.Resources.folderToListIcon;
             this.folderBasedListBuilderToolStriButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.folderBasedListBuilderToolStriButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.folderBasedListBuilderToolStriButton.Margin = new System.Windows.Forms.Padding(2, 6, 3, 2);
@@ -1094,7 +1094,7 @@
             // nsbmdAddTexButton
             // 
             this.nsbmdAddTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nsbmdAddTexButton.Image = global::DSPRE.Properties.Resources.addTextureToNSBMD;
+            this.nsbmdAddTexButton.Image = global::LiTRE.Properties.Resources.addTextureToNSBMD;
             this.nsbmdAddTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.nsbmdAddTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.nsbmdAddTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1107,7 +1107,7 @@
             // nsbmdRemoveTexButton
             // 
             this.nsbmdRemoveTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nsbmdRemoveTexButton.Image = global::DSPRE.Properties.Resources.removeTextureNSBMD;
+            this.nsbmdRemoveTexButton.Image = global::LiTRE.Properties.Resources.removeTextureNSBMD;
             this.nsbmdRemoveTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.nsbmdRemoveTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.nsbmdRemoveTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1120,7 +1120,7 @@
             // nsbmdExportTexButton
             // 
             this.nsbmdExportTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nsbmdExportTexButton.Image = global::DSPRE.Properties.Resources.saveTextureFromNSBMD;
+            this.nsbmdExportTexButton.Image = global::LiTRE.Properties.Resources.saveTextureFromNSBMD;
             this.nsbmdExportTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.nsbmdExportTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.nsbmdExportTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1138,7 +1138,7 @@
             // weatherMapEditor
             // 
             this.weatherMapEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.weatherMapEditor.Image = global::DSPRE.Properties.Resources.weather_editor;
+            this.weatherMapEditor.Image = global::LiTRE.Properties.Resources.weather_editor;
             this.weatherMapEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.weatherMapEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.weatherMapEditor.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1152,7 +1152,7 @@
             // 
             this.buildingEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buildingEditorButton.Enabled = false;
-            this.buildingEditorButton.Image = global::DSPRE.Properties.Resources.buildingEditorButton;
+            this.buildingEditorButton.Image = global::LiTRE.Properties.Resources.buildingEditorButton;
             this.buildingEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.buildingEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buildingEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1166,7 +1166,7 @@
             // 
             this.wildEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.wildEditorButton.Enabled = false;
-            this.wildEditorButton.Image = global::DSPRE.Properties.Resources.wildEditorButton;
+            this.wildEditorButton.Image = global::LiTRE.Properties.Resources.wildEditorButton;
             this.wildEditorButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.wildEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.wildEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -1180,7 +1180,7 @@
             // 
             this.scriptCommandsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.scriptCommandsButton.Enabled = false;
-            this.scriptCommandsButton.Image = global::DSPRE.Properties.Resources.scriptDBIcon;
+            this.scriptCommandsButton.Image = global::LiTRE.Properties.Resources.scriptDBIcon;
             this.scriptCommandsButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.scriptCommandsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.scriptCommandsButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1193,7 +1193,7 @@
             // 
             this.romToolboxToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.romToolboxToolStripButton.Enabled = false;
-            this.romToolboxToolStripButton.Image = global::DSPRE.Properties.Resources.exploreKit;
+            this.romToolboxToolStripButton.Image = global::LiTRE.Properties.Resources.exploreKit;
             this.romToolboxToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.romToolboxToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.romToolboxToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1207,7 +1207,7 @@
             // 
             this.headerSearchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.headerSearchToolStripButton.Enabled = false;
-            this.headerSearchToolStripButton.Image = global::DSPRE.Properties.Resources.wideLensImage;
+            this.headerSearchToolStripButton.Image = global::LiTRE.Properties.Resources.wideLensImage;
             this.headerSearchToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.headerSearchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.headerSearchToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1221,7 +1221,7 @@
             // 
             this.spawnEditorToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.spawnEditorToolStripButton.Enabled = false;
-            this.spawnEditorToolStripButton.Image = global::DSPRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
+            this.spawnEditorToolStripButton.Image = global::LiTRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
             this.spawnEditorToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.spawnEditorToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.spawnEditorToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
@@ -1447,47 +1447,47 @@
         private System.Windows.Forms.ToolStripButton nsbmdRemoveTexButton;
         private System.Windows.Forms.ToolStripButton nsbmdAddTexButton;
         private System.Windows.Forms.ToolStripSeparator separator_afterMiscButtons;
-        private DSPRE.InputComboBox partyMove6_1ComboBox;
-        private DSPRE.InputComboBox partyMove6_2ComboBox;
-        private DSPRE.InputComboBox partyMove6_3ComboBox;
-        private DSPRE.InputComboBox partyMove6_4ComboBox;
-        private DSPRE.InputComboBox partyItem6ComboBox;
-        private DSPRE.InputComboBox partyPokemon6ComboBox;
-        private DSPRE.InputComboBox partyMove5_1ComboBox;
-        private DSPRE.InputComboBox partyMove5_2ComboBox;
-        private DSPRE.InputComboBox partyMove5_3ComboBox;
-        private DSPRE.InputComboBox partyMove5_4ComboBox;
-        private DSPRE.InputComboBox partyItem5ComboBox;
-        private DSPRE.InputComboBox partyPokemon5ComboBox;
-        private DSPRE.InputComboBox partyMove4_1ComboBox;
-        private DSPRE.InputComboBox partyMove4_2ComboBox;
-        private DSPRE.InputComboBox partyMove4_3ComboBox;
-        private DSPRE.InputComboBox partyMove4_4ComboBox;
-        private DSPRE.InputComboBox partyItem4ComboBox;
-        private DSPRE.InputComboBox partyPokemon4ComboBox;
-        private DSPRE.InputComboBox partyMove3_1ComboBox;
-        private DSPRE.InputComboBox partyMove3_2ComboBox;
-        private DSPRE.InputComboBox partyMove3_3ComboBox;
-        private DSPRE.InputComboBox partyMove3_4ComboBox;
-        private DSPRE.InputComboBox partyItem3ComboBox;
-        private DSPRE.InputComboBox partyPokemon3ComboBox;
-        private DSPRE.InputComboBox partyMove2_1ComboBox;
-        private DSPRE.InputComboBox partyMove2_2ComboBox;
-        private DSPRE.InputComboBox partyMove2_3ComboBox;
-        private DSPRE.InputComboBox partyMove2_4ComboBox;
-        private DSPRE.InputComboBox partyItem2ComboBox;
-        private DSPRE.InputComboBox partyPokemon2ComboBox;
-        private DSPRE.InputComboBox partyMove1_1ComboBox;
-        private DSPRE.InputComboBox partyMove1_2ComboBox;
-        private DSPRE.InputComboBox partyMove1_3ComboBox;
-        private DSPRE.InputComboBox partyMove1_4ComboBox;
-        private DSPRE.InputComboBox partyItem1ComboBox;
-        private DSPRE.InputComboBox partyPokemon1ComboBox;
-        private DSPRE.InputComboBox trainerItem4ComboBox;
-        private DSPRE.InputComboBox trainerItem3ComboBox;
-        private DSPRE.InputComboBox trainerItem2ComboBox;
-        private DSPRE.InputComboBox trainerItem1ComboBox;
-        private DSPRE.InputComboBox trainerComboBox;
+        private LiTRE.InputComboBox partyMove6_1ComboBox;
+        private LiTRE.InputComboBox partyMove6_2ComboBox;
+        private LiTRE.InputComboBox partyMove6_3ComboBox;
+        private LiTRE.InputComboBox partyMove6_4ComboBox;
+        private LiTRE.InputComboBox partyItem6ComboBox;
+        private LiTRE.InputComboBox partyPokemon6ComboBox;
+        private LiTRE.InputComboBox partyMove5_1ComboBox;
+        private LiTRE.InputComboBox partyMove5_2ComboBox;
+        private LiTRE.InputComboBox partyMove5_3ComboBox;
+        private LiTRE.InputComboBox partyMove5_4ComboBox;
+        private LiTRE.InputComboBox partyItem5ComboBox;
+        private LiTRE.InputComboBox partyPokemon5ComboBox;
+        private LiTRE.InputComboBox partyMove4_1ComboBox;
+        private LiTRE.InputComboBox partyMove4_2ComboBox;
+        private LiTRE.InputComboBox partyMove4_3ComboBox;
+        private LiTRE.InputComboBox partyMove4_4ComboBox;
+        private LiTRE.InputComboBox partyItem4ComboBox;
+        private LiTRE.InputComboBox partyPokemon4ComboBox;
+        private LiTRE.InputComboBox partyMove3_1ComboBox;
+        private LiTRE.InputComboBox partyMove3_2ComboBox;
+        private LiTRE.InputComboBox partyMove3_3ComboBox;
+        private LiTRE.InputComboBox partyMove3_4ComboBox;
+        private LiTRE.InputComboBox partyItem3ComboBox;
+        private LiTRE.InputComboBox partyPokemon3ComboBox;
+        private LiTRE.InputComboBox partyMove2_1ComboBox;
+        private LiTRE.InputComboBox partyMove2_2ComboBox;
+        private LiTRE.InputComboBox partyMove2_3ComboBox;
+        private LiTRE.InputComboBox partyMove2_4ComboBox;
+        private LiTRE.InputComboBox partyItem2ComboBox;
+        private LiTRE.InputComboBox partyPokemon2ComboBox;
+        private LiTRE.InputComboBox partyMove1_1ComboBox;
+        private LiTRE.InputComboBox partyMove1_2ComboBox;
+        private LiTRE.InputComboBox partyMove1_3ComboBox;
+        private LiTRE.InputComboBox partyMove1_4ComboBox;
+        private LiTRE.InputComboBox partyItem1ComboBox;
+        private LiTRE.InputComboBox partyPokemon1ComboBox;
+        private LiTRE.InputComboBox trainerItem4ComboBox;
+        private LiTRE.InputComboBox trainerItem3ComboBox;
+        private LiTRE.InputComboBox trainerItem2ComboBox;
+        private LiTRE.InputComboBox trainerItem1ComboBox;
+        private LiTRE.InputComboBox trainerComboBox;
         private System.Windows.Forms.ToolStripButton readDataFromFolderButton;
         private System.Windows.Forms.ToolStripMenuItem openFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NarcUtilityToolStripMenuItem;

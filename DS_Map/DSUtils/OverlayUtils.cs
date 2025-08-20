@@ -2,10 +2,10 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using static DSPRE.DSUtils;
-using static DSPRE.RomInfo;
+using static LiTRE.DSUtils;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public static class OverlayUtils {
         public static class OverlayTable {
             private const int ENTRY_LEN = 32;

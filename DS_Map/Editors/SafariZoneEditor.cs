@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using DSPRE.ROMFiles;
+using LiTRE.ROMFiles;
 
-namespace DSPRE.Editors {
+namespace LiTRE.Editors {
   public partial class SafariZoneEditor : UserControl {
     public bool safariZoneEditorIsReady { get; set; } = false;
     private SafariZoneEncounterFile safariZoneEncounterFile;

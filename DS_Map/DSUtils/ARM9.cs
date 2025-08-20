@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public static class ARM9 {
         private const int MAX_SIZE = 0xBC000;
         public static readonly uint address = 0x02000000;

@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
   partial class SafariZoneEncounterEditorTab
   {
@@ -39,8 +39,8 @@ namespace DSPRE.Editors
       this.label4 = new System.Windows.Forms.Label();
       this.label5 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
-      this.listBoxEncountersObject = new DSPRE.ListBox2();
-      this.listBoxEncounters = new DSPRE.ListBox2();
+      this.listBoxEncountersObject = new LiTRE.ListBox2();
+      this.listBoxEncounters = new LiTRE.ListBox2();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevelObject)).BeginInit();
       this.SuspendLayout();

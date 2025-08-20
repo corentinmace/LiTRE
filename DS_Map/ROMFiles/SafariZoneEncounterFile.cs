@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
   public class SafariZoneEncounterFile {
     public static Dictionary<int, string> Names = new Dictionary<int, string>() {
       {0, "Plains"},

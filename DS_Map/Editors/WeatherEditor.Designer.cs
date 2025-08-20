@@ -1,4 +1,4 @@
-﻿namespace DSPRE
+﻿namespace LiTRE
 {
     partial class WeatherEditor
     {
@@ -159,7 +159,7 @@
             // 
             // addWeatherButton
             // 
-            this.addWeatherButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addWeatherButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addWeatherButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addWeatherButton.Location = new System.Drawing.Point(21, 69);
             this.addWeatherButton.Name = "addWeatherButton";
@@ -272,7 +272,7 @@
             // 
             // removeLastRow
             // 
-            this.removeLastRow.Image = global::DSPRE.Properties.Resources.deleteIcon1;
+            this.removeLastRow.Image = global::LiTRE.Properties.Resources.deleteIcon1;
             this.removeLastRow.Location = new System.Drawing.Point(501, 467);
             this.removeLastRow.Name = "removeLastRow";
             this.removeLastRow.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -285,7 +285,7 @@
             // 
             // removeFirstRow
             // 
-            this.removeFirstRow.Image = global::DSPRE.Properties.Resources.deleteIcon1;
+            this.removeFirstRow.Image = global::LiTRE.Properties.Resources.deleteIcon1;
             this.removeFirstRow.Location = new System.Drawing.Point(324, 467);
             this.removeFirstRow.Name = "removeFirstRow";
             this.removeFirstRow.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);

@@ -1,4 +1,4 @@
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
   public class VariableValueTrigger : LevelScriptTrigger {
     public int variableToWatch { get; set; }
     public int expectedValue { get; set; }

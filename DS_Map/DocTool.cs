@@ -1,5 +1,5 @@
-﻿using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
-using static DSPRE.MoveData;
-using static DSPRE.RomInfo;
+using static LiTRE.MoveData;
+using static LiTRE.RomInfo;
 
-namespace DSPRE
+namespace LiTRE
 {
     internal class DocTool
     {

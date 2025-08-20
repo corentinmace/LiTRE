@@ -1,15 +1,15 @@
-﻿using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using static DSPRE.MoveData;
+using static LiTRE.MoveData;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class MoveDataEditor : Form {
         private bool disableHandlers = false;
 

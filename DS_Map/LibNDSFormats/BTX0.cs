@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSPRE.LibNDSFormats
+namespace LiTRE.LibNDSFormats
 {
     internal class BTX0
     {

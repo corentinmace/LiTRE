@@ -1,12 +1,12 @@
 ﻿using System.IO;
-using DSPRE.ROMFiles;
+using LiTRE.ROMFiles;
 using System;
 using System.Windows.Forms;
 using System.Text;
 using System.Collections.Generic;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public class MoveData : RomFile {
         public enum AttackRange : ushort {
             SELECTION = (0),

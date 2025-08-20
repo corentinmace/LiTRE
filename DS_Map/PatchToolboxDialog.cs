@@ -4,16 +4,16 @@ using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
 using System.Linq;
-using DSPRE.ROMFiles;
+using LiTRE.ROMFiles;
 using System.Collections.Generic;
-using DSPRE.Resources.ROMToolboxDB;
-using DSPRE.Resources;
-using static DSPRE.RomInfo;
+using LiTRE.Resources.ROMToolboxDB;
+using LiTRE.Resources;
+using static LiTRE.RomInfo;
 using System.Threading.Tasks;
-using static DSPRE.Resources.ROMToolboxDB.ToolboxDB;
+using static LiTRE.Resources.ROMToolboxDB.ToolboxDB;
 using static NSMBe4.ROM;
 
-namespace DSPRE
+namespace LiTRE
 {
     public partial class PatchToolboxDialog : Form
     {
@@ -1051,7 +1051,7 @@ namespace DSPRE
 
         private int GetCommandTableOffset()
         { // Checks if command table is repointed IN THE EXPANDED ARM9 FILE, returns pointer inside this file
-            ResourceManager customcmdDB = new ResourceManager("DSPRE.Resources.ROMToolboxDB.CustomScrCmdDB", Assembly.GetExecutingAssembly());
+            ResourceManager customcmdDB = new ResourceManager("LiTRE.Resources.ROMToolboxDB.CustomScrCmdDB", Assembly.GetExecutingAssembly());
             int pointerOffset = int.Parse(customcmdDB.GetString("pointerOffset" + "_" + RomInfo.gameVersion + "_" + RomInfo.gameLanguage));
             using (ARM9.Reader r = new ARM9.Reader(pointerOffset))
             {
@@ -1069,7 +1069,7 @@ namespace DSPRE
         private void RepointCommandTable()
         {
             string expandedPath = RomInfo.gameDirs[DirNames.synthOverlay].unpackedDir + "\\0000";
-            ResourceManager customcmdDB = new ResourceManager("DSPRE.Resources.ROMToolboxDB.CustomScrCmdDB", Assembly.GetExecutingAssembly());
+            ResourceManager customcmdDB = new ResourceManager("LiTRE.Resources.ROMToolboxDB.CustomScrCmdDB", Assembly.GetExecutingAssembly());
 
             FileStream arm9FileStream = new FileStream(RomInfo.arm9Path, FileMode.Open); // I make a copy of the stream so the file is free for writing
             MemoryStream arm9Stream = new MemoryStream();

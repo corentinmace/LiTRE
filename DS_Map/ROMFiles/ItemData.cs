@@ -2,10 +2,10 @@
 using System.IO;
 using System.Net.Sockets;
 using System.Windows.Controls.Primitives;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static Microsoft.WindowsAPICodePack.Shell.PropertySystem.SystemProperties.System;
 
-namespace DSPRE.ROMFiles
+namespace LiTRE.ROMFiles
 {
     #region Enums
     public enum NaturalGiftType

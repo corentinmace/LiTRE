@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using Tao.Platform.Windows;
 
-namespace DSPRE {
+namespace LiTRE {
     public static class Extensions {
         public static void SetAllItemsChecked(this CheckedListBox clb, bool status) {
             for (int i = 0; i < clb.Items.Count; i++) {

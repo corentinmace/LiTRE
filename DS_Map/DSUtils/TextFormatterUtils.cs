@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace DSPRE
+namespace LiTRE
 {
 
     public class TextFormatterUtils
@@ -84,7 +84,7 @@ namespace DSPRE
         }
 
 
-        public static string TextToDSPRE(string input, int gen = 4, bool flow = true, int index = 39, int lines = 2)
+        public static string TextToLiTRE(string input, int gen = 4, bool flow = true, int index = 39, int lines = 2)
         {
             var g = genData[gen];
             input = RemoveExtraSpaces(input);
@@ -133,7 +133,7 @@ namespace DSPRE
         }
 
 
-        public static string DSPREToHTML(string input, int gen = 4)
+        public static string LiTREToHTML(string input, int gen = 4)
         {
             var g = genData[gen];
             if (g.Regex.Full.IsMatch(input))

@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class CameraEditor : UserControl
     {

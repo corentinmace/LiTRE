@@ -1,12 +1,12 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.Editors {
+namespace LiTRE.Editors {
     public partial class LevelScriptEditor : UserControl {
         public bool levelScriptEditorIsReady { get; set; } = false;
         LevelScriptFile _levelScriptFile;

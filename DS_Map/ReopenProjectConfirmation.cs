@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DSPRE
+namespace LiTRE
 {
     public partial class ReopenProjectConfirmation : Form
     {

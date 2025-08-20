@@ -1,4 +1,4 @@
-﻿namespace DSPRE {
+﻿namespace LiTRE {
     partial class PokemonEditor {
         /// <summary>
         /// Required designer variable.

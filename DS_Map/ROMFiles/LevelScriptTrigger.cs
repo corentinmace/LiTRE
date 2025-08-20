@@ -1,6 +1,6 @@
 using System;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
   public class LevelScriptTrigger {
     public const int VARIABLEVALUE = 1;
     public const int MAPCHANGE = 2;

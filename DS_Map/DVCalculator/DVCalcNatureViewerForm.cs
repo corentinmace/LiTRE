@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DSPRE
+namespace LiTRE
 {
     public partial class DVCalcNatureViewerForm : Form
     {

@@ -1,13 +1,13 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System.Collections.Generic;
 
 using System;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using System.Reflection;
 using System.Linq;
 
-namespace DSPRE {
+namespace LiTRE {
 
     public partial class HeaderSearch : Form {
         public static readonly Dictionary<MapHeader.SearchableFields, string> searchableHeaderFieldsDict = new Dictionary<MapHeader.SearchableFields, string>() {

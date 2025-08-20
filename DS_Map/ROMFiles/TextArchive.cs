@@ -5,11 +5,11 @@ using System.Text;
 using System.Resources;
 using System.Reflection;
 using System.Windows.Forms;
-using DSPRE.Resources;
-using static DSPRE.RomInfo;
-using DSPRE.MessageEnc;
+using LiTRE.Resources;
+using static LiTRE.RomInfo;
+using LiTRE.MessageEnc;
 
-namespace DSPRE.ROMFiles
+namespace LiTRE.ROMFiles
 {
     /// <summary>
     /// Class to store message data from DS Pokémon games
@@ -40,7 +40,7 @@ namespace DSPRE.ROMFiles
 
         public int[] EncodeString(string currentMessage, int stringIndex, int stringSize)
         { // Converts string to hex characters
-            ResourceManager GetByte = new ResourceManager("DSPRE.Resources.WriteText", Assembly.GetExecutingAssembly());
+            ResourceManager GetByte = new ResourceManager("LiTRE.Resources.WriteText", Assembly.GetExecutingAssembly());
 
             int[] pokemonMessage = new int[stringSize - 1];
             var charArray = currentMessage.ToCharArray();

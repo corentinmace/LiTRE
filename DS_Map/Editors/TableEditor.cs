@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using Ekona.Images;
 using MKDS_Course_Editor.Export3DTools;
 using System;
@@ -10,10 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class TableEditor : UserControl
     {

@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,10 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static Tao.Platform.Windows.Winmm;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class TextEditor : UserControl
     {

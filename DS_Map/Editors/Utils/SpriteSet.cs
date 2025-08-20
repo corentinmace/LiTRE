@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSPRE.Editors.Utils
+namespace LiTRE.Editors.Utils
 {
     public class SpriteSet
     {

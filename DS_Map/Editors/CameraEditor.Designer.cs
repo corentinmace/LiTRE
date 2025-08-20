@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     partial class CameraEditor
     {
@@ -54,7 +54,7 @@ namespace DSPRE.Editors
             // 
             // exportCameraTableButton
             // 
-            this.exportCameraTableButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportCameraTableButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportCameraTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportCameraTableButton.Location = new System.Drawing.Point(9, 580);
             this.exportCameraTableButton.Name = "exportCameraTableButton";
@@ -67,7 +67,7 @@ namespace DSPRE.Editors
             // 
             // importCameraTableButton
             // 
-            this.importCameraTableButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importCameraTableButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importCameraTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importCameraTableButton.Location = new System.Drawing.Point(129, 580);
             this.importCameraTableButton.Name = "importCameraTableButton";
@@ -80,7 +80,7 @@ namespace DSPRE.Editors
             // 
             // saveCameraTableButton
             // 
-            this.saveCameraTableButton.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveCameraTableButton.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveCameraTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveCameraTableButton.Location = new System.Drawing.Point(1066, 580);
             this.saveCameraTableButton.Name = "saveCameraTableButton";

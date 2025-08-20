@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DSPRE
+namespace LiTRE
 {
     public static class CrashReporter
     {
@@ -108,7 +108,7 @@ namespace DSPRE
 
         private static string GetCrashReportFilePath()
         {
-            string crashDir = Path.Combine(Program.DspreDataPath, "CrashReports");
+            string crashDir = Path.Combine(Program.LiTREDataPath, "CrashReports");
             Directory.CreateDirectory(crashDir);
 
             string filename = $"Crash_{DateTime.Now:yyyyMMdd_HHmmss}.txt";

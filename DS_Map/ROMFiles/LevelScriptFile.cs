@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DSPRE.ROMFiles
+namespace LiTRE.ROMFiles
 {
     public class LevelScriptFile
     {

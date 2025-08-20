@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using Ekona.Images;
 using Images;
 using LibGit2Sharp;
@@ -19,9 +19,9 @@ using System.Windows.Forms;
 using Tao.OpenGl;
 using Velopack;
 using Velopack.Sources;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public static class Helpers {
         static MainProgram MainProgram;
 
@@ -52,7 +52,7 @@ namespace DSPRE {
             }
             else
             {
-                DialogResult update = MessageBox.Show($"A new DSPRE version is available: {newVersion.TargetFullRelease.Version}.\nDo you want to install it?", "New update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult update = MessageBox.Show($"A new LiTRE version is available: {newVersion.TargetFullRelease.Version}.\nDo you want to install it?", "New update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (update == DialogResult.Yes)
                 {
                     AppLogger.Info($"New version available: {newVersion.TargetFullRelease.Version} (Current: {mgr.CurrentVersion})");
@@ -183,7 +183,7 @@ namespace DSPRE {
             disableHandlers = false;
         }
 
-        public static string GetDSPREVersion()
+        public static string GetLiTREVersion()
         {
             return "" + Assembly.GetExecutingAssembly().GetName().Version.Major + "." + Assembly.GetExecutingAssembly().GetName().Version.Minor +
                 "." + Assembly.GetExecutingAssembly().GetName().Version.Build;
@@ -463,7 +463,7 @@ namespace DSPRE {
                 return Properties.Resources.IconPokeball;
             }
             // default:
-            //partyPokemonPictureBoxList[partyPos].Image = cb.SelectedIndex > 0 ? (Image)Properties.PokePics.ResourceManager.GetObject(FixPokenameString(PokeDatabase.System.pokeNames[(ushort)cb.SelectedIndex])) : global::DSPRE.Properties.Resources.IconPokeball;
+            //partyPokemonPictureBoxList[partyPos].Image = cb.SelectedIndex > 0 ? (Image)Properties.PokePics.ResourceManager.GetObject(FixPokenameString(PokeDatabase.System.pokeNames[(ushort)cb.SelectedIndex])) : global::LiTRE.Properties.Resources.IconPokeball;
         }
 
         public static void GenerateKeystrokes(string keys, Scintilla textArea) {
@@ -651,7 +651,7 @@ namespace DSPRE {
 
             DialogResult dr = MessageBox.Show("About to rename " + files.Length + " file" + (files.Length > 1 ? "s" : "") +
                 " from the input folder (taken in ascending order), according to their content.\n" +
-                "If a destination file already exists, DSPRE will append a number to its name.\n\n" +
+                "If a destination file already exists, LiTRE will append a number to its name.\n\n" +
                 "Do you want to proceed?", "Confirm operation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr.Equals(DialogResult.Yes))

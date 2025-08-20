@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class InputComboBox : ComboBox {
         private Color normalColor;
 

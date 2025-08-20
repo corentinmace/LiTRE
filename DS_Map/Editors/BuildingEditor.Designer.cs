@@ -1,4 +1,4 @@
-﻿namespace DSPRE
+﻿namespace LiTRE
 {
     partial class BuildingEditor
     {
@@ -55,7 +55,7 @@
             // 
             // importButton
             // 
-            this.importButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.importButton.Location = new System.Drawing.Point(12, 505);
@@ -69,7 +69,7 @@
             // 
             // exportButton
             // 
-            this.exportButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.exportButton.Location = new System.Drawing.Point(124, 505);
@@ -140,7 +140,7 @@
             // 
             // button1
             // 
-            this.button1.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.button1.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button1.Location = new System.Drawing.Point(236, 505);

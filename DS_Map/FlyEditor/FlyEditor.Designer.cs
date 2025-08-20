@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class FlyEditor
     {
@@ -71,7 +71,7 @@
             // 
             // btn_SaveChanges
             // 
-            this.btn_SaveChanges.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.btn_SaveChanges.Image = global::LiTRE.Properties.Resources.saveButton;
             this.btn_SaveChanges.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_SaveChanges.Name = "btn_SaveChanges";
             this.btn_SaveChanges.Size = new System.Drawing.Size(100, 22);

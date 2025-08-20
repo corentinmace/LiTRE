@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DSPRE.Editors {
+namespace LiTRE.Editors {
   partial class HeadbuttEncounterEditor {
     /// <summary> 
     /// Required designer variable.
@@ -30,9 +30,9 @@ namespace DSPRE.Editors {
             this.buttonSave = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageNormal = new System.Windows.Forms.TabPage();
-            this.headbuttEncounterEditorTabNormal = new DSPRE.Editors.HeadbuttEncounterEditorTab();
+            this.headbuttEncounterEditorTabNormal = new LiTRE.Editors.HeadbuttEncounterEditorTab();
             this.tabPageSpecial = new System.Windows.Forms.TabPage();
-            this.headbuttEncounterEditorTabSpecial = new DSPRE.Editors.HeadbuttEncounterEditorTab();
+            this.headbuttEncounterEditorTabSpecial = new LiTRE.Editors.HeadbuttEncounterEditorTab();
             this.mapRenderPanel = new System.Windows.Forms.Panel();
             this.openGlPictureBox = new System.Windows.Forms.PictureBox();
             this.mapScreenshotButton = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@ namespace DSPRE.Editors {
             // 
             // buttonSaveAs
             // 
-            this.buttonSaveAs.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.buttonSaveAs.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.buttonSaveAs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSaveAs.Location = new System.Drawing.Point(278, 3);
             this.buttonSaveAs.Name = "buttonSaveAs";
@@ -88,7 +88,7 @@ namespace DSPRE.Editors {
             // 
             // buttonSave
             // 
-            this.buttonSave.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.buttonSave.Image = global::LiTRE.Properties.Resources.saveButton;
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.Location = new System.Drawing.Point(215, 3);
             this.buttonSave.Name = "buttonSave";
@@ -166,7 +166,7 @@ namespace DSPRE.Editors {
             // 
             // mapScreenshotButton
             // 
-            this.mapScreenshotButton.Image = global::DSPRE.Properties.Resources.cameraIcon;
+            this.mapScreenshotButton.Image = global::LiTRE.Properties.Resources.cameraIcon;
             this.mapScreenshotButton.Location = new System.Drawing.Point(1036, 574);
             this.mapScreenshotButton.Name = "mapScreenshotButton";
             this.mapScreenshotButton.Size = new System.Drawing.Size(41, 40);
@@ -353,7 +353,7 @@ namespace DSPRE.Editors {
             // 
             // LeftClickPicture
             // 
-            this.LeftClickPicture.Image = global::DSPRE.Properties.Resources.LeftClick;
+            this.LeftClickPicture.Image = global::LiTRE.Properties.Resources.LeftClick;
             this.LeftClickPicture.ImageLocation = "";
             this.LeftClickPicture.Location = new System.Drawing.Point(349, 387);
             this.LeftClickPicture.Name = "LeftClickPicture";
@@ -364,7 +364,7 @@ namespace DSPRE.Editors {
             // 
             // rightClickPicture
             // 
-            this.rightClickPicture.Image = global::DSPRE.Properties.Resources.RightClick;
+            this.rightClickPicture.Image = global::LiTRE.Properties.Resources.RightClick;
             this.rightClickPicture.ImageLocation = "";
             this.rightClickPicture.Location = new System.Drawing.Point(307, 387);
             this.rightClickPicture.Name = "rightClickPicture";
@@ -375,7 +375,7 @@ namespace DSPRE.Editors {
             // 
             // buttonImport
             // 
-            this.buttonImport.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.buttonImport.Image = global::LiTRE.Properties.Resources.importArrow;
             this.buttonImport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonImport.Location = new System.Drawing.Point(350, 3);
             this.buttonImport.Name = "buttonImport";

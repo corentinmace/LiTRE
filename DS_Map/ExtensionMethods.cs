@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DSPRE {
+namespace LiTRE {
   public static class ExtensionMethods {
     /// <summary>
     /// Increment the progress bar value, without using Windows Aero animation

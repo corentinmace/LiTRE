@@ -1,4 +1,4 @@
-﻿using DSPRE.Resources;
+﻿using LiTRE.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class LearnsetEditor : Form {
 
         private PokemonEditor _parent;

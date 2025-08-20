@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DSPRE {
+namespace LiTRE {
     public static class ModelUtils {
 
         public static void ModelToDAE(string modelName, byte[] modelData, byte[] textureData) {
-            MessageBox.Show("Choose output folder.\nDSPRE will automatically create a sub-folder in it.", "Awaiting user input", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Choose output folder.\nLiTRE will automatically create a sub-folder in it.", "Awaiting user input", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             CommonOpenFileDialog cofd = new CommonOpenFileDialog {
                 IsFolderPicker = true,
@@ -72,7 +72,7 @@ namespace DSPRE {
         }
 
         public static void ModelToGLB(string modelName, byte[] modelData, byte[] textureData) {
-            MessageBox.Show("Choose output folder.\nDSPRE will automatically create a sub-folder in it.", "Awaiting user input", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Choose output folder.\nLiTRE will automatically create a sub-folder in it.", "Awaiting user input", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             CommonOpenFileDialog cofd = new CommonOpenFileDialog {
                 IsFolderPicker = true,

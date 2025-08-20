@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using DSPRE.ROMFiles;
+using LiTRE.ROMFiles;
 
-namespace DSPRE.Editors {
+namespace LiTRE.Editors {
   public partial class SafariZoneEncounterEditorTab : UserControl {
     public SafariZoneEncounterEditorTab() {
       InitializeComponent();

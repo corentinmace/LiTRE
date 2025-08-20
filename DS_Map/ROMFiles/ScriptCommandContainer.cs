@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
   public class ScriptCommandContainer {
     public List<ScriptCommand> commands =  new List<ScriptCommand>();
     public uint manualUserID;

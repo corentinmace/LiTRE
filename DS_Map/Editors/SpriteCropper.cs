@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 using System.Xml.Linq;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class SpriteCropper : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
   partial class SafariZoneEncounterGroupEditor
   {
@@ -32,18 +32,18 @@ namespace DSPRE.Editors
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SafariZoneEncounterGroupEditor));
             this.tabControlEncounters = new System.Windows.Forms.TabControl();
             this.tabPageMorning = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterEditorMorningTab = new DSPRE.Editors.SafariZoneEncounterEditorTab();
+            this.safariZoneEncounterEditorMorningTab = new LiTRE.Editors.SafariZoneEncounterEditorTab();
             this.tabPageDay = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterEditorDayTab = new DSPRE.Editors.SafariZoneEncounterEditorTab();
+            this.safariZoneEncounterEditorDayTab = new LiTRE.Editors.SafariZoneEncounterEditorTab();
             this.tabPageNight = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterEditorNightTab = new DSPRE.Editors.SafariZoneEncounterEditorTab();
+            this.safariZoneEncounterEditorNightTab = new LiTRE.Editors.SafariZoneEncounterEditorTab();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxObjectRequirementType = new System.Windows.Forms.ComboBox();
             this.numericUpDownObjectRequirementQty = new System.Windows.Forms.NumericUpDown();
-            this.listBoxObjectRequirements = new DSPRE.ListBox2();
-            this.listBoxObjectOptionalRequirements = new DSPRE.ListBox2();
+            this.listBoxObjectRequirements = new LiTRE.ListBox2();
+            this.listBoxObjectOptionalRequirements = new LiTRE.ListBox2();
             this.numericUpDownObjectOptionalRequirementQty = new System.Windows.Forms.NumericUpDown();
             this.comboBoxOptionalObjectRequirementType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -248,7 +248,7 @@ namespace DSPRE.Editors
             // 
             // buttonRemoveObjectEncounter
             // 
-            this.buttonRemoveObjectEncounter.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.buttonRemoveObjectEncounter.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.buttonRemoveObjectEncounter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRemoveObjectEncounter.Location = new System.Drawing.Point(424, 77);
             this.buttonRemoveObjectEncounter.Name = "buttonRemoveObjectEncounter";

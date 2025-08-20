@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public class UniqueList<T> {
         private readonly List<T> list = new List<T>();
         private readonly HashSet<T> set = new HashSet<T>();

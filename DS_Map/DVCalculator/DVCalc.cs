@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE
+namespace LiTRE
 {
     public partial class DVCalc : Form
     {
@@ -150,7 +150,7 @@ namespace DSPRE
             toolTipDVCalc.SetToolTip(buttonMoreInfo, "Open a link to a detailed explanation of how trainer Pokémon PID generation works");
 
             string trainerGenderExplanation = "You can manually change the trainer gender here.\n" +
-                "If you've repointed the trainer gender table the value read by DSPRE may be wrong.\n" +
+                "If you've repointed the trainer gender table the value read by LiTRE may be wrong.\n" +
                 "This is only for the sake of the calculation. The trainer gender table will NOT be updated!";
 
             toolTipDVCalc.SetToolTip(panelTrainerGender, trainerGenderExplanation);

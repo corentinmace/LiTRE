@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
-using static DSPRE.DSUtils;
+using static LiTRE.DSUtils;
 
-namespace DSPRE
+namespace LiTRE
 {
     public partial class AddressHelper : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace DSPRE
+﻿namespace LiTRE
 {
     partial class DVCalc
     {

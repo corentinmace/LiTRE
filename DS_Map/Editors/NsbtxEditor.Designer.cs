@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class NsbtxEditor
     {
@@ -68,7 +68,7 @@
             this.label32 = new System.Windows.Forms.Label();
             this.areaDataBuildingTilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.selectAreaDataListBox = new System.Windows.Forms.ListBox();
-            this.texturePictureBox = new DSPRE.OffsetPictureBox();
+            this.texturePictureBox = new LiTRE.OffsetPictureBox();
             this.areaTypeGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataDynamicTexturesNumericUpDown)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -132,7 +132,7 @@
             // 
             // saveAreaDataButton
             // 
-            this.saveAreaDataButton.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveAreaDataButton.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveAreaDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveAreaDataButton.Location = new System.Drawing.Point(177, 23);
             this.saveAreaDataButton.Name = "saveAreaDataButton";
@@ -145,7 +145,7 @@
             // 
             // locateCurrentNsbtx
             // 
-            this.locateCurrentNsbtx.Image = global::DSPRE.Properties.Resources.open_file;
+            this.locateCurrentNsbtx.Image = global::LiTRE.Properties.Resources.open_file;
             this.locateCurrentNsbtx.Location = new System.Drawing.Point(438, 20);
             this.locateCurrentNsbtx.Name = "locateCurrentNsbtx";
             this.locateCurrentNsbtx.Size = new System.Drawing.Size(42, 40);
@@ -440,7 +440,7 @@
             // 
             // locateCurrentAreaData
             // 
-            this.locateCurrentAreaData.Image = global::DSPRE.Properties.Resources.open_file;
+            this.locateCurrentAreaData.Image = global::LiTRE.Properties.Resources.open_file;
             this.locateCurrentAreaData.Location = new System.Drawing.Point(395, 74);
             this.locateCurrentAreaData.Name = "locateCurrentAreaData";
             this.locateCurrentAreaData.Size = new System.Drawing.Size(42, 40);
@@ -573,7 +573,7 @@
             this.texturePictureBox.BackColor = System.Drawing.Color.White;
             this.texturePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.texturePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.texturePictureBox.Image = global::DSPRE.Properties.Resources.alphabgCheckerboard;
+            this.texturePictureBox.Image = global::LiTRE.Properties.Resources.alphabgCheckerboard;
             this.texturePictureBox.invertDrag = true;
             this.texturePictureBox.Location = new System.Drawing.Point(745, 52);
             this.texturePictureBox.Name = "texturePictureBox";

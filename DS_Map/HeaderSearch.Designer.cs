@@ -1,4 +1,4 @@
-﻿namespace DSPRE {
+﻿namespace LiTRE {
     partial class HeaderSearch {
         /// <summary>
         /// Required designer variable.
@@ -85,7 +85,7 @@
             // 
             // startSearchButton
             // 
-            this.startSearchButton.Image = global::DSPRE.Properties.Resources.wideLensImage;
+            this.startSearchButton.Image = global::LiTRE.Properties.Resources.wideLensImage;
             this.startSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.startSearchButton.Location = new System.Drawing.Point(209, 11);
             this.startSearchButton.Name = "startSearchButton";
@@ -99,7 +99,7 @@
             // 
             // headerSearchResetButton
             // 
-            this.headerSearchResetButton.Image = global::DSPRE.Properties.Resources.wideLensImageTransp;
+            this.headerSearchResetButton.Image = global::LiTRE.Properties.Resources.wideLensImageTransp;
             this.headerSearchResetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.headerSearchResetButton.Location = new System.Drawing.Point(209, 60);
             this.headerSearchResetButton.Name = "headerSearchResetButton";

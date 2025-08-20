@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class TextFormatter : Form
     {
@@ -41,7 +41,7 @@ namespace DSPRE.Editors
 
         private void inputTextbox_KeyUp(object sender, KeyEventArgs e)
         {
-            outputBox.Text = TextFormatterUtils.TextToDSPRE(inputTextbox.Text, 4, true);
+            outputBox.Text = TextFormatterUtils.TextToLiTRE(inputTextbox.Text, 4, true);
         }
     }
 }

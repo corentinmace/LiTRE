@@ -1,11 +1,11 @@
-﻿using DSPRE.Resources;
+﻿using LiTRE.Resources;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public class ScriptCommand {
         enum ParamTypeEnum {
             INTEGER,

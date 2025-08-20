@@ -1,7 +1,7 @@
 using System.Windows.Forms;
-using DSPRE.Editors;
+using LiTRE.Editors;
 
-namespace DSPRE {
+namespace LiTRE {
   public static class EditorPanels {
     public static MainProgram MainProgram;
 

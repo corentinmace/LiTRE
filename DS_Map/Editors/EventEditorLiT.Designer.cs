@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class EventEditorLiT
     {
@@ -290,7 +290,7 @@
             // 
             // dayPictureBox
             // 
-            dayPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_1;
+            dayPictureBox.BackgroundImage = global::LiTRE.Properties.Resources.time_1;
             dayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             dayPictureBox.Location = new System.Drawing.Point(73, 19);
             dayPictureBox.Name = "dayPictureBox";
@@ -300,7 +300,7 @@
             // 
             // morningPictureBox
             // 
-            morningPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_0;
+            morningPictureBox.BackgroundImage = global::LiTRE.Properties.Resources.time_0;
             morningPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             morningPictureBox.Location = new System.Drawing.Point(29, 19);
             morningPictureBox.Name = "morningPictureBox";
@@ -310,7 +310,7 @@
             // 
             // lateNightPictureBox
             // 
-            lateNightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_4;
+            lateNightPictureBox.BackgroundImage = global::LiTRE.Properties.Resources.time_4;
             lateNightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             lateNightPictureBox.Location = new System.Drawing.Point(201, 19);
             lateNightPictureBox.Name = "lateNightPictureBox";
@@ -320,7 +320,7 @@
             // 
             // nightPictureBox
             // 
-            nightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_3;
+            nightPictureBox.BackgroundImage = global::LiTRE.Properties.Resources.time_3;
             nightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             nightPictureBox.Location = new System.Drawing.Point(159, 19);
             nightPictureBox.Name = "nightPictureBox";
@@ -330,7 +330,7 @@
             // 
             // twilightPictureBox
             // 
-            twilightPictureBox.BackgroundImage = global::DSPRE.Properties.Resources.time_2;
+            twilightPictureBox.BackgroundImage = global::LiTRE.Properties.Resources.time_2;
             twilightPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             twilightPictureBox.Location = new System.Drawing.Point(115, 19);
             twilightPictureBox.Name = "twilightPictureBox";
@@ -340,7 +340,7 @@
             // 
             // locateCurrentEvFile
             // 
-            this.locateCurrentEvFile.Image = global::DSPRE.Properties.Resources.open_file;
+            this.locateCurrentEvFile.Image = global::LiTRE.Properties.Resources.open_file;
             this.locateCurrentEvFile.Location = new System.Drawing.Point(461, 14);
             this.locateCurrentEvFile.Name = "locateCurrentEvFile";
             this.locateCurrentEvFile.Size = new System.Drawing.Size(42, 40);
@@ -621,7 +621,7 @@
             // 
             // duplicateSpawnableButton
             // 
-            this.duplicateSpawnableButton.Image = global::DSPRE.Properties.Resources.copyIcon_small;
+            this.duplicateSpawnableButton.Image = global::LiTRE.Properties.Resources.copyIcon_small;
             this.duplicateSpawnableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.duplicateSpawnableButton.Location = new System.Drawing.Point(139, 318);
             this.duplicateSpawnableButton.Name = "duplicateSpawnableButton";
@@ -654,7 +654,7 @@
             // 
             // goToSignButton
             // 
-            this.goToSignButton.Image = global::DSPRE.Properties.Resources.goToSpawnable;
+            this.goToSignButton.Image = global::LiTRE.Properties.Resources.goToSpawnable;
             this.goToSignButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.goToSignButton.Location = new System.Drawing.Point(30, 137);
             this.goToSignButton.Name = "goToSignButton";
@@ -966,7 +966,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Image = global::DSPRE.Properties.Resources.time_1;
+            this.checkBox1.Image = global::LiTRE.Properties.Resources.time_1;
             this.checkBox1.Location = new System.Drawing.Point(18, -21);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(31, 16);
@@ -975,7 +975,7 @@
             // 
             // sortOWsByIDDescButton
             // 
-            this.sortOWsByIDDescButton.Image = global::DSPRE.Properties.Resources.sortDescending;
+            this.sortOWsByIDDescButton.Image = global::LiTRE.Properties.Resources.sortDescending;
             this.sortOWsByIDDescButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.sortOWsByIDDescButton.Location = new System.Drawing.Point(102, 9);
             this.sortOWsByIDDescButton.Name = "sortOWsByIDDescButton";
@@ -988,7 +988,7 @@
             // 
             // sortOWsByIDAscButton
             // 
-            this.sortOWsByIDAscButton.Image = global::DSPRE.Properties.Resources.sortAscending;
+            this.sortOWsByIDAscButton.Image = global::LiTRE.Properties.Resources.sortAscending;
             this.sortOWsByIDAscButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.sortOWsByIDAscButton.Location = new System.Drawing.Point(8, 9);
             this.sortOWsByIDAscButton.Name = "sortOWsByIDAscButton";
@@ -1070,7 +1070,7 @@
             // 
             // button14
             // 
-            this.button14.Image = global::DSPRE.Properties.Resources.goToOW;
+            this.button14.Image = global::LiTRE.Properties.Resources.goToOW;
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button14.Location = new System.Drawing.Point(108, 15);
             this.button14.Name = "button14";
@@ -1346,7 +1346,7 @@
             // 
             // itemsSelectorHelpBtn
             // 
-            this.itemsSelectorHelpBtn.Image = global::DSPRE.Properties.Resources.questionMark;
+            this.itemsSelectorHelpBtn.Image = global::LiTRE.Properties.Resources.questionMark;
             this.itemsSelectorHelpBtn.Location = new System.Drawing.Point(194, 67);
             this.itemsSelectorHelpBtn.Name = "itemsSelectorHelpBtn";
             this.itemsSelectorHelpBtn.Size = new System.Drawing.Size(28, 29);
@@ -1517,7 +1517,7 @@
             // 
             // duplicateOverworldsButton
             // 
-            this.duplicateOverworldsButton.Image = global::DSPRE.Properties.Resources.copyIcon_small;
+            this.duplicateOverworldsButton.Image = global::LiTRE.Properties.Resources.copyIcon_small;
             this.duplicateOverworldsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.duplicateOverworldsButton.Location = new System.Drawing.Point(116, 233);
             this.duplicateOverworldsButton.Name = "duplicateOverworldsButton";
@@ -1540,7 +1540,7 @@
             // 
             // removeOverworldButton
             // 
-            this.removeOverworldButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeOverworldButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeOverworldButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeOverworldButton.Location = new System.Drawing.Point(56, 233);
             this.removeOverworldButton.Name = "removeOverworldButton";
@@ -1553,7 +1553,7 @@
             // 
             // addOverworldButton
             // 
-            this.addOverworldButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addOverworldButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addOverworldButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addOverworldButton.Location = new System.Drawing.Point(8, 233);
             this.addOverworldButton.Name = "addOverworldButton";
@@ -1591,7 +1591,7 @@
             // 
             // duplicateWarpsButton
             // 
-            this.duplicateWarpsButton.Image = global::DSPRE.Properties.Resources.copyIcon_small;
+            this.duplicateWarpsButton.Image = global::LiTRE.Properties.Resources.copyIcon_small;
             this.duplicateWarpsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.duplicateWarpsButton.Location = new System.Drawing.Point(112, 308);
             this.duplicateWarpsButton.Name = "duplicateWarpsButton";
@@ -1635,7 +1635,7 @@
             // 
             // destinationWarpGoToButton
             // 
-            this.destinationWarpGoToButton.Image = global::DSPRE.Properties.Resources.warpGo;
+            this.destinationWarpGoToButton.Image = global::LiTRE.Properties.Resources.warpGo;
             this.destinationWarpGoToButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.destinationWarpGoToButton.Location = new System.Drawing.Point(138, 98);
             this.destinationWarpGoToButton.Name = "destinationWarpGoToButton";
@@ -1695,7 +1695,7 @@
             // 
             // goToWarpButton
             // 
-            this.goToWarpButton.Image = global::DSPRE.Properties.Resources.goToWarp;
+            this.goToWarpButton.Image = global::LiTRE.Properties.Resources.goToWarp;
             this.goToWarpButton.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.goToWarpButton.Location = new System.Drawing.Point(63, 51);
             this.goToWarpButton.Name = "goToWarpButton";
@@ -1848,7 +1848,7 @@
             // 
             // removeWarpButton
             // 
-            this.removeWarpButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeWarpButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeWarpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeWarpButton.Location = new System.Drawing.Point(60, 308);
             this.removeWarpButton.Name = "removeWarpButton";
@@ -1861,7 +1861,7 @@
             // 
             // addWarpButton
             // 
-            this.addWarpButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addWarpButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addWarpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addWarpButton.Location = new System.Drawing.Point(8, 308);
             this.addWarpButton.Name = "addWarpButton";
@@ -2144,7 +2144,7 @@
             // 
             // goToTriggerButton
             // 
-            this.goToTriggerButton.Image = global::DSPRE.Properties.Resources.goToTrigger;
+            this.goToTriggerButton.Image = global::LiTRE.Properties.Resources.goToTrigger;
             this.goToTriggerButton.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.goToTriggerButton.Location = new System.Drawing.Point(44, 47);
             this.goToTriggerButton.Name = "goToTriggerButton";
@@ -2201,7 +2201,7 @@
             // 
             // duplicateTriggersButton
             // 
-            this.duplicateTriggersButton.Image = global::DSPRE.Properties.Resources.copyIcon_small;
+            this.duplicateTriggersButton.Image = global::LiTRE.Properties.Resources.copyIcon_small;
             this.duplicateTriggersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.duplicateTriggersButton.Location = new System.Drawing.Point(130, 308);
             this.duplicateTriggersButton.Name = "duplicateTriggersButton";
@@ -2214,7 +2214,7 @@
             // 
             // removeTriggerButton
             // 
-            this.removeTriggerButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeTriggerButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeTriggerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeTriggerButton.Location = new System.Drawing.Point(66, 308);
             this.removeTriggerButton.Name = "removeTriggerButton";
@@ -2227,7 +2227,7 @@
             // 
             // addTriggerButton
             // 
-            this.addTriggerButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addTriggerButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addTriggerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addTriggerButton.Location = new System.Drawing.Point(14, 308);
             this.addTriggerButton.Name = "addTriggerButton";
@@ -2291,7 +2291,7 @@
             // 
             this.rightClickPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rightClickPicture.Image = global::DSPRE.Properties.Resources.RightClick;
+            this.rightClickPicture.Image = global::LiTRE.Properties.Resources.RightClick;
             this.rightClickPicture.ImageLocation = "";
             this.rightClickPicture.Location = new System.Drawing.Point(476, 417);
             this.rightClickPicture.Name = "rightClickPicture";
@@ -2304,7 +2304,7 @@
             // 
             this.wheelClickPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.wheelClickPicture.Image = global::DSPRE.Properties.Resources.WheelClick;
+            this.wheelClickPicture.Image = global::LiTRE.Properties.Resources.WheelClick;
             this.wheelClickPicture.ImageLocation = "";
             this.wheelClickPicture.Location = new System.Drawing.Point(561, 417);
             this.wheelClickPicture.Name = "wheelClickPicture";
@@ -2317,7 +2317,7 @@
             // 
             this.LeftClickPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LeftClickPicture.Image = global::DSPRE.Properties.Resources.LeftClick;
+            this.LeftClickPicture.Image = global::LiTRE.Properties.Resources.LeftClick;
             this.LeftClickPicture.ImageLocation = "";
             this.LeftClickPicture.Location = new System.Drawing.Point(521, 417);
             this.LeftClickPicture.Name = "LeftClickPicture";
@@ -2355,7 +2355,7 @@
             // eventShiftRightButton
             // 
             this.eventShiftRightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.eventShiftRightButton.Image = global::DSPRE.Properties.Resources.arrowright;
+            this.eventShiftRightButton.Image = global::LiTRE.Properties.Resources.arrowright;
             this.eventShiftRightButton.Location = new System.Drawing.Point(1152, 233);
             this.eventShiftRightButton.Name = "eventShiftRightButton";
             this.eventShiftRightButton.Size = new System.Drawing.Size(25, 156);
@@ -2366,7 +2366,7 @@
             // eventShiftLeftButton
             // 
             this.eventShiftLeftButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.eventShiftLeftButton.Image = global::DSPRE.Properties.Resources.arrowleft;
+            this.eventShiftLeftButton.Image = global::LiTRE.Properties.Resources.arrowleft;
             this.eventShiftLeftButton.Location = new System.Drawing.Point(570, 233);
             this.eventShiftLeftButton.Name = "eventShiftLeftButton";
             this.eventShiftLeftButton.Size = new System.Drawing.Size(25, 156);
@@ -2377,7 +2377,7 @@
             // eventShiftUpButton
             // 
             this.eventShiftUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.eventShiftUpButton.Image = global::DSPRE.Properties.Resources.arrowup;
+            this.eventShiftUpButton.Image = global::LiTRE.Properties.Resources.arrowup;
             this.eventShiftUpButton.Location = new System.Drawing.Point(795, 8);
             this.eventShiftUpButton.Name = "eventShiftUpButton";
             this.eventShiftUpButton.Size = new System.Drawing.Size(156, 25);
@@ -2389,7 +2389,7 @@
             // eventShiftDownButton
             // 
             this.eventShiftDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.eventShiftDownButton.Image = global::DSPRE.Properties.Resources.arrowdown;
+            this.eventShiftDownButton.Image = global::LiTRE.Properties.Resources.arrowdown;
             this.eventShiftDownButton.Location = new System.Drawing.Point(795, 589);
             this.eventShiftDownButton.Name = "eventShiftDownButton";
             this.eventShiftDownButton.Size = new System.Drawing.Size(156, 25);
@@ -2400,7 +2400,7 @@
             // 
             // exportEventFileButton
             // 
-            this.exportEventFileButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportEventFileButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportEventFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportEventFileButton.Location = new System.Drawing.Point(266, 9);
             this.exportEventFileButton.Name = "exportEventFileButton";
@@ -2413,7 +2413,7 @@
             // 
             // importEventFileButton
             // 
-            this.importEventFileButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importEventFileButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importEventFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importEventFileButton.Location = new System.Drawing.Point(178, 9);
             this.importEventFileButton.Name = "importEventFileButton";
@@ -2426,7 +2426,7 @@
             // 
             // saveEventsButton
             // 
-            this.saveEventsButton.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveEventsButton.Image = global::LiTRE.Properties.Resources.saveButton;
             this.saveEventsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveEventsButton.Location = new System.Drawing.Point(9, 36);
             this.saveEventsButton.Name = "saveEventsButton";
@@ -2438,7 +2438,7 @@
             // 
             // screenshotButton
             // 
-            this.screenshotButton.Image = global::DSPRE.Properties.Resources.cameraIcon;
+            this.screenshotButton.Image = global::LiTRE.Properties.Resources.cameraIcon;
             this.screenshotButton.Location = new System.Drawing.Point(555, 39);
             this.screenshotButton.Name = "screenshotButton";
             this.screenshotButton.Size = new System.Drawing.Size(41, 41);

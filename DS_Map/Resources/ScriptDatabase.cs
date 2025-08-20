@@ -1,11 +1,11 @@
-﻿using DSPRE;
-using DSPRE.Resources;
+﻿using LiTRE;
+using LiTRE.Resources;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
 public static class ScriptDatabaseJsonLoader
 {
@@ -194,7 +194,7 @@ public static class ScriptDatabaseJsonLoader
     }
 }
 
-namespace DSPRE.Resources {
+namespace LiTRE.Resources {
     public class MovementInfo
     {
         public string Name { get; set; }

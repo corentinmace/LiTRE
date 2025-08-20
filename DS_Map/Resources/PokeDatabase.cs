@@ -1,9 +1,9 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System.Collections.Generic;
 using System.Drawing;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.Resources {
+namespace LiTRE.Resources {
     public static class PokeDatabase {
         public static class Area {
             public static string[] PtAreaIconValues = new string[] {

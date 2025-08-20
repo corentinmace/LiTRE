@@ -1,7 +1,7 @@
 using System.IO;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     /// <summary>
     /// Class to store area data in Pokémon NDS games
     /// </summary>

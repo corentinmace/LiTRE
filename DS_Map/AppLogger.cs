@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.IO;
 using System.Text;
 
-namespace DSPRE
+namespace LiTRE
 {
     using System;
     using System.Collections.Concurrent;
@@ -32,7 +32,7 @@ namespace DSPRE
         public static void Initialize(MainProgram program, string logFileName = "application.log", LogLevel minLevel = LogLevel.Debug)
         {
             _mainProgram = program;
-            string logDir = Path.Combine(Program.DspreDataPath, "Logs");
+            string logDir = Path.Combine(Program.LiTREDataPath, "Logs");
             Directory.CreateDirectory(logDir);
             _logFilePath = Path.Combine(logDir, logFileName);
             MinimumLevel = minLevel;

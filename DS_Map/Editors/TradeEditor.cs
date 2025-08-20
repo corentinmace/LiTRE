@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class TradeEditor : Form
     {

@@ -1,5 +1,5 @@
-﻿using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using LibNDSFormats.NSBMD;
 using LibNDSFormats.NSBTX;
 using System;
@@ -14,10 +14,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tao.OpenGl;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static Tao.Platform.Windows.Winmm;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class MapEditor : UserControl
     {

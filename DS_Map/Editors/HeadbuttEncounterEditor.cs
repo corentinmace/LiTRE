@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using LibNDSFormats.NSBMD;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DSPRE.Editors {
+namespace LiTRE.Editors {
     public partial class HeadbuttEncounterEditor : UserControl {
         public bool headbuttEncounterEditorIsReady { get; set; } = false;
 

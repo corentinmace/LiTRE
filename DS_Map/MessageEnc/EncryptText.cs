@@ -1,11 +1,11 @@
-﻿using DSPRE.Resources;
+﻿using LiTRE.Resources;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.MessageEnc
+namespace LiTRE.MessageEnc
 {
     public static class EncryptText
     {

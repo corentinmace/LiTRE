@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class ItemEditor
     {
@@ -1316,7 +1316,7 @@
             // itemEditorSelectedPictureBox
             // 
             this.itemEditorSelectedPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.itemEditorSelectedPictureBox.Image = global::DSPRE.Properties.Resources.IconItem;
+            this.itemEditorSelectedPictureBox.Image = global::LiTRE.Properties.Resources.IconItem;
             this.itemEditorSelectedPictureBox.Location = new System.Drawing.Point(180, 54);
             this.itemEditorSelectedPictureBox.Name = "itemEditorSelectedPictureBox";
             this.itemEditorSelectedPictureBox.Size = new System.Drawing.Size(47, 47);

@@ -1,5 +1,5 @@
-using DSPRE.Resources;
-using DSPRE.ROMFiles;
+using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using LibGit2Sharp;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Path = System.IO.Path;
 
-namespace DSPRE
+namespace LiTRE
 {
     /// <summary>
     /// Class to store ROM data from GEN IV Pokémon games

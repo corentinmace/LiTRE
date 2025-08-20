@@ -1,12 +1,12 @@
-using DSPRE.Resources;
+using LiTRE.Resources;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     /// <summary>
     /// Classes to store event data in Pokémon NDS games
     /// </summary>

@@ -1,4 +1,4 @@
-﻿namespace DSPRE.ROMFiles {
+﻿namespace LiTRE.ROMFiles {
   //This class is in case a MapHeader uses the same MapFile more than once
   //ToString is the matrix x,y and mapID
   class HeadbuttEncounterMap {

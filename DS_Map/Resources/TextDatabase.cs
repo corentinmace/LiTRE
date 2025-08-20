@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DSPRE.Resources {
+namespace LiTRE.Resources {
     public static class TextDatabase {
         public static Dictionary<int, string> readTextDictionary = new Dictionary<int, string>() {
             [0x0000] = "\\x0000",

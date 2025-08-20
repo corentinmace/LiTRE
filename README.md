@@ -2,11 +2,11 @@
 
 Major overhaul of Nomura's DS Pokemon ROM Editor, with lots of new features and bugfixes.
 
-![Screenshot](aDSPRE_1110.png)
-![Screenshot](bDSPRE_1110.png)
-![Screenshot](cDSPRE_1110.png)
+![Screenshot](aLiTRE_1110.png)
+![Screenshot](bLiTRE_1110.png)
+![Screenshot](cLiTRE_1110.png)
 
-## Misc changes to the original DSPRE
+## Misc changes to the original LiTRE
 - Significantly shorter load and save times.
 - New, faster Script Editor with syntax highlighting and built-in search features.
 - Fixed lots of problems with Japanese DP roms [either not loading or only partially functioning].

@@ -1,4 +1,4 @@
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
   public class MapScreenLoadTrigger : LevelScriptTrigger {
     public MapScreenLoadTrigger(int type, int scriptTriggered) : base(type, scriptTriggered) { }
 

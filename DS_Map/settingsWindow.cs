@@ -10,10 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static NSMBe4.ROM;
 
-namespace DSPRE
+namespace LiTRE
 {
     public partial class SettingsWindow : Form
     {
@@ -44,7 +44,7 @@ namespace DSPRE
 
         private void SettingsWindow_Load(object sender, EventArgs e)
         {
-            currentVersionLabel.Text = $"DSPRE Version {Helpers.GetDSPREVersion()}";
+            currentVersionLabel.Text = $"LiTRE Version {Helpers.GetLiTREVersion()}";
             romExportPathTextBox.Text = SettingsManager.Settings.exportPath;
             oldExportPath = SettingsManager.Settings.exportPath;
             mapImportPathTextBox.Text = SettingsManager.Settings.mapImportStarterPoint;
@@ -60,7 +60,7 @@ namespace DSPRE
         private void enabledAdvancedModeButton_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("You are about to enable advanced mode, doing this will make the following changes:\n\n" +
-                "- Unpack all script files to plaintext .inc files that are compatible with decomps, allowing you to edit them in an IDE or port them between decomps and DSPRE" + "\n\n" +
+                "- Unpack all script files to plaintext .inc files that are compatible with decomps, allowing you to edit them in an IDE or port them between decomps and LiTRE" + "\n\n" +
                 "This will disable the built in script editor until you turn advanced mode off.\n\n" +
                 "Do you wish to continue?",
                 "Confirm to proceed", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -98,9 +98,9 @@ namespace DSPRE
         private void changeOpenDefaultPathButton_Click(object sender, EventArgs e)
         {
             var defaultRomPath = getFolderPath();
-            if(defaultRomPath != null && !defaultRomPath.EndsWith("DSPRE_contents"))
+            if(defaultRomPath != null && !defaultRomPath.EndsWith("_DSPRE_contents"))
             {
-                if (MessageBox.Show("The folder you selected does not appear to be a DSPRE folder (DSPRE_contents), are you sure you want to proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                if (MessageBox.Show("The folder you selected does not appear to be a DSPRE folder (_DSPRE_contents), are you sure you want to proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
                     return;
                 }

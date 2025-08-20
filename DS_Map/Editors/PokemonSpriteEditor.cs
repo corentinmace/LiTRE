@@ -1,14 +1,14 @@
-﻿using DSPRE.Editors.Utils;
+﻿using LiTRE.Editors.Utils;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public struct FileEntry
     {

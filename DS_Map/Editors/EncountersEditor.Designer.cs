@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
   partial class EncountersEditor
   {
@@ -31,9 +31,9 @@ namespace DSPRE.Editors
     {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageHeadbuttEditor = new System.Windows.Forms.TabPage();
-            this.headbuttEncounterEditor = new DSPRE.Editors.HeadbuttEncounterEditor();
+            this.headbuttEncounterEditor = new LiTRE.Editors.HeadbuttEncounterEditor();
             this.tabPageSafariZoneEditor = new System.Windows.Forms.TabPage();
-            this.safariZoneEditor = new DSPRE.Editors.SafariZoneEditor();
+            this.safariZoneEditor = new LiTRE.Editors.SafariZoneEditor();
             this.tabControl.SuspendLayout();
             this.tabPageHeadbuttEditor.SuspendLayout();
             this.tabPageSafariZoneEditor.SuspendLayout();

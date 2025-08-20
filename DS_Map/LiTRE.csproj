@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E3C66521-EE89-4406-92C4-FC1D40DC4200}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DSPRE</RootNamespace>
-    <AssemblyName>DSPRE</AssemblyName>
+    <RootNamespace>LiTRE</RootNamespace>
+    <AssemblyName>LiTRE</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -856,6 +856,12 @@
     <None Include="Resources\Graphics\Program Icons\folderToNarcIcon.png" />
     <None Include="Resources\Graphics\Program Icons\folderToListIcon.png" />
     <None Include="Resources\Graphics\Program Icons\enumToListIcon.png" />
+    <None Include="Resources\Graphics\Program Icons\dualslot_cart\cart_emerald.png" />
+    <None Include="Resources\Graphics\Program Icons\dualslot_cart\cart_fire_red.png" />
+    <None Include="Resources\Graphics\Program Icons\dualslot_cart\cart_leaf_green.png" />
+    <None Include="Resources\Graphics\Program Icons\dualslot_cart\cart_ruby.png" />
+    <None Include="Resources\Graphics\Program Icons\dualslot_cart\cart_sapphire.png" />
+    <None Include="Resources\Graphics\Program Icons\DV_Icon.png" />
     <Content Include="Resources\Graphics\Program Icons\IconItem.png" />
     <Content Include="Resources\Graphics\Program Icons\IconPokeball.png" />
     <Content Include="Resources\Graphics\Program Icons\IconPokeballNot.png" />

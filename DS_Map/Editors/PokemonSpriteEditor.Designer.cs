@@ -1,9 +1,9 @@
-﻿using DSPRE.Editors.Utils;
+﻿using LiTRE.Editors.Utils;
 using System.Drawing;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     partial class PokemonSpriteEditor
     {

@@ -7,14 +7,14 @@ using System.Windows.Forms;
 using Velopack;
 using LibGit2Sharp;
 
-namespace DSPRE
+namespace LiTRE
 {
     static class Program
     {
-        public static string DspreDataPath { get; } = Path.Combine(
+        public static string LiTREDataPath { get; } = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "LiTRE");
-        public static string DatabasePath = Path.Combine(Program.DspreDataPath, "databases");
+        public static string DatabasePath = Path.Combine(Program.LiTREDataPath, "databases");
 
         /// <summary>
         /// Punto di ingresso principale dell'applicazione.
@@ -22,8 +22,8 @@ namespace DSPRE
         [STAThread]
         static void Main()
         {
-            if (!Directory.Exists(DspreDataPath))
-                Directory.CreateDirectory(DspreDataPath);
+            if (!Directory.Exists(LiTREDataPath))
+                Directory.CreateDirectory(LiTREDataPath);
 
             VelopackApp.Build().Run();
             Application.EnableVisualStyles();

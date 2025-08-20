@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class TradeEditor
     {
@@ -132,7 +132,7 @@
             // saveAllButton
             // 
             this.saveAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveAllButton.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveAllButton.Image = global::LiTRE.Properties.Resources.saveButton;
             this.saveAllButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.saveAllButton.Location = new System.Drawing.Point(470, 389);
             this.saveAllButton.Name = "saveAllButton";
@@ -146,7 +146,7 @@
             // saveTextDataButton
             // 
             this.saveTextDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveTextDataButton.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveTextDataButton.Image = global::LiTRE.Properties.Resources.saveButton;
             this.saveTextDataButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.saveTextDataButton.Location = new System.Drawing.Point(479, 142);
             this.saveTextDataButton.Name = "saveTextDataButton";
@@ -160,7 +160,7 @@
             // saveTradeButton
             // 
             this.saveTradeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveTradeButton.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveTradeButton.Image = global::LiTRE.Properties.Resources.saveButton;
             this.saveTradeButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.saveTradeButton.Location = new System.Drawing.Point(480, 342);
             this.saveTradeButton.Name = "saveTradeButton";
@@ -703,7 +703,7 @@
             // addFileButton
             // 
             this.addFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addFileButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addFileButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addFileButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.addFileButton.Location = new System.Drawing.Point(480, 242);
             this.addFileButton.Name = "addFileButton";
@@ -717,7 +717,7 @@
             // removeLastButton
             // 
             this.removeLastButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeLastButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeLastButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeLastButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.removeLastButton.Location = new System.Drawing.Point(480, 292);
             this.removeLastButton.Name = "removeLastButton";

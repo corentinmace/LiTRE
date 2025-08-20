@@ -1,4 +1,4 @@
-﻿namespace DSPRE
+﻿namespace LiTRE
 {
     partial class PatchToolboxDialog
     {
@@ -236,7 +236,7 @@
             // 
             // overlay1CB
             // 
-            this.overlay1CB.Image = global::DSPRE.Properties.Resources.checkmark;
+            this.overlay1CB.Image = global::LiTRE.Properties.Resources.checkmark;
             this.overlay1CB.Location = new System.Drawing.Point(309, 119);
             this.overlay1CB.Name = "overlay1CB";
             this.overlay1CB.Size = new System.Drawing.Size(20, 20);

@@ -1,12 +1,12 @@
-﻿using DSPRE.Editors.Data;
+﻿using LiTRE.Editors.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class FlyEditor : Form
     {

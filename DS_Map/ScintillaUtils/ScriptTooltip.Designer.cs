@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.ScintillaUtils {
+namespace LiTRE.ScintillaUtils {
     partial class ScriptTooltip {
         /// <summary>
         /// Required designer variable.

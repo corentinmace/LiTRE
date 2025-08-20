@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors.BtxEditor
+﻿namespace LiTRE.Editors.BtxEditor
 {
     partial class BtxEditor
     {
@@ -73,7 +73,7 @@
             // showBtxFileButton
             // 
             this.showBtxFileButton.Enabled = false;
-            this.showBtxFileButton.Image = global::DSPRE.Properties.Resources.lens;
+            this.showBtxFileButton.Image = global::LiTRE.Properties.Resources.lens;
             this.showBtxFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.showBtxFileButton.Location = new System.Drawing.Point(148, 27);
             this.showBtxFileButton.Name = "showBtxFileButton";
@@ -87,7 +87,7 @@
             // exportImagePng
             // 
             this.exportImagePng.Enabled = false;
-            this.exportImagePng.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportImagePng.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportImagePng.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportImagePng.Location = new System.Drawing.Point(148, 145);
             this.exportImagePng.Name = "exportImagePng";
@@ -101,7 +101,7 @@
             // importImagePng
             // 
             this.importImagePng.Enabled = false;
-            this.importImagePng.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importImagePng.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importImagePng.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importImagePng.Location = new System.Drawing.Point(16, 145);
             this.importImagePng.Name = "importImagePng";
@@ -136,7 +136,7 @@
             // 
             // saveSelected_Button
             // 
-            this.saveSelected_Button.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveSelected_Button.Image = global::LiTRE.Properties.Resources.saveButton;
             this.saveSelected_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveSelected_Button.Location = new System.Drawing.Point(16, 174);
             this.saveSelected_Button.Name = "saveSelected_Button";
@@ -149,7 +149,7 @@
             // 
             // SaveAll_Button
             // 
-            this.SaveAll_Button.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.SaveAll_Button.Image = global::LiTRE.Properties.Resources.saveButton;
             this.SaveAll_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SaveAll_Button.Location = new System.Drawing.Point(148, 174);
             this.SaveAll_Button.Name = "SaveAll_Button";

@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class MapEditor
     {
@@ -192,7 +192,7 @@
             // mapScreenshotButton
             // 
             this.mapScreenshotButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mapScreenshotButton.Image = global::DSPRE.Properties.Resources.cameraIcon;
+            this.mapScreenshotButton.Image = global::LiTRE.Properties.Resources.cameraIcon;
             this.mapScreenshotButton.Location = new System.Drawing.Point(3, 603);
             this.mapScreenshotButton.Name = "mapScreenshotButton";
             this.mapScreenshotButton.Size = new System.Drawing.Size(41, 40);
@@ -286,7 +286,7 @@
             // locateCurrentMapBin
             // 
             this.locateCurrentMapBin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.locateCurrentMapBin.Image = global::DSPRE.Properties.Resources.open_file;
+            this.locateCurrentMapBin.Image = global::LiTRE.Properties.Resources.open_file;
             this.locateCurrentMapBin.Location = new System.Drawing.Point(150, 89);
             this.locateCurrentMapBin.Name = "locateCurrentMapBin";
             this.locateCurrentMapBin.Size = new System.Drawing.Size(46, 37);
@@ -299,7 +299,7 @@
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.removeMapFileButton, 2);
             this.removeMapFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.removeMapFileButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeMapFileButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeMapFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeMapFileButton.Location = new System.Drawing.Point(101, 3);
             this.removeMapFileButton.Name = "removeMapFileButton";
@@ -344,7 +344,7 @@
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.saveMapButton, 3);
             this.saveMapButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveMapButton.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveMapButton.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveMapButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveMapButton.Location = new System.Drawing.Point(3, 89);
             this.saveMapButton.Name = "saveMapButton";
@@ -782,7 +782,7 @@
             // 
             this.bldPlaceWithMouseCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
             this.bldPlaceWithMouseCheckbox.Enabled = false;
-            this.bldPlaceWithMouseCheckbox.Image = global::DSPRE.Properties.Resources.selectBldWithMouse;
+            this.bldPlaceWithMouseCheckbox.Image = global::LiTRE.Properties.Resources.selectBldWithMouse;
             this.bldPlaceWithMouseCheckbox.Location = new System.Drawing.Point(227, 271);
             this.bldPlaceWithMouseCheckbox.Name = "bldPlaceWithMouseCheckbox";
             this.bldPlaceWithMouseCheckbox.Size = new System.Drawing.Size(39, 40);
@@ -890,7 +890,7 @@
             // 
             // duplicateBuildingButton
             // 
-            this.duplicateBuildingButton.Image = global::DSPRE.Properties.Resources.copyIcon_small;
+            this.duplicateBuildingButton.Image = global::LiTRE.Properties.Resources.copyIcon_small;
             this.duplicateBuildingButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.duplicateBuildingButton.Location = new System.Drawing.Point(352, 405);
             this.duplicateBuildingButton.Name = "duplicateBuildingButton";
@@ -916,7 +916,7 @@
             // 
             // removeBuildingButton
             // 
-            this.removeBuildingButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeBuildingButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeBuildingButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeBuildingButton.Location = new System.Drawing.Point(281, 405);
             this.removeBuildingButton.Name = "removeBuildingButton";
@@ -1054,7 +1054,7 @@
             // 
             // scanUnusedCollisionTypesButton
             // 
-            this.scanUnusedCollisionTypesButton.Image = global::DSPRE.Properties.Resources.SearchMiniIcon;
+            this.scanUnusedCollisionTypesButton.Image = global::LiTRE.Properties.Resources.SearchMiniIcon;
             this.scanUnusedCollisionTypesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.scanUnusedCollisionTypesButton.Location = new System.Drawing.Point(345, 108);
             this.scanUnusedCollisionTypesButton.Name = "scanUnusedCollisionTypesButton";
@@ -1242,7 +1242,7 @@
             // 
             // ImportMovButton
             // 
-            this.ImportMovButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.ImportMovButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.ImportMovButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ImportMovButton.Location = new System.Drawing.Point(318, 22);
             this.ImportMovButton.Name = "ImportMovButton";
@@ -1255,7 +1255,7 @@
             // 
             // exportMovButton
             // 
-            this.exportMovButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportMovButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportMovButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportMovButton.Location = new System.Drawing.Point(318, 64);
             this.exportMovButton.Name = "exportMovButton";
@@ -1286,7 +1286,7 @@
             // 
             // glbExportButton
             // 
-            this.glbExportButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.glbExportButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.glbExportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.glbExportButton.Location = new System.Drawing.Point(351, 156);
             this.glbExportButton.Margin = new System.Windows.Forms.Padding(4);
@@ -1300,7 +1300,7 @@
             // 
             // daeExportButton
             // 
-            this.daeExportButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.daeExportButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.daeExportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.daeExportButton.Location = new System.Drawing.Point(351, 111);
             this.daeExportButton.Name = "daeExportButton";
@@ -1355,13 +1355,13 @@
             this.unsupported3DModelEditLBL.Name = "unsupported3DModelEditLBL";
             this.unsupported3DModelEditLBL.Size = new System.Drawing.Size(256, 48);
             this.unsupported3DModelEditLBL.TabIndex = 26;
-            this.unsupported3DModelEditLBL.Text = "DSPRE cannot edit nor create 3D models.\r\nPlease use Blender, Sketchup, or \r\nTrifi" +
+            this.unsupported3DModelEditLBL.Text = "LiTRE cannot edit nor create 3D models.\r\nPlease use Blender, Sketchup, or \r\nTrifi" +
     "ndo\'s Pokemon DS Map Studio.";
             this.unsupported3DModelEditLBL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // importMapButton
             // 
-            this.importMapButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importMapButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importMapButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importMapButton.Location = new System.Drawing.Point(351, 9);
             this.importMapButton.Name = "importMapButton";
@@ -1374,7 +1374,7 @@
             // 
             // exportMapButton
             // 
-            this.exportMapButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportMapButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportMapButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportMapButton.Location = new System.Drawing.Point(351, 54);
             this.exportMapButton.Name = "exportMapButton";
@@ -1428,13 +1428,13 @@
             this.unsupportedBDHCEditLBL.Name = "unsupportedBDHCEditLBL";
             this.unsupportedBDHCEditLBL.Size = new System.Drawing.Size(290, 32);
             this.unsupportedBDHCEditLBL.TabIndex = 28;
-            this.unsupportedBDHCEditLBL.Text = "DSPRE cannot edit nor create BDHC data.\r\nPlease use Trifindo\'s Pokemon DS Map Stu" +
+            this.unsupportedBDHCEditLBL.Text = "LiTRE cannot edit nor create BDHC data.\r\nPlease use Trifindo\'s Pokemon DS Map Stu" +
     "dio.";
             this.unsupportedBDHCEditLBL.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // bdhcImportButton
             // 
-            this.bdhcImportButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.bdhcImportButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.bdhcImportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bdhcImportButton.Location = new System.Drawing.Point(351, 9);
             this.bdhcImportButton.Name = "bdhcImportButton";
@@ -1447,7 +1447,7 @@
             // 
             // bdhcExportButton
             // 
-            this.bdhcExportButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.bdhcExportButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.bdhcExportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bdhcExportButton.Location = new System.Drawing.Point(351, 54);
             this.bdhcExportButton.Name = "bdhcExportButton";
@@ -1475,7 +1475,7 @@
             // 
             // blankBGSButton
             // 
-            this.blankBGSButton.Image = global::DSPRE.Properties.Resources.muteIcon;
+            this.blankBGSButton.Image = global::LiTRE.Properties.Resources.muteIcon;
             this.blankBGSButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.blankBGSButton.Location = new System.Drawing.Point(344, 112);
             this.blankBGSButton.Name = "blankBGSButton";
@@ -1516,13 +1516,13 @@
             this.unsupportedBGSEditLBL.Name = "unsupportedBGSEditLBL";
             this.unsupportedBGSEditLBL.Size = new System.Drawing.Size(338, 32);
             this.unsupportedBGSEditLBL.TabIndex = 31;
-            this.unsupportedBGSEditLBL.Text = "DSPRE cannot edit nor create Background Sound Files.\r\nPlease use Trifindo\'s Pokem" +
+            this.unsupportedBGSEditLBL.Text = "LiTRE cannot edit nor create Background Sound Files.\r\nPlease use Trifindo\'s Pokem" +
     "on DS Map Studio.\r\n";
             this.unsupportedBGSEditLBL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // soundPlatesImportButton
             // 
-            this.soundPlatesImportButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.soundPlatesImportButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.soundPlatesImportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.soundPlatesImportButton.Location = new System.Drawing.Point(344, 10);
             this.soundPlatesImportButton.Name = "soundPlatesImportButton";
@@ -1535,7 +1535,7 @@
             // 
             // soundPlatesExportButton
             // 
-            this.soundPlatesExportButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.soundPlatesExportButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.soundPlatesExportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.soundPlatesExportButton.Location = new System.Drawing.Point(344, 55);
             this.soundPlatesExportButton.Name = "soundPlatesExportButton";

@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Resources
+﻿namespace LiTRE.Resources
 {
     partial class CustomScrcmdManager
     {
@@ -61,7 +61,7 @@
             // 
             // AddScrcmdButton
             // 
-            this.AddScrcmdButton.Image = global::DSPRE.Properties.Resources.scriptDBIconImport;
+            this.AddScrcmdButton.Image = global::LiTRE.Properties.Resources.scriptDBIconImport;
             this.AddScrcmdButton.Location = new System.Drawing.Point(16, 372);
             this.AddScrcmdButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddScrcmdButton.Name = "AddScrcmdButton";
@@ -74,7 +74,7 @@
             // 
             // RemoveScrcmdButton
             // 
-            this.RemoveScrcmdButton.Image = global::DSPRE.Properties.Resources.scriptDBIconExport;
+            this.RemoveScrcmdButton.Image = global::LiTRE.Properties.Resources.scriptDBIconExport;
             this.RemoveScrcmdButton.Location = new System.Drawing.Point(153, 372);
             this.RemoveScrcmdButton.Margin = new System.Windows.Forms.Padding(4);
             this.RemoveScrcmdButton.Name = "RemoveScrcmdButton";
@@ -87,7 +87,7 @@
             // 
             // button1
             // 
-            this.button1.Image = global::DSPRE.Properties.Resources.open_file;
+            this.button1.Image = global::LiTRE.Properties.Resources.open_file;
             this.button1.Location = new System.Drawing.Point(449, 372);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";

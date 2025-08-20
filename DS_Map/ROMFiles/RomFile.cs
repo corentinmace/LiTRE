@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public abstract class RomFile {
         public abstract byte[] ToByteArray();
         public bool SaveToFile(string path, bool showSuccessMessage = true) {

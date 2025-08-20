@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     //https://hirotdk.neocities.org/FileSpecs.html#Headbutt
     public class HeadbuttEncounterFile {
         public ushort ID;

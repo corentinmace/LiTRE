@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
   partial class ScriptEditor
   {
@@ -709,7 +709,7 @@ namespace DSPRE.Editors
       // 
       // openInVSC
       // 
-      this.openInVSC.Image = global::DSPRE.Properties.Resources.code_70x701;
+      this.openInVSC.Image = global::LiTRE.Properties.Resources.code_70x701;
       this.openInVSC.Location = new System.Drawing.Point(652, 1);
       this.openInVSC.Name = "openInVSC";
       this.openInVSC.Size = new System.Drawing.Size(42, 40);

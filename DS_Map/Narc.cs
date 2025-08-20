@@ -1,4 +1,4 @@
-﻿using DSPRE;
+﻿using LiTRE;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -126,13 +126,13 @@ namespace NarcAPI {
                     try {
                         if (dirPath.IndexOf(RomInfo.folderSuffix, StringComparison.CurrentCultureIgnoreCase) >= 0) {
                             Directory.Delete(dirPath, true);
-                            Console.WriteLine("Deleted DSPRE-related folder \"" + dirPath + "\" without user confirmation.");
+                            Console.WriteLine("Deleted LiTRE-related folder \"" + dirPath + "\" without user confirmation.");
                         } else {
                             DialogResult d = MessageBox.Show("Directory \"" + dirPath + "\" already exists and is not empty.\n" +
                                 "Do you want to delete its contents?", "Directory not empty", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                             if (d.Equals(DialogResult.Yes)) {
                                 Directory.Delete(dirPath, true);
-                                Console.WriteLine("Deleted non-DSPRE-related folder \"" + dirPath + "\" after user confirmation.");
+                                Console.WriteLine("Deleted non-LiTRE-related folder \"" + dirPath + "\" after user confirmation.");
                             }
                         }
                     } catch (IOException) {

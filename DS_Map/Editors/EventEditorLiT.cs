@@ -1,5 +1,5 @@
-﻿using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using Ekona.Images.Formats;
 using LibNDSFormats.NSBMD;
 using NSMBe4.NSBMD;
@@ -15,10 +15,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static Tao.Platform.Windows.Winmm;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class EventEditorLiT : UserControl
     {
@@ -55,7 +55,7 @@ namespace DSPRE.Editors
         private void itemsSelectorHelpBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This selector allows you to pick a preset Ground Item script from the game data.\n" +
-                "Unlike in previous DSPRE versions, you can now change the Ground Item to be obtained even if you decided not to apply the Standardize Items patch from the Patch Toolbox.\n\n" +
+                "Unlike in previous LiTRE versions, you can now change the Ground Item to be obtained even if you decided not to apply the Standardize Items patch from the Patch Toolbox.\n\n" +
                 "However, some items are unavailable by default. The aforementioned patch can neutralize this limitation.\n\n",
                 "About Ground Items", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -157,7 +157,7 @@ namespace DSPRE.Editors
 
                         if (dict.Count < 1)
                         {
-                            MessageBox.Show("DSPRE could not find another Header referencing the same Event File and a different Matrix.", "Search failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("LiTRE could not find another Header referencing the same Event File and a different Matrix.", "Search failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             eventMatrixXUpDown.Value = 0;
                             eventMatrixYUpDown.Value = 0;
                         }
@@ -167,7 +167,7 @@ namespace DSPRE.Editors
                             {
                                 if (dict.Keys.Contains(EditorPanels.headerEditor.currentHeader.ID))
                                 {
-                                    DialogResult yn = MessageBox.Show("DSPRE found multiple Headers referencing the same Event File and a different Matrix.\n" +
+                                    DialogResult yn = MessageBox.Show("LiTRE found multiple Headers referencing the same Event File and a different Matrix.\n" +
                                         $"The last selected Header ({EditorPanels.headerEditor.currentHeader.ID}) is one of those.\n" +
                                         $"Do you want to load its matrix (#{EditorPanels.headerEditor.currentHeader.matrixID}?)", "Potential solution found", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -180,7 +180,7 @@ namespace DSPRE.Editors
                                 {
                                     var kvp = dict.First();
 
-                                    DialogResult yn = MessageBox.Show($"DSPRE found {dict.Count} Headers referencing the same Event File and a different Matrix.\n" +
+                                    DialogResult yn = MessageBox.Show($"LiTRE found {dict.Count} Headers referencing the same Event File and a different Matrix.\n" +
                                         $"Do you want to load Header {kvp.Key}'s matrix (#{kvp.Value})?", "Potential solution found", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                                     if (yn.Equals(DialogResult.Yes))

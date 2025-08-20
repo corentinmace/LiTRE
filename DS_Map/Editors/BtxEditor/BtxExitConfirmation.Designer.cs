@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors.BtxEditor
+﻿namespace LiTRE.Editors.BtxEditor
 {
     partial class BtxExitConfirmation
     {
@@ -104,9 +104,9 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackgroundImage = global::DSPRE.Properties.Resources.arrowright;
+            this.pictureBox4.BackgroundImage = global::LiTRE.Properties.Resources.arrowright;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.InitialImage = global::DSPRE.Properties.Resources.arrowright;
+            this.pictureBox4.InitialImage = global::LiTRE.Properties.Resources.arrowright;
             this.pictureBox4.Location = new System.Drawing.Point(327, 98);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(29, 28);

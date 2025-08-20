@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using DSPRE.Resources;
-using DSPRE.ROMFiles;
+using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using ScintillaNET;
 using ScintillaNET.Utils;
 using System.Globalization;
@@ -14,7 +14,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class ScriptEditor : UserControl
     {

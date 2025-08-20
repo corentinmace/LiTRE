@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public enum PokemonGender {
         Male = 0,
         Female = 254,

@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class MatrixEditor
     {
@@ -124,7 +124,7 @@
             // setSpawnPointButton
             // 
             this.setSpawnPointButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.setSpawnPointButton.Image = global::DSPRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
+            this.setSpawnPointButton.Image = global::LiTRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
             this.setSpawnPointButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.setSpawnPointButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.setSpawnPointButton.Location = new System.Drawing.Point(10, 527);
@@ -149,7 +149,7 @@
             // saveMatrixButton
             // 
             this.saveMatrixButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.saveMatrixButton.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveMatrixButton.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveMatrixButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveMatrixButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.saveMatrixButton.Location = new System.Drawing.Point(0, 603);
@@ -173,7 +173,7 @@
             // 
             // locateCurrentMatrixFile
             // 
-            this.locateCurrentMatrixFile.Image = global::DSPRE.Properties.Resources.open_file;
+            this.locateCurrentMatrixFile.Image = global::LiTRE.Properties.Resources.open_file;
             this.locateCurrentMatrixFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.locateCurrentMatrixFile.Location = new System.Drawing.Point(47, 229);
             this.locateCurrentMatrixFile.Name = "locateCurrentMatrixFile";
@@ -192,7 +192,7 @@
             // 
             // resetColorTableButton
             // 
-            this.resetColorTableButton.Image = global::DSPRE.Properties.Resources.resetColorTable;
+            this.resetColorTableButton.Image = global::LiTRE.Properties.Resources.resetColorTable;
             this.resetColorTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.resetColorTableButton.Location = new System.Drawing.Point(8, 449);
             this.resetColorTableButton.Margin = new System.Windows.Forms.Padding(2);
@@ -216,7 +216,7 @@
             // 
             // importColorTableButton
             // 
-            this.importColorTableButton.Image = global::DSPRE.Properties.Resources.loadColorTable;
+            this.importColorTableButton.Image = global::LiTRE.Properties.Resources.loadColorTable;
             this.importColorTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importColorTableButton.Location = new System.Drawing.Point(8, 485);
             this.importColorTableButton.Margin = new System.Windows.Forms.Padding(2);
@@ -253,7 +253,7 @@
             // 
             // importMatrixButton
             // 
-            this.importMatrixButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importMatrixButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importMatrixButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importMatrixButton.Location = new System.Drawing.Point(8, 149);
             this.importMatrixButton.Name = "importMatrixButton";
@@ -289,7 +289,7 @@
             // 
             // exportMatrixButton
             // 
-            this.exportMatrixButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportMatrixButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportMatrixButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportMatrixButton.Location = new System.Drawing.Point(8, 119);
             this.exportMatrixButton.Name = "exportMatrixButton";

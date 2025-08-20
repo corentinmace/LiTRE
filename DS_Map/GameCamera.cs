@@ -1,8 +1,8 @@
-﻿using DSPRE;
+﻿using LiTRE;
 using System;
 using System.IO;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
 public class GameCamera {
 

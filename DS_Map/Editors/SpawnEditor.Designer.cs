@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE {
+namespace LiTRE {
     partial class SpawnEditor {
         /// <summary>
         /// Required designer variable.
@@ -186,7 +186,7 @@ namespace DSPRE {
             // 
             // readDefaultSpawnPosButton
             // 
-            this.readDefaultSpawnPosButton.Image = global::DSPRE.Properties.Resources.resetIcon;
+            this.readDefaultSpawnPosButton.Image = global::LiTRE.Properties.Resources.resetIcon;
             this.readDefaultSpawnPosButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.readDefaultSpawnPosButton.Location = new System.Drawing.Point(123, 168);
             this.readDefaultSpawnPosButton.Name = "readDefaultSpawnPosButton";
@@ -229,7 +229,7 @@ namespace DSPRE {
             // 
             // resetFilterButton
             // 
-            this.resetFilterButton.Image = global::DSPRE.Properties.Resources.resetListIcon;
+            this.resetFilterButton.Image = global::LiTRE.Properties.Resources.resetListIcon;
             this.resetFilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.resetFilterButton.Location = new System.Drawing.Point(19, 168);
             this.resetFilterButton.Name = "resetFilterButton";

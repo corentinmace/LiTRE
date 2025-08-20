@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class EvolutionsEditor : Form {
 
         private readonly string[] fileNames;

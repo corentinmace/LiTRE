@@ -1,13 +1,13 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class WildEditorDPPt : Form {
 
         public string encounterFileFolder { get; private set; }
@@ -21,7 +21,7 @@ namespace DSPRE {
         public WildEditorDPPt(string dirPath, string[] names, int encToOpen, int totalNumHeaderFiles) {
             InitializeComponent();
             encounterFileFolder = dirPath;
-            Text = "DSPRE Reloaded " + GetDSPREVersion() + " - DPPt Encounters Editor";
+            Text = "LiTRE Reloaded " + GetLiTREVersion() + " - DPPt Encounters Editor";
             Helpers.DisableHandlers();
 
             MapHeader tempMapHeader;
@@ -69,7 +69,7 @@ namespace DSPRE {
             Helpers.EnableHandlers();            
         }
 
-        public string GetDSPREVersion()
+        public string GetLiTREVersion()
         {
             return "" + Assembly.GetExecutingAssembly().GetName().Version.Major + "." + Assembly.GetExecutingAssembly().GetName().Version.Minor +
                 "." + Assembly.GetExecutingAssembly().GetName().Version.Build;
@@ -815,7 +815,7 @@ namespace DSPRE {
             }
         }
         private void repairAllButton_Click(object sender, EventArgs e) {
-            DialogResult d = MessageBox.Show("DSPRE is about to open every Encounter File and attempt to reset every corrupted field to its default value.\n" +
+            DialogResult d = MessageBox.Show("LiTRE is about to open every Encounter File and attempt to reset every corrupted field to its default value.\n" +
                 "Do you wish to proceed?", "Repair all Encounter Files?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (d == DialogResult.Yes) {

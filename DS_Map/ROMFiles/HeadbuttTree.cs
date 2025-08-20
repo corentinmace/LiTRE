@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public class HeadbuttTree {
         public bool picked = false;
 

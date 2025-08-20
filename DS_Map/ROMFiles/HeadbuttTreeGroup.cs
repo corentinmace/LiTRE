@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public class HeadbuttTreeGroup {
         const int treeCount = 6; //number of trees in each tree group
         public readonly List<HeadbuttTree> trees = new List<HeadbuttTree>();

@@ -1,4 +1,4 @@
-﻿namespace DSPRE
+﻿namespace LiTRE
 {
     partial class ScrcmdTableHelper
     {
@@ -47,7 +47,7 @@
             // 
             // button2
             // 
-            this.button2.Image = global::DSPRE.Properties.Resources.wideLensImage;
+            this.button2.Image = global::LiTRE.Properties.Resources.wideLensImage;
             this.button2.Location = new System.Drawing.Point(283, 13);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 39);

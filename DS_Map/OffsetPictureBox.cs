@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class OffsetPictureBox : PictureBox {
         public float offsX { get; private set; } = 0;
         public float offsY { get; private set; } = 0;

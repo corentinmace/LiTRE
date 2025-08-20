@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSPRE.Editors.Data
+namespace LiTRE.Editors.Data
 {
     public class FlyTableRowDpPlat
     {

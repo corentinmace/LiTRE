@@ -9,7 +9,7 @@ using System.Windows.Media.Media3D;
 using System.Xml.Linq;
 using System.Drawing;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class SizeChooser : Form
     {

@@ -1,5 +1,5 @@
-﻿using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using Ekona.Images;
 using Images;
 using System;
@@ -9,12 +9,12 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
-using static DSPRE.ROMFiles.ItemData;
-using static DSPRE.RomInfo;
+using static LiTRE.ROMFiles.ItemData;
+using static LiTRE.RomInfo;
 using static Images.NCOB.sNCOB;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     struct ItemNarcTableEntry
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace DSPRE.ROMFiles
+namespace LiTRE.ROMFiles
 {
   public class SafariZoneEncounter
   {

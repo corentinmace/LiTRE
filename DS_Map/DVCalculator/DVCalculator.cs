@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE
+namespace LiTRE
 {
     // Putting this class here is bad practice, however it's just a really small utility class
     public class DVIVNatureTriplet

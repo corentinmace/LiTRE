@@ -1,13 +1,13 @@
-﻿using DSPRE.LibNDSFormats;
+﻿using LiTRE.LibNDSFormats;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.Editors.BtxEditor
+namespace LiTRE.Editors.BtxEditor
 {
     public partial class BtxEditor : Form
     {

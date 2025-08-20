@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSPRE
+namespace LiTRE
 {
 
-    public class DspreSettings
+    public class LiTRESettings
     {
         public byte menuLayout { get; set; } = 2;
         public string lastColorTablePath { get; set; } = "";
@@ -32,9 +32,9 @@ namespace DSPRE
 
     public static class SettingsManager
     {
-        public static DspreSettings Settings { get; private set; }
+        public static LiTRESettings Settings { get; private set; }
 
-        private static readonly string SettingsFile = Path.Combine(Program.DspreDataPath, "userSettings.json");
+        private static readonly string SettingsFile = Path.Combine(Program.LiTREDataPath, "userSettings.json");
 
         public static void Load()
         {
@@ -42,11 +42,11 @@ namespace DSPRE
             if (File.Exists(SettingsFile))
             {
                 string json = File.ReadAllText(SettingsFile);
-                Settings = JsonConvert.DeserializeObject<DspreSettings>(json);
+                Settings = JsonConvert.DeserializeObject<LiTRESettings>(json);
             }
             else
             {
-                Settings = new DspreSettings();
+                Settings = new LiTRESettings();
                 Save();
             }
         }

@@ -1,9 +1,9 @@
-﻿using DSPRE.Properties;
+﻿using LiTRE.Properties;
 using System.Drawing;
 using System.Resources;
 using System.Windows.Forms;
 
-namespace DSPRE
+namespace LiTRE
 {
     partial class DVCalcNatureViewerForm
     {

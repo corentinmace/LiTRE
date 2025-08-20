@@ -1,6 +1,6 @@
-﻿using DSPRE;
-using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE;
+using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using System;
 using System.Globalization;
 

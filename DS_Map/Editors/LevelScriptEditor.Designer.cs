@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DSPRE.Editors {
+namespace LiTRE.Editors {
   partial class LevelScriptEditor {
     /// <summary> 
     /// Required designer variable.
@@ -48,7 +48,7 @@ namespace DSPRE.Editors {
             this.radioButtonHex = new System.Windows.Forms.RadioButton();
             this.radioButtonAuto = new System.Windows.Forms.RadioButton();
             this.selectScriptFileComboBox = new System.Windows.Forms.ComboBox();
-            this.listBoxTriggers = new DSPRE.ListBox2();
+            this.listBoxTriggers = new LiTRE.ListBox2();
             this.buttonOpenHeaderScript = new System.Windows.Forms.Button();
             this.buttonOpenSelectedScript = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -72,7 +72,7 @@ namespace DSPRE.Editors {
             // 
             // buttonSave
             // 
-            this.buttonSave.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.buttonSave.Image = global::LiTRE.Properties.Resources.save_rom;
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.Location = new System.Drawing.Point(176, 17);
             this.buttonSave.Name = "buttonSave";
@@ -85,7 +85,7 @@ namespace DSPRE.Editors {
             // 
             // buttonExport
             // 
-            this.buttonExport.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.buttonExport.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.buttonExport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonExport.Location = new System.Drawing.Point(90, 17);
             this.buttonExport.Name = "buttonExport";
@@ -232,7 +232,7 @@ namespace DSPRE.Editors {
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.buttonRemove.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.buttonRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRemove.Location = new System.Drawing.Point(84, 18);
             this.buttonRemove.Name = "buttonRemove";
@@ -444,7 +444,7 @@ namespace DSPRE.Editors {
 
     #endregion
         private System.Windows.Forms.Button buttonSave;
-        private DSPRE.ListBox2 listBoxTriggers;
+        private LiTRE.ListBox2 listBoxTriggers;
         private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.RadioButton radioButtonVariableValue;
     private System.Windows.Forms.RadioButton radioButtonMapChange;

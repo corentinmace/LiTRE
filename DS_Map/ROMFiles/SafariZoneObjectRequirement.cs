@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
   public class SafariZoneObjectRequirement {
     public static Dictionary<int, string> ObjectTypes = new Dictionary<int, string>() {
       { 0, "No Requirement" },

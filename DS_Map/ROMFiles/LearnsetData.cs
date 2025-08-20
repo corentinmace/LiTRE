@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using DSPRE.ROMFiles;
-using static DSPRE.RomInfo;
+using LiTRE.ROMFiles;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     internal class LearnsetData : RomFile {
         public static readonly int bitsMove = 9;
         public static readonly int bitsLevel = 7;

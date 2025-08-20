@@ -1,10 +1,10 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public enum EvolutionMethod : short {
         None = 0,
         Friendship220 = 1,

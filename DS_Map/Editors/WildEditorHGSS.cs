@@ -1,12 +1,12 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class WildEditorHGSS : Form {
         public string encounterFileFolder { get; private set; }
         EncounterFileHGSS currentFile;
@@ -16,7 +16,7 @@ namespace DSPRE {
             encounterFileFolder = dirPath;
 
             Helpers.DisableHandlers();
-            Text = "DSPRE Reloaded " + GetDSPREVersion() + " - HGSS Encounters Editor";
+            Text = "LiTRE Reloaded " + GetLiTREVersion() + " - HGSS Encounters Editor";
             MapHeader tempMapHeader;
             List<string> locationNames = RomInfo.GetLocationNames();
             Dictionary<int, List<string>> EncounterFileLocationNames = new Dictionary<int, List<string>>();
@@ -90,7 +90,7 @@ namespace DSPRE {
             SetupControls();
         }
 
-        public string GetDSPREVersion() {
+        public string GetLiTREVersion() {
             return "" + Assembly.GetExecutingAssembly().GetName().Version.Major + "." + Assembly.GetExecutingAssembly().GetName().Version.Minor +
                 "." + Assembly.GetExecutingAssembly().GetName().Version.Build;
         }
@@ -1128,7 +1128,7 @@ namespace DSPRE {
         }
 
         private void repairAllButton_Click(object sender, EventArgs e) {
-            DialogResult d = MessageBox.Show("DSPRE is about to open every Encounter File and attempt to reset every corrupted field to its default value.\n" +
+            DialogResult d = MessageBox.Show("LiTRE is about to open every Encounter File and attempt to reset every corrupted field to its default value.\n" +
                 "Do you wish to proceed?", "Repair all Encounter Files?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (d == DialogResult.Yes) {

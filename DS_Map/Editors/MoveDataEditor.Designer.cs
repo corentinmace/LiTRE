@@ -1,4 +1,4 @@
-﻿namespace DSPRE {
+﻿namespace LiTRE {
     partial class MoveDataEditor {
         /// <summary>
         /// Required designer variable.
@@ -27,7 +27,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.saveDataButton = new System.Windows.Forms.Button();
             this.moveNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.moveNameInputComboBox = new DSPRE.InputComboBox();
+            this.moveNameInputComboBox = new LiTRE.InputComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.prioPictureBox = new System.Windows.Forms.PictureBox();

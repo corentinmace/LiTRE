@@ -6,9 +6,9 @@ using LibNDSFormats.NSBMD;
 using LibNDSFormats.NSBTX;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Tao.OpenGl;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class BuildingEditor : Form {
         #region Variables
         public static string temp_btxname = "BLDtexture.nsbtx";

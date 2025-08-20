@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.Resources {
+namespace LiTRE.Resources {
     partial class CommandsDatabase {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,7 @@ namespace DSPRE.Resources {
             // 
             // startSearchButtonScripts
             // 
-            this.startSearchButtonScripts.Image = global::DSPRE.Properties.Resources.wideLensImage;
+            this.startSearchButtonScripts.Image = global::LiTRE.Properties.Resources.wideLensImage;
             this.startSearchButtonScripts.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.startSearchButtonScripts.Location = new System.Drawing.Point(433, 15);
             this.startSearchButtonScripts.Name = "startSearchButtonScripts";
@@ -254,7 +254,7 @@ namespace DSPRE.Resources {
             // 
             // startSearchButtonActions
             // 
-            this.startSearchButtonActions.Image = global::DSPRE.Properties.Resources.wideLensImage;
+            this.startSearchButtonActions.Image = global::LiTRE.Properties.Resources.wideLensImage;
             this.startSearchButtonActions.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.startSearchButtonActions.Location = new System.Drawing.Point(975, 14);
             this.startSearchButtonActions.Name = "startSearchButtonActions";

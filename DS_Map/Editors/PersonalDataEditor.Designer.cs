@@ -1,4 +1,4 @@
-﻿namespace DSPRE {
+﻿namespace LiTRE {
     partial class PersonalDataEditor {
         /// <summary>
         /// Required designer variable.
@@ -76,22 +76,22 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ability1InputComboBox = new DSPRE.InputComboBox();
-            this.ability2InputComboBox = new DSPRE.InputComboBox();
+            this.ability1InputComboBox = new LiTRE.InputComboBox();
+            this.ability2InputComboBox = new LiTRE.InputComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.eggStepsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.eggGroup1Label = new System.Windows.Forms.Label();
             this.eggGroup2Label = new System.Windows.Forms.Label();
-            this.eggGroup1InputCombobox = new DSPRE.InputComboBox();
-            this.eggGroup2InputCombobox = new DSPRE.InputComboBox();
+            this.eggGroup1InputCombobox = new LiTRE.InputComboBox();
+            this.eggGroup2InputCombobox = new LiTRE.InputComboBox();
             this.hatchStepsLabel = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.dexColorInputComboBox = new DSPRE.InputComboBox();
+            this.dexColorInputComboBox = new LiTRE.InputComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.growthCurveInputComboBox = new DSPRE.InputComboBox();
+            this.growthCurveInputComboBox = new LiTRE.InputComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.baseExpYieldNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.flipFlagCheckBox = new System.Windows.Forms.CheckBox();
@@ -104,8 +104,8 @@
             this.label29 = new System.Windows.Forms.Label();
             this.item2PictureBox = new System.Windows.Forms.PictureBox();
             this.item1PictureBox = new System.Windows.Forms.PictureBox();
-            this.item1InputComboBox = new DSPRE.InputComboBox();
-            this.item2InputComboBox = new DSPRE.InputComboBox();
+            this.item1InputComboBox = new LiTRE.InputComboBox();
+            this.item2InputComboBox = new LiTRE.InputComboBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
@@ -115,11 +115,11 @@
             this.catchRateNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.type2InputComboBox = new DSPRE.InputComboBox();
-            this.type1InputComboBox = new DSPRE.InputComboBox();
-            this.pokemonNameInputComboBox = new DSPRE.InputComboBox();
+            this.type2InputComboBox = new LiTRE.InputComboBox();
+            this.type1InputComboBox = new LiTRE.InputComboBox();
+            this.pokemonNameInputComboBox = new LiTRE.InputComboBox();
             this.hatchResultLabel = new System.Windows.Forms.Label();
-            this.hatchResultComboBox = new DSPRE.InputComboBox();
+            this.hatchResultComboBox = new LiTRE.InputComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monNumberNumericUpDown)).BeginInit();

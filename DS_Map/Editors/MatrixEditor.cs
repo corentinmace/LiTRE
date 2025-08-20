@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using MKDS_Course_Editor.Export3DTools;
 using System;
 using System.Collections.Generic;
@@ -10,10 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static Tao.Platform.Windows.Winmm;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class MatrixEditor : UserControl
     {
@@ -632,7 +632,7 @@ namespace DSPRE.Editors
         {
             OpenFileDialog of = new OpenFileDialog
             {
-                Filter = "DSPRE Color Table File (*.ctb)|*.ctb"
+                Filter = "LiTRE Color Table File (*.ctb)|*.ctb"
             };
             if (of.ShowDialog(this) != DialogResult.OK)
             {
@@ -865,7 +865,7 @@ namespace DSPRE.Editors
                     if (result.Length < 1)
                     {
                         headerID = EditorPanels.headerEditor.currentHeader.ID;
-                        Helpers.statusLabelMessage("This Matrix is not linked to any Header. DSPRE can't determine the most appropriate AreaData (and textures) to use.\nDisplaying Textures from the last selected Header (" + headerID + ")'s AreaData...");
+                        Helpers.statusLabelMessage("This Matrix is not linked to any Header. LiTRE can't determine the most appropriate AreaData (and textures) to use.\nDisplaying Textures from the last selected Header (" + headerID + ")'s AreaData...");
                     }
                     else
                     {

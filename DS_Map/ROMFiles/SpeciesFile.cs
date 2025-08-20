@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 
 
-namespace DSPRE.ROMFiles
+namespace LiTRE.ROMFiles
 {
     public class SpeciesFile
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public class ScriptLabeledSection {
         public string LabelName { get; set; }
         public List<ScriptCommand> Commands { get; set; }

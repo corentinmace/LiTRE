@@ -1,4 +1,4 @@
-﻿using DSPRE.LibNDSFormats;
+﻿using LiTRE.LibNDSFormats;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using Panel = System.Windows.Forms.Panel;
 
-namespace DSPRE.Editors.BtxEditor
+namespace LiTRE.Editors.BtxEditor
 {
     public partial class BtxExitConfirmation : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
   partial class HeadbuttEncounterEditorTab
   {
@@ -40,16 +40,16 @@ namespace DSPRE.Editors
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxPokemon = new System.Windows.Forms.ComboBox();
-            this.listBoxTreeGroups = new DSPRE.ListBox2();
-            this.listBoxTrees = new DSPRE.ListBox2();
-            this.listBoxEncounters = new DSPRE.ListBox2();
+            this.listBoxTreeGroups = new LiTRE.ListBox2();
+            this.listBoxTrees = new LiTRE.ListBox2();
+            this.listBoxEncounters = new LiTRE.ListBox2();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonDuplicateTreeGroup
             // 
-            this.buttonDuplicateTreeGroup.Image = global::DSPRE.Properties.Resources.copyIcon_small;
+            this.buttonDuplicateTreeGroup.Image = global::LiTRE.Properties.Resources.copyIcon_small;
             this.buttonDuplicateTreeGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDuplicateTreeGroup.Location = new System.Drawing.Point(177, 386);
             this.buttonDuplicateTreeGroup.Name = "buttonDuplicateTreeGroup";
@@ -62,7 +62,7 @@ namespace DSPRE.Editors
             // 
             // buttonRemoveTreeGroup
             // 
-            this.buttonRemoveTreeGroup.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.buttonRemoveTreeGroup.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.buttonRemoveTreeGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRemoveTreeGroup.Location = new System.Drawing.Point(90, 386);
             this.buttonRemoveTreeGroup.Name = "buttonRemoveTreeGroup";
@@ -91,7 +91,7 @@ namespace DSPRE.Editors
             // 
             // buttonAddTreeGroup
             // 
-            this.buttonAddTreeGroup.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.buttonAddTreeGroup.Image = global::LiTRE.Properties.Resources.addIcon;
             this.buttonAddTreeGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddTreeGroup.Location = new System.Drawing.Point(3, 386);
             this.buttonAddTreeGroup.Name = "buttonAddTreeGroup";
@@ -225,12 +225,12 @@ namespace DSPRE.Editors
 
     #endregion
 
-    public DSPRE.ListBox2 listBoxTreeGroups;
+    public LiTRE.ListBox2 listBoxTreeGroups;
     private System.Windows.Forms.Button buttonDuplicateTreeGroup;
     private System.Windows.Forms.Button buttonRemoveTreeGroup;
     public ListBox2 listBoxTrees;
     public System.Windows.Forms.NumericUpDown numericUpDownMaxLevel;
-    public DSPRE.ListBox2 listBoxEncounters;
+    public LiTRE.ListBox2 listBoxEncounters;
     public System.Windows.Forms.NumericUpDown numericUpDownMinLevel;
     private System.Windows.Forms.Button buttonAddTreeGroup;
     private System.Windows.Forms.Label label5;

@@ -1,6 +1,6 @@
-﻿using DSPRE.Editors.BtxEditor;
-using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE.Editors.BtxEditor;
+using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using MKDS_Course_Editor.Export3DTools;
 using System;
 using System.Collections;
@@ -14,10 +14,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class HeaderEditor : UserControl
     {

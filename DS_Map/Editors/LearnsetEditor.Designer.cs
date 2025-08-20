@@ -1,4 +1,4 @@
-﻿namespace DSPRE {
+﻿namespace LiTRE {
     partial class LearnsetEditor {
         /// <summary>
         /// Required designer variable.
@@ -43,8 +43,8 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.moveUpButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
-            this.moveInputComboBox = new DSPRE.InputComboBox();
-            this.pokemonNameInputComboBox = new DSPRE.InputComboBox();
+            this.moveInputComboBox = new LiTRE.InputComboBox();
+            this.pokemonNameInputComboBox = new LiTRE.InputComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monNumberNumericUpDown)).BeginInit();
@@ -222,7 +222,7 @@
             // 
             this.addMoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.addMoveButton.Enabled = false;
-            this.addMoveButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addMoveButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addMoveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addMoveButton.Location = new System.Drawing.Point(4, 201);
             this.addMoveButton.Margin = new System.Windows.Forms.Padding(2);
@@ -238,7 +238,7 @@
             // 
             this.deleteMoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteMoveButton.Enabled = false;
-            this.deleteMoveButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.deleteMoveButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.deleteMoveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deleteMoveButton.Location = new System.Drawing.Point(151, 201);
             this.deleteMoveButton.Margin = new System.Windows.Forms.Padding(2);
@@ -254,7 +254,7 @@
             // 
             this.editMoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.editMoveButton.Enabled = false;
-            this.editMoveButton.Image = global::DSPRE.Properties.Resources.RenameIcon;
+            this.editMoveButton.Image = global::LiTRE.Properties.Resources.RenameIcon;
             this.editMoveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.editMoveButton.Location = new System.Drawing.Point(77, 201);
             this.editMoveButton.Margin = new System.Windows.Forms.Padding(2);
@@ -305,7 +305,7 @@
             // 
             this.moveUpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.moveUpButton.Enabled = false;
-            this.moveUpButton.Image = global::DSPRE.Properties.Resources.arrowup;
+            this.moveUpButton.Image = global::LiTRE.Properties.Resources.arrowup;
             this.moveUpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.moveUpButton.Location = new System.Drawing.Point(4, 151);
             this.moveUpButton.Margin = new System.Windows.Forms.Padding(2);
@@ -321,7 +321,7 @@
             // 
             this.moveDownButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.moveDownButton.Enabled = false;
-            this.moveDownButton.Image = global::DSPRE.Properties.Resources.arrowdown;
+            this.moveDownButton.Image = global::LiTRE.Properties.Resources.arrowdown;
             this.moveDownButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.moveDownButton.Location = new System.Drawing.Point(77, 151);
             this.moveDownButton.Margin = new System.Windows.Forms.Padding(2);

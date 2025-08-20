@@ -1,7 +1,7 @@
-﻿using DSPRE.Editors;
-using DSPRE.Editors.BtxEditor;
-using DSPRE.Resources;
-using DSPRE.ROMFiles;
+﻿using LiTRE.Editors;
+using LiTRE.Editors.BtxEditor;
+using LiTRE.Resources;
+using LiTRE.ROMFiles;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using NarcAPI;
 using System;
@@ -14,10 +14,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using static DSPRE.EditorPanels;
-using static DSPRE.Helpers;
-using static DSPRE.RomInfo;
-namespace DSPRE
+using static LiTRE.EditorPanels;
+using static LiTRE.Helpers;
+using static LiTRE.RomInfo;
+namespace LiTRE
 {
 
 
@@ -61,7 +61,7 @@ namespace DSPRE
             WireEditorsPopout();
 
             SetMenuLayout(SettingsManager.Settings.menuLayout); //Read user settings for menu layout
-            Text = "Lost in Time Rom Editor " + GetDSPREVersion() + " (Nømura, AdAstra/LD3005, Mixone, Kuha)";
+            Text = "Lost in Time Rom Editor " + GetLiTREVersion() + " (Nømura, AdAstra/LD3005, Mixone, Kuha)";
 
             string romFolder = SettingsManager.Settings.openDefaultRom;
             if (romFolder != string.Empty)
@@ -406,7 +406,7 @@ namespace DSPRE
             }
             catch (System.ComponentModel.Win32Exception)
             {
-                MessageBox.Show("Failed to call ndstool.exe" + Environment.NewLine + "Make sure DSPRE's Tools folder is intact.",
+                MessageBox.Show("Failed to call ndstool.exe" + Environment.NewLine + "Make sure LiTRE's Tools folder is intact.",
                     "Couldn't unpack ROM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -660,7 +660,7 @@ namespace DSPRE
         }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string message = "DS Pokémon ROM Editor Reloaded by AdAstra/LD3005" + Environment.NewLine + "version " + GetDSPREVersion() + Environment.NewLine
+            string message = "DS Pokémon ROM Editor Reloaded by AdAstra/LD3005" + Environment.NewLine + "version " + GetLiTREVersion() + Environment.NewLine
                 + Environment.NewLine + "Based on Nømura's DS Pokémon ROM Editor 1.0.4."
                 + Environment.NewLine + "Largely inspired by Markitus95's \"Spiky's DS Map Editor\" (SDSME), from which certain assets were also reused." +
                 "Credits go to Markitus, Ark, Zark, Florian, and everyone else who deserves credit for SDSME." + Environment.NewLine
@@ -696,7 +696,7 @@ namespace DSPRE
             {
                 string executablePath = Path.GetDirectoryName(Application.ExecutablePath);
                 string buildFolderPath = Path.Combine(executablePath, "build");
-                // Create a new work directory in the same folder as DSPRE
+                // Create a new work directory in the same folder as LiTRE
                 if (!Directory.Exists(buildFolderPath))
                 {
                     Directory.CreateDirectory(buildFolderPath);
@@ -760,7 +760,7 @@ namespace DSPRE
                         catch (IOException)
                         {
                             MessageBox.Show("Concurrent access detected: \n" + RomInfo.workDir +
-                                "\nMake sure no other process is using the extracted ROM folder while DSPRE is running.", "Concurrent Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "\nMake sure no other process is using the extracted ROM folder while LiTRE is running.", "Concurrent Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         Update();
@@ -819,8 +819,8 @@ namespace DSPRE
             // One drive check
             if (fullPath.ToLower().Contains("onedrive"))
             {
-                MessageBox.Show("OneDrive was detected in the path. DSPRE is not compatible with OneDrive. " +
-                    "Please move the ROM and unpacked folder to the same local drive DSPRE is stored on.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("OneDrive was detected in the path. LiTRE is not compatible with OneDrive. " +
+                    "Please move the ROM and unpacked folder to the same local drive LiTRE is stored on.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -838,12 +838,12 @@ namespace DSPRE
             {
                 MessageBox.Show("WSL was detected in the path. " +
                     "The associated unpacked folder of a ROM should not be stored on the WSL file system! " +
-                    "Please move the folder to the same drive that DSPRE is located on.", "Invalid Path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Please move the folder to the same drive that LiTRE is located on.", "Invalid Path", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             DialogResult result = MessageBox.Show("WSL was detected in the path. " +
-                "Do you want to create a build directory in the same folder as DSPRE to unpack to?", "WSL Detected", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                "Do you want to create a build directory in the same folder as LiTRE to unpack to?", "WSL Detected", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             wslDetected = true;
 
             if (result == DialogResult.Yes)
@@ -880,14 +880,14 @@ namespace DSPRE
 
             if (toolsMissing)
             {
-                string message = "The following required tools are missing from the DSPRE Tools folder:\n-" +
+                string message = "The following required tools are missing from the LiTRE Tools folder:\n-" +
                     string.Join("\n-", missingToolsList) + "\n\n" +
                     "Please ensure that the Tools folder is intact and contains all necessary files.\n" +
                     "Common causes for this issue are:\n" +
-                    "   - DSPRE is stored in OneDrive\n" +
-                    "   - You opened DSPRE from Windows search\n" +
+                    "   - LiTRE is stored in OneDrive\n" +
+                    "   - You opened LiTRE from Windows search\n" +
                     "   - Your Antivirus software has removed critical files\n\n" +
-                    "DSPRE will now close.";
+                    "LiTRE will now close.";
                 MessageBox.Show(message, "Missing Tools", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 // If the program somehow doesn't close after this, we also disable the buttons and hope this is enough to dissuade the user from using it.
@@ -1362,7 +1362,7 @@ namespace DSPRE
                 return;
             }
 
-            MessageBox.Show("Choose where to save the NARC content.\nDSPRE will automatically make a subdirectory.", "Choose destination path", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Choose where to save the NARC content.\nLiTRE will automatically make a subdirectory.", "Choose destination path", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             CommonOpenFileDialog narcDir = new CommonOpenFileDialog
             {
@@ -1442,7 +1442,7 @@ namespace DSPRE
             /*==================================================================*/
 
             const string COMMENT_CHAR = "#";
-            const string ISOLATED_FOLDERNAME = "DSPRE_IsolatedFiles";
+            const string ISOLATED_FOLDERNAME = "LiTRE_IsolatedFiles";
 
             string[] listLines = File.ReadAllLines(of.FileName);
             listLines = listLines.Where(line => !string.IsNullOrWhiteSpace(line) && !line.StartsWith(COMMENT_CHAR)).ToArray();
@@ -1479,7 +1479,7 @@ namespace DSPRE
 
             DialogResult dr = MessageBox.Show(msg + " from the input folder (taken in ascending order), " +
                 "according to the list file you provided.\n" +
-                "If a destination file already exists, DSPRE will append a number to its name.\n\n" + extra +
+                "If a destination file already exists, LiTRE will append a number to its name.\n\n" + extra +
                 "Do you want to proceed?", "Confirm operation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr.Equals(DialogResult.Yes))

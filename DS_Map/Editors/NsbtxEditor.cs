@@ -1,4 +1,4 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using Ekona.Images.Formats;
 using NSMBe4.NSBMD;
 using System;
@@ -12,10 +12,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 using static Tao.Platform.Windows.Winmm;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
     public partial class NsbtxEditor : UserControl
     {

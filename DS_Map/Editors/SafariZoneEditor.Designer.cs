@@ -1,5 +1,5 @@
 ﻿
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
   partial class SafariZoneEditor
   {
@@ -33,15 +33,15 @@ namespace DSPRE.Editors
             this.buttonSaveAs = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.tabPageSuperRod = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterGroupEditorSuperRod = new DSPRE.Editors.SafariZoneEncounterGroupEditor();
+            this.safariZoneEncounterGroupEditorSuperRod = new LiTRE.Editors.SafariZoneEncounterGroupEditor();
             this.tabPageGoodRod = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterGroupEditorGoodRod = new DSPRE.Editors.SafariZoneEncounterGroupEditor();
+            this.safariZoneEncounterGroupEditorGoodRod = new LiTRE.Editors.SafariZoneEncounterGroupEditor();
             this.tabPageOldRod = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterGroupEditorOldRod = new DSPRE.Editors.SafariZoneEncounterGroupEditor();
+            this.safariZoneEncounterGroupEditorOldRod = new LiTRE.Editors.SafariZoneEncounterGroupEditor();
             this.tabPageSurf = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterGroupEditorSurf = new DSPRE.Editors.SafariZoneEncounterGroupEditor();
+            this.safariZoneEncounterGroupEditorSurf = new LiTRE.Editors.SafariZoneEncounterGroupEditor();
             this.tabPageGrass = new System.Windows.Forms.TabPage();
-            this.safariZoneEncounterGroupEditorGrass = new DSPRE.Editors.SafariZoneEncounterGroupEditor();
+            this.safariZoneEncounterGroupEditorGrass = new LiTRE.Editors.SafariZoneEncounterGroupEditor();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxFileID = new System.Windows.Forms.ComboBox();
@@ -56,7 +56,7 @@ namespace DSPRE.Editors
             // 
             // buttonSaveAs
             // 
-            this.buttonSaveAs.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.buttonSaveAs.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.buttonSaveAs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSaveAs.Location = new System.Drawing.Point(238, 14);
             this.buttonSaveAs.Name = "buttonSaveAs";
@@ -204,7 +204,7 @@ namespace DSPRE.Editors
             // 
             // buttonImport
             // 
-            this.buttonImport.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.buttonImport.Image = global::LiTRE.Properties.Resources.importArrow;
             this.buttonImport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonImport.Location = new System.Drawing.Point(322, 14);
             this.buttonImport.Name = "buttonImport";

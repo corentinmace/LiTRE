@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ScintillaNET.Style;
 
-namespace DSPRE { 
+namespace LiTRE { 
     public partial class OverlayEditor : Form {
         
         private List<Overlay> overlays;

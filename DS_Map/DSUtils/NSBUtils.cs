@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DSPRE {
+namespace LiTRE {
     public static class NSBUtils {
         public const int NSBMD_DOESNTHAVE_TEXTURE = 0;
         public const int NSBMD_HAS_TEXTURE = 1;

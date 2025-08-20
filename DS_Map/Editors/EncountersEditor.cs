@@ -1,7 +1,7 @@
 ﻿using MKDS_Course_Editor.Export3DTools;
 using System.Windows.Forms;
 
-namespace DSPRE.Editors
+namespace LiTRE.Editors
 {
   public partial class EncountersEditor : UserControl
   {

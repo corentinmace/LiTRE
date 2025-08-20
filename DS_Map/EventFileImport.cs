@@ -1,12 +1,12 @@
-﻿using DSPRE;
-using DSPRE.ROMFiles;
+﻿using LiTRE;
+using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using static DSPRE.ROMFiles.EventFile;
+using static LiTRE.ROMFiles.EventFile;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class EventFileImport : Form { 
         private static readonly int eventTypesCount = Enum.GetValues(typeof(serializationOrder)).Length;
 

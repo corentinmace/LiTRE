@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using DSPRE.ROMFiles;
+using LiTRE.ROMFiles;
 
-namespace DSPRE.Editors {
+namespace LiTRE.Editors {
     public partial class HeadbuttEncounterEditorTab : UserControl {
         private List<HeadbuttEncounter> encounters;
         private BindingList<HeadbuttTreeGroup> treeGroups;

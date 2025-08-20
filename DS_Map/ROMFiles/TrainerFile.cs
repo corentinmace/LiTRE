@@ -3,9 +3,9 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Windows.Forms;
-using static DSPRE.ROMFiles.PartyPokemon;
+using static LiTRE.ROMFiles.PartyPokemon;
 
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
     public class PartyPokemon : RomFile {
         public const int MON_NUMBER_BITSIZE = 10;
         public const int MON_NUMBER_BITMASK = (1 << MON_NUMBER_BITSIZE) - 1;

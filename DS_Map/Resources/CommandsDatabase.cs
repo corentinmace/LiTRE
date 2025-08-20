@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DSPRE.Resources {
+namespace LiTRE.Resources {
     public partial class CommandsDatabase : Form {
         private DataGridViewRow currentrow;
         private Dictionary<ushort, string> namesDict;

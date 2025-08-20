@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class HeaderEditor
     {
@@ -178,7 +178,7 @@
             // removeLastHeaderBTN
             // 
             this.removeLastHeaderBTN.Enabled = false;
-            this.removeLastHeaderBTN.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeLastHeaderBTN.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeLastHeaderBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeLastHeaderBTN.Location = new System.Drawing.Point(13, 578);
             this.removeLastHeaderBTN.Name = "removeLastHeaderBTN";
@@ -191,7 +191,7 @@
             // addHeaderBTN
             // 
             this.addHeaderBTN.Enabled = false;
-            this.addHeaderBTN.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addHeaderBTN.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addHeaderBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addHeaderBTN.Location = new System.Drawing.Point(13, 552);
             this.addHeaderBTN.Name = "addHeaderBTN";
@@ -341,7 +341,7 @@
             // 
             // importHeaderFromFileButton
             // 
-            this.importHeaderFromFileButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importHeaderFromFileButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importHeaderFromFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importHeaderFromFileButton.Location = new System.Drawing.Point(912, 518);
             this.importHeaderFromFileButton.Name = "importHeaderFromFileButton";
@@ -354,7 +354,7 @@
             // 
             // exportHeaderToFileButton
             // 
-            this.exportHeaderToFileButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportHeaderToFileButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportHeaderToFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportHeaderToFileButton.Location = new System.Drawing.Point(992, 518);
             this.exportHeaderToFileButton.Name = "exportHeaderToFileButton";
@@ -749,7 +749,7 @@
             // 
             // copyLocationNameButton
             // 
-            this.copyLocationNameButton.Image = global::DSPRE.Properties.Resources.copyIcon;
+            this.copyLocationNameButton.Image = global::LiTRE.Properties.Resources.copyIcon;
             this.copyLocationNameButton.Location = new System.Drawing.Point(178, 32);
             this.copyLocationNameButton.Name = "copyLocationNameButton";
             this.copyLocationNameButton.Size = new System.Drawing.Size(35, 37);
@@ -1284,7 +1284,7 @@
             // 
             // saveHeaderButton
             // 
-            this.saveHeaderButton.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveHeaderButton.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveHeaderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveHeaderButton.Location = new System.Drawing.Point(1072, 517);
             this.saveHeaderButton.Name = "saveHeaderButton";

@@ -1,4 +1,4 @@
-namespace DSPRE.ROMFiles {
+namespace LiTRE.ROMFiles {
   internal class ScriptReference {
     public ScriptFile.ContainerTypes typeOfCaller { get; private set; }
     public uint callerID { get; private set; }

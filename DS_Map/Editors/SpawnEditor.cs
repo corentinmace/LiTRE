@@ -1,11 +1,11 @@
-﻿using DSPRE.ROMFiles;
+﻿using LiTRE.ROMFiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE {
+namespace LiTRE {
     public partial class SpawnEditor : Form {
         private List<string> locations = RomInfo.GetLocationNames();
         private List<string> names;

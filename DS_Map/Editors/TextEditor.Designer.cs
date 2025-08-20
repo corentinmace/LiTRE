@@ -1,4 +1,4 @@
-﻿namespace DSPRE.Editors
+﻿namespace LiTRE.Editors
 {
     partial class TextEditor
     {
@@ -113,7 +113,7 @@
             // 
             // selectedLineMoveUpButton
             // 
-            this.selectedLineMoveUpButton.Image = global::DSPRE.Properties.Resources.arrowup;
+            this.selectedLineMoveUpButton.Image = global::LiTRE.Properties.Resources.arrowup;
             this.selectedLineMoveUpButton.Location = new System.Drawing.Point(681, 16);
             this.selectedLineMoveUpButton.Name = "selectedLineMoveUpButton";
             this.tableLayoutPanel1.SetRowSpan(this.selectedLineMoveUpButton, 2);
@@ -135,7 +135,7 @@
             // 
             // locateCurrentTextArchive
             // 
-            this.locateCurrentTextArchive.Image = global::DSPRE.Properties.Resources.open_file;
+            this.locateCurrentTextArchive.Image = global::LiTRE.Properties.Resources.open_file;
             this.locateCurrentTextArchive.Location = new System.Drawing.Point(613, 16);
             this.locateCurrentTextArchive.Name = "locateCurrentTextArchive";
             this.tableLayoutPanel1.SetRowSpan(this.locateCurrentTextArchive, 2);
@@ -148,7 +148,7 @@
             // saveTextArchiveButton
             // 
             this.saveTextArchiveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveTextArchiveButton.Image = global::DSPRE.Properties.Resources.saveButton;
+            this.saveTextArchiveButton.Image = global::LiTRE.Properties.Resources.saveButton;
             this.saveTextArchiveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveTextArchiveButton.Location = new System.Drawing.Point(3, 43);
             this.saveTextArchiveButton.Name = "saveTextArchiveButton";
@@ -161,7 +161,7 @@
             // importTextFileButton
             // 
             this.importTextFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.importTextFileButton.Image = global::DSPRE.Properties.Resources.importArrow;
+            this.importTextFileButton.Image = global::LiTRE.Properties.Resources.importArrow;
             this.importTextFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importTextFileButton.Location = new System.Drawing.Point(193, 16);
             this.importTextFileButton.Name = "importTextFileButton";
@@ -176,7 +176,7 @@
             // exportTextFileButton
             // 
             this.exportTextFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportTextFileButton.Image = global::DSPRE.Properties.Resources.exportArrow;
+            this.exportTextFileButton.Image = global::LiTRE.Properties.Resources.exportArrow;
             this.exportTextFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportTextFileButton.Location = new System.Drawing.Point(293, 16);
             this.exportTextFileButton.Name = "exportTextFileButton";
@@ -191,7 +191,7 @@
             // addTextArchiveButton
             // 
             this.addTextArchiveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addTextArchiveButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addTextArchiveButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addTextArchiveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addTextArchiveButton.Location = new System.Drawing.Point(413, 16);
             this.addTextArchiveButton.Name = "addTextArchiveButton";
@@ -206,7 +206,7 @@
             // removeMessageFileButton
             // 
             this.removeMessageFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.removeMessageFileButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeMessageFileButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeMessageFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeMessageFileButton.Location = new System.Drawing.Point(510, 16);
             this.removeMessageFileButton.Name = "removeMessageFileButton";
@@ -220,7 +220,7 @@
             // 
             // selectedLineMoveDownButton
             // 
-            this.selectedLineMoveDownButton.Image = global::DSPRE.Properties.Resources.arrowdown;
+            this.selectedLineMoveDownButton.Image = global::LiTRE.Properties.Resources.arrowdown;
             this.selectedLineMoveDownButton.Location = new System.Drawing.Point(729, 16);
             this.selectedLineMoveDownButton.Name = "selectedLineMoveDownButton";
             this.tableLayoutPanel1.SetRowSpan(this.selectedLineMoveDownButton, 2);
@@ -396,7 +396,7 @@
             // 
             // searchMessageButton
             // 
-            this.searchMessageButton.Image = global::DSPRE.Properties.Resources.SearchMiniIcon;
+            this.searchMessageButton.Image = global::LiTRE.Properties.Resources.SearchMiniIcon;
             this.searchMessageButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.searchMessageButton.Location = new System.Drawing.Point(6, 44);
             this.searchMessageButton.Name = "searchMessageButton";
@@ -451,7 +451,7 @@
             // 
             // removeStringButton
             // 
-            this.removeStringButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.removeStringButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
             this.removeStringButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeStringButton.Location = new System.Drawing.Point(113, 588);
             this.removeStringButton.Name = "removeStringButton";
@@ -464,7 +464,7 @@
             // 
             // addStringButton
             // 
-            this.addStringButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addStringButton.Image = global::LiTRE.Properties.Resources.addIcon;
             this.addStringButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addStringButton.Location = new System.Drawing.Point(12, 588);
             this.addStringButton.Name = "addStringButton";

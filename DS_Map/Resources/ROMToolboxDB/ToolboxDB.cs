@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Resources;
-using static DSPRE.RomInfo;
+using static LiTRE.RomInfo;
 
-namespace DSPRE.Resources.ROMToolboxDB {
+namespace LiTRE.Resources.ROMToolboxDB {
     public class ToolboxDB {
         internal class ARM9PatchData {
             internal string initString;
@@ -110,7 +110,7 @@ namespace DSPRE.Resources.ROMToolboxDB {
                 branchOffset -= ARM9.address;
                 overlayString1 = BDHCamCodeDB[nameof(overlayString1)];
                 overlayString2 = BDHCamCodeDB[nameof(overlayString2)];
-                subroutine = (byte[])new ResourceManager("DSPRE.Resources.ROMToolboxDB.BDHCAMPatchDB", Assembly.GetExecutingAssembly()).GetObject(RomInfo.romID + "_cam");
+                subroutine = (byte[])new ResourceManager("LiTRE.Resources.ROMToolboxDB.BDHCAMPatchDB", Assembly.GetExecutingAssembly()).GetObject(RomInfo.romID + "_cam");
             }
         }
         internal class DynamicHeadersPatchData {
