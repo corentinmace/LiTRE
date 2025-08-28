@@ -1040,6 +1040,7 @@ namespace LiTRE
             romToolboxToolStripMenuItem.Enabled = true;
             headerSearchToolStripButton.Enabled = true;
             headerSearchToolStripMenuItem.Enabled = true;
+            addressHelperToolStripMenuItem.Enabled = true;
             spawnEditorToolStripMenuItem.Enabled = true;
             otherEditorsToolStripMenuItem.Enabled = true;
 
@@ -1344,6 +1345,13 @@ namespace LiTRE
             WeatherEditor form = new WeatherEditor();
             form.Show();
         }
+
+        private void scrcmdTableHelperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScrcmdTableHelper form = new ScrcmdTableHelper();
+            form.Show();
+        }
+
         private void unpackToFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog of = new OpenFileDialog
@@ -1907,5 +1915,7 @@ namespace LiTRE
                 Helpers.PopOutEditor(cfg.Control, currentTabInfos.Text, cfg.PlaceholderLabel, cfg.PopoutButton, mainTabImageList.Images[currentTabInfos.ImageIndex]);
         }
         #endregion
+
+ 
     }
 }

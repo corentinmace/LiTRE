@@ -532,6 +532,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\writeText.Designer.cs" />
+    <EmbeddedResource Include="AddressHelper.resx">
+      <DependentUpon>AddressHelper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVCalculator\DVCalc.resx">
       <DependentUpon>DVCalc.cs</DependentUpon>
     </EmbeddedResource>

@@ -32,25 +32,37 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainProgram));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.headerEditorTabPage = new System.Windows.Forms.TabPage();
+            this.headerEditor = new LiTRE.Editors.HeaderEditor();
             this.matrixEditorTabPage = new System.Windows.Forms.TabPage();
+            this.matrixEditor = new LiTRE.Editors.MatrixEditor();
             this.mapEditorTabPage = new System.Windows.Forms.TabPage();
+            this.mapEditor = new LiTRE.Editors.MapEditor();
             this.nsbtxEditorTabPage = new System.Windows.Forms.TabPage();
+            this.nsbtxEditor = new LiTRE.Editors.NsbtxEditor();
             this.eventEditorTabPage = new System.Windows.Forms.TabPage();
+            this.eventEditorLiT = new LiTRE.Editors.EventEditorLiT();
             this.tabPageScriptEditor = new System.Windows.Forms.TabPage();
+            this.scriptEditor = new LiTRE.Editors.ScriptEditor();
             this.popoutScriptEditorButton = new System.Windows.Forms.Button();
             this.scriptEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.tabPageLevelScriptEditor = new System.Windows.Forms.TabPage();
             this.popoutLevelScriptEditorButton = new System.Windows.Forms.Button();
             this.LSEditorPoppedOutLabel = new System.Windows.Forms.Label();
+            this.levelScriptEditor = new LiTRE.Editors.LevelScriptEditor();
             this.textEditorTabPage = new System.Windows.Forms.TabPage();
             this.popoutTextEditorButton = new System.Windows.Forms.Button();
             this.textEditorPoppedOutLabel = new System.Windows.Forms.Label();
+            this.textEditor = new LiTRE.Editors.TextEditor();
             this.cameraEditorTabPage = new System.Windows.Forms.TabPage();
+            this.cameraEditor = new LiTRE.Editors.CameraEditor();
             this.trainerEditorTabPage = new System.Windows.Forms.TabPage();
             this.popoutTrainerEditorButton = new System.Windows.Forms.Button();
             this.trainerEditorPoppedOutLabel = new System.Windows.Forms.Label();
+            this.trainerEditor = new LiTRE.Editors.TrainerEditor();
             this.tableEditorTabPage = new System.Windows.Forms.TabPage();
+            this.tableEditor = new LiTRE.Editors.TableEditor();
             this.tabPageEncountersEditor = new System.Windows.Forms.TabPage();
+            this.encountersEditor = new LiTRE.Editors.EncountersEditor();
             this.mainTabImageList = new System.Windows.Forms.ImageList(this.components);
             this.gameIcon = new System.Windows.Forms.PictureBox();
             this.languageLabel = new System.Windows.Forms.Label();
@@ -132,18 +144,7 @@
             this.separator_afterMiscButtons = new System.Windows.Forms.ToolStripSeparator();
             this.versionLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.headerEditor = new LiTRE.Editors.HeaderEditor();
-            this.matrixEditor = new LiTRE.Editors.MatrixEditor();
-            this.mapEditor = new LiTRE.Editors.MapEditor();
-            this.nsbtxEditor = new LiTRE.Editors.NsbtxEditor();
-            this.eventEditorLiT = new LiTRE.Editors.EventEditorLiT();
-            this.scriptEditor = new LiTRE.Editors.ScriptEditor();
-            this.levelScriptEditor = new LiTRE.Editors.LevelScriptEditor();
-            this.textEditor = new LiTRE.Editors.TextEditor();
-            this.cameraEditor = new LiTRE.Editors.CameraEditor();
-            this.trainerEditor = new LiTRE.Editors.TrainerEditor();
-            this.tableEditor = new LiTRE.Editors.TableEditor();
-            this.encountersEditor = new LiTRE.Editors.EncountersEditor();
+            this.scrcmdTableHelperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
             this.headerEditorTabPage.SuspendLayout();
             this.matrixEditorTabPage.SuspendLayout();
@@ -199,6 +200,14 @@
             this.headerEditorTabPage.TabIndex = 0;
             this.headerEditorTabPage.Text = "Header Editor";
             // 
+            // headerEditor
+            // 
+            this.headerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headerEditor.Location = new System.Drawing.Point(3, 3);
+            this.headerEditor.Name = "headerEditor";
+            this.headerEditor.Size = new System.Drawing.Size(1179, 669);
+            this.headerEditor.TabIndex = 0;
+            // 
             // matrixEditorTabPage
             // 
             this.matrixEditorTabPage.BackColor = System.Drawing.SystemColors.Window;
@@ -210,6 +219,15 @@
             this.matrixEditorTabPage.Size = new System.Drawing.Size(1185, 675);
             this.matrixEditorTabPage.TabIndex = 1;
             this.matrixEditorTabPage.Text = "Matrix Editor";
+            // 
+            // matrixEditor
+            // 
+            this.matrixEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.matrixEditor.Location = new System.Drawing.Point(3, 3);
+            this.matrixEditor.matrixEditorIsReady = false;
+            this.matrixEditor.Name = "matrixEditor";
+            this.matrixEditor.Size = new System.Drawing.Size(1179, 669);
+            this.matrixEditor.TabIndex = 0;
             // 
             // mapEditorTabPage
             // 
@@ -223,6 +241,15 @@
             this.mapEditorTabPage.TabIndex = 2;
             this.mapEditorTabPage.Text = "Map Editor";
             // 
+            // mapEditor
+            // 
+            this.mapEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mapEditor.Location = new System.Drawing.Point(3, 3);
+            this.mapEditor.mapEditorIsReady = false;
+            this.mapEditor.Name = "mapEditor";
+            this.mapEditor.Size = new System.Drawing.Size(1179, 669);
+            this.mapEditor.TabIndex = 0;
+            // 
             // nsbtxEditorTabPage
             // 
             this.nsbtxEditorTabPage.Controls.Add(this.nsbtxEditor);
@@ -235,6 +262,15 @@
             this.nsbtxEditorTabPage.Text = "NSBTX Editor";
             this.nsbtxEditorTabPage.UseVisualStyleBackColor = true;
             // 
+            // nsbtxEditor
+            // 
+            this.nsbtxEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nsbtxEditor.Location = new System.Drawing.Point(3, 3);
+            this.nsbtxEditor.Name = "nsbtxEditor";
+            this.nsbtxEditor.nsbtxEditorIsReady = false;
+            this.nsbtxEditor.Size = new System.Drawing.Size(1179, 669);
+            this.nsbtxEditor.TabIndex = 0;
+            // 
             // eventEditorTabPage
             // 
             this.eventEditorTabPage.BackColor = System.Drawing.SystemColors.Window;
@@ -246,6 +282,17 @@
             this.eventEditorTabPage.Size = new System.Drawing.Size(1185, 675);
             this.eventEditorTabPage.TabIndex = 3;
             this.eventEditorTabPage.Text = "Event Editor";
+            // 
+            // eventEditorLiT
+            // 
+            this.eventEditorLiT.BackColor = System.Drawing.SystemColors.Window;
+            this.eventEditorLiT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventEditorLiT.eventEditorIsReady = false;
+            this.eventEditorLiT.Location = new System.Drawing.Point(3, 3);
+            this.eventEditorLiT.Name = "eventEditorLiT";
+            this.eventEditorLiT.Padding = new System.Windows.Forms.Padding(3);
+            this.eventEditorLiT.Size = new System.Drawing.Size(1179, 669);
+            this.eventEditorLiT.TabIndex = 0;
             // 
             // tabPageScriptEditor
             // 
@@ -260,6 +307,15 @@
             this.tabPageScriptEditor.TabIndex = 10;
             this.tabPageScriptEditor.Text = "Script Editor";
             this.tabPageScriptEditor.UseVisualStyleBackColor = true;
+            // 
+            // scriptEditor
+            // 
+            this.scriptEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scriptEditor.Location = new System.Drawing.Point(3, 3);
+            this.scriptEditor.Name = "scriptEditor";
+            this.scriptEditor.scriptEditorIsReady = false;
+            this.scriptEditor.Size = new System.Drawing.Size(1179, 669);
+            this.scriptEditor.TabIndex = 5;
             // 
             // popoutScriptEditorButton
             // 
@@ -321,6 +377,16 @@
             this.LSEditorPoppedOutLabel.Text = "This editor is currently popped-out";
             this.LSEditorPoppedOutLabel.Visible = false;
             // 
+            // levelScriptEditor
+            // 
+            this.levelScriptEditor.BackColor = System.Drawing.SystemColors.Control;
+            this.levelScriptEditor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.levelScriptEditor.levelScriptEditorIsReady = false;
+            this.levelScriptEditor.Location = new System.Drawing.Point(3, 3);
+            this.levelScriptEditor.Name = "levelScriptEditor";
+            this.levelScriptEditor.Size = new System.Drawing.Size(408, 669);
+            this.levelScriptEditor.TabIndex = 4;
+            // 
             // textEditorTabPage
             // 
             this.textEditorTabPage.Controls.Add(this.popoutTextEditorButton);
@@ -358,6 +424,15 @@
             this.textEditorPoppedOutLabel.Text = "This editor is currently popped-out";
             this.textEditorPoppedOutLabel.Visible = false;
             // 
+            // textEditor
+            // 
+            this.textEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEditor.Location = new System.Drawing.Point(3, 3);
+            this.textEditor.Name = "textEditor";
+            this.textEditor.Size = new System.Drawing.Size(1179, 669);
+            this.textEditor.TabIndex = 3;
+            this.textEditor.textEditorIsReady = false;
+            // 
             // cameraEditorTabPage
             // 
             this.cameraEditorTabPage.Controls.Add(this.cameraEditor);
@@ -368,6 +443,15 @@
             this.cameraEditorTabPage.TabIndex = 7;
             this.cameraEditorTabPage.Text = "Camera Editor";
             this.cameraEditorTabPage.UseVisualStyleBackColor = true;
+            // 
+            // cameraEditor
+            // 
+            this.cameraEditor.cameraEditorIsReady = false;
+            this.cameraEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cameraEditor.Location = new System.Drawing.Point(0, 0);
+            this.cameraEditor.Name = "cameraEditor";
+            this.cameraEditor.Size = new System.Drawing.Size(1185, 675);
+            this.cameraEditor.TabIndex = 0;
             // 
             // trainerEditorTabPage
             // 
@@ -405,6 +489,15 @@
             this.trainerEditorPoppedOutLabel.Text = "This editor is currently popped-out";
             this.trainerEditorPoppedOutLabel.Visible = false;
             // 
+            // trainerEditor
+            // 
+            this.trainerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trainerEditor.Location = new System.Drawing.Point(0, 0);
+            this.trainerEditor.Name = "trainerEditor";
+            this.trainerEditor.Size = new System.Drawing.Size(1185, 675);
+            this.trainerEditor.TabIndex = 18;
+            this.trainerEditor.trainerEditorIsReady = false;
+            // 
             // tableEditorTabPage
             // 
             this.tableEditorTabPage.Controls.Add(this.tableEditor);
@@ -417,6 +510,16 @@
             this.tableEditorTabPage.Text = "Table Editor";
             this.tableEditorTabPage.UseVisualStyleBackColor = true;
             // 
+            // tableEditor
+            // 
+            this.tableEditor.battleTableEditorIsReady = false;
+            this.tableEditor.conditionnalMusicTableEditorIsReady = false;
+            this.tableEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableEditor.Location = new System.Drawing.Point(3, 3);
+            this.tableEditor.Name = "tableEditor";
+            this.tableEditor.Size = new System.Drawing.Size(1179, 669);
+            this.tableEditor.TabIndex = 0;
+            // 
             // tabPageEncountersEditor
             // 
             this.tabPageEncountersEditor.Controls.Add(this.encountersEditor);
@@ -427,6 +530,15 @@
             this.tabPageEncountersEditor.TabIndex = 12;
             this.tabPageEncountersEditor.Text = "Encounters";
             this.tabPageEncountersEditor.UseVisualStyleBackColor = true;
+            // 
+            // encountersEditor
+            // 
+            this.encountersEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.encountersEditor.encounterEditorIsReady = false;
+            this.encountersEditor.Location = new System.Drawing.Point(3, 3);
+            this.encountersEditor.Name = "encountersEditor";
+            this.encountersEditor.Size = new System.Drawing.Size(1179, 669);
+            this.encountersEditor.TabIndex = 0;
             // 
             // mainTabImageList
             // 
@@ -543,7 +655,8 @@
             this.listBasedBatchRenameToolStripMenuItem,
             this.listBuilderToolStripMenuItem,
             this.nSBMDUtilityToolStripMenuItem,
-            this.generateCSVToolStripMenuItem});
+            this.generateCSVToolStripMenuItem,
+            this.scrcmdTableHelperToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
@@ -1245,116 +1358,12 @@
             this.versionLabel.Text = "ROM:";
             this.versionLabel.Visible = false;
             // 
-            // headerEditor
+            // scrcmdTableHelperToolStripMenuItem
             // 
-            this.headerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headerEditor.Location = new System.Drawing.Point(3, 3);
-            this.headerEditor.Name = "headerEditor";
-            this.headerEditor.Size = new System.Drawing.Size(1179, 669);
-            this.headerEditor.TabIndex = 0;
-            // 
-            // matrixEditor
-            // 
-            this.matrixEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.matrixEditor.Location = new System.Drawing.Point(3, 3);
-            this.matrixEditor.matrixEditorIsReady = false;
-            this.matrixEditor.Name = "matrixEditor";
-            this.matrixEditor.Size = new System.Drawing.Size(1179, 669);
-            this.matrixEditor.TabIndex = 0;
-            // 
-            // mapEditor
-            // 
-            this.mapEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mapEditor.Location = new System.Drawing.Point(3, 3);
-            this.mapEditor.mapEditorIsReady = false;
-            this.mapEditor.Name = "mapEditor";
-            this.mapEditor.Size = new System.Drawing.Size(1179, 669);
-            this.mapEditor.TabIndex = 0;
-            // 
-            // nsbtxEditor
-            // 
-            this.nsbtxEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nsbtxEditor.Location = new System.Drawing.Point(3, 3);
-            this.nsbtxEditor.Name = "nsbtxEditor";
-            this.nsbtxEditor.nsbtxEditorIsReady = false;
-            this.nsbtxEditor.Size = new System.Drawing.Size(1179, 669);
-            this.nsbtxEditor.TabIndex = 0;
-            // 
-            // eventEditorLiT
-            // 
-            this.eventEditorLiT.BackColor = System.Drawing.SystemColors.Window;
-            this.eventEditorLiT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eventEditorLiT.eventEditorIsReady = false;
-            this.eventEditorLiT.Location = new System.Drawing.Point(3, 3);
-            this.eventEditorLiT.Name = "eventEditorLiT";
-            this.eventEditorLiT.Padding = new System.Windows.Forms.Padding(3);
-            this.eventEditorLiT.Size = new System.Drawing.Size(1179, 669);
-            this.eventEditorLiT.TabIndex = 0;
-            // 
-            // scriptEditor
-            // 
-            this.scriptEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scriptEditor.Location = new System.Drawing.Point(3, 3);
-            this.scriptEditor.Name = "scriptEditor";
-            this.scriptEditor.scriptEditorIsReady = false;
-            this.scriptEditor.Size = new System.Drawing.Size(1179, 669);
-            this.scriptEditor.TabIndex = 5;
-            // 
-            // levelScriptEditor
-            // 
-            this.levelScriptEditor.BackColor = System.Drawing.SystemColors.Control;
-            this.levelScriptEditor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.levelScriptEditor.levelScriptEditorIsReady = false;
-            this.levelScriptEditor.Location = new System.Drawing.Point(3, 3);
-            this.levelScriptEditor.Name = "levelScriptEditor";
-            this.levelScriptEditor.Size = new System.Drawing.Size(408, 669);
-            this.levelScriptEditor.TabIndex = 4;
-            // 
-            // textEditor
-            // 
-            this.textEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEditor.Location = new System.Drawing.Point(3, 3);
-            this.textEditor.Name = "textEditor";
-            this.textEditor.Size = new System.Drawing.Size(1179, 669);
-            this.textEditor.TabIndex = 3;
-            this.textEditor.textEditorIsReady = false;
-            // 
-            // cameraEditor
-            // 
-            this.cameraEditor.cameraEditorIsReady = false;
-            this.cameraEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cameraEditor.Location = new System.Drawing.Point(0, 0);
-            this.cameraEditor.Name = "cameraEditor";
-            this.cameraEditor.Size = new System.Drawing.Size(1185, 675);
-            this.cameraEditor.TabIndex = 0;
-            // 
-            // trainerEditor
-            // 
-            this.trainerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trainerEditor.Location = new System.Drawing.Point(0, 0);
-            this.trainerEditor.Name = "trainerEditor";
-            this.trainerEditor.Size = new System.Drawing.Size(1185, 675);
-            this.trainerEditor.TabIndex = 18;
-            this.trainerEditor.trainerEditorIsReady = false;
-            // 
-            // tableEditor
-            // 
-            this.tableEditor.battleTableEditorIsReady = false;
-            this.tableEditor.conditionnalMusicTableEditorIsReady = false;
-            this.tableEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableEditor.Location = new System.Drawing.Point(3, 3);
-            this.tableEditor.Name = "tableEditor";
-            this.tableEditor.Size = new System.Drawing.Size(1179, 669);
-            this.tableEditor.TabIndex = 0;
-            // 
-            // encountersEditor
-            // 
-            this.encountersEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.encountersEditor.encounterEditorIsReady = false;
-            this.encountersEditor.Location = new System.Drawing.Point(3, 3);
-            this.encountersEditor.Name = "encountersEditor";
-            this.encountersEditor.Size = new System.Drawing.Size(1179, 669);
-            this.encountersEditor.TabIndex = 0;
+            this.scrcmdTableHelperToolStripMenuItem.Name = "scrcmdTableHelperToolStripMenuItem";
+            this.scrcmdTableHelperToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.scrcmdTableHelperToolStripMenuItem.Text = "Scrcmd Table Helper";
+            this.scrcmdTableHelperToolStripMenuItem.Click += new System.EventHandler(this.scrcmdTableHelperToolStripMenuItem_Click);
             // 
             // MainProgram
             // 
@@ -1565,6 +1574,7 @@
         public Editors.EventEditorLiT eventEditorLiT;
         private System.Windows.Forms.ToolStripButton weatherMapEditor;
         public Editors.ScriptEditor scriptEditor;
+        private System.Windows.Forms.ToolStripMenuItem scrcmdTableHelperToolStripMenuItem;
     }
 }
 
