@@ -1715,8 +1715,8 @@ namespace LiTRE
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SettingsWindow editor = new SettingsWindow())
-                editor.Show();
+            SettingsWindow editor = new SettingsWindow();
+             editor.Show();
         }
 
         private void pokemonDataEditorToolStripMenuItem_Click(object sender, EventArgs e)
