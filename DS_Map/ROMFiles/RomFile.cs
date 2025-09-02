@@ -10,7 +10,7 @@ namespace LiTRE.ROMFiles {
             
             byte[] romFileToByteArray = ToByteArray();
             if (romFileToByteArray is null) {
-                Console.WriteLine(GetType().Name + " couldn't be saved!");
+                AppLogger.Error(GetType().Name + " couldn't be saved!");
                 return false;
             }
 

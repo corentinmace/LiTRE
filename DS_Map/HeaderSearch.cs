@@ -151,7 +151,7 @@ namespace LiTRE {
                                 }
                                 break;
                             default:
-                                Console.WriteLine("Unrecognized operand!!!");
+                                AppLogger.Error("Unrecognized operand!!!");
                                 break;
                         }
                     }
@@ -220,7 +220,7 @@ namespace LiTRE {
                                 }
                                 break;
                             default:
-                                Console.WriteLine("Unrecognized operand!!!");
+                                AppLogger.Error("Unrecognized operand!!!");
                                 break;
                         }
                     }

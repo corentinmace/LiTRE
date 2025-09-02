@@ -75,15 +75,49 @@ namespace LiTRE {
 
             try
             {
+                if (!Repository.IsValid(pathToDbRepo))
+                {
+                    Repository.Init(pathToDbRepo);
+                    using (var repo = new Repository(pathToDbRepo))
+                    {
+                        Remote remote = repo.Network.Remotes.Add("origin", "https://github.com/DS-Pokemon-Rom-Editor/scrcmd-database.git");
+                        Commands.Fetch(repo, remote.Name, new string[] { "refs/heads/main:refs/heads/main" }, null, null);
+
+                        // Check if main branch exists
+                        Branch main = repo.Branches["main"] ?? repo.CreateBranch("main", repo.Branches["refs/heads/main"].Tip);
+                        repo.Branches.Update(main, b => b.TrackedBranch = "refs/remotes/origin/main");
+                        Commands.Checkout(repo, main);
+                    }
+                }
+
                 using (var repo = new Repository(pathToDbRepo))
                 {
                     var remote = repo.Network.Remotes["origin"];
                     try
                     {
+                        // Reset any changes
+                        if (repo.Head.Tip != null)
+                        {
+                            repo.Reset(ResetMode.Hard);
+                        }
+
+                        // Clean up untracked files
+                        foreach (var item in repo.RetrieveStatus().Untracked)
+                        {
+                            string fullPath = Path.Combine(pathToDbRepo, item.FilePath);
+                            if (File.Exists(fullPath))
+                                File.Delete(fullPath);
+                            else if (Directory.Exists(fullPath))
+                                Directory.Delete(fullPath, true);
+                        }
+
                         Commands.Fetch(repo, remote.Name, remote.FetchRefSpecs.Select(x => x.Specification), null, null);
-                        var remoteMaster = repo.Branches["origin/main"];
-                        Commands.Checkout(repo, repo.Branches["main"]);
-                        repo.Reset(ResetMode.Hard, remoteMaster.Tip);
+
+                        // Get the remote main branch and force checkout
+                        var remoteBranch = repo.Branches["origin/main"];
+                        var options = new CheckoutOptions { CheckoutModifiers = CheckoutModifiers.Force };
+                        Commands.Checkout(repo, repo.Branches["main"], options);
+                        repo.Reset(ResetMode.Hard, remoteBranch.Tip);
 
                         AppLogger.Info("Script databases updated successfully");
                         if (!silent)
@@ -129,10 +163,9 @@ namespace LiTRE {
             string targetJsonPath = Path.Combine(editedDatabasesDir, $"{romFileNameClean}_scrcmd_database.json");
             string databaseJsonPath;
 
-            switch (gameFamily)
-            {
+            switch (gameFamily) {
                 case GameFamilies.DP:
-                    databaseJsonPath = Path.Combine(Program.DatabasePath, "dppt_scrcmd_database.json");
+                    databaseJsonPath = Path.Combine(Program.DatabasePath, "diamond_pearl_scrcmd_database.json");
                     break;
                 case GameFamilies.HGSS:
                     databaseJsonPath = Path.Combine(Program.DatabasePath, "hgss_scrcmd_database.json");
@@ -144,18 +177,14 @@ namespace LiTRE {
                     throw new Exception("Unknown game family");
             }
 
-            if (!File.Exists(targetJsonPath))
-            {
+            if (!File.Exists(targetJsonPath)) {
                 File.Copy(databaseJsonPath, targetJsonPath);
             }
 
-            try
-            {
+            try {
                 ScriptDatabaseJsonLoader.InitializeFromJson(targetJsonPath, gameVersion);
                 ScriptDatabaseJsonLoader.LoadParameterTypes(targetJsonPath, gameVersion);
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 AppLogger.Error($"Failed to load script database: {ex.Message}");
                 MessageBox.Show("Failed to load script database. Script editing features may be limited.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -344,7 +373,7 @@ namespace LiTRE {
                     NSBMD file = mapFile.buildings[i].NSBMDFile;
                     if (file is null)
                     {
-                        Console.WriteLine("Null building can't be rendered");
+                        AppLogger.Warn("Null building can't be rendered");
                     }
                     else
                     {
@@ -463,7 +492,7 @@ namespace LiTRE {
                 return Properties.Resources.IconPokeball;
             }
             // default:
-            //partyPokemonPictureBoxList[partyPos].Image = cb.SelectedIndex > 0 ? (Image)Properties.PokePics.ResourceManager.GetObject(FixPokenameString(PokeDatabase.System.pokeNames[(ushort)cb.SelectedIndex])) : global::LiTRE.Properties.Resources.IconPokeball;
+            //partyPokemonPictureBoxList[partyPos].Image = cb.SelectedIndex > 0 ? (Image)Properties.PokePics.ResourceManager.GetObject(FixPokenameString(PokeDatabase.System.pokeNames[(ushort)cb.SelectedIndex])) : global::DSPRE.Properties.Resources.IconPokeball;
         }
 
         public static void GenerateKeystrokes(string keys, Scintilla textArea) {
@@ -666,7 +695,6 @@ namespace LiTRE {
                 const byte toRead = 16;
                 foreach (FileInfo f in files)
                 {
-                    Console.WriteLine(f.Name);
 
                     string fileNameOnly = Path.GetFileNameWithoutExtension(f.FullName);
                     string dirNameOnly = Path.GetDirectoryName(f.FullName);
@@ -865,7 +893,7 @@ namespace LiTRE {
                 }
             }
 
-            Console.WriteLine("CSV file exported successfully.");
+            AppLogger.Info("CSV file exported successfully.");
         }
 
     }

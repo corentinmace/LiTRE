@@ -38,12 +38,16 @@
             this.mapEditorTabPage = new System.Windows.Forms.TabPage();
             this.mapEditor = new LiTRE.Editors.MapEditor();
             this.nsbtxEditorTabPage = new System.Windows.Forms.TabPage();
+            this.popoutNsbtxEditorButton = new System.Windows.Forms.Button();
+            this.nsbtxEditorPopOutLabel = new System.Windows.Forms.Label();
             this.nsbtxEditor = new LiTRE.Editors.NsbtxEditor();
             this.eventEditorTabPage = new System.Windows.Forms.TabPage();
+            this.popoutEventEditorButton = new System.Windows.Forms.Button();
             this.eventEditorLiT = new LiTRE.Editors.EventEditorLiT();
+            this.eventEditorPopOutLabel = new System.Windows.Forms.Label();
             this.tabPageScriptEditor = new System.Windows.Forms.TabPage();
-            this.scriptEditor = new LiTRE.Editors.ScriptEditor();
             this.popoutScriptEditorButton = new System.Windows.Forms.Button();
+            this.scriptEditor = new LiTRE.Editors.ScriptEditor();
             this.scriptEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.tabPageLevelScriptEditor = new System.Windows.Forms.TabPage();
             this.popoutLevelScriptEditorButton = new System.Windows.Forms.Button();
@@ -252,6 +256,8 @@
             // 
             // nsbtxEditorTabPage
             // 
+            this.nsbtxEditorTabPage.Controls.Add(this.popoutNsbtxEditorButton);
+            this.nsbtxEditorTabPage.Controls.Add(this.nsbtxEditorPopOutLabel);
             this.nsbtxEditorTabPage.Controls.Add(this.nsbtxEditor);
             this.nsbtxEditorTabPage.ImageIndex = 6;
             this.nsbtxEditorTabPage.Location = new System.Drawing.Point(4, 23);
@@ -261,6 +267,29 @@
             this.nsbtxEditorTabPage.TabIndex = 6;
             this.nsbtxEditorTabPage.Text = "NSBTX Editor";
             this.nsbtxEditorTabPage.UseVisualStyleBackColor = true;
+            // 
+            // popoutNsbtxEditorButton
+            // 
+            this.popoutNsbtxEditorButton.Image = global::LiTRE.Properties.Resources.popout;
+            this.popoutNsbtxEditorButton.Location = new System.Drawing.Point(1144, 634);
+            this.popoutNsbtxEditorButton.Name = "popoutNsbtxEditorButton";
+            this.popoutNsbtxEditorButton.Size = new System.Drawing.Size(35, 35);
+            this.popoutNsbtxEditorButton.TabIndex = 4;
+            this.popoutNsbtxEditorButton.UseVisualStyleBackColor = true;
+            // 
+            // nsbtxEditorPopOutLabel
+            // 
+            this.nsbtxEditorPopOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nsbtxEditorPopOutLabel.AutoSize = true;
+            this.nsbtxEditorPopOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nsbtxEditorPopOutLabel.Location = new System.Drawing.Point(444, 325);
+            this.nsbtxEditorPopOutLabel.Name = "nsbtxEditorPopOutLabel";
+            this.nsbtxEditorPopOutLabel.Size = new System.Drawing.Size(296, 24);
+            this.nsbtxEditorPopOutLabel.TabIndex = 3;
+            this.nsbtxEditorPopOutLabel.Text = "This editor is currently popped-out";
+            this.nsbtxEditorPopOutLabel.Visible = false;
             // 
             // nsbtxEditor
             // 
@@ -274,7 +303,9 @@
             // eventEditorTabPage
             // 
             this.eventEditorTabPage.BackColor = System.Drawing.SystemColors.Window;
+            this.eventEditorTabPage.Controls.Add(this.popoutEventEditorButton);
             this.eventEditorTabPage.Controls.Add(this.eventEditorLiT);
+            this.eventEditorTabPage.Controls.Add(this.eventEditorPopOutLabel);
             this.eventEditorTabPage.ImageIndex = 3;
             this.eventEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.eventEditorTabPage.Name = "eventEditorTabPage";
@@ -282,6 +313,15 @@
             this.eventEditorTabPage.Size = new System.Drawing.Size(1185, 675);
             this.eventEditorTabPage.TabIndex = 3;
             this.eventEditorTabPage.Text = "Event Editor";
+            // 
+            // popoutEventEditorButton
+            // 
+            this.popoutEventEditorButton.Image = global::LiTRE.Properties.Resources.popout;
+            this.popoutEventEditorButton.Location = new System.Drawing.Point(1144, 634);
+            this.popoutEventEditorButton.Name = "popoutEventEditorButton";
+            this.popoutEventEditorButton.Size = new System.Drawing.Size(35, 35);
+            this.popoutEventEditorButton.TabIndex = 5;
+            this.popoutEventEditorButton.UseVisualStyleBackColor = true;
             // 
             // eventEditorLiT
             // 
@@ -294,10 +334,24 @@
             this.eventEditorLiT.Size = new System.Drawing.Size(1179, 669);
             this.eventEditorLiT.TabIndex = 0;
             // 
+            // eventEditorPopOutLabel
+            // 
+            this.eventEditorPopOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.eventEditorPopOutLabel.AutoSize = true;
+            this.eventEditorPopOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventEditorPopOutLabel.Location = new System.Drawing.Point(468, 318);
+            this.eventEditorPopOutLabel.Name = "eventEditorPopOutLabel";
+            this.eventEditorPopOutLabel.Size = new System.Drawing.Size(296, 24);
+            this.eventEditorPopOutLabel.TabIndex = 6;
+            this.eventEditorPopOutLabel.Text = "This editor is currently popped-out";
+            this.eventEditorPopOutLabel.Visible = false;
+            // 
             // tabPageScriptEditor
             // 
-            this.tabPageScriptEditor.Controls.Add(this.scriptEditor);
             this.tabPageScriptEditor.Controls.Add(this.popoutScriptEditorButton);
+            this.tabPageScriptEditor.Controls.Add(this.scriptEditor);
             this.tabPageScriptEditor.Controls.Add(this.scriptEditorPoppedOutLabel);
             this.tabPageScriptEditor.ImageIndex = 5;
             this.tabPageScriptEditor.Location = new System.Drawing.Point(4, 23);
@@ -308,15 +362,6 @@
             this.tabPageScriptEditor.Text = "Script Editor";
             this.tabPageScriptEditor.UseVisualStyleBackColor = true;
             // 
-            // scriptEditor
-            // 
-            this.scriptEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scriptEditor.Location = new System.Drawing.Point(3, 3);
-            this.scriptEditor.Name = "scriptEditor";
-            this.scriptEditor.scriptEditorIsReady = false;
-            this.scriptEditor.Size = new System.Drawing.Size(1179, 669);
-            this.scriptEditor.TabIndex = 5;
-            // 
             // popoutScriptEditorButton
             // 
             this.popoutScriptEditorButton.Image = global::LiTRE.Properties.Resources.popout;
@@ -326,9 +371,20 @@
             this.popoutScriptEditorButton.TabIndex = 2;
             this.popoutScriptEditorButton.UseVisualStyleBackColor = true;
             // 
+            // scriptEditor
+            // 
+            this.scriptEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scriptEditor.Location = new System.Drawing.Point(3, 3);
+            this.scriptEditor.Name = "scriptEditor";
+            this.scriptEditor.scriptEditorIsReady = false;
+            this.scriptEditor.Size = new System.Drawing.Size(1179, 669);
+            this.scriptEditor.TabIndex = 5;
+            // 
             // scriptEditorPoppedOutLabel
             // 
-            this.scriptEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.scriptEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.scriptEditorPoppedOutLabel.AutoSize = true;
             this.scriptEditorPoppedOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scriptEditorPoppedOutLabel.Location = new System.Drawing.Point(423, 281);
@@ -363,7 +419,9 @@
             // 
             // LSEditorPoppedOutLabel
             // 
-            this.LSEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.LSEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LSEditorPoppedOutLabel.AutoSize = true;
             this.LSEditorPoppedOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LSEditorPoppedOutLabel.Location = new System.Drawing.Point(423, 281);
@@ -408,7 +466,9 @@
             // 
             // textEditorPoppedOutLabel
             // 
-            this.textEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEditorPoppedOutLabel.AutoSize = true;
             this.textEditorPoppedOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEditorPoppedOutLabel.Location = new System.Drawing.Point(423, 281);
@@ -471,7 +531,9 @@
             // 
             // trainerEditorPoppedOutLabel
             // 
-            this.trainerEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.trainerEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trainerEditorPoppedOutLabel.AutoSize = true;
             this.trainerEditorPoppedOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trainerEditorPoppedOutLabel.Location = new System.Drawing.Point(423, 281);
@@ -552,7 +614,7 @@
             this.gameIcon.ErrorImage = null;
             this.gameIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.gameIcon.InitialImage = null;
-            this.gameIcon.Location = new System.Drawing.Point(1167, 35);
+            this.gameIcon.Location = new System.Drawing.Point(1165, 781);
             this.gameIcon.Name = "gameIcon";
             this.gameIcon.Size = new System.Drawing.Size(32, 32);
             this.gameIcon.TabIndex = 8;
@@ -562,7 +624,7 @@
             // languageLabel
             // 
             this.languageLabel.AutoSize = true;
-            this.languageLabel.Location = new System.Drawing.Point(1042, 52);
+            this.languageLabel.Location = new System.Drawing.Point(1040, 798);
             this.languageLabel.Name = "languageLabel";
             this.languageLabel.Size = new System.Drawing.Size(58, 13);
             this.languageLabel.TabIndex = 10;
@@ -574,7 +636,12 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Window;
             this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.fileToolStripMenuItem, this.aboutToolStripMenuItem, this.menuViewToolStripMenuItem, this.otherEditorsToolStripMenuItem, this.aboutToolStripMenuItem1 });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.aboutToolStripMenuItem,
+            this.menuViewToolStripMenuItem,
+            this.otherEditorsToolStripMenuItem,
+            this.aboutToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -584,7 +651,11 @@
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.openROMToolStripMenuItem, this.openFolderToolStripMenuItem, this.saveROMToolStripMenuItem, this.settingsToolStripMenuItem });
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openROMToolStripMenuItem,
+            this.openFolderToolStripMenuItem,
+            this.saveROMToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -614,7 +685,8 @@
             this.saveROMToolStripMenuItem.Image = global::LiTRE.Properties.Resources.save_rom;
             this.saveROMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveROMToolStripMenuItem.Name = "saveROMToolStripMenuItem";
-            this.saveROMToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.S)));
+            this.saveROMToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
             this.saveROMToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
             this.saveROMToolStripMenuItem.Text = "Save ROM";
             this.saveROMToolStripMenuItem.Click += new System.EventHandler(this.saveRom_Click);
@@ -632,7 +704,17 @@
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.romToolboxToolStripMenuItem, this.headerSearchToolStripMenuItem, this.addressHelperToolStripMenuItem, this.scriptCommandsDatabaseToolStripMenuItem, this.NarcUtilityToolStripMenuItem, this.listBasedBatchRenameToolStripMenuItem, this.listBuilderToolStripMenuItem, this.nSBMDUtilityToolStripMenuItem, this.generateCSVToolStripMenuItem, this.scrcmdTableHelperToolStripMenuItem });
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.romToolboxToolStripMenuItem,
+            this.headerSearchToolStripMenuItem,
+            this.addressHelperToolStripMenuItem,
+            this.scriptCommandsDatabaseToolStripMenuItem,
+            this.NarcUtilityToolStripMenuItem,
+            this.listBasedBatchRenameToolStripMenuItem,
+            this.listBuilderToolStripMenuItem,
+            this.nSBMDUtilityToolStripMenuItem,
+            this.generateCSVToolStripMenuItem,
+            this.scrcmdTableHelperToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
@@ -663,7 +745,11 @@
             // 
             // scriptCommandsDatabaseToolStripMenuItem
             // 
-            this.scriptCommandsDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.diamondAndPearlToolStripMenuItem, this.platinumToolStripMenuItem, this.heartGoldAndSoulSilverToolStripMenuItem, this.manageDatabasesToolStripMenuItem });
+            this.scriptCommandsDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.diamondAndPearlToolStripMenuItem,
+            this.platinumToolStripMenuItem,
+            this.heartGoldAndSoulSilverToolStripMenuItem,
+            this.manageDatabasesToolStripMenuItem});
             this.scriptCommandsDatabaseToolStripMenuItem.Name = "scriptCommandsDatabaseToolStripMenuItem";
             this.scriptCommandsDatabaseToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.scriptCommandsDatabaseToolStripMenuItem.Text = "Script Commands Database";
@@ -706,7 +792,9 @@
             // 
             // NarcUtilityToolStripMenuItem
             // 
-            this.NarcUtilityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.buildFomFolderToolStripMenuItem, this.unpackToFolderToolStripMenuItem });
+            this.NarcUtilityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buildFomFolderToolStripMenuItem,
+            this.unpackToFolderToolStripMenuItem});
             this.NarcUtilityToolStripMenuItem.Name = "NarcUtilityToolStripMenuItem";
             this.NarcUtilityToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.NarcUtilityToolStripMenuItem.Text = "NARC Utility";
@@ -731,7 +819,9 @@
             // 
             // listBasedBatchRenameToolStripMenuItem
             // 
-            this.listBasedBatchRenameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.listBasedToolStripMenuItem, this.contentBasedToolStripMenuItem });
+            this.listBasedBatchRenameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listBasedToolStripMenuItem,
+            this.contentBasedToolStripMenuItem});
             this.listBasedBatchRenameToolStripMenuItem.Name = "listBasedBatchRenameToolStripMenuItem";
             this.listBasedBatchRenameToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.listBasedBatchRenameToolStripMenuItem.Text = "Batch Rename Utility";
@@ -756,7 +846,9 @@
             // 
             // listBuilderToolStripMenuItem
             // 
-            this.listBuilderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.fromCEnumToolStripMenuItem, this.fromFolderContentsToolStripMenuItem });
+            this.listBuilderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fromCEnumToolStripMenuItem,
+            this.fromFolderContentsToolStripMenuItem});
             this.listBuilderToolStripMenuItem.Name = "listBuilderToolStripMenuItem";
             this.listBuilderToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.listBuilderToolStripMenuItem.Text = "Folder-Based List Builder";
@@ -781,7 +873,10 @@
             // 
             // nSBMDUtilityToolStripMenuItem
             // 
-            this.nSBMDUtilityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.texturizeNSBMDToolStripMenuItem, this.untexturizeToolStripMenuItem, this.extractNSBTXFromNSBMDToolStripMenuItem });
+            this.nSBMDUtilityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.texturizeNSBMDToolStripMenuItem,
+            this.untexturizeToolStripMenuItem,
+            this.extractNSBTXFromNSBMDToolStripMenuItem});
             this.nSBMDUtilityToolStripMenuItem.Name = "nSBMDUtilityToolStripMenuItem";
             this.nSBMDUtilityToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.nSBMDUtilityToolStripMenuItem.Text = "NSBMD Utility";
@@ -829,7 +924,11 @@
             // 
             // menuViewToolStripMenuItem
             // 
-            this.menuViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.essentialToolStripMenuItem, this.simpleToolStripMenuItem, this.advancedStripMenuItem, this.fullViewToolStripMenuItem });
+            this.menuViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.essentialToolStripMenuItem,
+            this.simpleToolStripMenuItem,
+            this.advancedStripMenuItem,
+            this.fullViewToolStripMenuItem});
             this.menuViewToolStripMenuItem.Name = "menuViewToolStripMenuItem";
             this.menuViewToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.menuViewToolStripMenuItem.Text = "Menu View";
@@ -866,7 +965,15 @@
             // 
             // otherEditorsToolStripMenuItem
             // 
-            this.otherEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.personalDataEditorToolStripMenuItem, this.overlayEditorToolStripMenuItem, this.spawnEditorToolStripMenuItem, this.moveDataEditorToolStripMenuItem, this.flyWarpEditorToolStripMenuItem, this.itemEditorToolStripMenuItem, this.overworldEditorToolStripMenuItem, this.tradeEditorToolStripMenuItem });
+            this.otherEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.personalDataEditorToolStripMenuItem,
+            this.overlayEditorToolStripMenuItem,
+            this.spawnEditorToolStripMenuItem,
+            this.moveDataEditorToolStripMenuItem,
+            this.flyWarpEditorToolStripMenuItem,
+            this.itemEditorToolStripMenuItem,
+            this.overworldEditorToolStripMenuItem,
+            this.tradeEditorToolStripMenuItem});
             this.otherEditorsToolStripMenuItem.Enabled = false;
             this.otherEditorsToolStripMenuItem.Name = "otherEditorsToolStripMenuItem";
             this.otherEditorsToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
@@ -939,7 +1046,9 @@
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.statusLabel, this.toolStripProgressBar });
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel,
+            this.toolStripProgressBar});
             this.statusStrip1.Location = new System.Drawing.Point(0, 816);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1230, 22);
@@ -964,7 +1073,35 @@
             this.mainToolStrip.BackColor = System.Drawing.SystemColors.Menu;
             this.mainToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.mainToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.loadRomButton, this.readDataFromFolderButton, this.saveRomButton, this.separator_AfterOpenSave, this.unpackAllButton, this.updateMapNarcsButton, this.separator_afterFolderUnpackers, this.buildNarcFromFolderToolStripButton, this.unpackNARCtoFolderToolStripButton, this.separator_afterNarcUtils, this.listBasedBatchRenameToolStripButton, this.contentBasedBatchRenameToolStripButton, this.separator_afterRenameUtils, this.enumBasedListBuilderToolStripButton, this.folderBasedListBuilderToolStriButton, this.separator_afterListUtils, this.nsbmdAddTexButton, this.nsbmdRemoveTexButton, this.nsbmdExportTexButton, this.separator_afterNsbmdUtils, this.weatherMapEditor, this.buildingEditorButton, this.wildEditorButton, this.scriptCommandsButton, this.romToolboxToolStripButton, this.headerSearchToolStripButton, this.spawnEditorToolStripButton, this.separator_afterMiscButtons });
+            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadRomButton,
+            this.readDataFromFolderButton,
+            this.saveRomButton,
+            this.separator_AfterOpenSave,
+            this.unpackAllButton,
+            this.updateMapNarcsButton,
+            this.separator_afterFolderUnpackers,
+            this.buildNarcFromFolderToolStripButton,
+            this.unpackNARCtoFolderToolStripButton,
+            this.separator_afterNarcUtils,
+            this.listBasedBatchRenameToolStripButton,
+            this.contentBasedBatchRenameToolStripButton,
+            this.separator_afterRenameUtils,
+            this.enumBasedListBuilderToolStripButton,
+            this.folderBasedListBuilderToolStriButton,
+            this.separator_afterListUtils,
+            this.nsbmdAddTexButton,
+            this.nsbmdRemoveTexButton,
+            this.nsbmdExportTexButton,
+            this.separator_afterNsbmdUtils,
+            this.weatherMapEditor,
+            this.buildingEditorButton,
+            this.wildEditorButton,
+            this.scriptCommandsButton,
+            this.romToolboxToolStripButton,
+            this.headerSearchToolStripButton,
+            this.spawnEditorToolStripButton,
+            this.separator_afterMiscButtons});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(1230, 44);
@@ -1279,7 +1416,7 @@
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(1042, 36);
+            this.versionLabel.Location = new System.Drawing.Point(1040, 782);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(35, 13);
             this.versionLabel.TabIndex = 9;
@@ -1313,7 +1450,9 @@
             this.matrixEditorTabPage.ResumeLayout(false);
             this.mapEditorTabPage.ResumeLayout(false);
             this.nsbtxEditorTabPage.ResumeLayout(false);
+            this.nsbtxEditorTabPage.PerformLayout();
             this.eventEditorTabPage.ResumeLayout(false);
+            this.eventEditorTabPage.PerformLayout();
             this.tabPageScriptEditor.ResumeLayout(false);
             this.tabPageScriptEditor.PerformLayout();
             this.tabPageLevelScriptEditor.ResumeLayout(false);
@@ -1334,6 +1473,7 @@
             this.mainToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -1495,6 +1635,10 @@
         private System.Windows.Forms.ToolStripButton weatherMapEditor;
         public Editors.ScriptEditor scriptEditor;
         private System.Windows.Forms.ToolStripMenuItem scrcmdTableHelperToolStripMenuItem;
+		private System.Windows.Forms.Button popoutNsbtxEditorButton;
+        private System.Windows.Forms.Label nsbtxEditorPopOutLabel;
+        private System.Windows.Forms.Label eventEditorPopOutLabel;
+        private System.Windows.Forms.Button popoutEventEditorButton;
     }
 }
 

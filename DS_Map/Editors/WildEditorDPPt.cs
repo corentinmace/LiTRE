@@ -10,11 +10,33 @@ using static LiTRE.RomInfo;
 namespace LiTRE {
     public partial class WildEditorDPPt : Form {
 
+        #region Enums
+
+        public enum ShellosForm
+        {
+            WestSea,
+            EastSea
+        }
+
+        public enum UnownTable
+        {
+            MostForms,
+            OnlyF,
+            OnlyR,
+            OnlyI,
+            OnlyN,
+            OnlyE,
+            OnlyD,
+            ExclamQuestion
+        }
+
+        #endregion
+
         public string encounterFileFolder { get; private set; }
         public bool walkingDirty { get; private set; } = false;
         public bool waterDirty { get; private set; } = false;
 
-        private int loadedEncounterFileIndex = -1;
+        private int loadedEncounterFileIndex = 0;
 
         EncounterFileDPPt currentFile;
        
@@ -145,6 +167,11 @@ namespace LiTRE {
             superRodFifteenComboBox.DataSource = new BindingSource(names, string.Empty);
             superRodFourComboBox.DataSource = new BindingSource(names, string.Empty);
             superRodOneComboBox.DataSource = new BindingSource(names, string.Empty);
+
+            /* Form Data */
+            shellosComboBox.DataSource = Enum.GetValues(typeof(ShellosForm));
+            gastrodonComboBox.DataSource = Enum.GetValues(typeof(ShellosForm));
+            unownComboBox.DataSource = Enum.GetValues(typeof(UnownTable));
         }
 
         private void SetupControls() {
@@ -295,6 +322,11 @@ namespace LiTRE {
             superRodOneMinLevelUpDown.Value = currentFile.superRodMinLevels[4];
             superRodOneMaxLevelUpDown.Value = currentFile.superRodMaxLevels[4];
 
+            /* Form data controls setup */
+            shellosComboBox.SelectedIndex = (currentFile.regionalForms[0] == 0) ? (int)ShellosForm.WestSea : (int)ShellosForm.EastSea;
+            gastrodonComboBox.SelectedIndex = (currentFile.regionalForms[1] == 0) ? (int)ShellosForm.WestSea : (int)ShellosForm.EastSea;
+            unownComboBox.SelectedIndex = (currentFile.unknownTable == 0) ? 0 : (int)currentFile.unknownTable - 1;
+
             SetDirtyWalking(false);
             SetDirtyWater(false);
 
@@ -433,6 +465,12 @@ namespace LiTRE {
             oldRodRateUpDown.ValueChanged += MarkDirtyWater;
             goodRodRateUpDown.ValueChanged += MarkDirtyWater;
             superRodRateUpDown.ValueChanged += MarkDirtyWater;
+
+            /* Form Data */
+            shellosComboBox.SelectedIndexChanged += MarkDirtyWalking; // technically also applies to water
+            gastrodonComboBox.SelectedIndexChanged += MarkDirtyWalking;
+            unownComboBox.SelectedIndexChanged += MarkDirtyWalking;
+
         }
 
         private void DrawConnectingLines()
@@ -543,6 +581,11 @@ namespace LiTRE {
             currentFile.radarPokemon[1] = (uint)radarSecondComboBox.SelectedIndex;
             currentFile.radarPokemon[2] = (uint)radarThirdComboBox.SelectedIndex;
             currentFile.radarPokemon[3] = (uint)radarFourthComboBox.SelectedIndex;
+
+            /* Form Data */
+            currentFile.regionalForms[0] = (uint)(shellosComboBox.SelectedIndex);
+            currentFile.regionalForms[1] = (uint)(gastrodonComboBox.SelectedIndex);
+            currentFile.unknownTable = (uint)(unownComboBox.SelectedIndex + 1);
 
             /* Levels */
             currentFile.walkingLevels[0] = (byte)walkingTwentyFirstUpDown.Value;
@@ -739,6 +782,8 @@ namespace LiTRE {
         }
 
         private void exportEncounterFileButton_Click(object sender, EventArgs e) {
+            SaveWalking();
+            SaveWater();
             currentFile.SaveToFileExplorePath("Encounter File " + selectEncounterComboBox.SelectedIndex);
         }
         private void importEncounterFileButton_Click(object sender, EventArgs e) {
@@ -815,7 +860,7 @@ namespace LiTRE {
             }
         }
         private void repairAllButton_Click(object sender, EventArgs e) {
-            DialogResult d = MessageBox.Show("LiTRE is about to open every Encounter File and attempt to reset every corrupted field to its default value.\n" +
+            DialogResult d = MessageBox.Show("DSPRE is about to open every Encounter File and attempt to reset every corrupted field to its default value.\n" +
                 "Do you wish to proceed?", "Repair all Encounter Files?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (d == DialogResult.Yes) {
