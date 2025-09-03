@@ -103,7 +103,7 @@ namespace LiTRE
 
         /* ROM Information */
         public static string gameCode;
-        public static byte europeByte;
+        public static byte revisionByte;
         public RomInfo romInfo;
         public Dictionary<ushort /*evFile*/, ushort /*header*/> eventToHeader = new Dictionary<ushort, ushort>();
 
@@ -826,7 +826,7 @@ namespace LiTRE
 
             if (RomInfo.gameLanguage == GameLanguages.English)
             {
-                if (europeByte == 0x0A)
+                if (revisionByte == 0x0A)
                 {
                     languageLabel.Text += " [Europe]";
                 }
@@ -894,6 +894,12 @@ namespace LiTRE
             gameIcon.Refresh();  // Paint game icon
             AppLogger.Debug("Game icon refreshed.");
 
+            if (!CheckAndDecompressARM9())
+            {
+                AppLogger.Error("ARM9 decompression failed. Aborting.");
+                return;
+            }
+
             ReadROMInitData();
             AppLogger.Info("ROM initialization data loaded.");
         }
@@ -905,26 +911,39 @@ namespace LiTRE
             {
                 gameCode = Encoding.UTF8.GetString(br.ReadBytes(4));
                 br.BaseStream.Position = 0x1E;
-                europeByte = br.ReadByte();
+                revisionByte = br.ReadByte();
             }
+        }
+
+        private bool CheckAndDecompressARM9()
+        {
+            if (!ARM9.CheckCompressionMark())
+            {
+                return true; // ARM9 is not compressed, proceed normally
+            }
+
+            if (!RomInfo.gameFamily.Equals(GameFamilies.HGSS))
+            {
+                MessageBox.Show("Unexpected compressed ARM9. It is advised that you double check the ARM9.");
+                return false;
+            }
+
+            ARM9.EditSize(-12); // Fix ARM9 size before decompression
+
+            if (!ARM9.Decompress(RomInfo.arm9Path))
+            {
+                MessageBox.Show("ARM9 decompression failed. The program can't proceed.\nAborting.",
+                            "Error with ARM9 decompression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            AppLogger.Info("ARM9 decompressed and size fixed.");
+
+            return true;
         }
 
         private void ReadROMInitData()
         {
-            if (ARM9.CheckCompressionMark())
-            {
-                if (!RomInfo.gameFamily.Equals(GameFamilies.HGSS))
-                {
-                    MessageBox.Show("Unexpected compressed ARM9. It is advised that you double check the ARM9.");
-                }
-                if (!ARM9.Decompress(RomInfo.arm9Path))
-                {
-                    MessageBox.Show("ARM9 decompression failed. The program can't proceed.\nAborting.",
-                                "Error with ARM9 decompression", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
             /* Setup essential editors */
             EditorPanels.headerEditor.SetupHeaderEditor(this);
 

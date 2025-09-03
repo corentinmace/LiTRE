@@ -66,6 +66,8 @@ namespace LiTRE.Editors
             // Disable buttons until trade expansion is implemented
             addFileButton.Enabled = false;
             removeLastButton.Enabled = false;
+            addFileButton.Visible = false;
+            removeLastButton.Visible = false;
 
             tradeArchive = new TextArchive(GetTextBankIndex());
             LoadFromFile(0);

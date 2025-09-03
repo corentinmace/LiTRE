@@ -1484,7 +1484,7 @@ namespace LiTRE
                     personal += @"\personal.narc";
                     packedDirsDict[DirNames.personalPokeData] = personal;
 
-                    if (gameLanguage != GameLanguages.Japanese)
+                    if (gameLanguage != GameLanguages.Japanese && gameLanguage != GameLanguages.English)
                     {
                         packedDirsDict[DirNames.tradeData] = $@"{dataFolderName}\resource\{GetLangResFolderName()}\pokemon_trade\fld_trade.narc";
                     }
