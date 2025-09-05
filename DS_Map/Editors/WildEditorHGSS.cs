@@ -513,6 +513,16 @@ namespace LiTRE {
             superRodRateUpDown.ValueChanged += MarkDirtyWater;
         }
 
+        private void InitRanges()
+        {
+            walkingRateUpDown.Maximum = 255;
+            surfRateUpDown.Maximum = 255;
+            rockSmashRateUpDown.Maximum = 255;
+            oldRodRateUpDown.Maximum = 255;
+            goodRodRateUpDown.Maximum = 255;
+            superRodRateUpDown.Maximum = 255;
+        }
+
         private void SaveWalking()
         {
             if (currentFile == null) 
@@ -730,9 +740,9 @@ namespace LiTRE {
 
             SetToolTipsForControls(new Control[] { rodSwarmComboBox }, "Replaced slot depends on the rod used:\n" +
                 "Old Rod: 15% slot\n" +
-                "Good Rod: 40% slot\n" +
+                "Good Rod: 40%, 15% and 10% slots\n" +
                 "Super Rod: all slots");
-            SetToolTipsForControls(new Control[] { oldRodFifteenComboBox, goodRodFortyComboBox, 
+            SetToolTipsForControls(new Control[] { oldRodFifteenComboBox, goodRodFortyComboBox, goodRodFifteenComboBox, goodRodTenComboBox,
             superRodFortyComboBox, superRodFifteenComboBox, superRodTenComboBox, superRodFiveComboBox },
                 "Replaced by fishing swarm slot when swarm is active.");
 
