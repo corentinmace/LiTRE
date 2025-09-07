@@ -969,10 +969,9 @@ namespace LiTRE
             switch (gameFamily)
             {
                 case GameFamilies.DP:
-                case GameFamilies.Plat:
                     nullEncounterID = ushort.MaxValue;
                     break;
-
+                case GameFamilies.Plat:
                 case GameFamilies.HGSS:
                     nullEncounterID = Byte.MaxValue;
                     break;

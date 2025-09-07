@@ -279,6 +279,8 @@ namespace LiTRE.ROMFiles {
         public byte areaIcon { get; set; }
         public byte locationName { get; set; }
         public byte unknown1 { get; set; }
+        public byte timeId { get; set;}
+        
         #endregion Fields
 
         #region Constructors (1)
@@ -294,7 +296,8 @@ namespace LiTRE.ROMFiles {
                     textArchiveID = reader.ReadUInt16();
                     musicDayID = reader.ReadUInt16();
                     musicNightID = reader.ReadUInt16();
-                    wildPokemon = reader.ReadUInt16();
+                    wildPokemon = (ushort)reader.ReadByte();
+                    timeId = reader.ReadByte();
                     eventFileID = reader.ReadUInt16();
                     locationName = reader.ReadByte();
                     areaIcon = reader.ReadByte();
@@ -326,6 +329,7 @@ namespace LiTRE.ROMFiles {
                 writer.Write(musicDayID);
                 writer.Write(musicNightID);
                 writer.Write(wildPokemon);
+                writer.Write(timeId);
                 writer.Write(eventFileID);
                 writer.Write(locationName);
                 writer.Write(areaIcon);
