@@ -328,7 +328,7 @@ namespace LiTRE.ROMFiles {
                 writer.Write(textArchiveID);
                 writer.Write(musicDayID);
                 writer.Write(musicNightID);
-                writer.Write(wildPokemon);
+                writer.Write((byte)wildPokemon);
                 writer.Write(timeId);
                 writer.Write(eventFileID);
                 writer.Write(locationName);
