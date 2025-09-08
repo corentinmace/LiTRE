@@ -22,9 +22,9 @@
 
         #region Code généré par le Concepteur de composants
 
-        /// <summary> 
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
-        /// le contenu de cette méthode avec l'éditeur de code.
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -128,6 +128,8 @@
             this.headerListBox = new System.Windows.Forms.ListBox();
             this.saveHeaderButton = new System.Windows.Forms.Button();
             this.flagsGroupBox = new System.Windows.Forms.GroupBox();
+            this.timeIdLabel = new System.Windows.Forms.Label();
+            this.timeIdUpDown = new System.Windows.Forms.NumericUpDown();
             this.followModeComboBox = new System.Windows.Forms.ComboBox();
             this.johtoRadioButton = new System.Windows.Forms.RadioButton();
             this.kantoRadioButton = new System.Windows.Forms.RadioButton();
@@ -170,6 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.levelScriptUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scriptFileUpDown)).BeginInit();
             this.flagsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeIdUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.battleBackgroundUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cameraPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
@@ -250,11 +253,7 @@
             // worldmapYCoordUpDown
             // 
             this.worldmapYCoordUpDown.Location = new System.Drawing.Point(25, 67);
-            this.worldmapYCoordUpDown.Maximum = new decimal(new int[] {
-            63,
-            0,
-            0,
-            0});
+            this.worldmapYCoordUpDown.Maximum = new decimal(new int[] { 63, 0, 0, 0 });
             this.worldmapYCoordUpDown.Name = "worldmapYCoordUpDown";
             this.worldmapYCoordUpDown.Size = new System.Drawing.Size(38, 20);
             this.worldmapYCoordUpDown.TabIndex = 26;
@@ -272,11 +271,7 @@
             // worldmapXCoordUpDown
             // 
             this.worldmapXCoordUpDown.Location = new System.Drawing.Point(25, 29);
-            this.worldmapXCoordUpDown.Maximum = new decimal(new int[] {
-            63,
-            0,
-            0,
-            0});
+            this.worldmapXCoordUpDown.Maximum = new decimal(new int[] { 63, 0, 0, 0 });
             this.worldmapXCoordUpDown.Name = "worldmapXCoordUpDown";
             this.worldmapXCoordUpDown.Size = new System.Drawing.Size(38, 20);
             this.worldmapXCoordUpDown.TabIndex = 24;
@@ -319,11 +314,7 @@
             // wildPokeUpDown
             // 
             this.wildPokeUpDown.Location = new System.Drawing.Point(11, 20);
-            this.wildPokeUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.wildPokeUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.wildPokeUpDown.Name = "wildPokeUpDown";
             this.wildPokeUpDown.Size = new System.Drawing.Size(72, 20);
             this.wildPokeUpDown.TabIndex = 24;
@@ -443,11 +434,7 @@
             // textFileUpDown
             // 
             this.textFileUpDown.Location = new System.Drawing.Point(376, 36);
-            this.textFileUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.textFileUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.textFileUpDown.Name = "textFileUpDown";
             this.textFileUpDown.Size = new System.Drawing.Size(107, 20);
             this.textFileUpDown.TabIndex = 47;
@@ -494,11 +481,7 @@
             // eventFileUpDown
             // 
             this.eventFileUpDown.Location = new System.Drawing.Point(14, 39);
-            this.eventFileUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.eventFileUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.eventFileUpDown.Name = "eventFileUpDown";
             this.eventFileUpDown.Size = new System.Drawing.Size(107, 20);
             this.eventFileUpDown.TabIndex = 42;
@@ -597,11 +580,7 @@
             // areaDataUpDown
             // 
             this.areaDataUpDown.Location = new System.Drawing.Point(13, 98);
-            this.areaDataUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
+            this.areaDataUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             this.areaDataUpDown.Name = "areaDataUpDown";
             this.areaDataUpDown.Size = new System.Drawing.Size(93, 20);
             this.areaDataUpDown.TabIndex = 26;
@@ -619,11 +598,7 @@
             // matrixUpDown
             // 
             this.matrixUpDown.Location = new System.Drawing.Point(13, 40);
-            this.matrixUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.matrixUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.matrixUpDown.Name = "matrixUpDown";
             this.matrixUpDown.Size = new System.Drawing.Size(93, 20);
             this.matrixUpDown.TabIndex = 24;
@@ -899,7 +874,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.cameraUpDown);
             this.groupBox2.Controls.Add(this.weatherUpDown);
             this.groupBox2.Controls.Add(this.musicNightUpDown);
@@ -930,11 +905,7 @@
             // cameraUpDown
             // 
             this.cameraUpDown.Location = new System.Drawing.Point(376, 108);
-            this.cameraUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
+            this.cameraUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             this.cameraUpDown.Name = "cameraUpDown";
             this.cameraUpDown.Size = new System.Drawing.Size(45, 20);
             this.cameraUpDown.TabIndex = 41;
@@ -943,11 +914,7 @@
             // weatherUpDown
             // 
             this.weatherUpDown.Location = new System.Drawing.Point(14, 108);
-            this.weatherUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
+            this.weatherUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             this.weatherUpDown.Name = "weatherUpDown";
             this.weatherUpDown.Size = new System.Drawing.Size(45, 20);
             this.weatherUpDown.TabIndex = 40;
@@ -956,11 +923,7 @@
             // musicNightUpDown
             // 
             this.musicNightUpDown.Location = new System.Drawing.Point(376, 40);
-            this.musicNightUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
+            this.musicNightUpDown.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             this.musicNightUpDown.Name = "musicNightUpDown";
             this.musicNightUpDown.Size = new System.Drawing.Size(45, 20);
             this.musicNightUpDown.TabIndex = 39;
@@ -969,11 +932,7 @@
             // musicDayUpDown
             // 
             this.musicDayUpDown.Location = new System.Drawing.Point(14, 41);
-            this.musicDayUpDown.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
+            this.musicDayUpDown.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             this.musicDayUpDown.Name = "musicDayUpDown";
             this.musicDayUpDown.Size = new System.Drawing.Size(45, 20);
             this.musicDayUpDown.TabIndex = 38;
@@ -1209,11 +1168,7 @@
             // levelScriptUpDown
             // 
             this.levelScriptUpDown.Location = new System.Drawing.Point(377, 39);
-            this.levelScriptUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.levelScriptUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.levelScriptUpDown.Name = "levelScriptUpDown";
             this.levelScriptUpDown.Size = new System.Drawing.Size(107, 20);
             this.levelScriptUpDown.TabIndex = 25;
@@ -1260,11 +1215,7 @@
             // scriptFileUpDown
             // 
             this.scriptFileUpDown.Location = new System.Drawing.Point(14, 39);
-            this.scriptFileUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.scriptFileUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.scriptFileUpDown.Name = "scriptFileUpDown";
             this.scriptFileUpDown.Size = new System.Drawing.Size(107, 20);
             this.scriptFileUpDown.TabIndex = 0;
@@ -1297,6 +1248,8 @@
             // 
             // flagsGroupBox
             // 
+            this.flagsGroupBox.Controls.Add(this.timeIdLabel);
+            this.flagsGroupBox.Controls.Add(this.timeIdUpDown);
             this.flagsGroupBox.Controls.Add(this.followModeComboBox);
             this.flagsGroupBox.Controls.Add(this.johtoRadioButton);
             this.flagsGroupBox.Controls.Add(this.kantoRadioButton);
@@ -1312,22 +1265,39 @@
             this.flagsGroupBox.Controls.Add(this.flag6CheckBox);
             this.flagsGroupBox.Controls.Add(this.flag5CheckBox);
             this.flagsGroupBox.Controls.Add(this.flag4CheckBox);
-            this.flagsGroupBox.Location = new System.Drawing.Point(328, 468);
+            this.flagsGroupBox.Location = new System.Drawing.Point(328, 467);
             this.flagsGroupBox.Name = "flagsGroupBox";
             this.flagsGroupBox.Size = new System.Drawing.Size(281, 136);
             this.flagsGroupBox.TabIndex = 32;
             this.flagsGroupBox.TabStop = false;
             this.flagsGroupBox.Text = "Map Settings";
             // 
+            // timeIdLabel
+            // 
+            this.timeIdLabel.AutoSize = true;
+            this.timeIdLabel.Location = new System.Drawing.Point(153, 93);
+            this.timeIdLabel.Name = "timeIdLabel";
+            this.timeIdLabel.Size = new System.Drawing.Size(44, 13);
+            this.timeIdLabel.TabIndex = 62;
+            this.timeIdLabel.Text = "Time ID";
+            this.timeIdLabel.Visible = false;
+            // 
+            // timeIdUpDown
+            // 
+            this.timeIdUpDown.Location = new System.Drawing.Point(156, 108);
+            this.timeIdUpDown.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            this.timeIdUpDown.Name = "timeIdUpDown";
+            this.timeIdUpDown.Size = new System.Drawing.Size(75, 20);
+            this.timeIdUpDown.TabIndex = 61;
+            this.timeIdUpDown.Visible = false;
+            this.timeIdUpDown.ValueChanged += new System.EventHandler(this.timeIdUpDown_ValueChanged);
+            // 
             // followModeComboBox
             // 
             this.followModeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.followModeComboBox.FormattingEnabled = true;
             this.followModeComboBox.IntegralHeight = false;
-            this.followModeComboBox.Items.AddRange(new object[] {
-            "Unallowed",
-            "Small only",
-            "All"});
+            this.followModeComboBox.Items.AddRange(new object[] { "Unallowed", "Small only", "All" });
             this.followModeComboBox.Location = new System.Drawing.Point(153, 29);
             this.followModeComboBox.MaxDropDownItems = 20;
             this.followModeComboBox.Name = "followModeComboBox";
@@ -1339,7 +1309,7 @@
             // johtoRadioButton
             // 
             this.johtoRadioButton.AutoSize = true;
-            this.johtoRadioButton.Location = new System.Drawing.Point(148, 105);
+            this.johtoRadioButton.Location = new System.Drawing.Point(133, 104);
             this.johtoRadioButton.Name = "johtoRadioButton";
             this.johtoRadioButton.Size = new System.Drawing.Size(51, 17);
             this.johtoRadioButton.TabIndex = 60;
@@ -1351,7 +1321,7 @@
             // kantoRadioButton
             // 
             this.kantoRadioButton.AutoSize = true;
-            this.kantoRadioButton.Location = new System.Drawing.Point(92, 105);
+            this.kantoRadioButton.Location = new System.Drawing.Point(77, 104);
             this.kantoRadioButton.Name = "kantoRadioButton";
             this.kantoRadioButton.Size = new System.Drawing.Size(53, 17);
             this.kantoRadioButton.TabIndex = 59;
@@ -1385,7 +1355,7 @@
             // battleBackgroundLabel
             // 
             this.battleBackgroundLabel.AutoSize = true;
-            this.battleBackgroundLabel.Location = new System.Drawing.Point(151, 58);
+            this.battleBackgroundLabel.Location = new System.Drawing.Point(153, 55);
             this.battleBackgroundLabel.Name = "battleBackgroundLabel";
             this.battleBackgroundLabel.Size = new System.Drawing.Size(52, 13);
             this.battleBackgroundLabel.TabIndex = 37;
@@ -1403,12 +1373,8 @@
             // 
             // battleBackgroundUpDown
             // 
-            this.battleBackgroundUpDown.Location = new System.Drawing.Point(154, 73);
-            this.battleBackgroundUpDown.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
+            this.battleBackgroundUpDown.Location = new System.Drawing.Point(156, 70);
+            this.battleBackgroundUpDown.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             this.battleBackgroundUpDown.Name = "battleBackgroundUpDown";
             this.battleBackgroundUpDown.Size = new System.Drawing.Size(75, 20);
             this.battleBackgroundUpDown.TabIndex = 36;
@@ -1587,13 +1553,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.scriptFileUpDown)).EndInit();
             this.flagsGroupBox.ResumeLayout(false);
             this.flagsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeIdUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.battleBackgroundUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cameraPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Label timeIdLabel;
+        private System.Windows.Forms.NumericUpDown timeIdUpDown;
 
         #endregion
         private System.Windows.Forms.GroupBox worldmapCoordsGroupBox;

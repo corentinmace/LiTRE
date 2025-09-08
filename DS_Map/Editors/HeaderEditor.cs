@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls.WebParts;
@@ -120,9 +121,15 @@ namespace LiTRE.Editors
                     areaSettingsComboBox.Items.AddRange(PokeDatabase.ShowName.PtShowNameValues);
                     weatherComboBox.Items.AddRange(PokeDatabase.Weather.PtWeatherDict.Values.ToArray());
                     wildPokeUpDown.Maximum = Byte.MaxValue;
+                    timeIdUpDown.Maximum = Byte.MaxValue;
+                    
+                    battleBackgroundLabel.Location = new Point(battleBackgroundLabel.Location.X - 25, battleBackgroundLabel.Location.Y - 30);
+                    battleBackgroundUpDown.Location = new Point(battleBackgroundUpDown.Location.X - 25, battleBackgroundUpDown.Location.Y - 30);
+                    timeIdLabel.Location = new Point(timeIdLabel.Location.X - 25, timeIdLabel.Location.Y - 15);
+                    timeIdUpDown.Location = new Point(timeIdUpDown.Location.X - 25, timeIdUpDown.Location.Y - 15);
 
-                    battleBackgroundLabel.Location = new Point(battleBackgroundLabel.Location.X - 25, battleBackgroundLabel.Location.Y - 8);
-                    battleBackgroundUpDown.Location = new Point(battleBackgroundUpDown.Location.X - 25, battleBackgroundUpDown.Location.Y - 8);
+                    timeIdLabel.Visible = true;
+                    timeIdUpDown.Visible = true;
                     break;
                 default:
                     areaSettingsLabel.Text = "Area Settings:";
@@ -410,6 +417,7 @@ namespace LiTRE.Editors
                             musicDayUpDown.Value = h.musicDayID;
                             musicNightUpDown.Value = h.musicNightID;
                             areaSettingsComboBox.SelectedIndex = areaSettingsComboBox.FindString("[" + $"{currentHeader.locationSpecifier:D3}");
+                            timeIdUpDown.Value = h.timeId;
                             break;
                         }
                     default:
@@ -1500,5 +1508,23 @@ namespace LiTRE.Editors
         #endregion
 
         #endregion
+        private void timeIdUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            HeaderPt ch = (HeaderPt)currentHeader;
+            if (Helpers.HandlersDisabled)
+            {
+                return;
+            }
+
+            ch.timeId = (byte)timeIdUpDown.Value;
+            if (timeIdUpDown.Value == RomInfo.nullEncounterID)
+            {
+                timeIdUpDown.ForeColor = Color.Red;
+            }
+            else
+            {
+                timeIdUpDown.ForeColor = Color.Black;
+            }
+        }
     }
 }

@@ -275,7 +275,6 @@ namespace LiTRE
                     break;
 
                 case GameFamilies.Plat:
-                    //commonDictionaryNames = ScriptDatabase.DPPtScrCmdNames;
                     commonDictionaryNames = ScriptDatabase.PlatScrCmdNames;
                     specificDictionaryNames = new Dictionary<ushort, string>();
                     break;
@@ -971,6 +970,7 @@ namespace LiTRE
                 case GameFamilies.DP:
                     nullEncounterID = ushort.MaxValue;
                     break;
+					// modification specific to LiT, changed the encounter files to a single byte
                 case GameFamilies.Plat:
                 case GameFamilies.HGSS:
                     nullEncounterID = Byte.MaxValue;

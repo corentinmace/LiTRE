@@ -22,9 +22,9 @@
 
         #region Code généré par le Concepteur de composants
 
-        /// <summary> 
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
-        /// le contenu de cette méthode avec l'éditeur de code.
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -231,24 +231,12 @@
             // widthUpDown
             // 
             this.widthUpDown.Location = new System.Drawing.Point(38, 95);
-            this.widthUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.widthUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.widthUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            this.widthUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.widthUpDown.Name = "widthUpDown";
             this.widthUpDown.Size = new System.Drawing.Size(37, 20);
             this.widthUpDown.TabIndex = 15;
-            this.widthUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.widthUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             this.widthUpDown.ValueChanged += new System.EventHandler(this.widthUpDown_ValueChanged);
             // 
             // importMatrixButton
@@ -267,24 +255,12 @@
             // heightUpDown
             // 
             this.heightUpDown.Location = new System.Drawing.Point(81, 95);
-            this.heightUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.heightUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.heightUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            this.heightUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.heightUpDown.Name = "heightUpDown";
             this.heightUpDown.Size = new System.Drawing.Size(37, 20);
             this.heightUpDown.TabIndex = 16;
-            this.heightUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.heightUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             this.heightUpDown.ValueChanged += new System.EventHandler(this.heightUpDown_ValueChanged);
             // 
             // exportMatrixButton
@@ -382,19 +358,17 @@
             // 
             // matrixTabControl
             // 
-            this.matrixTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.matrixTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.matrixTabControl.Controls.Add(this.headersTabPage);
             this.matrixTabControl.Controls.Add(this.heightsTabPage);
             this.matrixTabControl.Controls.Add(this.mapFilesTabPage);
-            this.matrixTabControl.Location = new System.Drawing.Point(166, 11);
+            this.matrixTabControl.Location = new System.Drawing.Point(133, 0);
             this.matrixTabControl.MaximumSize = new System.Drawing.Size(1185, 675);
             this.matrixTabControl.MinimumSize = new System.Drawing.Size(1000, 625);
             this.matrixTabControl.Multiline = true;
             this.matrixTabControl.Name = "matrixTabControl";
             this.matrixTabControl.SelectedIndex = 0;
-            this.matrixTabControl.Size = new System.Drawing.Size(1000, 625);
+            this.matrixTabControl.Size = new System.Drawing.Size(1033, 646);
             this.matrixTabControl.TabIndex = 37;
             // 
             // headersTabPage
@@ -403,7 +377,7 @@
             this.headersTabPage.Location = new System.Drawing.Point(4, 22);
             this.headersTabPage.Name = "headersTabPage";
             this.headersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.headersTabPage.Size = new System.Drawing.Size(992, 599);
+            this.headersTabPage.Size = new System.Drawing.Size(1025, 620);
             this.headersTabPage.TabIndex = 1;
             this.headersTabPage.Text = "Map Headers";
             this.headersTabPage.UseVisualStyleBackColor = true;
@@ -433,7 +407,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.headersGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.headersGridView.Location = new System.Drawing.Point(0, 0);
+            this.headersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headersGridView.Location = new System.Drawing.Point(3, 3);
             this.headersGridView.MultiSelect = false;
             this.headersGridView.Name = "headersGridView";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -454,7 +429,7 @@
             this.headersGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.headersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.headersGridView.ShowCellErrors = false;
-            this.headersGridView.Size = new System.Drawing.Size(1032, 576);
+            this.headersGridView.Size = new System.Drawing.Size(1019, 614);
             this.headersGridView.TabIndex = 1;
             this.headersGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.headersGridView_CellFormatting);
             this.headersGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.headersGridView_CellMouseDoubleClick);
@@ -608,7 +583,6 @@
             this.mapFilesTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapFilesGridView)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
