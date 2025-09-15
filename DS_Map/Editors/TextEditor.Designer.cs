@@ -440,7 +440,7 @@
             this.textEditorDataGridView.Size = new System.Drawing.Size(873, 491);
             this.textEditorDataGridView.TabIndex = 67;
             this.textEditorDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.textEditorDataGridView_CellValueChanged);
-            this.textEditorDataGridView.SelectionChanged += new System.EventHandler(this.textEditorDataGridView_SelectionChanged);
+            //this.textEditorDataGridView.SelectionChanged += new System.EventHandler(this.textEditorDataGridView_SelectionChanged);
             // 
             // messageColumn
             // 

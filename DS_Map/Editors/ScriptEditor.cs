@@ -143,7 +143,14 @@ namespace LiTRE.Editors
 
             scriptEditorTabControl.SelectedIndex = 0;
             selectScriptFileComboBox.SelectedIndex = scriptFileID;
-            EditorPanels.mainTabControl.SelectedTab = EditorPanels.scriptEditorTabPage;
+            if (EditorPanels.PopoutRegistry.TryGetHost(this, out var host))
+            {
+                host.Focus();
+            }
+            else
+            {
+                EditorPanels.mainTabControl.SelectedTab = EditorPanels.scriptEditorTabPage;
+            }
         }
 
         private void SetupScriptEditorTextAreas()

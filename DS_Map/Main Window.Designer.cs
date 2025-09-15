@@ -684,7 +684,7 @@
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.romToolboxToolStripMenuItem, this.headerSearchToolStripMenuItem, this.addressHelperToolStripMenuItem, this.scriptCommandsDatabaseToolStripMenuItem, this.NarcUtilityToolStripMenuItem, this.listBasedBatchRenameToolStripMenuItem, this.listBuilderToolStripMenuItem, this.nSBMDUtilityToolStripMenuItem, this.generateCSVToolStripMenuItem, this.scrcmdTableHelperToolStripMenuItem });
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
             // 
             // romToolboxToolStripMenuItem
@@ -841,7 +841,7 @@
             this.texturizeNSBMDToolStripMenuItem.Image = global::LiTRE.Properties.Resources.addTextureToNSBMD;
             this.texturizeNSBMDToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.texturizeNSBMDToolStripMenuItem.Name = "texturizeNSBMDToolStripMenuItem";
-            this.texturizeNSBMDToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
+            this.texturizeNSBMDToolStripMenuItem.Size = new System.Drawing.Size(250, 38);
             this.texturizeNSBMDToolStripMenuItem.Text = "Add/Replace NSBMD textures";
             this.texturizeNSBMDToolStripMenuItem.Click += new System.EventHandler(this.nsbmdAddTexButton_Click);
             // 
@@ -850,7 +850,7 @@
             this.untexturizeToolStripMenuItem.Image = global::LiTRE.Properties.Resources.removeTextureNSBMD;
             this.untexturizeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.untexturizeToolStripMenuItem.Name = "untexturizeToolStripMenuItem";
-            this.untexturizeToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
+            this.untexturizeToolStripMenuItem.Size = new System.Drawing.Size(250, 38);
             this.untexturizeToolStripMenuItem.Text = "Remove textures from NSBMD";
             this.untexturizeToolStripMenuItem.Click += new System.EventHandler(this.nsbmdRemoveTexButton_Click);
             // 
@@ -859,7 +859,7 @@
             this.extractNSBTXFromNSBMDToolStripMenuItem.Image = global::LiTRE.Properties.Resources.saveTextureFromNSBMD;
             this.extractNSBTXFromNSBMDToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.extractNSBTXFromNSBMDToolStripMenuItem.Name = "extractNSBTXFromNSBMDToolStripMenuItem";
-            this.extractNSBTXFromNSBMDToolStripMenuItem.Size = new System.Drawing.Size(251, 38);
+            this.extractNSBTXFromNSBMDToolStripMenuItem.Size = new System.Drawing.Size(250, 38);
             this.extractNSBTXFromNSBMDToolStripMenuItem.Text = "Save textures from NSBMD";
             this.extractNSBTXFromNSBMDToolStripMenuItem.Click += new System.EventHandler(this.nsbmdExportTexButton_Click);
             // 
@@ -1517,7 +1517,7 @@
         private System.Windows.Forms.ToolStripMenuItem itemEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tradeEditorToolStripMenuItem;
         private System.Windows.Forms.Button popoutTextEditorButton;
-        private System.Windows.Forms.Label textEditorPoppedOutLabel;
+        public System.Windows.Forms.Label textEditorPoppedOutLabel;
         private System.Windows.Forms.Button popoutLevelScriptEditorButton;
         private System.Windows.Forms.Label LSEditorPoppedOutLabel;
         public System.Windows.Forms.TabPage textEditorTabPage;

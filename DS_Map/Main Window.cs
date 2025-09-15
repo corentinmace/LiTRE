@@ -1168,9 +1168,10 @@ namespace LiTRE
             OpenCommandsDatabase(RomInfo.BuildCommandNamesDatabase(GameFamilies.HGSS), RomInfo.BuildCommandParametersDatabase(GameFamilies.HGSS),
                 RomInfo.BuildActionNamesDatabase(GameFamilies.HGSS), RomInfo.BuildComparisonOperatorsDatabase(GameFamilies.HGSS));
         }
-        private void manageDatabasesToolStripMenuItem_Click(object sender, EventArgs e) {
-            using (CustomScrcmdManager editor = new CustomScrcmdManager())
-                editor.Show();
+        private void manageDatabasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomScrcmdManager editor = new CustomScrcmdManager();
+            editor.Show();
         }
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e) 
         {
@@ -1262,12 +1263,14 @@ namespace LiTRE
             {
                 case GameFamilies.DP:
                 case GameFamilies.Plat:
-                    using (WildEditorDPPt editor = new WildEditorDPPt(wildPokeUnpackedPath, RomInfo.GetPokemonNames(), encToOpen, EditorPanels.headerEditor.internalNames.Count))
-                        editor.ShowDialog();
+                    WildEditorDPPt wildEditorDppt = new WildEditorDPPt(wildPokeUnpackedPath, RomInfo.GetPokemonNames(),
+                        encToOpen, EditorPanels.headerEditor.internalNames.Count);
+                        wildEditorDppt.Show();
                     break;
                 default:
-                    using (WildEditorHGSS editor = new WildEditorHGSS(wildPokeUnpackedPath, RomInfo.GetPokemonNames(), encToOpen, EditorPanels.headerEditor.internalNames.Count))
-                        editor.ShowDialog();
+                    WildEditorHGSS wildEditorHgss = new WildEditorHGSS(wildPokeUnpackedPath, RomInfo.GetPokemonNames(),
+                        encToOpen, EditorPanels.headerEditor.internalNames.Count);
+                        wildEditorHgss.Show();
                     break;
             }
             Helpers.statusLabelMessage();
@@ -1847,10 +1850,14 @@ namespace LiTRE
 
         private void popoutEditorClickHandler(object sender, EventArgs e)
         {
-            var currentTabInfos = EditorPanels.mainTabControl.SelectedTab;
+            var currentTab = EditorPanels.mainTabControl.SelectedTab;
             if (sender is Button btn && _popouts.TryGetValue(btn, out var cfg))
-                Helpers.PopOutEditor(cfg.Control, currentTabInfos.Text, cfg.PlaceholderLabel, cfg.PopoutButton, mainTabImageList.Images[currentTabInfos.ImageIndex]);
+            {
+                Helpers.PopOutEditor(cfg.Control, currentTab.Text, cfg.PlaceholderLabel, cfg.PopoutButton,
+                    mainTabImageList.Images[currentTab.ImageIndex]);
+            }
         }
+
         #endregion
 
  
