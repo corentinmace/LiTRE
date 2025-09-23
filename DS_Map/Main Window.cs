@@ -72,7 +72,9 @@ namespace LiTRE
                         return IpcResponse.Fail($"Error while saving script {id}");
                 },
                 logger: msg => System.Diagnostics.Debug.WriteLine(msg));
-
+            
+            Program.AppServices.Init(_ipc);
+            
             _ipc.ConnectedChanged += (s, connected) =>
             {
                 // Optional: update a status label/icon on the UI thread

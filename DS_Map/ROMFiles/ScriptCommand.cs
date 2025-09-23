@@ -284,9 +284,11 @@ namespace LiTRE.ROMFiles {
                     } else {
                         details = "Are you sure it's a proper Script Command?";
                     }
-
-                    MessageBox.Show("This Script file could not be saved." +
-                                    $"\nParser failed to interpret line {lineNumber}: \"{wholeLine}\".\n\n{details}", "Parser error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Program.AppServices.Ipc.IsConnected)
+                        Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"This Script file could not be saved.\nParser failed to interpret line {lineNumber}: {wholeLine}.\n\n{details}" });
+                    else
+                        MessageBox.Show("This Script file could not be saved." +
+                                        $"\nParser failed to interpret line {lineNumber}: \"{wholeLine}\".\n\n{details}", "Parser error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -347,7 +349,12 @@ namespace LiTRE.ROMFiles {
                 }
 
                 if (!found) {
-                    MessageBox.Show($"Command {nameParts[0]} is a special Script Command.\n" +
+                    if (Program.AppServices.Ipc.IsConnected)
+                        Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"Command {nameParts[0]} is a special Script Command.\n" +
+                                    $"The value of the first parameter must be a number in the range [0 - {optionsCount}].\n\n" +
+                                    $"Line {lineNumber}: {wholeLine}" });
+                    else
+                        MessageBox.Show($"Command {nameParts[0]} is a special Script Command.\n" +
                                     $"The value of the first parameter must be a number in the range [0 - {optionsCount}].\n\n" +
                                     $"Line {lineNumber}: {wholeLine}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     id = null;
@@ -469,9 +476,12 @@ namespace LiTRE.ROMFiles {
                     }
                 }
             } else {
-                MessageBox.Show($"Wrong number of parameters for command {nameParts[0]} at line {lineNumber}.\n" +
-                                $"Received: {nameParts.Length - 1}\n" +
-                                $"Expected: {paramLength}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Program.AppServices.Ipc.IsConnected)
+                    Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"Wrong number of parameters for command {nameParts[0]} at line {lineNumber}.\nReceived: {nameParts.Length - 1}\nExpected: {paramLength}" });
+                else
+                    MessageBox.Show($"Wrong number of parameters for command {nameParts[0]} at line {lineNumber}.\n" +
+                                    $"Received: {nameParts.Length - 1}\n" +
+                                    $"Expected: {paramLength}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 id = null;
             }
         }

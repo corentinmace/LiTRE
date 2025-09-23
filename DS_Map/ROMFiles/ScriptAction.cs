@@ -101,9 +101,12 @@ namespace LiTRE.ROMFiles {
           } else {
             details = "Are you sure it's a proper Action Command?";
           }
-          MessageBox.Show("This Script file could not be saved." +
-            Environment.NewLine + "Parser failed to interpret line " + lineNumber + ": \"" + wholeLine + "\"." +
-            Environment.NewLine + "\n" + details, "Parser error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          if (Program.AppServices.Ipc.IsConnected)
+            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"This Script file could not be saved.\"Parser failed to interpret line {lineNumber} : {wholeLine}\n\n{details}" });
+          else
+            MessageBox.Show("This Script file could not be saved." +
+              Environment.NewLine + "Parser failed to interpret line " + lineNumber + ": \"" + wholeLine + "\"." +
+              Environment.NewLine + "\n" + details, "Parser error", MessageBoxButtons.OK, MessageBoxIcon.Error);
           id = null;
           return;
         }

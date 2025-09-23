@@ -31,10 +31,6 @@ namespace LiTRE
         // Events
         public event EventHandler<bool> ConnectedChanged;
 
-        // Lifecycle
-        private readonly CancellationTokenSource _cts = new CancellationTokenSource();
-        private Task _acceptLoop;
-
         // UI marshaling
         private readonly SynchronizationContext _ui;
 
@@ -43,6 +39,23 @@ namespace LiTRE
 
         // Optional logger
         private readonly Action<string> _log;
+
+        // Lifecycle
+        private readonly CancellationTokenSource _cts = new CancellationTokenSource();
+        private Task _acceptLoop;
+
+        // Connection state
+        private readonly object _sendLock = new object();
+        private NamedPipeServerStream _server;   // current client
+        private StreamWriter _writer;            // UTF-8 writer for outbound messages
+
+        public bool IsConnected
+        {
+            get
+            {
+                lock (_sendLock) { return _server?.IsConnected == true; }
+            }
+        }
 
         public IpcServer(
             SynchronizationContext uiContext,
@@ -68,35 +81,65 @@ namespace LiTRE
         public void Dispose()
         {
             try { _cts.Cancel(); } catch { }
-            try { if (_acceptLoop != null) _acceptLoop.Wait(2000); } catch { }
+            try { _acceptLoop?.Wait(2000); } catch { }
+            CleanupConnection();
             _cts.Dispose();
         }
+
+        // ---- Public outbound API -------------------------------------------------
+
+        // Fire-and-forget event
+        public void PushEvent(string name, object payload = null)
+        {
+            var env = new { v = 1, type = "event", evt = name, payload };
+            try { SendEnvelope(env); } catch { /* swallow by design for fire-and-forget */ }
+        }
+
+        // Awaitable event (propagates "not connected" etc.)
+        public Task PushEventAsync(string name, object payload = null)
+        {
+            var env = new { v = 1, type = "event", evt = name, payload };
+            return SendEnvelopeAsync(env);
+        }
+
+        // ---- Accept + per-connection loop ---------------------------------------
 
         private async Task AcceptLoopAsync(CancellationToken ct)
         {
             while (!ct.IsCancellationRequested)
             {
                 NamedPipeServerStream server = null;
+                StreamWriter writer = null;
+
                 try
                 {
                     server = CreateServerPipe();
                     Log("IPC: waiting for connection…");
                     await server.WaitForConnectionAsync(ct).ConfigureAwait(false);
+
+                    // Install as current connection
+                    lock (_sendLock)
+                    {
+                        _server = server;
+                        _writer = writer = new StreamWriter(server, new UTF8Encoding(false), 1024, leaveOpen: true)
+                        {
+                            AutoFlush = true
+                        };
+                    }
                     RaiseConnectedChanged(true);
 
-                    using (server)
-                    using (var reader = new StreamReader(server, Encoding.UTF8, true, 4096, false))
-                    using (var writer = new StreamWriter(server, new UTF8Encoding(false)) { AutoFlush = true })
+                    // Optional hello
+                    await SendEnvelopeAsync(writer, new
                     {
-                        // Optional hello
-                        await SendEnvelopeAsync(writer, new
-                        {
-                            v = 1,
-                            type = "event",
-                            evt = "hello",
-                            payload = new { msg = "hello from app" }
-                        }).ConfigureAwait(false);
+                        v = 1,
+                        type = "event",
+                        evt = "hello",
+                        payload = new { msg = "hello from app" }
+                    }).ConfigureAwait(false);
 
+                    // Read loop for this client
+                    using (var reader = new StreamReader(server, Encoding.UTF8, detectEncodingFromByteOrderMarks: true, bufferSize: 4096, leaveOpen: true))
+                    {
                         while (!ct.IsCancellationRequested && server.IsConnected)
                         {
                             var line = await reader.ReadLineAsync().ConfigureAwait(false);
@@ -115,7 +158,7 @@ namespace LiTRE
                             catch (Exception ex)
                             {
                                 Log("IPC: handle error: " + ex.Message);
-                                // We continue reading; specific request errors are replied in HandleLineAsync.
+                                // keep processing further lines
                             }
                         }
                     }
@@ -130,12 +173,19 @@ namespace LiTRE
                 }
                 finally
                 {
+                    // Clear current connection and notify
+                    CleanupConnection();
                     RaiseConnectedChanged(false);
-                    if (server != null) { try { server.Dispose(); } catch { } }
+
+                    // Local disposals if not already disposed in CleanupConnection
+                    if (server != null)
+                        try { server.Dispose(); } catch { }
+                    if (writer != null)
+                        try { writer.Dispose(); } catch { }
                 }
 
                 if (!ct.IsCancellationRequested)
-                    await Task.Delay(300, ct).ConfigureAwait(false);
+                    try { await Task.Delay(300, ct).ConfigureAwait(false); } catch (OperationCanceledException) { }
             }
         }
 
@@ -149,11 +199,12 @@ namespace LiTRE
             return new NamedPipeServerStream(
                 PipeName,
                 PipeDirection.InOut,
-                1, // single client (tune if you need multiple VS Code windows)
+                1, // single client
                 PipeTransmissionMode.Byte,
                 PipeOptions.Asynchronous,
-                0, 0,
-                sec);
+                inBufferSize: 0,
+                outBufferSize: 0,
+                pipeSecurity: sec);
         }
 
         private async Task HandleLineAsync(string line, StreamWriter writer)
@@ -185,7 +236,7 @@ namespace LiTRE
 
                     var res = await InvokeOnUiAsync(() =>
                     {
-                        // This runs on the UI thread
+                        // Runs on the UI thread
                         return _saveScriptHandler(id, path);
                     }).ConfigureAwait(false);
 
@@ -243,10 +294,55 @@ namespace LiTRE
             return SendEnvelopeAsync(writer, envelope);
         }
 
+        // ---- Outbound sending helpers -------------------------------------------
+
+        // Uses provided writer (e.g., inside connection read loop)
         private static Task SendEnvelopeAsync(StreamWriter writer, object envelope)
         {
             var json = JsonConvert.SerializeObject(envelope, Formatting.None);
             return writer.WriteAsync(json + "\n");
+        }
+
+        // Uses current connection's writer (thread-safe, callable from anywhere)
+        private Task SendEnvelopeAsync(object envelope)
+        {
+            StreamWriter w;
+            lock (_sendLock)
+            {
+                w = _writer;
+                if (w == null || _server?.IsConnected != true)
+                    return Task.FromException(new InvalidOperationException("IPC not connected"));
+            }
+
+            var json = JsonConvert.SerializeObject(envelope, Formatting.None);
+            // Write outside the lock to avoid blocking other callers
+            return w.WriteAsync(json + "\n");
+        }
+
+        private void SendEnvelope(object envelope)
+        {
+            StreamWriter w;
+            lock (_sendLock)
+            {
+                w = _writer;
+                if (w == null || _server?.IsConnected != true) return;
+            }
+
+            var json = JsonConvert.SerializeObject(envelope, Formatting.None);
+            try { w.WriteLine(json); } catch { /* fire-and-forget */ }
+        }
+
+        // ---- Cleanup / notifications -------------------------------------------
+
+        private void CleanupConnection()
+        {
+            lock (_sendLock)
+            {
+                try { _writer?.Dispose(); } catch { }
+                try { _server?.Dispose(); } catch { }
+                _writer = null;
+                _server = null;
+            }
         }
 
         private void RaiseConnectedChanged(bool connected)

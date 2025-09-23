@@ -476,13 +476,20 @@ namespace LiTRE.ROMFiles {
                     parameterList.Add(dataReader.ReadBytes(bytesToRead));
                 }
             } catch (NullReferenceException) {
-                MessageBox.Show("Script command " + id + "can't be handled for now." +
-                                Environment.NewLine + "Reference offset 0x" + dataReader.BaseStream.Position.ToString("X"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(Program.AppServices.Ipc.IsConnected)
+                    Program.AppServices.Ipc.PushEvent("cmdError", new { id = id, message = $"Script command {id} can't be handled for now.\nReference offset 0x{dataReader.BaseStream.Position.ToString("X")}" });
+                else
+                    MessageBox.Show("Script command " + id + "can't be handled for now." +
+                                    Environment.NewLine + "Reference offset 0x" + dataReader.BaseStream.Position.ToString("X"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 parameterList = null;
                 return;
-            } catch {
-                MessageBox.Show("Error: ID Read - " + id +
-                                Environment.NewLine + "Reference offset 0x" + dataReader.BaseStream.Position.ToString("X"), "Unrecognized script command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } catch
+            {
+                if (Program.AppServices.Ipc.IsConnected)
+                    Program.AppServices.Ipc.PushEvent("cmdError", new { id = id, message = $"Error: ID Read - {id}\nReference offset 0x{dataReader.BaseStream.Position.ToString("X")}" });
+                else
+                    MessageBox.Show("Error: ID Read - " + id +
+                                    Environment.NewLine + "Reference offset 0x" + dataReader.BaseStream.Position.ToString("X"), "Unrecognized script command", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 parameterList = null;
                 return;
             }
@@ -522,14 +529,20 @@ namespace LiTRE.ROMFiles {
                         int positionOfScriptKeyword = lineSource[i].text.IndexOf(containerType.ToString(), StringComparison.InvariantCultureIgnoreCase);
 
                         if (positionOfScriptKeyword > 0) {
-                            MessageBox.Show("Unrecognized container keyword: \"" + lineSource[i] + '"', "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (Program.AppServices.Ipc.IsConnected)
+                                Program.AppServices.Ipc.PushEvent("cmdError", new { id = lineSource[i], message = $"Unrecognized container keyboard: {lineSource[i]}" });
+                            else
+                                MessageBox.Show("Unrecognized container keyword: \"" + lineSource[i] + '"', "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return null;
                         } else if (positionOfScriptKeyword < 0) {
                             i++;
                             continue;
                         } else {
                             if ((positionOfScriptNumber = lineSource[i].text.IndexOfFirstNumber()) < positionOfScriptKeyword) {
-                                MessageBox.Show("Unspecified Script/Function label.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                if (Program.AppServices.Ipc.IsConnected)
+                                    Program.AppServices.Ipc.PushEvent("cmdError", new { id = lineSource[i], message = $"Unspecified Script/Function label." });
+                                else
+                                    MessageBox.Show("Unspecified Script/Function label.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return null;
                             }
                         }
@@ -596,14 +609,20 @@ namespace LiTRE.ROMFiles {
                         int positionOfActionKeyword = lineSource[i].text.IndexOf(ContainerTypes.Action.ToString(), StringComparison.InvariantCultureIgnoreCase);
 
                         if (positionOfActionKeyword > 0) {
-                            MessageBox.Show("Unrecognized container keyword: \"" + lineSource[i] + '"', "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (Program.AppServices.Ipc.IsConnected)
+                                Program.AppServices.Ipc.PushEvent("cmdError", new { id = lineSource[i], message = $"Unrecognized container keyboard: {lineSource[i]}" });
+                            else
+                                MessageBox.Show("Unrecognized container keyword: \"" + lineSource[i] + '"', "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return null;
                         } else if (positionOfActionKeyword < 0) {
                             i++;
                             continue;
                         } else {
                             if ((positionOfActionNumber = lineSource[i].text.IndexOfFirstNumber()) < positionOfActionKeyword) {
-                                MessageBox.Show("Unspecified Action label.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                if (Program.AppServices.Ipc.IsConnected)
+                                    Program.AppServices.Ipc.PushEvent("cmdError", new { id = lineSource[i], message = $"Unspecified Script/Function label." });
+                                else
+                                    MessageBox.Show("Unspecified Action label.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return null;
                             }
                         }
@@ -721,6 +740,9 @@ namespace LiTRE.ROMFiles {
                         } else {
                             int functionUsescript = currentFunction.usedScriptID - 1;
                             if (functionUsescript >= scriptOffsets.Count) {
+                                if (Program.AppServices.Ipc.IsConnected)
+                                    Program.AppServices.Ipc.PushEvent("cmdError", new { id = currentFunction.manualUserID, message = $"Function #{currentFunction.manualUserID} refers to Script {currentFunction.usedScriptID}, which does not exist.\nThis Script File can't be saved." });
+                                else
                                 MessageBox.Show($"Function #{currentFunction.manualUserID} refers to Script {currentFunction.usedScriptID}, which does not exist.\n" +
                                                 $"This Script File can't be saved.", "Can't resolve UseScript reference", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return null;
@@ -807,18 +829,27 @@ namespace LiTRE.ROMFiles {
                     string errorMsg = "";
                     if (undeclaredFuncs.Count > 0) {
                         string[] errorFunctionsUndeclared = undeclaredFuncs.ToArray().Select(x => x.ToString()).ToArray();
-                        errorMsg += "These Functions have been invoked but not declared: " + Environment.NewLine + string.Join(separator: ",", errorFunctionsUndeclared);
+                        if (Program.AppServices.Ipc.IsConnected)
+                            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"These Functions have been invoked but not declared:\n {string.Join(separator: ",", errorFunctionsUndeclared)}" });
+                        else
+                            errorMsg += "These Functions have been invoked but not declared: " + Environment.NewLine + string.Join(separator: ",", errorFunctionsUndeclared);
                         errorMsg += Environment.NewLine;
                     }
 
                     if (undeclaredActions.Count > 0) {
                         string[] errorActionsUndeclared = undeclaredActions.ToArray().Select(x => x.ToString()).ToArray();
-                        errorMsg += "These Actions have been referenced but not declared: " + Environment.NewLine + string.Join(separator: ",", errorActionsUndeclared);
+                        if (Program.AppServices.Ipc.IsConnected)
+                            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"These Actions have been invoked but not declared:\n {string.Join(separator: ",", errorActionsUndeclared)}" });
+                        else
+                            errorMsg += "These Actions have been referenced but not declared: " + Environment.NewLine + string.Join(separator: ",", errorActionsUndeclared);
                         errorMsg += Environment.NewLine;
                     }
 
                     if (!string.IsNullOrEmpty(errorMsg)) {
-                        MessageBox.Show(errorMsg + Environment.NewLine + "This Script File has not been overwritten since it can not be saved.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (Program.AppServices.Ipc.IsConnected)
+                            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"This Script File has not been overwritten since it can not be saved." });
+                        else
+                            MessageBox.Show(errorMsg + Environment.NewLine + "This Script File has not been overwritten since it can not be saved.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorMsg = "";
                         return null;
                     }
@@ -856,9 +887,12 @@ namespace LiTRE.ROMFiles {
 
         private bool FunctionIsInvoked(List<ScriptReference> refList, SortedSet<uint> uninvokedFuncsSet, uint funcID, int callCount = 0, uint? excludedCaller = null) {
             if (callCount >= 30) {
-                MessageBox.Show("Something went very wrong saving this Script File!" +
-                                "\nIt is recommended that you backup its code somewhere, to avoid losing progress.",
-                  "Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Program.AppServices.Ipc.IsConnected)
+                    Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"Something went very wrong saving this Script File!\nIt is recommended that you backup its code somewhere, to avoid losing progress." });
+                else
+                    MessageBox.Show("Something went very wrong saving this Script File!" +
+                    "\nIt is recommended that you backup its code somewhere, to avoid losing progress.",
+             "Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

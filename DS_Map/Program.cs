@@ -11,6 +11,12 @@ namespace LiTRE
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "LiTRE");
         public static string DatabasePath = Path.Combine(Program.LiTREDataPath, "databases");
+        
+        public static class AppServices
+        {
+            public static IpcServer Ipc { get; private set; }
+            public static void Init(IpcServer ipc) => Ipc = ipc;
+        }
 
         /// <summary>
         /// Punto di ingresso principale dell'applicazione.
