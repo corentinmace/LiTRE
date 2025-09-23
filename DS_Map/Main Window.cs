@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using static LiTRE.EditorPanels;
 using static LiTRE.Helpers;
@@ -26,8 +27,7 @@ namespace LiTRE
         private NotifyIcon _tray;
         private Icon _iconRed;
         private Icon _iconGreen;
-
-
+        
         public MainProgram()
         {
 
@@ -59,6 +59,34 @@ namespace LiTRE
 
 #endif
             InitializeComponent();
+            var ui = SynchronizationContext.Current;
+            
+            _ipc = new IpcServer(
+                ui,
+                saveScriptHandler: (id, path) =>
+                {
+                    bool opened = EditorPanels.scriptEditor.OpenScriptEditorAndSave(this, (int)id, true, false);
+                    if(opened) 
+                        return IpcResponse.Success();
+                    else
+                        return IpcResponse.Fail($"Error while saving script {id}");
+                },
+                logger: msg => System.Diagnostics.Debug.WriteLine(msg));
+
+            _ipc.ConnectedChanged += (s, connected) =>
+            {
+                // Optional: update a status label/icon on the UI thread
+                BeginInvoke(new Action(() =>
+                {
+                    if (InvokeRequired)
+                        BeginInvoke(new Action<bool>(UpdateTray), connected);
+                    else
+                        UpdateTray(connected);
+                }));
+            };
+
+            _ipc.Start();
+            
             _iconRed = MakeCircleIcon(Color.IndianRed);
             _iconGreen = MakeCircleIcon(Color.MediumSeaGreen);
             CreateTray();
@@ -212,7 +240,7 @@ namespace LiTRE
             {
                 e.Cancel = true;
             }
-            if (_ipc != null) _ipc.Dispose();
+            try { _ipc?.Dispose(); } catch { }
             if (_tray != null) _tray.Dispose();
             if (_iconRed != null) _iconRed.Dispose();
             if (_iconGreen != null) _iconGreen.Dispose();
@@ -1873,22 +1901,6 @@ namespace LiTRE
         }
 
         #endregion
-
-
-        private void MainProgram_Load(object sender, EventArgs e)
-        {
-            _ipc = new IpcServer();
-            _ipc.ConnectedChanged += Ipc_ConnectedChanged;
-            _ipc.Start();
-        }
-        
-        private void Ipc_ConnectedChanged(object sender, bool isConnected)
-        {
-            if (InvokeRequired)
-                BeginInvoke(new Action<bool>(UpdateTray), isConnected);
-            else
-                UpdateTray(isConnected);
-        }
 
         private void CreateTray()
         {

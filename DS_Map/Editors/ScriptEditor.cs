@@ -137,12 +137,28 @@ namespace LiTRE.Editors
             Helpers.statusLabelMessage();
         }
 
-        public void OpenScriptEditor(MainProgram parent, int scriptFileID)
+        public bool OpenScriptEditorAndSave(MainProgram parent, int scriptFileId, bool force = false, bool focus = true)
         {
-            SetupScriptEditor(parent);
+            try
+            {
+                OpenScriptEditor(parent, scriptFileId, force, focus);
+                SaveSelectedScript(scriptFileId, true);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public void OpenScriptEditor(MainProgram parent, int scriptFileID, bool force = false, bool focus = true)
+        {
+            SetupScriptEditor(parent, force);
 
             scriptEditorTabControl.SelectedIndex = 0;
             selectScriptFileComboBox.SelectedIndex = scriptFileID;
+            if (!focus) return;
             if (EditorPanels.PopoutRegistry.TryGetHost(this, out var host))
             {
                 host.Focus();
@@ -1000,17 +1016,26 @@ namespace LiTRE.Editors
         private void saveScriptFileButton_Click(object sender, EventArgs e)
         {
             /* Create new ScriptFile object using the values in the script editor */
-            int fileID = currentScriptFile.fileID;
+            SaveSelectedScript(currentScriptFile.fileID);
+          
+        }
 
-            ScriptFile userEdited = new ScriptFile(
+        private void SaveSelectedScript(int fileID, bool silent = false)
+        {
+              ScriptFile userEdited = new ScriptFile(
                 scriptLines: ScriptTextArea.Lines.ToStringsList(trim: true),
                 functionLines: FunctionTextArea.Lines.ToStringsList(trim: true),
                 actionLines: ActionTextArea.Lines.ToStringsList(trim: true),
                 fileID
             );
 
-            DialogResult d = MessageBox.Show("Do you wish to export the scripts\nin a readable format?", "Unsaved work",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult d = DialogResult.Yes;
+            if (!silent)
+            {
+                d = MessageBox.Show("Do you wish to export the scripts\nin a readable format?", "Unsaved work",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
+      
             if (d.Equals(DialogResult.Yes))
             {
                 string subPath = RomInfo.workDir + "..\\script_export";
@@ -1048,7 +1073,7 @@ namespace LiTRE.Editors
                 else
                 {
                     //check if ScriptFile instance was created succesfully
-                    userEdited.SaveToFileDefaultDir(selectScriptFileComboBox.SelectedIndex);
+                    userEdited.SaveToFileDefaultDir(selectScriptFileComboBox.SelectedIndex, !silent);
                     currentScriptFile = userEdited;
                     ScriptEditorSetClean();
                 }
@@ -1063,7 +1088,7 @@ namespace LiTRE.Editors
             }
 
             //check if ScriptFile instance was created successfully
-            if (userEdited.SaveToFileDefaultDir(fileID))
+            if (userEdited.SaveToFileDefaultDir(fileID, !silent))
             {
                 currentScriptFile = userEdited;
                 ScriptEditorSetClean();
