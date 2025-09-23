@@ -576,7 +576,7 @@ namespace LiTRE {
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-        extern static bool DestroyIcon(IntPtr handle);
+        public extern static bool DestroyIcon(IntPtr handle);
 
 
      public static void PopOutEditorHandler<T>(T control, string title, Image icon, Action<T> onClose = null)
@@ -918,6 +918,36 @@ namespace LiTRE {
             }
 
             AppLogger.Info("CSV file exported successfully.");
+        }
+        
+                
+        public static Icon MakeCircleIcon(Color color)
+        {
+            using (var bmp = new Bitmap(16, 16))
+            {
+                using (var g = Graphics.FromImage(bmp))
+                {
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    g.Clear(Color.Transparent);
+                    using (var brush = new SolidBrush(color))
+                        g.FillEllipse(brush, 1, 1, 14, 14);
+                    using (var pen = new Pen(Color.FromArgb(120, Color.Black), 1f))
+                        g.DrawEllipse(pen, 1, 1, 14, 14);
+                }
+
+                IntPtr hIcon = bmp.GetHicon();
+                try
+                {
+                    using (var tmp = Icon.FromHandle(hIcon))
+                    {
+                        return (Icon)tmp.Clone(); // clone to own the icon
+                    }
+                }
+                finally
+                {
+                    DestroyIcon(hIcon);
+                }
+            }
         }
 
     }
