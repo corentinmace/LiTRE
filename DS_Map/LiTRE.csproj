@@ -306,6 +306,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FlyEditor\FlyEditor.Designer.cs" />
+    <Compile Include="IpcServer.cs" />
     <Compile Include="LibNDSFormats\BTX0.cs" />
     <Compile Include="ScrcmdTableHelper.cs">
       <SubType>Form</SubType>

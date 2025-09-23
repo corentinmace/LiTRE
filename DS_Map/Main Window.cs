@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using static LiTRE.EditorPanels;
@@ -19,10 +20,14 @@ using static LiTRE.Helpers;
 using static LiTRE.RomInfo;
 namespace LiTRE
 {
-
-
     public partial class MainProgram : Form
     {
+        private IpcServer _ipc;
+        private NotifyIcon _tray;
+        private Icon _iconRed;
+        private Icon _iconGreen;
+
+
         public MainProgram()
         {
 
@@ -54,6 +59,10 @@ namespace LiTRE
 
 #endif
             InitializeComponent();
+            _iconRed = MakeCircleIcon(Color.IndianRed);
+            _iconGreen = MakeCircleIcon(Color.MediumSeaGreen);
+            CreateTray();
+            
             Program.SetupDatabase();
 
             EditorPanels.Initialize(this);
@@ -203,6 +212,11 @@ namespace LiTRE
             {
                 e.Cancel = true;
             }
+            if (_ipc != null) _ipc.Dispose();
+            if (_tray != null) _tray.Dispose();
+            if (_iconRed != null) _iconRed.Dispose();
+            if (_iconGreen != null) _iconGreen.Dispose();
+            base.OnFormClosing(e);
             SettingsManager.Save();
         }
 
@@ -1860,6 +1874,82 @@ namespace LiTRE
 
         #endregion
 
- 
+
+        private void MainProgram_Load(object sender, EventArgs e)
+        {
+            _ipc = new IpcServer();
+            _ipc.ConnectedChanged += Ipc_ConnectedChanged;
+            _ipc.Start();
+        }
+        
+        private void Ipc_ConnectedChanged(object sender, bool isConnected)
+    {
+        if (InvokeRequired)
+            BeginInvoke(new Action<bool>(UpdateTray), isConnected);
+        else
+            UpdateTray(isConnected);
+    }
+
+    private void CreateTray()
+    {
+        _tray = new NotifyIcon();
+        _tray.Visible = true;
+        _tray.Text = "VSC Extension not connected";
+        _tray.Icon = _iconRed;
+
+        var menu = new ContextMenuStrip();
+        menu.Items.Add("Open", null, (s, e) => { Show(); WindowState = FormWindowState.Normal; Activate(); });
+        menu.Items.Add(new ToolStripSeparator());
+        menu.Items.Add("Exit", null, (s, e) => Close());
+        _tray.ContextMenuStrip = menu;
+
+        _tray.MouseClick += (s, e) =>
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Visible) Hide();
+                else { Show(); Activate(); }
+            }
+        };
+    }
+
+    private void UpdateTray(bool connected)
+    {
+        _tray.Icon = connected ? _iconGreen : _iconRed;
+        _tray.Text = connected ? "MyApp: connected to VS Code" : "MyApp: not connected";
+    }
+
+    // Create a 16x16 colored circle icon; clones and destroys HICON to avoid leaks
+    private static Icon MakeCircleIcon(Color color)
+    {
+        using (var bmp = new Bitmap(16, 16))
+        {
+            using (var g = Graphics.FromImage(bmp))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                g.Clear(Color.Transparent);
+                using (var brush = new SolidBrush(color))
+                    g.FillEllipse(brush, 1, 1, 14, 14);
+                using (var pen = new Pen(Color.FromArgb(120, Color.Black), 1f))
+                    g.DrawEllipse(pen, 1, 1, 14, 14);
+            }
+
+            IntPtr hIcon = bmp.GetHicon();
+            try
+            {
+                using (var tmp = Icon.FromHandle(hIcon))
+                {
+                    return (Icon)tmp.Clone(); // clone to own the icon
+                }
+            }
+            finally
+            {
+                DestroyIcon(hIcon);
+            }
+        }
+    }
+
+    [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+    private static extern bool DestroyIcon(IntPtr handle);
     }
 }
