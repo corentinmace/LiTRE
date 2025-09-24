@@ -36,6 +36,8 @@ namespace LiTRE
 
         // Handlers you provide (executed on UI thread)
         private readonly Func<int, string, IpcResponse> _saveScriptHandler;
+        
+        private readonly Func<int, string, IpcResponse> _openRelatedHandler;
 
         // Optional logger
         private readonly Action<string> _log;
@@ -60,6 +62,7 @@ namespace LiTRE
         public IpcServer(
             SynchronizationContext uiContext,
             Func<int, string, IpcResponse> saveScriptHandler,
+            Func<int, string, IpcResponse> openRelatedHandler,
             Action<string> logger = null)
         {
             if (uiContext == null)
@@ -69,6 +72,7 @@ namespace LiTRE
 
             _ui = uiContext;
             _saveScriptHandler = saveScriptHandler;
+            _openRelatedHandler = openRelatedHandler;
             _log = logger;
         }
 
@@ -238,6 +242,18 @@ namespace LiTRE
                     {
                         // Runs on the UI thread
                         return _saveScriptHandler(id, path);
+                    }).ConfigureAwait(false);
+
+                    await SendResponseAsync(writer, requestId, res).ConfigureAwait(false);
+                    return;
+                } else if (string.Equals(cmd, "openRelated", StringComparison.OrdinalIgnoreCase))
+                {
+                    int id = payload["id"] != null ? (int)payload["id"] : 0;
+                    string related = payload["related"] != null ? (string)payload["related"] : null;
+                    var res = await InvokeOnUiAsync(() =>
+                    {
+                        // Runs on the UI thread
+                        return _openRelatedHandler(id, related);
                     }).ConfigureAwait(false);
 
                     await SendResponseAsync(writer, requestId, res).ConfigureAwait(false);

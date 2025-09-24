@@ -1589,7 +1589,7 @@
         private System.Windows.Forms.Label textLabel;
         private System.Windows.Forms.Button openEventsButton;
         private System.Windows.Forms.Label eventLabel;
-        private System.Windows.Forms.NumericUpDown eventFileUpDown;
+        public System.Windows.Forms.NumericUpDown eventFileUpDown;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button pasteAreaDataButton;
         private System.Windows.Forms.Button copyAreaDataButton;
@@ -1598,9 +1598,9 @@
         private System.Windows.Forms.Button copyMatrixButton;
         private System.Windows.Forms.Button openMatrixButton;
         private System.Windows.Forms.Label areaDataLabel;
-        private System.Windows.Forms.NumericUpDown areaDataUpDown;
+        public System.Windows.Forms.NumericUpDown areaDataUpDown;
         private System.Windows.Forms.Label matrixLabel;
-        private System.Windows.Forms.NumericUpDown matrixUpDown;
+        public System.Windows.Forms.NumericUpDown matrixUpDown;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Button searchHeaderButton;

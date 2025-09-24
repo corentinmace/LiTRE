@@ -65,11 +65,11 @@ namespace LiTRE
                 ui,
                 saveScriptHandler: (id, path) =>
                 {
-                    bool opened = EditorPanels.scriptEditor.OpenScriptEditorAndSave(this, (int)id, true, false);
-                    if(opened) 
-                        return IpcResponse.Success();
-                    else
-                        return IpcResponse.Fail($"Error while saving script {id}");
+                    return IpcEvents.saveScriptIpcHandler(id, path, this);
+                },
+                openRelatedHandler: (id, type) =>
+                {
+                    return IpcEvents.openRelatedEditors(id, type, this);
                 },
                 logger: msg => System.Diagnostics.Debug.WriteLine(msg));
             
@@ -89,8 +89,8 @@ namespace LiTRE
 
             _ipc.Start();
             
-            _iconRed = MakeCircleIcon(Color.IndianRed);
-            _iconGreen = MakeCircleIcon(Color.MediumSeaGreen);
+            _iconRed = MakeCircleIcon(Color.Red);
+            _iconGreen = MakeCircleIcon(Color.Green);
             CreateTray();
             
             Program.SetupDatabase();

@@ -63,7 +63,7 @@ namespace LiTRE {
             [TextOperators.IsNot] = "Is Not",
         };
 
-        private List<string> intNames;
+        public static List<string> intNames;
         private ListBox headerListBox;
         private ToolStripStatusLabel statusLabel;
 
