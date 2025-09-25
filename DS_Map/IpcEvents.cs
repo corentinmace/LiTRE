@@ -1,4 +1,8 @@
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using LiTRE.Editors;
 using LiTRE.ROMFiles;
 
 namespace LiTRE
@@ -52,9 +56,74 @@ namespace LiTRE
                 case "lvscript":
                     EditorPanels.levelScriptEditor.OpenLevelScriptEditor(parent, hpt.levelScriptID);
                     break;
-            }    
-         
+            }
+            
             return IpcResponse.Success();
+        }
+
+        public class OwImage
+        {
+            public int OwID { get; set; }
+            public byte[] Image { get; set; }
+        } 
+        public class EventFileAndImages
+        {
+            public EventFile eventFile;
+            public List<OwImage> imageList;
+        }
+        
+        public static EventFileAndImages _getEventData(int id, MainProgram parent) 
+        {
+            EditorPanels.eventEditor.SetupEventEditor(parent);
+            
+            var intNames = EditorPanels.headerEditor.internalNames;
+            var results = HeaderSearch.AdvancedSearch(0, (ushort)intNames.Count, intNames, (int)MapHeader.SearchableFields.ScriptFileID, 0, id.ToString())
+                .Select(x => ushort.Parse(x.Split()[0]))
+                .ToArray();
+            HeaderPt hpt;
+            hpt = (HeaderPt)MapHeader.LoadFromFile(RomInfo.gameDirs[RomInfo.DirNames.dynamicHeaders].unpackedDir + "\\" + results[0].ToString("D4"), results[0], 0);
+            var eventFile = new EventFile(hpt.eventFileID);
+            var imageList = new List<OwImage>();
+            if (eventFile.overworlds.Count > 0)
+            {
+                foreach (var overworld in eventFile.overworlds)
+                {
+                    var image = EventEditorLiT.GetOverworldImage(overworld.overlayTableEntry, overworld.orientation);
+                    byte[] byteImage = null;
+                    using (var stream = new MemoryStream())
+                    {
+                        image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                        byteImage = stream.ToArray();
+                    }
+
+                    var owImage = new OwImage()
+                    {
+                        Image = byteImage,
+                        OwID = overworld.owID
+                    };
+                    imageList.Add(owImage);
+                }
+            }
+            
+            return new EventFileAndImages()
+            {
+                eventFile = eventFile,
+                imageList = imageList
+            };
+            
+        }
+
+        public static TextArchive getArchive(int id, MainProgram parent)
+        {
+            EditorPanels.eventEditor.SetupEventEditor(parent);
+            
+            var intNames = EditorPanels.headerEditor.internalNames;
+            var results = HeaderSearch.AdvancedSearch(0, (ushort)intNames.Count, intNames, (int)MapHeader.SearchableFields.ScriptFileID, 0, id.ToString())
+                .Select(x => ushort.Parse(x.Split()[0]))
+                .ToArray();
+            HeaderPt hpt;
+            hpt = (HeaderPt)MapHeader.LoadFromFile(RomInfo.gameDirs[RomInfo.DirNames.dynamicHeaders].unpackedDir + "\\" + results[0].ToString("D4"), results[0], 0);
+            return new TextArchive(hpt.textArchiveID);
         }
     }
 }

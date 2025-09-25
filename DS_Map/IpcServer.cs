@@ -6,6 +6,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using LiTRE.ROMFiles;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -16,8 +17,30 @@ namespace LiTRE
         public bool Ok { get; set; }
         public string Error { get; set; }
 
+        // Arbitrary payload
+        [JsonProperty(NullValueHandling = NullValueHandling.Include)]
+        public JToken Data { get; set; }
+
         public static IpcResponse Success() => new IpcResponse { Ok = true };
-        public static IpcResponse Fail(string message) => new IpcResponse { Ok = false, Error = message };
+
+        public static IpcResponse Success<T>(T data) => new IpcResponse
+        {
+            Ok = true,
+            Data = data != null ? JToken.FromObject(data) : JValue.CreateNull()
+        };
+
+        public static IpcResponse Fail(string message) => new IpcResponse
+        {
+            Ok = false,
+            Error = message
+        };
+
+        // Convenience for clients (if reused there)
+        public T As<T>()
+        {
+            if (Data == null || Data.Type == JTokenType.Null) return default(T);
+            return Data.ToObject<T>();
+        }
     }
 
     /// <summary>
@@ -36,8 +59,9 @@ namespace LiTRE
 
         // Handlers you provide (executed on UI thread)
         private readonly Func<int, string, IpcResponse> _saveScriptHandler;
-        
         private readonly Func<int, string, IpcResponse> _openRelatedHandler;
+        private readonly Func<int, IpcEvents.EventFileAndImages> _getEventData;
+        private readonly Func<int, TextArchive> _getArchive;
 
         // Optional logger
         private readonly Action<string> _log;
@@ -63,6 +87,8 @@ namespace LiTRE
             SynchronizationContext uiContext,
             Func<int, string, IpcResponse> saveScriptHandler,
             Func<int, string, IpcResponse> openRelatedHandler,
+            Func<int, IpcEvents.EventFileAndImages> getEventData,
+            Func<int, TextArchive> getArchive,
             Action<string> logger = null)
         {
             if (uiContext == null)
@@ -73,6 +99,8 @@ namespace LiTRE
             _ui = uiContext;
             _saveScriptHandler = saveScriptHandler;
             _openRelatedHandler = openRelatedHandler;
+            _getEventData = getEventData;
+            _getArchive = getArchive;
             _log = logger;
         }
 
@@ -240,23 +268,52 @@ namespace LiTRE
 
                     var res = await InvokeOnUiAsync(() =>
                     {
-                        // Runs on the UI thread
                         return _saveScriptHandler(id, path);
                     }).ConfigureAwait(false);
 
                     await SendResponseAsync(writer, requestId, res).ConfigureAwait(false);
                     return;
-                } else if (string.Equals(cmd, "openRelated", StringComparison.OrdinalIgnoreCase))
+                }
+                
+                if (string.Equals(cmd, "openRelated", StringComparison.OrdinalIgnoreCase))
                 {
                     int id = payload["id"] != null ? (int)payload["id"] : 0;
                     string related = payload["related"] != null ? (string)payload["related"] : null;
+
                     var res = await InvokeOnUiAsync(() =>
                     {
-                        // Runs on the UI thread
                         return _openRelatedHandler(id, related);
                     }).ConfigureAwait(false);
 
                     await SendResponseAsync(writer, requestId, res).ConfigureAwait(false);
+                    return;
+                }
+                
+                if (string.Equals(cmd, "getEventData", StringComparison.OrdinalIgnoreCase))
+                {
+                    int id = payload["id"] != null ? (int)payload["id"] : 0;
+
+                    // Marshal to UI, get the object (EventFile), wrap into IpcResponse with payload
+                    var data = await InvokeOnUiAsync(() =>
+                    {
+                        return _getEventData(id);
+                    }).ConfigureAwait(false);
+
+                    await SendResponseAsync(writer, requestId, IpcResponse.Success(data)).ConfigureAwait(false);
+                    return;
+                } 
+                
+                if (string.Equals(cmd, "getMessageData", StringComparison.OrdinalIgnoreCase))
+                {
+                    int id = payload["id"] != null ? (int)payload["id"] : 0;
+
+                    // Marshal to UI, get the object (EventFile), wrap into IpcResponse with payload
+                    var data = await InvokeOnUiAsync(() =>
+                    {
+                        return _getArchive(id);
+                    }).ConfigureAwait(false);
+
+                    await SendResponseAsync(writer, requestId, IpcResponse.Success(data)).ConfigureAwait(false);
                     return;
                 }
 
@@ -295,6 +352,25 @@ namespace LiTRE
             return tcs.Task;
         }
 
+        // Generic UI marshal for object-returning handlers
+        private Task<T> InvokeOnUiAsync<T>(Func<T> action)
+        {
+            var tcs = new TaskCompletionSource<T>();
+            _ui.Post(_ =>
+            {
+                try
+                {
+                    var res = action();
+                    tcs.TrySetResult(res);
+                }
+                catch (Exception ex)
+                {
+                    tcs.TrySetException(ex);
+                }
+            }, null);
+            return tcs.Task;
+        }
+
         private Task SendResponseAsync(StreamWriter writer, string requestId, IpcResponse res)
         {
             var envelope = new
@@ -305,7 +381,8 @@ namespace LiTRE
                 ok = res != null && res.Ok,
                 error = (res != null && !res.Ok && !string.IsNullOrEmpty(res.Error))
                         ? new { message = res.Error }
-                        : null
+                        : null,
+                payload = res != null ? res.Data : null
             };
             return SendEnvelopeAsync(writer, envelope);
         }
@@ -315,7 +392,14 @@ namespace LiTRE
         // Uses provided writer (e.g., inside connection read loop)
         private static Task SendEnvelopeAsync(StreamWriter writer, object envelope)
         {
-            var json = JsonConvert.SerializeObject(envelope, Formatting.None);
+            var json = JsonConvert.SerializeObject(
+                envelope,
+                Formatting.None,
+                new JsonSerializerSettings
+                {
+                    TypeNameHandling = TypeNameHandling.None,
+                    NullValueHandling = NullValueHandling.Ignore
+                });
             return writer.WriteAsync(json + "\n");
         }
 
@@ -330,7 +414,15 @@ namespace LiTRE
                     return Task.FromException(new InvalidOperationException("IPC not connected"));
             }
 
-            var json = JsonConvert.SerializeObject(envelope, Formatting.None);
+            var json = JsonConvert.SerializeObject(
+                envelope,
+                Formatting.None,
+                new JsonSerializerSettings
+                {
+                    TypeNameHandling = TypeNameHandling.None,
+                    NullValueHandling = NullValueHandling.Ignore
+                });
+
             // Write outside the lock to avoid blocking other callers
             return w.WriteAsync(json + "\n");
         }
@@ -344,7 +436,15 @@ namespace LiTRE
                 if (w == null || _server?.IsConnected != true) return;
             }
 
-            var json = JsonConvert.SerializeObject(envelope, Formatting.None);
+            var json = JsonConvert.SerializeObject(
+                envelope,
+                Formatting.None,
+                new JsonSerializerSettings
+                {
+                    TypeNameHandling = TypeNameHandling.None,
+                    NullValueHandling = NullValueHandling.Ignore
+                });
+
             try { w.WriteLine(json); } catch { /* fire-and-forget */ }
         }
 

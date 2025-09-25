@@ -494,7 +494,7 @@ namespace LiTRE.Editors
                 triggersListBox.Items.Add(i.ToString("D" + Math.Max(0, count - 1).ToString().Length) + ": " + currentEvFile.triggers[i].ToString());
             }
         }
-        private Bitmap GetOverworldImage(ushort eventEntryID, ushort orientation)
+        public static Bitmap GetOverworldImage(ushort eventEntryID, ushort orientation)
         {
             /* Find sprite corresponding to ID and load it*/
             if (RomInfo.ow3DSpriteDict.TryGetValue(eventEntryID, out string imageName))

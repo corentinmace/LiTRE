@@ -71,6 +71,14 @@ namespace LiTRE
                 {
                     return IpcEvents.openRelatedEditors(id, type, this);
                 },
+                getEventData: (id) =>
+                {
+                    return IpcEvents._getEventData(id, this);
+                },
+                getArchive: (id) =>
+                {
+                  return IpcEvents.getArchive(id, this);
+                },
                 logger: msg => System.Diagnostics.Debug.WriteLine(msg));
             
             Program.AppServices.Init(_ipc);
