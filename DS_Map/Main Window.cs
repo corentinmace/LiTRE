@@ -79,6 +79,10 @@ namespace LiTRE
                 {
                   return IpcEvents.getArchive(id, this);
                 },
+                getHeaderData: (id) =>
+                {
+                    return IpcEvents.GetHeaderData(id, this);
+                },
                 logger: msg => System.Diagnostics.Debug.WriteLine(msg));
             
             Program.AppServices.Init(_ipc);

@@ -62,6 +62,7 @@ namespace LiTRE
         private readonly Func<int, string, IpcResponse> _openRelatedHandler;
         private readonly Func<int, IpcEvents.EventFileAndImages> _getEventData;
         private readonly Func<int, TextArchive> _getArchive;
+        private readonly Func<int, IpcEvents.HeaderData> _getHeaderData;
 
         // Optional logger
         private readonly Action<string> _log;
@@ -89,6 +90,7 @@ namespace LiTRE
             Func<int, string, IpcResponse> openRelatedHandler,
             Func<int, IpcEvents.EventFileAndImages> getEventData,
             Func<int, TextArchive> getArchive,
+            Func<int, IpcEvents.HeaderData> getHeaderData,
             Action<string> logger = null)
         {
             if (uiContext == null)
@@ -101,6 +103,7 @@ namespace LiTRE
             _openRelatedHandler = openRelatedHandler;
             _getEventData = getEventData;
             _getArchive = getArchive;
+            _getHeaderData = getHeaderData;
             _log = logger;
         }
 
@@ -311,6 +314,19 @@ namespace LiTRE
                     var data = await InvokeOnUiAsync(() =>
                     {
                         return _getArchive(id);
+                    }).ConfigureAwait(false);
+
+                    await SendResponseAsync(writer, requestId, IpcResponse.Success(data)).ConfigureAwait(false);
+                    return;
+                }
+                
+                if (string.Equals(cmd, "getHeaderData", StringComparison.OrdinalIgnoreCase))
+                {
+                    int id = payload["id"] != null ? (int)payload["id"] : 0;
+                    
+                    var data = await InvokeOnUiAsync(() =>
+                    {
+                        return _getHeaderData(id);
                     }).ConfigureAwait(false);
 
                     await SendResponseAsync(writer, requestId, IpcResponse.Success(data)).ConfigureAwait(false);

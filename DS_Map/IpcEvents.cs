@@ -9,6 +9,26 @@ namespace LiTRE
 {
     public static class IpcEvents
     {
+        
+        private static List<string> intNames = EditorPanels.headerEditor.internalNames;
+        public class HeaderData
+        {
+            public string LocationName { get; set; }
+            public string InternalName { get; set; }
+            public int HeaderId { get; set; }
+            
+        }
+        public static HeaderPt GetHeader(int scriptId, MainProgram parent)
+        {
+            var results = HeaderSearch.AdvancedSearch(0, (ushort)intNames.Count, intNames, (int)MapHeader.SearchableFields.ScriptFileID, 0, scriptId.ToString())
+                .Select(x => ushort.Parse(x.Split()[0]))
+                .ToArray();
+            HeaderPt hpt;
+            if (results.Length == 0) return null;
+            
+            return hpt = (HeaderPt)MapHeader.LoadFromFile(RomInfo.gameDirs[RomInfo.DirNames.dynamicHeaders].unpackedDir + "\\" + results[0].ToString("D4"), results[0], 0);
+        }
+        
         public static IpcResponse saveScriptIpcHandler(int id, string path, MainProgram parent)
         {
             bool opened = EditorPanels.scriptEditor.OpenScriptEditorAndSave(parent, (int)id, true, false);
@@ -18,14 +38,9 @@ namespace LiTRE
                 return IpcResponse.Fail($"Error while saving script {id}");
         }
 
-        public static IpcResponse openRelatedEditors(int id, string type,  MainProgram parent) 
+        public static IpcResponse openRelatedEditors(int id, string type,  MainProgram parent)
         {
-            var intNames = EditorPanels.headerEditor.internalNames;
-            var results = HeaderSearch.AdvancedSearch(0, (ushort)intNames.Count, intNames, (int)MapHeader.SearchableFields.ScriptFileID, 0, id.ToString())
-                .Select(x => ushort.Parse(x.Split()[0]))
-                .ToArray();
-            HeaderPt hpt;
-            hpt = (HeaderPt)MapHeader.LoadFromFile(RomInfo.gameDirs[RomInfo.DirNames.dynamicHeaders].unpackedDir + "\\" + results[0].ToString("D4"), results[0], 0);
+            var hpt = GetHeader(id, parent);
             switch (type)
             {
                 case "text":
@@ -76,12 +91,8 @@ namespace LiTRE
         {
             EditorPanels.eventEditor.SetupEventEditor(parent);
             
-            var intNames = EditorPanels.headerEditor.internalNames;
-            var results = HeaderSearch.AdvancedSearch(0, (ushort)intNames.Count, intNames, (int)MapHeader.SearchableFields.ScriptFileID, 0, id.ToString())
-                .Select(x => ushort.Parse(x.Split()[0]))
-                .ToArray();
-            HeaderPt hpt;
-            hpt = (HeaderPt)MapHeader.LoadFromFile(RomInfo.gameDirs[RomInfo.DirNames.dynamicHeaders].unpackedDir + "\\" + results[0].ToString("D4"), results[0], 0);
+            var hpt = GetHeader(id, parent);
+            
             var eventFile = new EventFile(hpt.eventFileID);
             var imageList = new List<OwImage>();
             if (eventFile.overworlds.Count > 0)
@@ -115,15 +126,24 @@ namespace LiTRE
 
         public static TextArchive getArchive(int id, MainProgram parent)
         {
-            EditorPanels.eventEditor.SetupEventEditor(parent);
-            
-            var intNames = EditorPanels.headerEditor.internalNames;
-            var results = HeaderSearch.AdvancedSearch(0, (ushort)intNames.Count, intNames, (int)MapHeader.SearchableFields.ScriptFileID, 0, id.ToString())
-                .Select(x => ushort.Parse(x.Split()[0]))
-                .ToArray();
-            HeaderPt hpt;
-            hpt = (HeaderPt)MapHeader.LoadFromFile(RomInfo.gameDirs[RomInfo.DirNames.dynamicHeaders].unpackedDir + "\\" + results[0].ToString("D4"), results[0], 0);
+            var hpt = GetHeader(id, parent);
             return new TextArchive(hpt.textArchiveID);
+        }
+
+        public static HeaderData GetHeaderData(int id, MainProgram parent)
+        {
+            var hpt = GetHeader(id, parent);
+            if (hpt == null)
+                return null;
+            
+            var locationNamesArchives = new TextArchive(433);
+
+            return new HeaderData()
+            {
+                HeaderId = hpt.ID,
+                InternalName = intNames[hpt.ID],
+                LocationName = locationNamesArchives.messages[hpt.locationName]
+            };
         }
     }
 }
