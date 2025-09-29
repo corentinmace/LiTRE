@@ -873,7 +873,10 @@ namespace LiTRE.ROMFiles {
                     }
 
                     if (!string.IsNullOrEmpty(errorMsg)) {
-                        MessageBox.Show(errorMsg + Environment.NewLine + "Remember that every unused Function or Action is always lost upon reloading the Script File.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (Program.AppServices.Ipc.IsConnected)
+                            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"{errorMsg}\n\nRemember that every unused Function or Action is always lost upon reloading the Script File." });
+                        else
+                            MessageBox.Show(errorMsg + Environment.NewLine + "Remember that every unused Function or Action is always lost upon reloading the Script File.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         errorMsg = "";
                     }
                 } catch (NullReferenceException nre) {
