@@ -63,6 +63,7 @@ namespace LiTRE
         private readonly Func<int, IpcEvents.EventFileAndImages> _getEventData;
         private readonly Func<int, TextArchive> _getArchive;
         private readonly Func<int, IpcEvents.HeaderData> _getHeaderData;
+        private readonly Func<IpcResponse> _saveRom;
 
         // Optional logger
         private readonly Action<string> _log;
@@ -91,6 +92,7 @@ namespace LiTRE
             Func<int, IpcEvents.EventFileAndImages> getEventData,
             Func<int, TextArchive> getArchive,
             Func<int, IpcEvents.HeaderData> getHeaderData,
+            Func<IpcResponse> saveRom,
             Action<string> logger = null)
         {
             if (uiContext == null)
@@ -104,6 +106,7 @@ namespace LiTRE
             _getEventData = getEventData;
             _getArchive = getArchive;
             _getHeaderData = getHeaderData;
+            _saveRom = saveRom;
             _log = logger;
         }
 
@@ -329,6 +332,17 @@ namespace LiTRE
                         return _getHeaderData(id);
                     }).ConfigureAwait(false);
 
+                    await SendResponseAsync(writer, requestId, IpcResponse.Success(data)).ConfigureAwait(false);
+                    return;
+                }
+
+                if (string.Equals(cmd, "saveRom", StringComparison.OrdinalIgnoreCase))
+                {
+                    var data = await InvokeOnUiAsync(() =>
+                    {
+                        return _saveRom();
+                    }).ConfigureAwait(true);
+                    
                     await SendResponseAsync(writer, requestId, IpcResponse.Success(data)).ConfigureAwait(false);
                     return;
                 }

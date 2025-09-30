@@ -38,6 +38,15 @@ namespace LiTRE
                 return IpcResponse.Fail($"Error while saving script {id}");
         }
 
+        public static IpcResponse saveRom(MainProgram parent)
+        {
+            var success = parent.SaveRom(SettingsManager.Settings.exportPath + "build.nds");
+            if(success)
+                return IpcResponse.Success();
+            else
+                return IpcResponse.Fail("Error while saving rom");
+        }
+
         public static IpcResponse openRelatedEditors(int id, string type,  MainProgram parent)
         {
             var hpt = GetHeader(id, parent);

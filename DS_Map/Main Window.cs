@@ -83,6 +83,10 @@ namespace LiTRE
                 {
                     return IpcEvents.GetHeaderData(id, this);
                 },
+                saveRom: () =>
+                {
+                    return IpcEvents.saveRom(this);
+                },
                 logger: msg => System.Diagnostics.Debug.WriteLine(msg));
             
             Program.AppServices.Init(_ipc);
@@ -1055,7 +1059,12 @@ namespace LiTRE
                 AppLogger.Debug("User cancelled the Save ROM dialog.");
                 return;
             }
+            
+            SaveRom(saveRom.FileName);
+        }
 
+        public bool SaveRom(string path)
+        {
             Helpers.statusLabelMessage("Repacking NARCS...");
             Update();
             var dateBegin = DateTime.Now;
@@ -1119,7 +1128,7 @@ namespace LiTRE
             //    }
             //}
 
-            bool success = DSUtils.RepackROM(saveRom.FileName);
+            bool success = DSUtils.RepackROM(path);
 
             if (RomInfo.gameFamily != GameFamilies.DP && RomInfo.gameFamily != GameFamilies.Plat)
             {
@@ -1142,10 +1151,12 @@ namespace LiTRE
             {
                 AppLogger.Error("An error occurred while repacking the ROM. Save failed.");
                 Helpers.statusLabelError("An error occurred while repacking the ROM. Save failed. Your ROM may have been corrupted.");
-                return;
+                return false;
             }
-            AppLogger.Info($"ROM saved successfully to {saveRom.FileName} in {timeSpent} seconds.");
-            Helpers.statusLabelMessage("Ready - " + StringDate + " | Build time: " + timeSpent.ToString() + "s | " + saveRom.FileName);
+            AppLogger.Info($"ROM saved successfully to {path} in {timeSpent} seconds.");
+            Helpers.statusLabelMessage("Ready - " + StringDate + " | Build time: " + timeSpent.ToString() + "s | " + path);
+            
+            return true;
         }
 
 
