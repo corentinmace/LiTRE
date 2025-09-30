@@ -830,7 +830,7 @@ namespace LiTRE.ROMFiles {
                     if (undeclaredFuncs.Count > 0) {
                         string[] errorFunctionsUndeclared = undeclaredFuncs.ToArray().Select(x => x.ToString()).ToArray();
                         if (Program.AppServices.Ipc.IsConnected)
-                            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"These Functions have been invoked but not declared:\n {string.Join(separator: ",", errorFunctionsUndeclared)}" });
+                            Program.AppServices.Ipc.PushEvent("cmdWarning", new { id = 0, message = $"These Functions have been invoked but not declared:\n {string.Join(separator: ",", errorFunctionsUndeclared)}" });
                         else
                             errorMsg += "These Functions have been invoked but not declared: " + Environment.NewLine + string.Join(separator: ",", errorFunctionsUndeclared);
                         errorMsg += Environment.NewLine;
@@ -839,7 +839,7 @@ namespace LiTRE.ROMFiles {
                     if (undeclaredActions.Count > 0) {
                         string[] errorActionsUndeclared = undeclaredActions.ToArray().Select(x => x.ToString()).ToArray();
                         if (Program.AppServices.Ipc.IsConnected)
-                            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"These Actions have been invoked but not declared:\n {string.Join(separator: ",", errorActionsUndeclared)}" });
+                            Program.AppServices.Ipc.PushEvent("cmdWarning", new { id = 0, message = $"These Actions have been invoked but not declared:\n {string.Join(separator: ",", errorActionsUndeclared)}" });
                         else
                             errorMsg += "These Actions have been referenced but not declared: " + Environment.NewLine + string.Join(separator: ",", errorActionsUndeclared);
                         errorMsg += Environment.NewLine;
@@ -874,7 +874,7 @@ namespace LiTRE.ROMFiles {
 
                     if (!string.IsNullOrEmpty(errorMsg)) {
                         if (Program.AppServices.Ipc.IsConnected)
-                            Program.AppServices.Ipc.PushEvent("cmdError", new { id = 0, message = $"{errorMsg}\n\nRemember that every unused Function or Action is always lost upon reloading the Script File." });
+                            Program.AppServices.Ipc.PushEvent("cmdWarning", new { id = 0, message = $"{errorMsg}\n\nRemember that every unused Function or Action is always lost upon reloading the Script File." });
                         else
                             MessageBox.Show(errorMsg + Environment.NewLine + "Remember that every unused Function or Action is always lost upon reloading the Script File.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         errorMsg = "";
