@@ -225,6 +225,35 @@ namespace LiTRE.Editors
             {
                 Bitmap icon;
 
+
+                if (showGridCheckbox.Checked)
+                {
+                    g.SmoothingMode = SmoothingMode.None;
+                    g.PixelOffsetMode = PixelOffsetMode.Half;
+
+                    var width = eventPictureBox.Width;
+                    var height = eventPictureBox.Height;
+
+                    float cellW = (float)width / 32;
+                    float cellH = (float)height / 32;
+
+                    using (var pen = new Pen(Color.FromArgb(gridOpacityBar.Value, Color.Gray), 1))
+                    {
+                        for (int c = 0; c <= 32; c++)
+                        {
+                            float x = c * cellW;
+                            g.DrawLine(pen, x, 0, x, height);
+                        }
+                        for (int r = 0; r <= 32; r++)
+                        {
+                            float y = r * cellH;
+                            g.DrawLine(pen, 0, y, width, y);
+                        }
+                    }
+                }
+               
+                
+                
                 /* Draw spawnables */
                 if (showSpawnablesCheckBox.Checked)
                 {
