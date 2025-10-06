@@ -1,14 +1,5 @@
-﻿using LiTRE.Editors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using LiTRE.Editors;
 using static LiTRE.RomInfo;
 
 namespace LiTRE {
@@ -146,6 +137,11 @@ namespace LiTRE {
             learnsetPage.Text = learnsetEditor.Text;
             evoPage.Text = evoEditor.Text;
             spritePage.Text = spriteEditor.Text;
+        }
+
+        public bool GetSyncChangesCheckbox()
+        {
+            return syncChangesCheckbox.Checked;
         }
 
         private void PokemonEditor_FormClosing(object sender, FormClosingEventArgs e)
