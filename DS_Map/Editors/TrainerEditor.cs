@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DSPRE.ROMFiles;
 using static LiTRE.RomInfo;
 using static LiTRE.ROMFiles.SpeciesFile;
 using Images;
@@ -892,21 +893,14 @@ namespace LiTRE.Editors
         {
             currentTrainerFile.name = newName;
             TextArchive trainerNames = new TextArchive(RomInfo.trainerNamesMessageNumber);
-            if (currentTrainerFile.trp.trainerID < trainerNames.messages.Count)
-            {
-                trainerNames.messages[currentTrainerFile.trp.trainerID] = newName;
-            }
-            else
-            {
-                trainerNames.messages.Add(newName);
-            }
-            trainerNames.SaveToFileDefaultDir(RomInfo.trainerNamesMessageNumber, showSuccessMessage: false);
+            trainerNames.SetSimpleTrainerName(currentTrainerFile.trp.trainerID, newName);
+            trainerNames.SaveToExpandedDir(RomInfo.trainerNamesMessageNumber, showSuccessMessage: false);
         }
         private void UpdateCurrentTrainerClassName(string newName)
         {
             TextArchive trainerClassNames = new TextArchive(RomInfo.trainerClassMessageNumber);
             trainerClassNames.messages[trainerClassListBox.SelectedIndex] = newName;
-            trainerClassNames.SaveToFileDefaultDir(RomInfo.trainerClassMessageNumber, showSuccessMessage: false);
+            trainerClassNames.SaveToExpandedDir(RomInfo.trainerClassMessageNumber, showSuccessMessage: false);
         }
 
         private void trainerClassListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -964,8 +958,8 @@ namespace LiTRE.Editors
 
             /* Update ComboBox and select new file */
             trainerComboBox.Items.Add(trainerClasses.messages[0]);
-            trainerNames.messages.Add("");
-            trainerNames.SaveToFileDefaultDir(RomInfo.trainerNamesMessageNumber, showSuccessMessage: false);
+            trainerNames.messages.Add("{TRAINER_NAME:}");
+            trainerNames.SaveToExpandedDir(RomInfo.trainerNamesMessageNumber, showSuccessMessage: false);
 
             trainerComboBox.SelectedIndex = trainerComboBox.Items.Count - 1;
             UpdateCurrentTrainerShownName();

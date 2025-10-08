@@ -111,6 +111,8 @@
     <Compile Include="DSUtils\NSBUtils.cs" />
     <Compile Include="DSUtils\OverlayUtils.cs" />
     <Compile Include="DSUtils\TextFormatterUtils.cs" />
+    
+    <Compile Include="DSUtils\TextConverter.cs" />
     <Compile Include="DVCalculator\DVCalc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -785,6 +787,14 @@
      <Content Include="Tools\pokefatcs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    
+    <Content Include="Tools\charmap.xml">
+
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+
+    </Content>
     <None Include="Resources\code_70x701.png" />
     <Content Include="Resources\Graphics\Area Icons\hgsslake.png" />
     <Content Include="Resources\Graphics\Camera Angles\DPPt\dpcamera0.png" />
@@ -948,12 +958,6 @@
     </Content>
     <Content Include="Tools\blz.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Tools\charmap.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Tools\msgenc.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Tools\ndstool.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

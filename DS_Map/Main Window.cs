@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using DSPRE.ROMFiles;
 using static LiTRE.EditorPanels;
 using static LiTRE.Helpers;
 using static LiTRE.RomInfo;
@@ -1065,9 +1066,19 @@ namespace LiTRE
 
         public bool SaveRom(string path)
         {
-            Helpers.statusLabelMessage("Repacking NARCS...");
-            Update();
+
             var dateBegin = DateTime.Now;
+			
+			Helpers.statusLabelMessage("Repacking Expanded Files...");
+            Update();
+
+            // Turn expanded folders back into binary files
+            // ToDo: Better system for tracking expanded folders instead of hardcoding all of them
+            if (!TextArchive.BuildRequiredBins())
+            {
+                MessageBox.Show("An error occurred while rebuilding text archives. Save aborted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
             // Repack NARCs
             foreach (KeyValuePair<DirNames, (string packedDir, string unpackedDir)> kvp in RomInfo.gameDirs)

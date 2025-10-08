@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
+using DSPRE.ROMFiles;
 
 namespace LiTRE.Editors {
     public partial class HeadbuttEncounterEditor : UserControl {

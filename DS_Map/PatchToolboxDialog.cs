@@ -10,6 +10,7 @@ using LiTRE.Resources.ROMToolboxDB;
 using LiTRE.Resources;
 using static LiTRE.RomInfo;
 using System.Threading.Tasks;
+using DSPRE.ROMFiles;
 using static LiTRE.Resources.ROMToolboxDB.ToolboxDB;
 using static NSMBe4.ROM;
 
@@ -439,7 +440,7 @@ namespace LiTRE
 
                         pokeName.messages[i] = pokeName.messages[i].Replace(PokeDatabase.System.pokeNames[(ushort)i].ToUpper(), PokeDatabase.System.pokeNames[(ushort)i]);
                     });
-                    pokeName.SaveToFileDefaultDir(ID, showSuccessMessage: false);
+                    pokeName.SaveToExpandedDir(ID, showSuccessMessage: false);
                 });
                 //sentenceCaseCB.Visible = true;
                 MessageBox.Show("Pokémon names have been converted to Sentence Case.", "Operation successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
