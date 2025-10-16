@@ -74,6 +74,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveRomWithNameToolstipItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,6 +122,7 @@
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.loadRomButton = new System.Windows.Forms.ToolStripButton();
             this.readDataFromFolderButton = new System.Windows.Forms.ToolStripButton();
+            this.saveRomWithName = new System.Windows.Forms.ToolStripButton();
             this.saveRomButton = new System.Windows.Forms.ToolStripButton();
             this.separator_AfterOpenSave = new System.Windows.Forms.ToolStripSeparator();
             this.unpackAllButton = new System.Windows.Forms.ToolStripButton();
@@ -634,7 +636,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.openROMToolStripMenuItem, this.openFolderToolStripMenuItem, this.saveROMToolStripMenuItem, this.settingsToolStripMenuItem });
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.openROMToolStripMenuItem, this.openFolderToolStripMenuItem, this.saveRomWithNameToolstipItem, this.saveROMToolStripMenuItem, this.settingsToolStripMenuItem });
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -644,7 +646,7 @@
             this.openROMToolStripMenuItem.Image = global::LiTRE.Properties.Resources.open_rom;
             this.openROMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.openROMToolStripMenuItem.Name = "openROMToolStripMenuItem";
-            this.openROMToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
+            this.openROMToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
             this.openROMToolStripMenuItem.Text = "Open ROM";
             this.openROMToolStripMenuItem.Click += new System.EventHandler(this.loadRom_Click);
             // 
@@ -654,9 +656,20 @@
             this.openFolderToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
             this.openFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
+            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
             this.openFolderToolStripMenuItem.Text = "Open Folder";
             this.openFolderToolStripMenuItem.Click += new System.EventHandler(this.readDataFromFolderButton_Click);
+            // 
+            // saveRomWithNameToolstipItem
+            // 
+            this.saveRomWithNameToolstipItem.Enabled = false;
+            this.saveRomWithNameToolstipItem.Image = global::LiTRE.Properties.Resources.save_rom_name;
+            this.saveRomWithNameToolstipItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.saveRomWithNameToolstipItem.Name = "saveRomWithNameToolstipItem";
+            this.saveRomWithNameToolstipItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.S)));
+            this.saveRomWithNameToolstipItem.Size = new System.Drawing.Size(299, 38);
+            this.saveRomWithNameToolstipItem.Text = "Save ROM (build.nds)";
+            this.saveRomWithNameToolstipItem.Click += new System.EventHandler(this.saveRomWithName_Click);
             // 
             // saveROMToolStripMenuItem
             // 
@@ -665,7 +678,7 @@
             this.saveROMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveROMToolStripMenuItem.Name = "saveROMToolStripMenuItem";
             this.saveROMToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.S)));
-            this.saveROMToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
+            this.saveROMToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
             this.saveROMToolStripMenuItem.Text = "Save ROM";
             this.saveROMToolStripMenuItem.Click += new System.EventHandler(this.saveRom_Click);
             // 
@@ -676,7 +689,7 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.RightToLeftAutoMirrorImage = true;
             this.settingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Oemcomma)));
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(233, 38);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -1014,7 +1027,7 @@
             this.mainToolStrip.BackColor = System.Drawing.SystemColors.Menu;
             this.mainToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.mainToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.loadRomButton, this.readDataFromFolderButton, this.saveRomButton, this.separator_AfterOpenSave, this.unpackAllButton, this.updateMapNarcsButton, this.separator_afterFolderUnpackers, this.buildNarcFromFolderToolStripButton, this.unpackNARCtoFolderToolStripButton, this.separator_afterNarcUtils, this.listBasedBatchRenameToolStripButton, this.contentBasedBatchRenameToolStripButton, this.separator_afterRenameUtils, this.enumBasedListBuilderToolStripButton, this.folderBasedListBuilderToolStriButton, this.separator_afterListUtils, this.nsbmdAddTexButton, this.nsbmdRemoveTexButton, this.nsbmdExportTexButton, this.separator_afterNsbmdUtils, this.weatherMapEditor, this.buildingEditorButton, this.wildEditorButton, this.scriptCommandsButton, this.romToolboxToolStripButton, this.headerSearchToolStripButton, this.spawnEditorToolStripButton, this.separator_afterMiscButtons });
+            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.loadRomButton, this.readDataFromFolderButton, this.saveRomWithName, this.saveRomButton, this.separator_AfterOpenSave, this.unpackAllButton, this.updateMapNarcsButton, this.separator_afterFolderUnpackers, this.buildNarcFromFolderToolStripButton, this.unpackNARCtoFolderToolStripButton, this.separator_afterNarcUtils, this.listBasedBatchRenameToolStripButton, this.contentBasedBatchRenameToolStripButton, this.separator_afterRenameUtils, this.enumBasedListBuilderToolStripButton, this.folderBasedListBuilderToolStriButton, this.separator_afterListUtils, this.nsbmdAddTexButton, this.nsbmdRemoveTexButton, this.nsbmdExportTexButton, this.separator_afterNsbmdUtils, this.weatherMapEditor, this.buildingEditorButton, this.wildEditorButton, this.scriptCommandsButton, this.romToolboxToolStripButton, this.headerSearchToolStripButton, this.spawnEditorToolStripButton, this.separator_afterMiscButtons });
             this.mainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(1230, 44);
@@ -1045,6 +1058,19 @@
             this.readDataFromFolderButton.Text = "Open Extracted Data";
             this.readDataFromFolderButton.ToolTipText = "Open Extracted Data";
             this.readDataFromFolderButton.Click += new System.EventHandler(this.readDataFromFolderButton_Click);
+            // 
+            // saveRomWithName
+            // 
+            this.saveRomWithName.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveRomWithName.Enabled = false;
+            this.saveRomWithName.Image = global::LiTRE.Properties.Resources.save_rom_name;
+            this.saveRomWithName.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.saveRomWithName.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveRomWithName.Margin = new System.Windows.Forms.Padding(0, 6, 0, 2);
+            this.saveRomWithName.Name = "saveRomWithName";
+            this.saveRomWithName.Size = new System.Drawing.Size(36, 36);
+            this.saveRomWithName.Text = "Save ROM";
+            this.saveRomWithName.Click += new System.EventHandler(this.saveRomWithName_Click);
             // 
             // saveRomButton
             // 
@@ -1387,6 +1413,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem saveRomWithNameToolstipItem;
+
+        private System.Windows.Forms.ToolStripButton saveRomWithName;
 
         #endregion
         private System.Windows.Forms.PictureBox gameIcon;

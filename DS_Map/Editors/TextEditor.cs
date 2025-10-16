@@ -20,6 +20,8 @@ namespace LiTRE.Editors
     public partial class TextEditor : UserControl
     {
         
+        private bool dirty = false;
+
         public TextEditor()
         {
             InitializeComponent();
@@ -128,9 +130,14 @@ namespace LiTRE.Editors
 
             try
             {
-                string originalText = textEditorDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString() ?? "";
-                //string cleanedText = System.Text.RegularExpressions.Regex.Replace(originalText, @"\[COLOR=[a-z]+\](.*?)\[/COLOR\]", "$1");
-                string cleanedText = originalText;
+                string enteredText = textEditorDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString() ?? "";
+                string cleanedText = enteredText;
+                string originalText = currentTextArchive.messages[e.RowIndex];
+
+                if (cleanedText == originalText)
+                {
+                    return;
+                }
                 currentTextArchive.messages[e.RowIndex] = cleanedText;
                 textEditorDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = ApplyHighlightMarkers(cleanedText); // Reapply markers
             }
@@ -139,6 +146,8 @@ namespace LiTRE.Editors
                 currentTextArchive.messages[e.RowIndex] = "";
                 textEditorDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = ApplyHighlightMarkers("");
             }
+
+            SetDirty(true);
         }
 
         #endregion
@@ -146,7 +155,9 @@ namespace LiTRE.Editors
         private void addTextArchiveButton_Click(object sender, EventArgs e)
         {
             /* Add copy of message 0 to text archives folder */
-            new TextArchive(selectTextFileComboBox.Items.Count, new List<string>() { "Your text here." }).SaveToExpandedDir(selectTextFileComboBox.Items.Count);
+            var textArchive = new TextArchive(selectTextFileComboBox.Items.Count, new List<string>() { "Your text here." });
+            textArchive.SaveToExpandedDir(selectTextFileComboBox.Items.Count);
+            textArchive.SaveToDefaultDir(selectTextFileComboBox.Items.Count, false);
 
             /* Update ComboBox and select new file */
             selectTextFileComboBox.Items.Add("Text Archive " + selectTextFileComboBox.Items.Count);
@@ -155,13 +166,19 @@ namespace LiTRE.Editors
 
         private void locateCurrentTextArchive_Click(object sender, EventArgs e)
         {
-            Helpers.ExplorerSelect(Path.Combine(gameDirs[DirNames.textArchives].unpackedDir, EditorPanels.textEditor.currentTextArchive.ID.ToString("D4")));
+            Helpers.ExplorerSelect(TextArchive.GetFilePaths(currentTextArchive.ID).txtPath);
+        }
+        private void openCurrentTxtButton_Click(object sender, EventArgs e)
+        {
+            Helpers.OpenFileWithDefaultApp(TextArchive.GetFilePaths(currentTextArchive.ID).txtPath);
         }
 
         private void addStringButton_Click(object sender, EventArgs e)
         {
             currentTextArchive.messages.Add("");
             textEditorDataGridView.Rows.Add("");
+
+            SetDirty(true);
 
             int rowInd = textEditorDataGridView.RowCount - 1;
 
@@ -239,7 +256,10 @@ namespace LiTRE.Editors
 
         private void saveTextArchiveButton_Click(object sender, EventArgs e)
         {
-            currentTextArchive.SaveToExpandedDir(selectTextFileComboBox.SelectedIndex);
+            currentTextArchive.SaveToExpandedDir(currentTextArchive.ID);
+
+            SetDirty(false);
+
             if (selectTextFileComboBox.SelectedIndex == RomInfo.locationNamesTextNumber)
             {
                 ReloadHeaderEditorLocationsList(currentTextArchive.messages, _parent);
@@ -296,35 +316,23 @@ namespace LiTRE.Editors
             }
 
             /* Update Text Archive object in memory */
-            string path = RomInfo.gameDirs[DirNames.textArchives].unpackedDir + "\\" + selectTextFileComboBox.SelectedIndex.ToString("D4");
+            string binPath = TextArchive.GetFilePaths(currentTextArchive.ID).binPath;
+            string txtPath = TextArchive.GetFilePaths(currentTextArchive.ID).txtPath;
             string selectedExtension = Path.GetExtension(of.FileName);
-
-            bool readagain = false;
 
             if (selectedExtension == ".msg")
             {
                 // Handle .msg case
-                File.Copy(of.FileName, path, true);
-                readagain = true;
+                File.Copy(of.FileName, binPath, true);
             }
             else if (selectedExtension == ".txt")
             {
                 // Handle .txt case
-                try
-                {
-                    string[] lines = File.ReadAllLines(of.FileName);
-                    currentTextArchive.messages.Clear();
-                    currentTextArchive.messages.AddRange(lines);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to import text file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                File.Copy(of.FileName, txtPath, true);
             }
 
             /* Refresh controls */
-            UpdateTextEditorFileView(readagain);
+            UpdateTextEditorFileView(true);
 
             /* Display success message */
             MessageBox.Show("Text Archive imported successfully!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -351,6 +359,7 @@ namespace LiTRE.Editors
                 int lastIndex = selectTextFileComboBox.Items.Count - 1;
                 if (selectTextFileComboBox.SelectedIndex == lastIndex)
                 {
+                    SetDirty(false); // File was deleted, no dirty check required
                     selectTextFileComboBox.SelectedIndex--;
                 }
 
@@ -364,6 +373,7 @@ namespace LiTRE.Editors
             {
                 currentTextArchive.messages.RemoveAt(currentTextArchive.messages.Count - 1);
                 textEditorDataGridView.Rows.RemoveAt(textEditorDataGridView.Rows.Count - 1);
+                SetDirty(true);
             }
         }
         private void searchMessageButton_Click(object sender, EventArgs e)
@@ -527,6 +537,19 @@ namespace LiTRE.Editors
         }
         private void selectTextFileComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Helpers.HandlersDisabled || selectTextFileComboBox.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            // Check for unsaved changes and revert selection if user cancels
+            if (!CheckUnsavedChanges())
+            {
+                Helpers.DisableHandlers();
+                selectTextFileComboBox.SelectedIndex = currentTextArchive.ID;
+                Helpers.EnableHandlers();
+                return;
+            }
             UpdateTextEditorFileView(true);
         }
         private void UpdateTextEditorFileView(bool readAgain)
@@ -538,6 +561,9 @@ namespace LiTRE.Editors
             {
                 currentTextArchive = new TextArchive(selectTextFileComboBox.SelectedIndex);
             }
+
+            // Text Archive loaded, reset dirty flag
+            SetDirty(false);
 
             foreach (string msg in currentTextArchive.messages)
             {
@@ -579,6 +605,54 @@ namespace LiTRE.Editors
                 textEditorDataGridView.Rows[i].HeaderCell.Value = i.ToString();
             }
         }
+
+        private void SetDirty(bool newState)
+        {
+            if (newState)
+            {
+                dirty = true;
+                _parent.textEditorTabPage.Text = _parent.textEditorTabPage.Text.TrimEnd('*') + "*";
+
+                // Editor popped out
+                if (EditorPanels.PopoutRegistry.TryGetHost(this, out var host))
+                {
+                    host.Text = host.Text.TrimEnd('*') + "*";
+                }
+            }
+            else
+            {
+                dirty = false;
+                _parent.textEditorTabPage.Text = _parent.textEditorTabPage.Text.TrimEnd('*');
+
+                // Editor popped out
+                if (EditorPanels.PopoutRegistry.TryGetHost(this, out var host))
+                {
+                    host.Text = host.Text.TrimEnd('*');
+                }
+            }
+        }
+
+        private bool CheckUnsavedChanges()
+        {
+            if (!dirty) return true;
+
+            DialogResult d = MessageBox.Show("There are unsaved changes to the currently loaded Text Archive.\n" +
+                "Do you want to save them?", "Text Editor - Unsaved changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (d == DialogResult.Yes)
+            {
+                saveTextArchiveButton_Click(null, null);
+                return true;
+            }
+            else if (d == DialogResult.No)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void textEditorDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             DataGridView dgv = sender as DataGridView;
@@ -647,6 +721,13 @@ namespace LiTRE.Editors
                 if (int.TryParse(parts[1], out int line))
                 {
                     selectTextFileComboBox.SelectedIndex = msg;
+
+                    if (selectTextFileComboBox.SelectedIndex != msg)
+                    {
+                        // Selection didn't change, user cancelled due to unsaved changes
+                        return;
+                    }
+
                     textEditorDataGridView.ClearSelection();
                     textEditorDataGridView.Rows[line].Selected = true;
                     textEditorDataGridView.Rows[line].Cells[0].Selected = true;
@@ -768,7 +849,8 @@ namespace LiTRE.Editors
                 // ShowDialog to keep the form modal while allowing background processing
                 loadingForm.ShowDialog();
             }
-        }              
-         
+        }
+
+        
     }
 }

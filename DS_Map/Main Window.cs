@@ -1014,7 +1014,9 @@ namespace LiTRE
             loadRomButton.Enabled = false;
             readDataFromFolderButton.Enabled = false;
             saveRomButton.Enabled = true;
+            saveRomWithName.Enabled = true;
             saveROMToolStripMenuItem.Enabled = true;
+            saveRomWithNameToolstipItem.Enabled = true;
             openROMToolStripMenuItem.Enabled = false;
             openFolderToolStripMenuItem.Enabled = false;
 
@@ -1062,6 +1064,12 @@ namespace LiTRE
             }
             
             SaveRom(saveRom.FileName);
+        }
+        
+        private void saveRomWithName_Click(object sender, EventArgs e)
+        {
+            AppLogger.Info("Saving ROM with name...");
+            SaveRom(Path.Combine(SettingsManager.Settings.exportPath, "build.nds"));
         }
 
         public bool SaveRom(string path)
@@ -1947,6 +1955,8 @@ namespace LiTRE
 
             var menu = new ContextMenuStrip();
             menu.Items.Add("Open", null, (s, e) => { Show(); WindowState = FormWindowState.Normal; Activate(); });
+            menu.Items.Add("Save Rom", null,
+                (s, e) => { SaveRom(Path.Combine(SettingsManager.Settings.exportPath, "build.nds")); });
             menu.Items.Add(new ToolStripSeparator());
             menu.Items.Add("Exit", null, (s, e) => Close());
             _tray.ContextMenuStrip = menu;
@@ -1966,6 +1976,7 @@ namespace LiTRE
             _tray.Icon = connected ? _iconGreen : _iconRed;
             _tray.Text = connected ? "LiTRE: connected to VS Code" : "LiTRE: not connected";
         }
+
 
     }
 }

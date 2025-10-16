@@ -784,6 +784,7 @@
     <None Include="Resources\Graphics\Program Icons\exploreKit.png" />
     <None Include="Resources\Graphics\Program Icons\buildingEditorButton.png" />
     <None Include="Resources\alphabgCheckerboard.png" />
+    <Content Include="Resources\save_rom_name.png" />
      <Content Include="Tools\pokefatcs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
