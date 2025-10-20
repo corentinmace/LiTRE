@@ -111,7 +111,6 @@
     <Compile Include="DSUtils\NSBUtils.cs" />
     <Compile Include="DSUtils\OverlayUtils.cs" />
     <Compile Include="DSUtils\TextFormatterUtils.cs" />
-    
     <Compile Include="DSUtils\TextConverter.cs" />
     <Compile Include="DVCalculator\DVCalc.cs">
       <SubType>Form</SubType>
@@ -187,6 +186,10 @@
     <Compile Include="Editors\MapEditor.Designer.cs">
       <DependentUpon>MapEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\MonReorderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\MonReorderForm.Designer.cs" />
     <Compile Include="Editors\Utils\IndexedBitmapHandler.cs" />
     <Compile Include="Editors\ItemEditor.cs">
       <SubType>Form</SubType>
@@ -584,6 +587,7 @@
     <EmbeddedResource Include="Editors\MatrixEditor.resx">
       <DependentUpon>MatrixEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editors\MonReorderForm.resx" />
     <EmbeddedResource Include="Editors\MoveDataEditor.resx">
       <DependentUpon>MoveDataEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -785,16 +789,11 @@
     <None Include="Resources\Graphics\Program Icons\buildingEditorButton.png" />
     <None Include="Resources\alphabgCheckerboard.png" />
     <Content Include="Resources\save_rom_name.png" />
-     <Content Include="Tools\pokefatcs.txt">
+    <Content Include="Tools\pokefatcs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    
     <Content Include="Tools\charmap.xml">
-
-
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-
-
     </Content>
     <None Include="Resources\code_70x701.png" />
     <Content Include="Resources\Graphics\Area Icons\hgsslake.png" />

@@ -16,7 +16,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using DSPRE.ROMFiles;
 using static LiTRE.EditorPanels;
 using static LiTRE.Helpers;
 using static LiTRE.RomInfo;

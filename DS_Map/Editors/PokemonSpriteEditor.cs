@@ -854,14 +854,15 @@ namespace LiTRE.Editors
 
         private void LoadSprites()
         {
-            nr = new NarcReader(RomInfo.gameDirs[DirNames.pokemonBattleSprites].packedDir);
-            used = new bool[nr.fe.Length];
-            for (int i = 0; i < nr.fe.Length; i++)
-            {
-                used[i] = (nr.fe[i].Size > 0);
-            }
+            
             if (!loadingOther)
             {
+                nr = new NarcReader(RomInfo.gameDirs[DirNames.pokemonBattleSprites].packedDir);
+                used = new bool[nr.fe.Length];
+                for (int i = 0; i < nr.fe.Length; i++)
+                {
+                    used[i] = (nr.fe[i].Size > 0);
+                }
                 IndexBox.Items.Clear();
                 for (int i = 0; i < pokenames.Length; i++)
                 {
@@ -871,10 +872,16 @@ namespace LiTRE.Editors
             }
             else
             {
+                used = new bool[nr.fe.Length];
+                for (int i = 0; i < nr.fe.Length; i++)
+                {
+                    used[i] = (nr.fe[i].Size > 0);
+                }
+                nr = new NarcReader(RomInfo.gameDirs[DirNames.otherPokemonBattleSprites].packedDir);
                 IndexBox.Items.Clear();
                 for (int i = 0; i < otherPokenames.Length; i++)
                 {
-                    IndexBox.Items.Add(otherPokenames[i]);
+                    IndexBox.Items.Add(i.ToString("D3") + " " + otherPokenames[i]);
                 }
                 IndexBox.SelectedIndex = 0;
             }

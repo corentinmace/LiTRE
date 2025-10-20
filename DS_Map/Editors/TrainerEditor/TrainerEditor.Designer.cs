@@ -1,4 +1,4 @@
-﻿namespace LiTRE.Editors
+﻿namespace DSPRE.Editors
 {
     partial class TrainerEditor
     {
@@ -47,16 +47,16 @@
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.poke1MovesGroupBox = new System.Windows.Forms.GroupBox();
-            this.partyMove1_1ComboBox = new LiTRE.InputComboBox();
-            this.partyMove1_2ComboBox = new LiTRE.InputComboBox();
-            this.partyMove1_3ComboBox = new LiTRE.InputComboBox();
-            this.partyMove1_4ComboBox = new LiTRE.InputComboBox();
+            this.partyMove1_1ComboBox = new DSPRE.InputComboBox();
+            this.partyMove1_2ComboBox = new DSPRE.InputComboBox();
+            this.partyMove1_3ComboBox = new DSPRE.InputComboBox();
+            this.partyMove1_4ComboBox = new DSPRE.InputComboBox();
             this.partyIV1UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyLevel1UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyBall1UpDown = new System.Windows.Forms.NumericUpDown();
-            this.partyItem1ComboBox = new LiTRE.InputComboBox();
+            this.partyItem1ComboBox = new DSPRE.InputComboBox();
             this.partyPokemon1PictureBox = new System.Windows.Forms.PictureBox();
-            this.partyPokemon1ComboBox = new LiTRE.InputComboBox();
+            this.partyPokemon1ComboBox = new DSPRE.InputComboBox();
             this.partyForm4ComboBox = new System.Windows.Forms.ComboBox();
             this.partyForm6ComboBox = new System.Windows.Forms.ComboBox();
             this.partyAbility6ComboBox = new System.Windows.Forms.ComboBox();
@@ -64,10 +64,10 @@
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
             this.poke6MovesGroupBox = new System.Windows.Forms.GroupBox();
-            this.partyMove6_1ComboBox = new LiTRE.InputComboBox();
-            this.partyMove6_2ComboBox = new LiTRE.InputComboBox();
-            this.partyMove6_3ComboBox = new LiTRE.InputComboBox();
-            this.partyMove6_4ComboBox = new LiTRE.InputComboBox();
+            this.partyMove6_1ComboBox = new DSPRE.InputComboBox();
+            this.partyMove6_2ComboBox = new DSPRE.InputComboBox();
+            this.partyMove6_3ComboBox = new DSPRE.InputComboBox();
+            this.partyMove6_4ComboBox = new DSPRE.InputComboBox();
             this.partyIV6UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyLevel6UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyBall6UpDown = new System.Windows.Forms.NumericUpDown();
@@ -75,14 +75,14 @@
             this.party2GroupBox = new System.Windows.Forms.GroupBox();
             this.partyPokemonItemPictureBox2 = new System.Windows.Forms.PictureBox();
             this.poke2MovesGroupBox = new System.Windows.Forms.GroupBox();
-            this.partyMove2_1ComboBox = new LiTRE.InputComboBox();
-            this.partyMove2_2ComboBox = new LiTRE.InputComboBox();
-            this.partyMove2_3ComboBox = new LiTRE.InputComboBox();
-            this.partyMove2_4ComboBox = new LiTRE.InputComboBox();
+            this.partyMove2_1ComboBox = new DSPRE.InputComboBox();
+            this.partyMove2_2ComboBox = new DSPRE.InputComboBox();
+            this.partyMove2_3ComboBox = new DSPRE.InputComboBox();
+            this.partyMove2_4ComboBox = new DSPRE.InputComboBox();
             this.partyIV2UpDown = new System.Windows.Forms.NumericUpDown();
-            this.partyItem2ComboBox = new LiTRE.InputComboBox();
+            this.partyItem2ComboBox = new DSPRE.InputComboBox();
             this.partyPokemon2PictureBox = new System.Windows.Forms.PictureBox();
-            this.partyPokemon2ComboBox = new LiTRE.InputComboBox();
+            this.partyPokemon2ComboBox = new DSPRE.InputComboBox();
             this.party4GroupBox = new System.Windows.Forms.GroupBox();
             this.partyGender4ComboBox = new System.Windows.Forms.ComboBox();
             this.partyPokemonItemPictureBox4 = new System.Windows.Forms.PictureBox();
@@ -90,16 +90,16 @@
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.poke4MovesGroupBox = new System.Windows.Forms.GroupBox();
-            this.partyMove4_1ComboBox = new LiTRE.InputComboBox();
-            this.partyMove4_2ComboBox = new LiTRE.InputComboBox();
-            this.partyMove4_3ComboBox = new LiTRE.InputComboBox();
-            this.partyMove4_4ComboBox = new LiTRE.InputComboBox();
+            this.partyMove4_1ComboBox = new DSPRE.InputComboBox();
+            this.partyMove4_2ComboBox = new DSPRE.InputComboBox();
+            this.partyMove4_3ComboBox = new DSPRE.InputComboBox();
+            this.partyMove4_4ComboBox = new DSPRE.InputComboBox();
             this.partyIV4UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyLevel4UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyBall4UpDown = new System.Windows.Forms.NumericUpDown();
-            this.partyItem4ComboBox = new LiTRE.InputComboBox();
+            this.partyItem4ComboBox = new DSPRE.InputComboBox();
             this.partyPokemon4PictureBox = new System.Windows.Forms.PictureBox();
-            this.partyPokemon4ComboBox = new LiTRE.InputComboBox();
+            this.partyPokemon4ComboBox = new DSPRE.InputComboBox();
             this.TrainerAIGroupBox = new System.Windows.Forms.GroupBox();
             this.trainerAI1CheckBox = new System.Windows.Forms.CheckBox();
             this.trainerAI2CheckBox = new System.Windows.Forms.CheckBox();
@@ -113,10 +113,10 @@
             this.trainerAI10CheckBox = new System.Windows.Forms.CheckBox();
             this.trainerAI11CheckBox = new System.Windows.Forms.CheckBox();
             this.trainerItemsGroupBox = new System.Windows.Forms.GroupBox();
-            this.trainerItem1ComboBox = new LiTRE.InputComboBox();
-            this.trainerItem2ComboBox = new LiTRE.InputComboBox();
-            this.trainerItem3ComboBox = new LiTRE.InputComboBox();
-            this.trainerItem4ComboBox = new LiTRE.InputComboBox();
+            this.trainerItem1ComboBox = new DSPRE.InputComboBox();
+            this.trainerItem2ComboBox = new DSPRE.InputComboBox();
+            this.trainerItem3ComboBox = new DSPRE.InputComboBox();
+            this.trainerItem4ComboBox = new DSPRE.InputComboBox();
             this.label63 = new System.Windows.Forms.Label();
             this.eyeContactMusicAltLabel = new System.Windows.Forms.Label();
             this.encounterSSEQAltUpDown = new System.Windows.Forms.NumericUpDown();
@@ -134,9 +134,9 @@
             this.party6GroupBox = new System.Windows.Forms.GroupBox();
             this.partyGender6ComboBox = new System.Windows.Forms.ComboBox();
             this.partyPokemonItemPictureBox6 = new System.Windows.Forms.PictureBox();
-            this.partyItem6ComboBox = new LiTRE.InputComboBox();
+            this.partyItem6ComboBox = new DSPRE.InputComboBox();
             this.partyPokemon6PictureBox = new System.Windows.Forms.PictureBox();
-            this.partyPokemon6ComboBox = new LiTRE.InputComboBox();
+            this.partyPokemon6ComboBox = new DSPRE.InputComboBox();
             this.party5GroupBox = new System.Windows.Forms.GroupBox();
             this.partyForm5ComboBox = new System.Windows.Forms.ComboBox();
             this.partyAbility5ComboBox = new System.Windows.Forms.ComboBox();
@@ -146,16 +146,16 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.poke5MovesGroupBox = new System.Windows.Forms.GroupBox();
-            this.partyMove5_1ComboBox = new LiTRE.InputComboBox();
-            this.partyMove5_2ComboBox = new LiTRE.InputComboBox();
-            this.partyMove5_3ComboBox = new LiTRE.InputComboBox();
-            this.partyMove5_4ComboBox = new LiTRE.InputComboBox();
+            this.partyMove5_1ComboBox = new DSPRE.InputComboBox();
+            this.partyMove5_2ComboBox = new DSPRE.InputComboBox();
+            this.partyMove5_3ComboBox = new DSPRE.InputComboBox();
+            this.partyMove5_4ComboBox = new DSPRE.InputComboBox();
             this.partyIV5UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyLevel5UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyBall5UpDown = new System.Windows.Forms.NumericUpDown();
-            this.partyItem5ComboBox = new LiTRE.InputComboBox();
+            this.partyItem5ComboBox = new DSPRE.InputComboBox();
             this.partyPokemon5PictureBox = new System.Windows.Forms.PictureBox();
-            this.partyPokemon5ComboBox = new LiTRE.InputComboBox();
+            this.partyPokemon5ComboBox = new DSPRE.InputComboBox();
             this.party3GroupBox = new System.Windows.Forms.GroupBox();
             this.partyForm3ComboBox = new System.Windows.Forms.ComboBox();
             this.partyAbility3ComboBox = new System.Windows.Forms.ComboBox();
@@ -165,16 +165,16 @@
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.poke3MovesGroupBox = new System.Windows.Forms.GroupBox();
-            this.partyMove3_1ComboBox = new LiTRE.InputComboBox();
-            this.partyMove3_2ComboBox = new LiTRE.InputComboBox();
-            this.partyMove3_3ComboBox = new LiTRE.InputComboBox();
-            this.partyMove3_4ComboBox = new LiTRE.InputComboBox();
+            this.partyMove3_1ComboBox = new DSPRE.InputComboBox();
+            this.partyMove3_2ComboBox = new DSPRE.InputComboBox();
+            this.partyMove3_3ComboBox = new DSPRE.InputComboBox();
+            this.partyMove3_4ComboBox = new DSPRE.InputComboBox();
             this.partyIV3UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyLevel3UpDown = new System.Windows.Forms.NumericUpDown();
             this.partyBall3UpDown = new System.Windows.Forms.NumericUpDown();
-            this.partyItem3ComboBox = new LiTRE.InputComboBox();
+            this.partyItem3ComboBox = new DSPRE.InputComboBox();
             this.partyPokemon3PictureBox = new System.Windows.Forms.PictureBox();
-            this.partyPokemon3ComboBox = new LiTRE.InputComboBox();
+            this.partyPokemon3ComboBox = new DSPRE.InputComboBox();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.encounterSSEQMainUpDown = new System.Windows.Forms.NumericUpDown();
             this.trainerClassFrameMaxLabel = new System.Windows.Forms.Label();
@@ -200,7 +200,7 @@
             this.deleteTrainerButton = new System.Windows.Forms.Button();
             this.addTrainerButton = new System.Windows.Forms.Button();
             this.trainerSaveCurrentButton = new System.Windows.Forms.Button();
-            this.trainerComboBox = new LiTRE.InputComboBox();
+            this.trainerComboBox = new DSPRE.InputComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.partyLevel2UpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBall2UpDown)).BeginInit();
@@ -399,7 +399,7 @@
             // 
             // partyPokemonItemPictureBox1
             // 
-            this.partyPokemonItemPictureBox1.Image = global::LiTRE.Properties.Resources.IconItem;
+            this.partyPokemonItemPictureBox1.Image = global::DSPRE.Properties.Resources.IconItem;
             this.partyPokemonItemPictureBox1.Location = new System.Drawing.Point(198, 26);
             this.partyPokemonItemPictureBox1.Name = "partyPokemonItemPictureBox1";
             this.partyPokemonItemPictureBox1.Size = new System.Drawing.Size(24, 25);
@@ -771,7 +771,7 @@
             // 
             // partyPokemonItemPictureBox2
             // 
-            this.partyPokemonItemPictureBox2.Image = global::LiTRE.Properties.Resources.IconItem;
+            this.partyPokemonItemPictureBox2.Image = global::DSPRE.Properties.Resources.IconItem;
             this.partyPokemonItemPictureBox2.Location = new System.Drawing.Point(198, 26);
             this.partyPokemonItemPictureBox2.Name = "partyPokemonItemPictureBox2";
             this.partyPokemonItemPictureBox2.Size = new System.Drawing.Size(24, 25);
@@ -923,7 +923,7 @@
             // 
             // partyPokemonItemPictureBox4
             // 
-            this.partyPokemonItemPictureBox4.Image = global::LiTRE.Properties.Resources.IconItem;
+            this.partyPokemonItemPictureBox4.Image = global::DSPRE.Properties.Resources.IconItem;
             this.partyPokemonItemPictureBox4.Location = new System.Drawing.Point(198, 26);
             this.partyPokemonItemPictureBox4.Name = "partyPokemonItemPictureBox4";
             this.partyPokemonItemPictureBox4.Size = new System.Drawing.Size(24, 25);
@@ -1337,7 +1337,7 @@
             // exportTrainerButton
             // 
             this.exportTrainerButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportTrainerButton.Image = global::LiTRE.Properties.Resources.exportArrow;
+            this.exportTrainerButton.Image = global::DSPRE.Properties.Resources.exportArrow;
             this.exportTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportTrainerButton.Location = new System.Drawing.Point(3, 3);
             this.exportTrainerButton.Name = "exportTrainerButton";
@@ -1351,7 +1351,7 @@
             // importTrainerButton
             // 
             this.importTrainerButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.importTrainerButton.Image = global::LiTRE.Properties.Resources.importArrow;
+            this.importTrainerButton.Image = global::DSPRE.Properties.Resources.importArrow;
             this.importTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importTrainerButton.Location = new System.Drawing.Point(3, 34);
             this.importTrainerButton.Name = "importTrainerButton";
@@ -1395,7 +1395,7 @@
             // 
             // DVExplainButton
             // 
-            this.DVExplainButton.Image = global::LiTRE.Properties.Resources.DV_Icon;
+            this.DVExplainButton.Image = global::DSPRE.Properties.Resources.DV_Icon;
             this.DVExplainButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.DVExplainButton.Location = new System.Drawing.Point(230, 11);
             this.DVExplainButton.Name = "DVExplainButton";
@@ -1425,7 +1425,7 @@
             // importReplacePartyButton
             // 
             this.importReplacePartyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.importReplacePartyButton.Image = global::LiTRE.Properties.Resources.importArrow;
+            this.importReplacePartyButton.Image = global::DSPRE.Properties.Resources.importArrow;
             this.importReplacePartyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importReplacePartyButton.Location = new System.Drawing.Point(121, 3);
             this.importReplacePartyButton.Name = "importReplacePartyButton";
@@ -1439,7 +1439,7 @@
             // exportPartyButton
             // 
             this.exportPartyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportPartyButton.Image = global::LiTRE.Properties.Resources.exportArrow;
+            this.exportPartyButton.Image = global::DSPRE.Properties.Resources.exportArrow;
             this.exportPartyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportPartyButton.Location = new System.Drawing.Point(3, 3);
             this.exportPartyButton.Name = "exportPartyButton";
@@ -1493,7 +1493,7 @@
             // 
             // partyPokemonItemPictureBox6
             // 
-            this.partyPokemonItemPictureBox6.Image = global::LiTRE.Properties.Resources.IconItem;
+            this.partyPokemonItemPictureBox6.Image = global::DSPRE.Properties.Resources.IconItem;
             this.partyPokemonItemPictureBox6.Location = new System.Drawing.Point(198, 26);
             this.partyPokemonItemPictureBox6.Name = "partyPokemonItemPictureBox6";
             this.partyPokemonItemPictureBox6.Size = new System.Drawing.Size(24, 25);
@@ -1588,7 +1588,7 @@
             // 
             // partyPokemonItemPictureBox5
             // 
-            this.partyPokemonItemPictureBox5.Image = global::LiTRE.Properties.Resources.IconItem;
+            this.partyPokemonItemPictureBox5.Image = global::DSPRE.Properties.Resources.IconItem;
             this.partyPokemonItemPictureBox5.Location = new System.Drawing.Point(198, 26);
             this.partyPokemonItemPictureBox5.Name = "partyPokemonItemPictureBox5";
             this.partyPokemonItemPictureBox5.Size = new System.Drawing.Size(24, 25);
@@ -1816,7 +1816,7 @@
             // 
             // partyPokemonItemPictureBox3
             // 
-            this.partyPokemonItemPictureBox3.Image = global::LiTRE.Properties.Resources.IconItem;
+            this.partyPokemonItemPictureBox3.Image = global::DSPRE.Properties.Resources.IconItem;
             this.partyPokemonItemPictureBox3.Location = new System.Drawing.Point(198, 26);
             this.partyPokemonItemPictureBox3.Name = "partyPokemonItemPictureBox3";
             this.partyPokemonItemPictureBox3.Size = new System.Drawing.Size(24, 25);
@@ -2049,7 +2049,7 @@
             // 
             // saveTrainerClassButton
             // 
-            this.saveTrainerClassButton.Image = global::LiTRE.Properties.Resources.save_rom;
+            this.saveTrainerClassButton.Image = global::DSPRE.Properties.Resources.save_rom;
             this.saveTrainerClassButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveTrainerClassButton.Location = new System.Drawing.Point(322, 15);
             this.saveTrainerClassButton.Name = "saveTrainerClassButton";
@@ -2244,7 +2244,7 @@
             // deleteTrainerButton
             // 
             this.deleteTrainerButton.Enabled = false;
-            this.deleteTrainerButton.Image = global::LiTRE.Properties.Resources.deleteIcon;
+            this.deleteTrainerButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
             this.deleteTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deleteTrainerButton.Location = new System.Drawing.Point(338, 55);
             this.deleteTrainerButton.Name = "deleteTrainerButton";
@@ -2258,7 +2258,7 @@
             // addTrainerButton
             // 
             this.addTrainerButton.Enabled = false;
-            this.addTrainerButton.Image = global::LiTRE.Properties.Resources.addIcon;
+            this.addTrainerButton.Image = global::DSPRE.Properties.Resources.addIcon;
             this.addTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addTrainerButton.Location = new System.Drawing.Point(338, 25);
             this.addTrainerButton.Name = "addTrainerButton";
@@ -2272,7 +2272,7 @@
             // 
             // trainerSaveCurrentButton
             // 
-            this.trainerSaveCurrentButton.Image = global::LiTRE.Properties.Resources.saveButton;
+            this.trainerSaveCurrentButton.Image = global::DSPRE.Properties.Resources.saveButton;
             this.trainerSaveCurrentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.trainerSaveCurrentButton.Location = new System.Drawing.Point(20, 54);
             this.trainerSaveCurrentButton.Name = "trainerSaveCurrentButton";

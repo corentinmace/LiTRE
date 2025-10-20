@@ -1,4 +1,4 @@
-﻿using LiTRE.ROMFiles;
+﻿using DSPRE.ROMFiles;
 using Ekona.Images;
 using System;
 using System.Collections;
@@ -12,11 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static LiTRE.RomInfo;
-using static LiTRE.ROMFiles.SpeciesFile;
+using static DSPRE.RomInfo;
+using static DSPRE.ROMFiles.SpeciesFile;
 using Images;
 
-namespace LiTRE.Editors
+namespace DSPRE.Editors
 {
     public partial class TrainerEditor : UserControl
     {
@@ -429,7 +429,7 @@ namespace LiTRE.Editors
             {
                 MessageBox.Show("This Trainer File doesn't have a corresponding name.\n\n" +
                     "If you edited this ROM's Trainers with another tool before, don't worry.\n" +
-                    "LiTRE will attempt to add the missing line to the Trainer Names Text Archive [" + RomInfo.trainerNamesMessageNumber + "] upon resaving.",
+                    "DSPRE will attempt to add the missing line to the Trainer Names Text Archive [" + RomInfo.trainerNamesMessageNumber + "] upon resaving.",
                     "Trainer name not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

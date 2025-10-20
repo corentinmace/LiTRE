@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DSPRE.ROMFiles;
 using LiTRE.Editors.Utils;
 using static LiTRE.RomInfo;
 using static Tao.Platform.Windows.Winmm;

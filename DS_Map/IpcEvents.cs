@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using DSPRE.ROMFiles;
 using LiTRE.Editors;
 using LiTRE.ROMFiles;
 
