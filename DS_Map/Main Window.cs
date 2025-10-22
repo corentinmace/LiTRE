@@ -257,6 +257,7 @@ namespace LiTRE
             if (e.CloseReason != CloseReason.ApplicationExitCall && MessageBox.Show("Are you sure you want to quit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
+                return;
             }
             try { _ipc?.Dispose(); } catch { }
             if (_tray != null) _tray.Dispose();
