@@ -42,8 +42,8 @@
             this.nsbtxEditorPopOutLabel = new System.Windows.Forms.Label();
             this.nsbtxEditor = new LiTRE.Editors.NsbtxEditor();
             this.eventEditorTabPage = new System.Windows.Forms.TabPage();
-            this.popoutEventEditorButton = new System.Windows.Forms.Button();
             this.eventEditorLiT = new LiTRE.Editors.EventEditorLiT();
+            this.popoutEventEditorButton = new System.Windows.Forms.Button();
             this.eventEditorPopOutLabel = new System.Windows.Forms.Label();
             this.tabPageScriptEditor = new System.Windows.Forms.TabPage();
             this.popoutScriptEditorButton = new System.Windows.Forms.Button();
@@ -51,18 +51,18 @@
             this.scriptEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.tabPageLevelScriptEditor = new System.Windows.Forms.TabPage();
             this.popoutLevelScriptEditorButton = new System.Windows.Forms.Button();
-            this.LSEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.levelScriptEditor = new LiTRE.Editors.LevelScriptEditor();
+            this.LSEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.textEditorTabPage = new System.Windows.Forms.TabPage();
             this.popoutTextEditorButton = new System.Windows.Forms.Button();
-            this.textEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.textEditor = new LiTRE.Editors.TextEditor();
+            this.textEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.cameraEditorTabPage = new System.Windows.Forms.TabPage();
             this.cameraEditor = new LiTRE.Editors.CameraEditor();
             this.trainerEditorTabPage = new System.Windows.Forms.TabPage();
             this.popoutTrainerEditorButton = new System.Windows.Forms.Button();
-            this.trainerEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.trainerEditor = new LiTRE.Editors.TrainerEditor();
+            this.trainerEditorPoppedOutLabel = new System.Windows.Forms.Label();
             this.tableEditorTabPage = new System.Windows.Forms.TabPage();
             this.tableEditor = new LiTRE.Editors.TableEditor();
             this.tabPageEncountersEditor = new System.Windows.Forms.TabPage();
@@ -74,12 +74,13 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveRomWithNameToolstipItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveRomWithNameToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.romToolboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.headerSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scrcmdHelper = new System.Windows.Forms.ToolStripMenuItem();
             this.addressHelperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptCommandsDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diamondAndPearlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,17 +101,16 @@
             this.untexturizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractNSBTXFromNSBMDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scrcmdTableHelperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.essentialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otherEditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.personalDataEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pokemonEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overlayEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spawnEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.moveDataEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flyWarpEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overworldEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,24 +131,28 @@
             this.buildNarcFromFolderToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.unpackNARCtoFolderToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.separator_afterNarcUtils = new System.Windows.Forms.ToolStripSeparator();
+            this.buildingEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.wildEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.pokemonEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.moveEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.itemEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.tradeEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.separator_afterEditors = new System.Windows.Forms.ToolStripSeparator();
+            this.scriptCommandsButton = new System.Windows.Forms.ToolStripButton();
+            this.romToolboxToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.headerSearchToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.separator_afterMiscButtons = new System.Windows.Forms.ToolStripSeparator();
+            this.weatherMapEditor = new System.Windows.Forms.ToolStripButton();
+            this.nsbmdAddTexButton = new System.Windows.Forms.ToolStripButton();
+            this.nsbmdRemoveTexButton = new System.Windows.Forms.ToolStripButton();
+            this.nsbmdExportTexButton = new System.Windows.Forms.ToolStripButton();
+            this.separator_afterNsbmdUtils = new System.Windows.Forms.ToolStripSeparator();
             this.listBasedBatchRenameToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.contentBasedBatchRenameToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.separator_afterRenameUtils = new System.Windows.Forms.ToolStripSeparator();
             this.enumBasedListBuilderToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.folderBasedListBuilderToolStriButton = new System.Windows.Forms.ToolStripButton();
             this.separator_afterListUtils = new System.Windows.Forms.ToolStripSeparator();
-            this.nsbmdAddTexButton = new System.Windows.Forms.ToolStripButton();
-            this.nsbmdRemoveTexButton = new System.Windows.Forms.ToolStripButton();
-            this.nsbmdExportTexButton = new System.Windows.Forms.ToolStripButton();
-            this.separator_afterNsbmdUtils = new System.Windows.Forms.ToolStripSeparator();
-            this.weatherMapEditor = new System.Windows.Forms.ToolStripButton();
-            this.buildingEditorButton = new System.Windows.Forms.ToolStripButton();
-            this.wildEditorButton = new System.Windows.Forms.ToolStripButton();
-            this.scriptCommandsButton = new System.Windows.Forms.ToolStripButton();
-            this.romToolboxToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.headerSearchToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.spawnEditorToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.separator_afterMiscButtons = new System.Windows.Forms.ToolStripSeparator();
             this.versionLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.mainTabControl.SuspendLayout();
@@ -303,8 +307,8 @@
             // eventEditorTabPage
             // 
             this.eventEditorTabPage.BackColor = System.Drawing.SystemColors.Window;
-            this.eventEditorTabPage.Controls.Add(this.popoutEventEditorButton);
             this.eventEditorTabPage.Controls.Add(this.eventEditorLiT);
+            this.eventEditorTabPage.Controls.Add(this.popoutEventEditorButton);
             this.eventEditorTabPage.Controls.Add(this.eventEditorPopOutLabel);
             this.eventEditorTabPage.ImageIndex = 3;
             this.eventEditorTabPage.Location = new System.Drawing.Point(4, 23);
@@ -313,15 +317,6 @@
             this.eventEditorTabPage.Size = new System.Drawing.Size(1185, 675);
             this.eventEditorTabPage.TabIndex = 3;
             this.eventEditorTabPage.Text = "Event Editor";
-            // 
-            // popoutEventEditorButton
-            // 
-            this.popoutEventEditorButton.Image = global::LiTRE.Properties.Resources.popout;
-            this.popoutEventEditorButton.Location = new System.Drawing.Point(1144, 634);
-            this.popoutEventEditorButton.Name = "popoutEventEditorButton";
-            this.popoutEventEditorButton.Size = new System.Drawing.Size(35, 35);
-            this.popoutEventEditorButton.TabIndex = 5;
-            this.popoutEventEditorButton.UseVisualStyleBackColor = true;
             // 
             // eventEditorLiT
             // 
@@ -332,7 +327,16 @@
             this.eventEditorLiT.Name = "eventEditorLiT";
             this.eventEditorLiT.Padding = new System.Windows.Forms.Padding(3);
             this.eventEditorLiT.Size = new System.Drawing.Size(1179, 669);
-            this.eventEditorLiT.TabIndex = 0;
+            this.eventEditorLiT.TabIndex = 7;
+            // 
+            // popoutEventEditorButton
+            // 
+            this.popoutEventEditorButton.Image = global::LiTRE.Properties.Resources.popout;
+            this.popoutEventEditorButton.Location = new System.Drawing.Point(1144, 634);
+            this.popoutEventEditorButton.Name = "popoutEventEditorButton";
+            this.popoutEventEditorButton.Size = new System.Drawing.Size(35, 35);
+            this.popoutEventEditorButton.TabIndex = 5;
+            this.popoutEventEditorButton.UseVisualStyleBackColor = true;
             // 
             // eventEditorPopOutLabel
             // 
@@ -393,8 +397,8 @@
             // tabPageLevelScriptEditor
             // 
             this.tabPageLevelScriptEditor.Controls.Add(this.popoutLevelScriptEditorButton);
-            this.tabPageLevelScriptEditor.Controls.Add(this.LSEditorPoppedOutLabel);
             this.tabPageLevelScriptEditor.Controls.Add(this.levelScriptEditor);
+            this.tabPageLevelScriptEditor.Controls.Add(this.LSEditorPoppedOutLabel);
             this.tabPageLevelScriptEditor.ImageIndex = 5;
             this.tabPageLevelScriptEditor.Location = new System.Drawing.Point(4, 23);
             this.tabPageLevelScriptEditor.Name = "tabPageLevelScriptEditor";
@@ -413,6 +417,16 @@
             this.popoutLevelScriptEditorButton.TabIndex = 2;
             this.popoutLevelScriptEditorButton.UseVisualStyleBackColor = true;
             // 
+            // levelScriptEditor
+            // 
+            this.levelScriptEditor.BackColor = System.Drawing.SystemColors.Control;
+            this.levelScriptEditor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.levelScriptEditor.levelScriptEditorIsReady = false;
+            this.levelScriptEditor.Location = new System.Drawing.Point(3, 3);
+            this.levelScriptEditor.Name = "levelScriptEditor";
+            this.levelScriptEditor.Size = new System.Drawing.Size(408, 669);
+            this.levelScriptEditor.TabIndex = 4;
+            // 
             // LSEditorPoppedOutLabel
             // 
             this.LSEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
@@ -425,21 +439,11 @@
             this.LSEditorPoppedOutLabel.Text = "This editor is currently popped-out";
             this.LSEditorPoppedOutLabel.Visible = false;
             // 
-            // levelScriptEditor
-            // 
-            this.levelScriptEditor.BackColor = System.Drawing.SystemColors.Control;
-            this.levelScriptEditor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.levelScriptEditor.levelScriptEditorIsReady = false;
-            this.levelScriptEditor.Location = new System.Drawing.Point(3, 3);
-            this.levelScriptEditor.Name = "levelScriptEditor";
-            this.levelScriptEditor.Size = new System.Drawing.Size(408, 669);
-            this.levelScriptEditor.TabIndex = 4;
-            // 
             // textEditorTabPage
             // 
             this.textEditorTabPage.Controls.Add(this.popoutTextEditorButton);
-            this.textEditorTabPage.Controls.Add(this.textEditorPoppedOutLabel);
             this.textEditorTabPage.Controls.Add(this.textEditor);
+            this.textEditorTabPage.Controls.Add(this.textEditorPoppedOutLabel);
             this.textEditorTabPage.ImageIndex = 4;
             this.textEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.textEditorTabPage.Name = "textEditorTabPage";
@@ -458,6 +462,15 @@
             this.popoutTextEditorButton.TabIndex = 1;
             this.popoutTextEditorButton.UseVisualStyleBackColor = true;
             // 
+            // textEditor
+            // 
+            this.textEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEditor.Location = new System.Drawing.Point(3, 3);
+            this.textEditor.Name = "textEditor";
+            this.textEditor.Size = new System.Drawing.Size(1179, 669);
+            this.textEditor.TabIndex = 3;
+            this.textEditor.textEditorIsReady = false;
+            // 
             // textEditorPoppedOutLabel
             // 
             this.textEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
@@ -469,15 +482,6 @@
             this.textEditorPoppedOutLabel.TabIndex = 2;
             this.textEditorPoppedOutLabel.Text = "This editor is currently popped-out";
             this.textEditorPoppedOutLabel.Visible = false;
-            // 
-            // textEditor
-            // 
-            this.textEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEditor.Location = new System.Drawing.Point(3, 3);
-            this.textEditor.Name = "textEditor";
-            this.textEditor.Size = new System.Drawing.Size(1179, 669);
-            this.textEditor.TabIndex = 3;
-            this.textEditor.textEditorIsReady = false;
             // 
             // cameraEditorTabPage
             // 
@@ -502,8 +506,8 @@
             // trainerEditorTabPage
             // 
             this.trainerEditorTabPage.Controls.Add(this.popoutTrainerEditorButton);
-            this.trainerEditorTabPage.Controls.Add(this.trainerEditorPoppedOutLabel);
             this.trainerEditorTabPage.Controls.Add(this.trainerEditor);
+            this.trainerEditorTabPage.Controls.Add(this.trainerEditorPoppedOutLabel);
             this.trainerEditorTabPage.ImageIndex = 8;
             this.trainerEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.trainerEditorTabPage.Name = "trainerEditorTabPage";
@@ -521,6 +525,15 @@
             this.popoutTrainerEditorButton.TabIndex = 2;
             this.popoutTrainerEditorButton.UseVisualStyleBackColor = true;
             // 
+            // trainerEditor
+            // 
+            this.trainerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trainerEditor.Location = new System.Drawing.Point(0, 0);
+            this.trainerEditor.Name = "trainerEditor";
+            this.trainerEditor.Size = new System.Drawing.Size(1185, 675);
+            this.trainerEditor.TabIndex = 18;
+            this.trainerEditor.trainerEditorIsReady = false;
+            // 
             // trainerEditorPoppedOutLabel
             // 
             this.trainerEditorPoppedOutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
@@ -532,15 +545,6 @@
             this.trainerEditorPoppedOutLabel.TabIndex = 17;
             this.trainerEditorPoppedOutLabel.Text = "This editor is currently popped-out";
             this.trainerEditorPoppedOutLabel.Visible = false;
-            // 
-            // trainerEditor
-            // 
-            this.trainerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trainerEditor.Location = new System.Drawing.Point(0, 0);
-            this.trainerEditor.Name = "trainerEditor";
-            this.trainerEditor.Size = new System.Drawing.Size(1185, 675);
-            this.trainerEditor.TabIndex = 18;
-            this.trainerEditor.trainerEditorIsReady = false;
             // 
             // tableEditorTabPage
             // 
@@ -572,7 +576,7 @@
             this.tabPageEncountersEditor.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageEncountersEditor.Size = new System.Drawing.Size(1185, 675);
             this.tabPageEncountersEditor.TabIndex = 12;
-            this.tabPageEncountersEditor.Text = "Encounters";
+            this.tabPageEncountersEditor.Text = "Sp. Encounters";
             this.tabPageEncountersEditor.UseVisualStyleBackColor = true;
             // 
             // encountersEditor
@@ -636,7 +640,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.openROMToolStripMenuItem, this.openFolderToolStripMenuItem, this.saveRomWithNameToolstipItem, this.saveROMToolStripMenuItem, this.settingsToolStripMenuItem });
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.openROMToolStripMenuItem, this.openFolderToolStripMenuItem, this.saveROMToolStripMenuItem, this.saveRomWithNameToolStripItem, this.settingsToolStripMenuItem });
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -646,7 +650,7 @@
             this.openROMToolStripMenuItem.Image = global::LiTRE.Properties.Resources.open_rom;
             this.openROMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.openROMToolStripMenuItem.Name = "openROMToolStripMenuItem";
-            this.openROMToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
+            this.openROMToolStripMenuItem.Size = new System.Drawing.Size(302, 38);
             this.openROMToolStripMenuItem.Text = "Open ROM";
             this.openROMToolStripMenuItem.Click += new System.EventHandler(this.loadRom_Click);
             // 
@@ -656,20 +660,9 @@
             this.openFolderToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
             this.openFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
+            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(302, 38);
             this.openFolderToolStripMenuItem.Text = "Open Folder";
             this.openFolderToolStripMenuItem.Click += new System.EventHandler(this.readDataFromFolderButton_Click);
-            // 
-            // saveRomWithNameToolstipItem
-            // 
-            this.saveRomWithNameToolstipItem.Enabled = false;
-            this.saveRomWithNameToolstipItem.Image = global::LiTRE.Properties.Resources.save_rom_name;
-            this.saveRomWithNameToolstipItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.saveRomWithNameToolstipItem.Name = "saveRomWithNameToolstipItem";
-            this.saveRomWithNameToolstipItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.S)));
-            this.saveRomWithNameToolstipItem.Size = new System.Drawing.Size(299, 38);
-            this.saveRomWithNameToolstipItem.Text = "Save ROM (build.nds)";
-            this.saveRomWithNameToolstipItem.Click += new System.EventHandler(this.saveRomWithName_Click);
             // 
             // saveROMToolStripMenuItem
             // 
@@ -678,9 +671,20 @@
             this.saveROMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.saveROMToolStripMenuItem.Name = "saveROMToolStripMenuItem";
             this.saveROMToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.S)));
-            this.saveROMToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
+            this.saveROMToolStripMenuItem.Size = new System.Drawing.Size(302, 38);
             this.saveROMToolStripMenuItem.Text = "Save ROM";
             this.saveROMToolStripMenuItem.Click += new System.EventHandler(this.saveRom_Click);
+            // 
+            // saveRomWithNameToolStripItem
+            // 
+            this.saveRomWithNameToolStripItem.Enabled = false;
+            this.saveRomWithNameToolStripItem.Image = global::LiTRE.Properties.Resources.save_rom_name;
+            this.saveRomWithNameToolStripItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.saveRomWithNameToolStripItem.Name = "saveRomWithNameToolStripItem";
+            this.saveRomWithNameToolStripItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.S)));
+            this.saveRomWithNameToolStripItem.Size = new System.Drawing.Size(302, 38);
+            this.saveRomWithNameToolStripItem.Text = "Save ROM With Name";
+            this.saveRomWithNameToolStripItem.Click += new System.EventHandler(this.saveRomWithName_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -689,13 +693,13 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.RightToLeftAutoMirrorImage = true;
             this.settingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Oemcomma)));
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(299, 38);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(302, 38);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.romToolboxToolStripMenuItem, this.headerSearchToolStripMenuItem, this.addressHelperToolStripMenuItem, this.scriptCommandsDatabaseToolStripMenuItem, this.NarcUtilityToolStripMenuItem, this.listBasedBatchRenameToolStripMenuItem, this.listBuilderToolStripMenuItem, this.nSBMDUtilityToolStripMenuItem, this.generateCSVToolStripMenuItem, this.scrcmdTableHelperToolStripMenuItem });
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.romToolboxToolStripMenuItem, this.headerSearchToolStripMenuItem, this.scrcmdHelper, this.addressHelperToolStripMenuItem, this.scriptCommandsDatabaseToolStripMenuItem, this.NarcUtilityToolStripMenuItem, this.listBasedBatchRenameToolStripMenuItem, this.listBuilderToolStripMenuItem, this.nSBMDUtilityToolStripMenuItem, this.generateCSVToolStripMenuItem });
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
@@ -715,6 +719,14 @@
             this.headerSearchToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.headerSearchToolStripMenuItem.Text = "Advanced Header Search";
             this.headerSearchToolStripMenuItem.Click += new System.EventHandler(this.advancedHeaderSearchToolStripMenuItem_Click);
+            // 
+            // scrcmdHelper
+            // 
+            this.scrcmdHelper.Enabled = false;
+            this.scrcmdHelper.Name = "scrcmdHelper";
+            this.scrcmdHelper.Size = new System.Drawing.Size(220, 22);
+            this.scrcmdHelper.Text = "Scrcmd Helper";
+            this.scrcmdHelper.Click += new System.EventHandler(this.scrcmdTableHelperToolStripMenuItem_Click);
             // 
             // addressHelperToolStripMenuItem
             // 
@@ -883,13 +895,6 @@
             this.generateCSVToolStripMenuItem.Text = "Generate CSV";
             this.generateCSVToolStripMenuItem.Click += new System.EventHandler(this.generateCSVToolStripMenuItem_Click);
             // 
-            // scrcmdTableHelperToolStripMenuItem
-            // 
-            this.scrcmdTableHelperToolStripMenuItem.Name = "scrcmdTableHelperToolStripMenuItem";
-            this.scrcmdTableHelperToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.scrcmdTableHelperToolStripMenuItem.Text = "Scrcmd Table Helper";
-            this.scrcmdTableHelperToolStripMenuItem.Click += new System.EventHandler(this.scrcmdTableHelperToolStripMenuItem_Click);
-            // 
             // menuViewToolStripMenuItem
             // 
             this.menuViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.essentialToolStripMenuItem, this.simpleToolStripMenuItem, this.advancedStripMenuItem, this.fullViewToolStripMenuItem });
@@ -929,18 +934,18 @@
             // 
             // otherEditorsToolStripMenuItem
             // 
-            this.otherEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.personalDataEditorToolStripMenuItem, this.overlayEditorToolStripMenuItem, this.spawnEditorToolStripMenuItem, this.moveDataEditorToolStripMenuItem, this.flyWarpEditorToolStripMenuItem, this.itemEditorToolStripMenuItem, this.overworldEditorToolStripMenuItem, this.tradeEditorToolStripMenuItem });
+            this.otherEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.pokemonEditorToolStripMenuItem, this.overlayEditorToolStripMenuItem, this.spawnEditorToolStripMenuItem, this.moveEditorToolStripMenuItem, this.flyWarpEditorToolStripMenuItem, this.itemEditorToolStripMenuItem, this.overworldEditorToolStripMenuItem, this.tradeEditorToolStripMenuItem });
             this.otherEditorsToolStripMenuItem.Enabled = false;
             this.otherEditorsToolStripMenuItem.Name = "otherEditorsToolStripMenuItem";
             this.otherEditorsToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.otherEditorsToolStripMenuItem.Text = "Other Editors";
             // 
-            // personalDataEditorToolStripMenuItem
+            // pokemonEditorToolStripMenuItem
             // 
-            this.personalDataEditorToolStripMenuItem.Name = "personalDataEditorToolStripMenuItem";
-            this.personalDataEditorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.personalDataEditorToolStripMenuItem.Text = "Pokémon Editor";
-            this.personalDataEditorToolStripMenuItem.Click += new System.EventHandler(this.pokemonDataEditorToolStripMenuItem_Click);
+            this.pokemonEditorToolStripMenuItem.Name = "pokemonEditorToolStripMenuItem";
+            this.pokemonEditorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.pokemonEditorToolStripMenuItem.Text = "Pokémon Editor";
+            this.pokemonEditorToolStripMenuItem.Click += new System.EventHandler(this.pokemonEditorToolStripMenuItem_Click);
             // 
             // overlayEditorToolStripMenuItem
             // 
@@ -956,12 +961,12 @@
             this.spawnEditorToolStripMenuItem.Text = "Spawn Point Editor";
             this.spawnEditorToolStripMenuItem.Click += new System.EventHandler(this.spawnEditorToolStripButton_Click);
             // 
-            // moveDataEditorToolStripMenuItem
+            // moveEditorToolStripMenuItem
             // 
-            this.moveDataEditorToolStripMenuItem.Name = "moveDataEditorToolStripMenuItem";
-            this.moveDataEditorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.moveDataEditorToolStripMenuItem.Text = "Move Data Editor";
-            this.moveDataEditorToolStripMenuItem.Click += new System.EventHandler(this.moveDataEditorToolStripMenuItem_Click);
+            this.moveEditorToolStripMenuItem.Name = "moveEditorToolStripMenuItem";
+            this.moveEditorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.moveEditorToolStripMenuItem.Text = "Move Editor";
+            this.moveEditorToolStripMenuItem.Click += new System.EventHandler(this.moveEditorToolStripMenuItem_Click);
             // 
             // flyWarpEditorToolStripMenuItem
             // 
@@ -1027,7 +1032,7 @@
             this.mainToolStrip.BackColor = System.Drawing.SystemColors.Menu;
             this.mainToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.mainToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.loadRomButton, this.readDataFromFolderButton, this.saveRomWithName, this.saveRomButton, this.separator_AfterOpenSave, this.unpackAllButton, this.updateMapNarcsButton, this.separator_afterFolderUnpackers, this.buildNarcFromFolderToolStripButton, this.unpackNARCtoFolderToolStripButton, this.separator_afterNarcUtils, this.listBasedBatchRenameToolStripButton, this.contentBasedBatchRenameToolStripButton, this.separator_afterRenameUtils, this.enumBasedListBuilderToolStripButton, this.folderBasedListBuilderToolStriButton, this.separator_afterListUtils, this.nsbmdAddTexButton, this.nsbmdRemoveTexButton, this.nsbmdExportTexButton, this.separator_afterNsbmdUtils, this.weatherMapEditor, this.buildingEditorButton, this.wildEditorButton, this.scriptCommandsButton, this.romToolboxToolStripButton, this.headerSearchToolStripButton, this.spawnEditorToolStripButton, this.separator_afterMiscButtons });
+            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.loadRomButton, this.readDataFromFolderButton, this.saveRomWithName, this.saveRomButton, this.separator_AfterOpenSave, this.unpackAllButton, this.updateMapNarcsButton, this.separator_afterFolderUnpackers, this.buildNarcFromFolderToolStripButton, this.unpackNARCtoFolderToolStripButton, this.separator_afterNarcUtils, this.buildingEditorButton, this.wildEditorButton, this.pokemonEditorButton, this.moveEditorButton, this.itemEditorButton, this.tradeEditorButton, this.separator_afterEditors, this.scriptCommandsButton, this.romToolboxToolStripButton, this.headerSearchToolStripButton, this.separator_afterMiscButtons, this.weatherMapEditor, this.nsbmdAddTexButton, this.nsbmdRemoveTexButton, this.nsbmdExportTexButton, this.separator_afterNsbmdUtils, this.listBasedBatchRenameToolStripButton, this.contentBasedBatchRenameToolStripButton, this.separator_afterRenameUtils, this.enumBasedListBuilderToolStripButton, this.folderBasedListBuilderToolStriButton, this.separator_afterListUtils });
             this.mainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(1230, 44);
@@ -1069,7 +1074,7 @@
             this.saveRomWithName.Margin = new System.Windows.Forms.Padding(0, 6, 0, 2);
             this.saveRomWithName.Name = "saveRomWithName";
             this.saveRomWithName.Size = new System.Drawing.Size(36, 36);
-            this.saveRomWithName.Text = "Save ROM";
+            this.saveRomWithName.Text = "Save ROM With Name";
             this.saveRomWithName.Click += new System.EventHandler(this.saveRomWithName_Click);
             // 
             // saveRomButton
@@ -1150,6 +1155,194 @@
             this.separator_afterNarcUtils.Name = "separator_afterNarcUtils";
             this.separator_afterNarcUtils.Size = new System.Drawing.Size(6, 44);
             // 
+            // buildingEditorButton
+            // 
+            this.buildingEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buildingEditorButton.Enabled = false;
+            this.buildingEditorButton.Image = global::LiTRE.Properties.Resources.buildingEditorButton;
+            this.buildingEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.buildingEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buildingEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.buildingEditorButton.Name = "buildingEditorButton";
+            this.buildingEditorButton.Size = new System.Drawing.Size(36, 36);
+            this.buildingEditorButton.Text = "Buildings Editor";
+            this.buildingEditorButton.ToolTipText = "Building Editor";
+            this.buildingEditorButton.Click += new System.EventHandler(this.buildingEditorButton_Click);
+            // 
+            // wildEditorButton
+            // 
+            this.wildEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.wildEditorButton.Enabled = false;
+            this.wildEditorButton.Image = global::LiTRE.Properties.Resources.wildEditorButton;
+            this.wildEditorButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.wildEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.wildEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.wildEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.wildEditorButton.Name = "wildEditorButton";
+            this.wildEditorButton.Size = new System.Drawing.Size(36, 36);
+            this.wildEditorButton.Text = "Wild Pokémon Editor";
+            this.wildEditorButton.Click += new System.EventHandler(this.wildEditorButton_Click);
+            // 
+            // pokemonEditorButton
+            // 
+            this.pokemonEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pokemonEditorButton.Enabled = false;
+            this.pokemonEditorButton.Image = global::LiTRE.Properties.Resources.pokemon_editor_icon;
+            this.pokemonEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.pokemonEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pokemonEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.pokemonEditorButton.Name = "pokemonEditorButton";
+            this.pokemonEditorButton.Size = new System.Drawing.Size(36, 36);
+            this.pokemonEditorButton.Text = "Pokémon Data Editor";
+            this.pokemonEditorButton.Click += new System.EventHandler(this.pokemonEditorToolStripMenuItem_Click);
+            // 
+            // moveEditorButton
+            // 
+            this.moveEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.moveEditorButton.Enabled = false;
+            this.moveEditorButton.Image = global::LiTRE.Properties.Resources.move_editor_icon;
+            this.moveEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.moveEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.moveEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.moveEditorButton.Name = "moveEditorButton";
+            this.moveEditorButton.Size = new System.Drawing.Size(36, 36);
+            this.moveEditorButton.Text = "Move Editor";
+            this.moveEditorButton.Click += new System.EventHandler(this.moveEditorToolStripMenuItem_Click);
+            // 
+            // itemEditorButton
+            // 
+            this.itemEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.itemEditorButton.Enabled = false;
+            this.itemEditorButton.Image = global::LiTRE.Properties.Resources.item_editor_icon;
+            this.itemEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.itemEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.itemEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.itemEditorButton.Name = "itemEditorButton";
+            this.itemEditorButton.Size = new System.Drawing.Size(36, 36);
+            this.itemEditorButton.Text = "Item Editor";
+            this.itemEditorButton.Click += new System.EventHandler(this.itemEditorToolStripMenuItem_Click);
+            // 
+            // tradeEditorButton
+            // 
+            this.tradeEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tradeEditorButton.Enabled = false;
+            this.tradeEditorButton.Image = global::LiTRE.Properties.Resources.trade_editor_icon;
+            this.tradeEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tradeEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tradeEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.tradeEditorButton.Name = "tradeEditorButton";
+            this.tradeEditorButton.Size = new System.Drawing.Size(36, 36);
+            this.tradeEditorButton.Text = "Trade Editor";
+            this.tradeEditorButton.Click += new System.EventHandler(this.tradeEditorToolStripMenuItem_Click);
+            // 
+            // separator_afterEditors
+            // 
+            this.separator_afterEditors.Name = "separator_afterEditors";
+            this.separator_afterEditors.Size = new System.Drawing.Size(6, 44);
+            // 
+            // scriptCommandsButton
+            // 
+            this.scriptCommandsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.scriptCommandsButton.Enabled = false;
+            this.scriptCommandsButton.Image = global::LiTRE.Properties.Resources.scriptDBIcon;
+            this.scriptCommandsButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.scriptCommandsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.scriptCommandsButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.scriptCommandsButton.Name = "scriptCommandsButton";
+            this.scriptCommandsButton.Size = new System.Drawing.Size(36, 36);
+            this.scriptCommandsButton.Text = "Script Commands Database";
+            this.scriptCommandsButton.Click += new System.EventHandler(this.scriptCommandsDatabaseToolStripButton_Click);
+            // 
+            // romToolboxToolStripButton
+            // 
+            this.romToolboxToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.romToolboxToolStripButton.Enabled = false;
+            this.romToolboxToolStripButton.Image = global::LiTRE.Properties.Resources.exploreKit;
+            this.romToolboxToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.romToolboxToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.romToolboxToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.romToolboxToolStripButton.Name = "romToolboxToolStripButton";
+            this.romToolboxToolStripButton.Size = new System.Drawing.Size(36, 36);
+            this.romToolboxToolStripButton.Text = "Patch Toolbox";
+            this.romToolboxToolStripButton.ToolTipText = "Patch Toolbox";
+            this.romToolboxToolStripButton.Click += new System.EventHandler(this.romToolBoxToolStripMenuItem_Click);
+            // 
+            // headerSearchToolStripButton
+            // 
+            this.headerSearchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.headerSearchToolStripButton.Enabled = false;
+            this.headerSearchToolStripButton.Image = global::LiTRE.Properties.Resources.wideLensImage;
+            this.headerSearchToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.headerSearchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.headerSearchToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.headerSearchToolStripButton.Name = "headerSearchToolStripButton";
+            this.headerSearchToolStripButton.Size = new System.Drawing.Size(36, 36);
+            this.headerSearchToolStripButton.Text = "Advanced Search (Experimental)";
+            this.headerSearchToolStripButton.ToolTipText = "Search Header by Property";
+            this.headerSearchToolStripButton.Click += new System.EventHandler(this.headerSearchToolStripButton_Click);
+            // 
+            // separator_afterMiscButtons
+            // 
+            this.separator_afterMiscButtons.Name = "separator_afterMiscButtons";
+            this.separator_afterMiscButtons.Size = new System.Drawing.Size(6, 44);
+            // 
+            // weatherMapEditor
+            // 
+            this.weatherMapEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.weatherMapEditor.Image = global::LiTRE.Properties.Resources.weather_editor;
+            this.weatherMapEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.weatherMapEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.weatherMapEditor.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.weatherMapEditor.Name = "weatherMapEditor";
+            this.weatherMapEditor.Size = new System.Drawing.Size(36, 36);
+            this.weatherMapEditor.Text = "Buildings Editor";
+            this.weatherMapEditor.ToolTipText = "Weather Map Editor";
+            this.weatherMapEditor.Click += new System.EventHandler(this.weatherMapEditor_Click);
+            // 
+            // nsbmdAddTexButton
+            // 
+            this.nsbmdAddTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nsbmdAddTexButton.Image = global::LiTRE.Properties.Resources.addTextureToNSBMD;
+            this.nsbmdAddTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.nsbmdAddTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nsbmdAddTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.nsbmdAddTexButton.Name = "nsbmdAddTexButton";
+            this.nsbmdAddTexButton.Size = new System.Drawing.Size(36, 36);
+            this.nsbmdAddTexButton.Text = "Add texture to NSBMD";
+            this.nsbmdAddTexButton.ToolTipText = "Add textures to NSBMD";
+            this.nsbmdAddTexButton.Click += new System.EventHandler(this.nsbmdAddTexButton_Click);
+            // 
+            // nsbmdRemoveTexButton
+            // 
+            this.nsbmdRemoveTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nsbmdRemoveTexButton.Image = global::LiTRE.Properties.Resources.removeTextureNSBMD;
+            this.nsbmdRemoveTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.nsbmdRemoveTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nsbmdRemoveTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.nsbmdRemoveTexButton.Name = "nsbmdRemoveTexButton";
+            this.nsbmdRemoveTexButton.Size = new System.Drawing.Size(36, 36);
+            this.nsbmdRemoveTexButton.Text = "Remove texture from NSBMD";
+            this.nsbmdRemoveTexButton.ToolTipText = "Remove textures from NSBMD";
+            this.nsbmdRemoveTexButton.Click += new System.EventHandler(this.nsbmdRemoveTexButton_Click);
+            // 
+            // nsbmdExportTexButton
+            // 
+            this.nsbmdExportTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nsbmdExportTexButton.Image = global::LiTRE.Properties.Resources.saveTextureFromNSBMD;
+            this.nsbmdExportTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.nsbmdExportTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nsbmdExportTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
+            this.nsbmdExportTexButton.Name = "nsbmdExportTexButton";
+            this.nsbmdExportTexButton.Size = new System.Drawing.Size(36, 36);
+            this.nsbmdExportTexButton.Text = "Extract texture from NSBMD";
+            this.nsbmdExportTexButton.ToolTipText = "Extract textures from NSBMD";
+            this.nsbmdExportTexButton.Click += new System.EventHandler(this.nsbmdExportTexButton_Click);
+            // 
+            // separator_afterNsbmdUtils
+            // 
+            this.separator_afterNsbmdUtils.Name = "separator_afterNsbmdUtils";
+            this.separator_afterNsbmdUtils.Size = new System.Drawing.Size(6, 44);
+            // 
             // listBasedBatchRenameToolStripButton
             // 
             this.listBasedBatchRenameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1208,150 +1401,6 @@
             this.separator_afterListUtils.Name = "separator_afterListUtils";
             this.separator_afterListUtils.Size = new System.Drawing.Size(6, 44);
             // 
-            // nsbmdAddTexButton
-            // 
-            this.nsbmdAddTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nsbmdAddTexButton.Image = global::LiTRE.Properties.Resources.addTextureToNSBMD;
-            this.nsbmdAddTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.nsbmdAddTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.nsbmdAddTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.nsbmdAddTexButton.Name = "nsbmdAddTexButton";
-            this.nsbmdAddTexButton.Size = new System.Drawing.Size(36, 36);
-            this.nsbmdAddTexButton.Text = "Add texture to NSBMD";
-            this.nsbmdAddTexButton.ToolTipText = "Add textures to NSBMD";
-            this.nsbmdAddTexButton.Click += new System.EventHandler(this.nsbmdAddTexButton_Click);
-            // 
-            // nsbmdRemoveTexButton
-            // 
-            this.nsbmdRemoveTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nsbmdRemoveTexButton.Image = global::LiTRE.Properties.Resources.removeTextureNSBMD;
-            this.nsbmdRemoveTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.nsbmdRemoveTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.nsbmdRemoveTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.nsbmdRemoveTexButton.Name = "nsbmdRemoveTexButton";
-            this.nsbmdRemoveTexButton.Size = new System.Drawing.Size(36, 36);
-            this.nsbmdRemoveTexButton.Text = "Remove texture from NSBMD";
-            this.nsbmdRemoveTexButton.ToolTipText = "Remove textures from NSBMD";
-            this.nsbmdRemoveTexButton.Click += new System.EventHandler(this.nsbmdRemoveTexButton_Click);
-            // 
-            // nsbmdExportTexButton
-            // 
-            this.nsbmdExportTexButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nsbmdExportTexButton.Image = global::LiTRE.Properties.Resources.saveTextureFromNSBMD;
-            this.nsbmdExportTexButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.nsbmdExportTexButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.nsbmdExportTexButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.nsbmdExportTexButton.Name = "nsbmdExportTexButton";
-            this.nsbmdExportTexButton.Size = new System.Drawing.Size(36, 36);
-            this.nsbmdExportTexButton.Text = "Extract texture from NSBMD";
-            this.nsbmdExportTexButton.ToolTipText = "Extract textures from NSBMD";
-            this.nsbmdExportTexButton.Click += new System.EventHandler(this.nsbmdExportTexButton_Click);
-            // 
-            // separator_afterNsbmdUtils
-            // 
-            this.separator_afterNsbmdUtils.Name = "separator_afterNsbmdUtils";
-            this.separator_afterNsbmdUtils.Size = new System.Drawing.Size(6, 44);
-            // 
-            // weatherMapEditor
-            // 
-            this.weatherMapEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.weatherMapEditor.Image = global::LiTRE.Properties.Resources.weather_editor;
-            this.weatherMapEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.weatherMapEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.weatherMapEditor.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.weatherMapEditor.Name = "weatherMapEditor";
-            this.weatherMapEditor.Size = new System.Drawing.Size(36, 36);
-            this.weatherMapEditor.Text = "Weather Map Editor";
-            this.weatherMapEditor.ToolTipText = "Weather Map Editor";
-            this.weatherMapEditor.Click += new System.EventHandler(this.weatherMapEditor_Click);
-            // 
-            // buildingEditorButton
-            // 
-            this.buildingEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buildingEditorButton.Enabled = false;
-            this.buildingEditorButton.Image = global::LiTRE.Properties.Resources.buildingEditorButton;
-            this.buildingEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.buildingEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buildingEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.buildingEditorButton.Name = "buildingEditorButton";
-            this.buildingEditorButton.Size = new System.Drawing.Size(36, 36);
-            this.buildingEditorButton.Text = "Buildings Editor";
-            this.buildingEditorButton.ToolTipText = "Building Editor";
-            this.buildingEditorButton.Click += new System.EventHandler(this.buildingEditorButton_Click);
-            // 
-            // wildEditorButton
-            // 
-            this.wildEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.wildEditorButton.Enabled = false;
-            this.wildEditorButton.Image = global::LiTRE.Properties.Resources.wildEditorButton;
-            this.wildEditorButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.wildEditorButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.wildEditorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.wildEditorButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.wildEditorButton.Name = "wildEditorButton";
-            this.wildEditorButton.Size = new System.Drawing.Size(36, 36);
-            this.wildEditorButton.Text = "Wild Pokémon Editor";
-            this.wildEditorButton.Click += new System.EventHandler(this.wildEditorButton_Click);
-            // 
-            // scriptCommandsButton
-            // 
-            this.scriptCommandsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.scriptCommandsButton.Enabled = false;
-            this.scriptCommandsButton.Image = global::LiTRE.Properties.Resources.scriptDBIcon;
-            this.scriptCommandsButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.scriptCommandsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.scriptCommandsButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.scriptCommandsButton.Name = "scriptCommandsButton";
-            this.scriptCommandsButton.Size = new System.Drawing.Size(36, 36);
-            this.scriptCommandsButton.Text = "Script Commands Database";
-            this.scriptCommandsButton.Click += new System.EventHandler(this.scriptCommandsDatabaseToolStripButton_Click);
-            // 
-            // romToolboxToolStripButton
-            // 
-            this.romToolboxToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.romToolboxToolStripButton.Enabled = false;
-            this.romToolboxToolStripButton.Image = global::LiTRE.Properties.Resources.exploreKit;
-            this.romToolboxToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.romToolboxToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.romToolboxToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.romToolboxToolStripButton.Name = "romToolboxToolStripButton";
-            this.romToolboxToolStripButton.Size = new System.Drawing.Size(36, 36);
-            this.romToolboxToolStripButton.Text = "Patch Toolbox";
-            this.romToolboxToolStripButton.ToolTipText = "Patch Toolbox";
-            this.romToolboxToolStripButton.Click += new System.EventHandler(this.romToolBoxToolStripMenuItem_Click);
-            // 
-            // headerSearchToolStripButton
-            // 
-            this.headerSearchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.headerSearchToolStripButton.Enabled = false;
-            this.headerSearchToolStripButton.Image = global::LiTRE.Properties.Resources.wideLensImage;
-            this.headerSearchToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.headerSearchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.headerSearchToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.headerSearchToolStripButton.Name = "headerSearchToolStripButton";
-            this.headerSearchToolStripButton.Size = new System.Drawing.Size(36, 36);
-            this.headerSearchToolStripButton.Text = "Advanced Search (Experimental)";
-            this.headerSearchToolStripButton.ToolTipText = "Search Header by Property";
-            this.headerSearchToolStripButton.Click += new System.EventHandler(this.headerSearchToolStripButton_Click);
-            // 
-            // spawnEditorToolStripButton
-            // 
-            this.spawnEditorToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.spawnEditorToolStripButton.Enabled = false;
-            this.spawnEditorToolStripButton.Image = global::LiTRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
-            this.spawnEditorToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.spawnEditorToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.spawnEditorToolStripButton.Margin = new System.Windows.Forms.Padding(4, 6, 0, 2);
-            this.spawnEditorToolStripButton.Name = "spawnEditorToolStripButton";
-            this.spawnEditorToolStripButton.Size = new System.Drawing.Size(57, 36);
-            this.spawnEditorToolStripButton.Text = "Spawn Point Editor";
-            this.spawnEditorToolStripButton.Click += new System.EventHandler(this.spawnEditorToolStripButton_Click);
-            // 
-            // separator_afterMiscButtons
-            // 
-            this.separator_afterMiscButtons.Name = "separator_afterMiscButtons";
-            this.separator_afterMiscButtons.Size = new System.Drawing.Size(6, 44);
-            // 
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
@@ -1381,7 +1430,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainProgram";
-            this.Text = "DS Pokémon Rom Editor Reloaded 1.11.1 (Nømura, AdAstra/LD3005, Mixone)";
+            this.Text = "Lost in Time Rom Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainProgram_FormClosing);
             this.Shown += new System.EventHandler(this.MainProgram_Shown);
             this.mainTabControl.ResumeLayout(false);
@@ -1414,9 +1463,15 @@
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ToolStripMenuItem saveRomWithNameToolstipItem;
+        private System.Windows.Forms.ToolStripMenuItem scrcmdHelper;
+
+        private System.Windows.Forms.ToolStripButton weatherMapEditor;
+
+        private System.Windows.Forms.ToolStripMenuItem saveRomWithNameToolStripItem;
 
         private System.Windows.Forms.ToolStripButton saveRomWithName;
+
+        public LiTRE.Editors.EventEditorLiT eventEditorLiT;
 
         #endregion
         private System.Windows.Forms.PictureBox gameIcon;
@@ -1453,7 +1508,6 @@
         private System.Windows.Forms.ToolStripMenuItem heartGoldAndSoulSilverToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageDatabasesToolStripMenuItem;
         private System.Windows.Forms.Label spriteIDlabel;
-        private System.Windows.Forms.ToolStripButton spawnEditorToolStripButton;
         private System.Windows.Forms.ToolStripButton nsbmdExportTexButton;
         private System.Windows.Forms.ToolStripButton nsbmdRemoveTexButton;
         private System.Windows.Forms.ToolStripButton nsbmdAddTexButton;
@@ -1529,7 +1583,7 @@
         private System.Windows.Forms.ToolStripMenuItem extractNSBTXFromNSBMDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem advancedStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otherEditorsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem personalDataEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pokemonEditorToolStripMenuItem;
         public System.Windows.Forms.ToolStripStatusLabel statusLabel;
         public System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         public System.Windows.Forms.TabPage tabPageScriptEditor;
@@ -1538,7 +1592,7 @@
         public System.Windows.Forms.TabPage tabPageEncountersEditor;
         private System.Windows.Forms.ToolStripMenuItem overlayEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spawnEditorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem moveDataEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moveEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addressHelperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem overworldEditorToolStripMenuItem;
@@ -1547,7 +1601,7 @@
         private System.Windows.Forms.ToolStripMenuItem itemEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tradeEditorToolStripMenuItem;
         private System.Windows.Forms.Button popoutTextEditorButton;
-        public System.Windows.Forms.Label textEditorPoppedOutLabel;
+        private System.Windows.Forms.Label textEditorPoppedOutLabel;
         private System.Windows.Forms.Button popoutLevelScriptEditorButton;
         private System.Windows.Forms.Label LSEditorPoppedOutLabel;
         public System.Windows.Forms.TabPage textEditorTabPage;
@@ -1567,20 +1621,22 @@
         public Editors.TextEditor textEditor;
         public Editors.MatrixEditor matrixEditor;
         public Editors.NsbtxEditor nsbtxEditor;
+        public Editors.ScriptEditor scriptEditor;
         public Editors.CameraEditor cameraEditor;
         public Editors.LevelScriptEditor levelScriptEditor;
         public Editors.TrainerEditor trainerEditor;
         public Editors.TableEditor tableEditor;
         public Editors.EncountersEditor encountersEditor;
-        public Editors.HeaderEditor headerEditor;
-        public Editors.EventEditorLiT eventEditorLiT;
-        private System.Windows.Forms.ToolStripButton weatherMapEditor;
-        public Editors.ScriptEditor scriptEditor;
-        private System.Windows.Forms.ToolStripMenuItem scrcmdTableHelperToolStripMenuItem;
-		private System.Windows.Forms.Button popoutNsbtxEditorButton;
+        public LiTRE.Editors.HeaderEditor headerEditor;
+        private System.Windows.Forms.Button popoutNsbtxEditorButton;
         private System.Windows.Forms.Label nsbtxEditorPopOutLabel;
         private System.Windows.Forms.Label eventEditorPopOutLabel;
         private System.Windows.Forms.Button popoutEventEditorButton;
+        private System.Windows.Forms.ToolStripButton pokemonEditorButton;
+        private System.Windows.Forms.ToolStripButton moveEditorButton;
+        private System.Windows.Forms.ToolStripSeparator separator_afterEditors;
+        private System.Windows.Forms.ToolStripButton itemEditorButton;
+        private System.Windows.Forms.ToolStripButton tradeEditorButton;
     }
 }
 

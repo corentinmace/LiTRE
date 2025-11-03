@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Path = System.IO.Path;
 
@@ -20,6 +21,7 @@ namespace LiTRE
         public const string folderSuffix = "_DSPRE_contents"; // changed back to public static string
         private const string dataFolderName = @"data";
 
+        public static bool isHGE { get; private set; }
         public static string romID { get; private set; }
         public static string projectName { get; private set; }
         public static string workDir { get; private set; }
@@ -216,6 +218,28 @@ namespace LiTRE
             }
 
             romID = id;
+            if (gameVersion == GameVersions.HeartGold && gameLanguage == GameLanguages.English)
+            {
+                string ov129path = OverlayUtils.GetPath(129);
+                if (File.Exists(ov129path))
+                {
+                    using (DSUtils.EasyReader br = new DSUtils.EasyReader(ov129path))
+                    {
+                        string gameCode = Encoding.UTF8.GetString(br.ReadBytes(16));
+                        if (gameCode == "hg-engine rocks!")
+                        {
+                            isHGE = true;
+                        }
+                        else
+                        {
+                            isHGE = false;
+                        }
+                    }                    
+                } else
+                {
+                    isHGE = false;
+                }
+            }
             projectName = Path.GetFileNameWithoutExtension(romFolderName);
 
             LoadGameFamily();
@@ -1297,7 +1321,7 @@ namespace LiTRE
 
         public static List<string> GetLocationNames() => new TextArchive(locationNamesTextNumber).messages;
 
-        public static string[] GetSimpleTrainerNames() => new TextArchive(trainerNamesMessageNumber).messages.ToArray();
+        public static string[] GetSimpleTrainerNames() => new TextArchive(trainerNamesMessageNumber).GetSimpleTrainerNames().ToArray();
 
         public static string[] GetTrainerClassNames() => new TextArchive(trainerClassMessageNumber).messages.ToArray();
 

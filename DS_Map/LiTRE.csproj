@@ -788,7 +788,11 @@
     <None Include="Resources\Graphics\Program Icons\exploreKit.png" />
     <None Include="Resources\Graphics\Program Icons\buildingEditorButton.png" />
     <None Include="Resources\alphabgCheckerboard.png" />
+    <Content Include="Resources\item_editor_icon.png" />
+    <Content Include="Resources\move_editor_icon.png" />
+    <Content Include="Resources\pokemon_editor_icon.png" />
     <Content Include="Resources\save_rom_name.png" />
+    <Content Include="Resources\trade_editor_icon.png" />
     <Content Include="Tools\pokefatcs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
