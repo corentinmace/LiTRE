@@ -1043,7 +1043,7 @@ namespace LiTRE
             saveRomWithNameToolStripItem.Enabled = true;
             openROMToolStripMenuItem.Enabled = false;
             openFolderToolStripMenuItem.Enabled = false;
-
+            scrcmdHelper.Enabled = true;
             unpackAllButton.Enabled = true;
             updateMapNarcsButton.Enabled = true;
 
