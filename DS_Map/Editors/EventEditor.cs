@@ -416,7 +416,7 @@ namespace LiTRE.Editors
 
                 /* Read map and building models, match them with textures and render them*/
                 eventMapFile = new MapFile((int)mapIndex, RomInfo.gameFamily, discardMoveperms: false);
-                Helpers.MW_LoadModelTextures(eventMapFile.mapModel, RomInfo.gameDirs[DirNames.mapTextures].unpackedDir, areaData.mapTileset);
+                Helpers.MW_LoadModelTextures(eventMapFile.mapModel, RomInfo.gameDirs[DirNames.mapTextures].unpackedDir, areaData.mapTilesetSpring);
 
                 bool isInteriorMap = false;
                 if ((RomInfo.gameVersion == GameVersions.HeartGold || RomInfo.gameVersion == GameVersions.SoulSilver) && areaData.areaType == 0x0)

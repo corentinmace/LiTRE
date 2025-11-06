@@ -124,7 +124,7 @@ namespace LiTRE
             Plat,
             HGSS,
             BW,
-            BW2
+            BW2,
         }
 
         public enum GameLanguages : byte

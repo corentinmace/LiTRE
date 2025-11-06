@@ -22,9 +22,9 @@
 
         #region Code généré par le Concepteur de composants
 
-        /// <summary> 
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
-        /// le contenu de cette méthode avec l'éditeur de code.
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -48,6 +48,7 @@
             this.areaDataDynamicTexturesNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.texturePacksListBox = new System.Windows.Forms.ListBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.texturePictureBox = new LiTRE.OffsetPictureBox();
             this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox35 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel38 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,6 +57,15 @@
             this.repositionImageButton = new System.Windows.Forms.Button();
             this.invertDragCheckbox = new System.Windows.Forms.CheckBox();
             this.areaDataGroupBox = new System.Windows.Forms.GroupBox();
+            this.seasonTilesetGroupBox = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.springTextureBox = new System.Windows.Forms.PictureBox();
+            this.winterTilesetUpDown = new System.Windows.Forms.NumericUpDown();
+            this.fallTilesetUpDown = new System.Windows.Forms.NumericUpDown();
+            this.summerTilesetUpDown = new System.Windows.Forms.NumericUpDown();
+            this.areaDataMapTilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.locateCurrentAreaData = new System.Windows.Forms.Button();
             this.exportAreaDataButton = new System.Windows.Forms.Button();
             this.importAreaDataButton = new System.Windows.Forms.Button();
@@ -63,23 +73,28 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.areaDataLightTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.areaDataMapTilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.label32 = new System.Windows.Forms.Label();
             this.areaDataBuildingTilesetUpDown = new System.Windows.Forms.NumericUpDown();
             this.selectAreaDataListBox = new System.Windows.Forms.ListBox();
-            this.texturePictureBox = new LiTRE.OffsetPictureBox();
             this.areaTypeGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataDynamicTexturesNumericUpDown)).BeginInit();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.texturePictureBox)).BeginInit();
             this.tableLayoutPanel37.SuspendLayout();
             this.groupBox35.SuspendLayout();
             this.tableLayoutPanel38.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scalingTrackBar)).BeginInit();
             this.areaDataGroupBox.SuspendLayout();
+            this.seasonTilesetGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.springTextureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.winterTilesetUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fallTilesetUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summerTilesetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataMapTilesetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataBuildingTilesetUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.texturePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // texturesLabel
@@ -182,9 +197,9 @@
             // 
             this.outdoorAreaRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.outdoorAreaRadioButton.Checked = true;
-            this.outdoorAreaRadioButton.Location = new System.Drawing.Point(80, 19);
+            this.outdoorAreaRadioButton.Location = new System.Drawing.Point(91, 18);
             this.outdoorAreaRadioButton.Name = "outdoorAreaRadioButton";
-            this.outdoorAreaRadioButton.Size = new System.Drawing.Size(61, 25);
+            this.outdoorAreaRadioButton.Size = new System.Drawing.Size(76, 25);
             this.outdoorAreaRadioButton.TabIndex = 1;
             this.outdoorAreaRadioButton.TabStop = true;
             this.outdoorAreaRadioButton.Text = "Outdoor";
@@ -249,7 +264,7 @@
             this.indoorAreaRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.indoorAreaRadioButton.Location = new System.Drawing.Point(13, 19);
             this.indoorAreaRadioButton.Name = "indoorAreaRadioButton";
-            this.indoorAreaRadioButton.Size = new System.Drawing.Size(61, 25);
+            this.indoorAreaRadioButton.Size = new System.Drawing.Size(74, 25);
             this.indoorAreaRadioButton.TabIndex = 0;
             this.indoorAreaRadioButton.Text = "Indoor";
             this.indoorAreaRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -261,9 +276,9 @@
             this.areaTypeGroupbox.Controls.Add(this.outdoorAreaRadioButton);
             this.areaTypeGroupbox.Controls.Add(this.indoorAreaRadioButton);
             this.areaTypeGroupbox.Enabled = false;
-            this.areaTypeGroupbox.Location = new System.Drawing.Point(188, 185);
+            this.areaTypeGroupbox.Location = new System.Drawing.Point(329, 180);
             this.areaTypeGroupbox.Name = "areaTypeGroupbox";
-            this.areaTypeGroupbox.Size = new System.Drawing.Size(154, 52);
+            this.areaTypeGroupbox.Size = new System.Drawing.Size(173, 52);
             this.areaTypeGroupbox.TabIndex = 15;
             this.areaTypeGroupbox.TabStop = false;
             this.areaTypeGroupbox.Text = "Area Type";
@@ -271,12 +286,8 @@
             // areaDataDynamicTexturesNumericUpDown
             // 
             this.areaDataDynamicTexturesNumericUpDown.Enabled = false;
-            this.areaDataDynamicTexturesNumericUpDown.Location = new System.Drawing.Point(400, 157);
-            this.areaDataDynamicTexturesNumericUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.areaDataDynamicTexturesNumericUpDown.Location = new System.Drawing.Point(420, 147);
+            this.areaDataDynamicTexturesNumericUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.areaDataDynamicTexturesNumericUpDown.Name = "areaDataDynamicTexturesNumericUpDown";
             this.areaDataDynamicTexturesNumericUpDown.Size = new System.Drawing.Size(82, 20);
             this.areaDataDynamicTexturesNumericUpDown.TabIndex = 7;
@@ -315,6 +326,20 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Texture Packs";
             // 
+            // texturePictureBox
+            // 
+            this.texturePictureBox.BackColor = System.Drawing.Color.White;
+            this.texturePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.texturePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.texturePictureBox.Image = global::LiTRE.Properties.Resources.alphabgCheckerboard;
+            this.texturePictureBox.invertDrag = true;
+            this.texturePictureBox.Location = new System.Drawing.Point(742, 20);
+            this.texturePictureBox.Name = "texturePictureBox";
+            this.texturePictureBox.Size = new System.Drawing.Size(256, 256);
+            this.texturePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.texturePictureBox.TabIndex = 43;
+            this.texturePictureBox.TabStop = false;
+            // 
             // tableLayoutPanel37
             // 
             this.tableLayoutPanel37.ColumnCount = 1;
@@ -322,7 +347,7 @@
             this.tableLayoutPanel37.Controls.Add(this.groupBox35, 0, 2);
             this.tableLayoutPanel37.Controls.Add(this.repositionImageButton, 0, 0);
             this.tableLayoutPanel37.Controls.Add(this.invertDragCheckbox, 0, 1);
-            this.tableLayoutPanel37.Location = new System.Drawing.Point(1007, 52);
+            this.tableLayoutPanel37.Location = new System.Drawing.Point(1004, 20);
             this.tableLayoutPanel37.Name = "tableLayoutPanel37";
             this.tableLayoutPanel37.RowCount = 3;
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -415,6 +440,7 @@
             // 
             // areaDataGroupBox
             // 
+            this.areaDataGroupBox.Controls.Add(this.seasonTilesetGroupBox);
             this.areaDataGroupBox.Controls.Add(this.locateCurrentAreaData);
             this.areaDataGroupBox.Controls.Add(this.exportAreaDataButton);
             this.areaDataGroupBox.Controls.Add(this.areaTypeGroupbox);
@@ -426,17 +452,108 @@
             this.areaDataGroupBox.Controls.Add(this.areaDataDynamicTexturesNumericUpDown);
             this.areaDataGroupBox.Controls.Add(this.label34);
             this.areaDataGroupBox.Controls.Add(this.areaDataLightTypeComboBox);
-            this.areaDataGroupBox.Controls.Add(this.label33);
-            this.areaDataGroupBox.Controls.Add(this.areaDataMapTilesetUpDown);
             this.areaDataGroupBox.Controls.Add(this.label32);
             this.areaDataGroupBox.Controls.Add(this.areaDataBuildingTilesetUpDown);
             this.areaDataGroupBox.Controls.Add(this.selectAreaDataListBox);
-            this.areaDataGroupBox.Location = new System.Drawing.Point(641, 333);
+            this.areaDataGroupBox.Location = new System.Drawing.Point(629, 282);
             this.areaDataGroupBox.Name = "areaDataGroupBox";
-            this.areaDataGroupBox.Size = new System.Drawing.Size(511, 249);
+            this.areaDataGroupBox.Size = new System.Drawing.Size(511, 300);
             this.areaDataGroupBox.TabIndex = 0;
             this.areaDataGroupBox.TabStop = false;
             this.areaDataGroupBox.Text = "Area Data";
+            // 
+            // seasonTilesetGroupBox
+            // 
+            this.seasonTilesetGroupBox.Controls.Add(this.pictureBox3);
+            this.seasonTilesetGroupBox.Controls.Add(this.pictureBox2);
+            this.seasonTilesetGroupBox.Controls.Add(this.pictureBox1);
+            this.seasonTilesetGroupBox.Controls.Add(this.springTextureBox);
+            this.seasonTilesetGroupBox.Controls.Add(this.winterTilesetUpDown);
+            this.seasonTilesetGroupBox.Controls.Add(this.fallTilesetUpDown);
+            this.seasonTilesetGroupBox.Controls.Add(this.summerTilesetUpDown);
+            this.seasonTilesetGroupBox.Controls.Add(this.areaDataMapTilesetUpDown);
+            this.seasonTilesetGroupBox.Location = new System.Drawing.Point(187, 123);
+            this.seasonTilesetGroupBox.Name = "seasonTilesetGroupBox";
+            this.seasonTilesetGroupBox.Size = new System.Drawing.Size(128, 160);
+            this.seasonTilesetGroupBox.TabIndex = 43;
+            this.seasonTilesetGroupBox.TabStop = false;
+            this.seasonTilesetGroupBox.Text = "Map Textures";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::LiTRE.Properties.Resources.snowflake;
+            this.pictureBox3.Location = new System.Drawing.Point(6, 129);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(22, 20);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LiTRE.Properties.Resources.leaf_fall;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 95);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(22, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LiTRE.Properties.Resources.sun;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 58);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // springTextureBox
+            // 
+            this.springTextureBox.Image = global::LiTRE.Properties.Resources.cherry_blossom;
+            this.springTextureBox.Location = new System.Drawing.Point(6, 20);
+            this.springTextureBox.Name = "springTextureBox";
+            this.springTextureBox.Size = new System.Drawing.Size(22, 20);
+            this.springTextureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.springTextureBox.TabIndex = 7;
+            this.springTextureBox.TabStop = false;
+            // 
+            // winterTilesetUpDown
+            // 
+            this.winterTilesetUpDown.Location = new System.Drawing.Point(34, 129);
+            this.winterTilesetUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            this.winterTilesetUpDown.Name = "winterTilesetUpDown";
+            this.winterTilesetUpDown.Size = new System.Drawing.Size(82, 20);
+            this.winterTilesetUpDown.TabIndex = 6;
+            this.winterTilesetUpDown.ValueChanged += new System.EventHandler(this.winterTilesetUpDown_ValueChanged);
+            // 
+            // fallTilesetUpDown
+            // 
+            this.fallTilesetUpDown.Location = new System.Drawing.Point(33, 95);
+            this.fallTilesetUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            this.fallTilesetUpDown.Name = "fallTilesetUpDown";
+            this.fallTilesetUpDown.Size = new System.Drawing.Size(82, 20);
+            this.fallTilesetUpDown.TabIndex = 5;
+            this.fallTilesetUpDown.ValueChanged += new System.EventHandler(this.fallTilesetUpDown_ValueChanged);
+            // 
+            // summerTilesetUpDown
+            // 
+            this.summerTilesetUpDown.Location = new System.Drawing.Point(33, 57);
+            this.summerTilesetUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            this.summerTilesetUpDown.Name = "summerTilesetUpDown";
+            this.summerTilesetUpDown.Size = new System.Drawing.Size(82, 20);
+            this.summerTilesetUpDown.TabIndex = 4;
+            this.summerTilesetUpDown.ValueChanged += new System.EventHandler(this.summerTilesetUpDown_ValueChanged);
+            // 
+            // areaDataMapTilesetUpDown
+            // 
+            this.areaDataMapTilesetUpDown.Location = new System.Drawing.Point(34, 19);
+            this.areaDataMapTilesetUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            this.areaDataMapTilesetUpDown.Name = "areaDataMapTilesetUpDown";
+            this.areaDataMapTilesetUpDown.Size = new System.Drawing.Size(82, 20);
+            this.areaDataMapTilesetUpDown.TabIndex = 3;
+            this.areaDataMapTilesetUpDown.ValueChanged += new System.EventHandler(this.areaDataMapTilesetUpDown_ValueChanged);
             // 
             // locateCurrentAreaData
             // 
@@ -490,7 +607,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(397, 141);
+            this.label35.Location = new System.Drawing.Point(420, 131);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(76, 13);
             this.label35.TabIndex = 8;
@@ -499,7 +616,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(352, 191);
+            this.label34.Location = new System.Drawing.Point(329, 240);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(53, 13);
             this.label34.TabIndex = 6;
@@ -509,38 +626,16 @@
             // 
             this.areaDataLightTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.areaDataLightTypeComboBox.FormattingEnabled = true;
-            this.areaDataLightTypeComboBox.Location = new System.Drawing.Point(355, 207);
+            this.areaDataLightTypeComboBox.Location = new System.Drawing.Point(329, 256);
             this.areaDataLightTypeComboBox.Name = "areaDataLightTypeComboBox";
-            this.areaDataLightTypeComboBox.Size = new System.Drawing.Size(137, 21);
+            this.areaDataLightTypeComboBox.Size = new System.Drawing.Size(173, 21);
             this.areaDataLightTypeComboBox.TabIndex = 5;
             this.areaDataLightTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.areaDataLightTypeComboBox_SelectedIndexChanged);
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(187, 141);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(72, 13);
-            this.label33.TabIndex = 4;
-            this.label33.Text = "Map Textures";
-            // 
-            // areaDataMapTilesetUpDown
-            // 
-            this.areaDataMapTilesetUpDown.Location = new System.Drawing.Point(191, 157);
-            this.areaDataMapTilesetUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.areaDataMapTilesetUpDown.Name = "areaDataMapTilesetUpDown";
-            this.areaDataMapTilesetUpDown.Size = new System.Drawing.Size(82, 20);
-            this.areaDataMapTilesetUpDown.TabIndex = 3;
-            this.areaDataMapTilesetUpDown.ValueChanged += new System.EventHandler(this.areaDataMapTilesetUpDown_ValueChanged);
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(293, 141);
+            this.label32.Location = new System.Drawing.Point(326, 131);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(88, 13);
             this.label32.TabIndex = 2;
@@ -548,12 +643,8 @@
             // 
             // areaDataBuildingTilesetUpDown
             // 
-            this.areaDataBuildingTilesetUpDown.Location = new System.Drawing.Point(296, 157);
-            this.areaDataBuildingTilesetUpDown.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
+            this.areaDataBuildingTilesetUpDown.Location = new System.Drawing.Point(329, 147);
+            this.areaDataBuildingTilesetUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.areaDataBuildingTilesetUpDown.Name = "areaDataBuildingTilesetUpDown";
             this.areaDataBuildingTilesetUpDown.Size = new System.Drawing.Size(82, 20);
             this.areaDataBuildingTilesetUpDown.TabIndex = 1;
@@ -564,23 +655,9 @@
             this.selectAreaDataListBox.FormattingEnabled = true;
             this.selectAreaDataListBox.Location = new System.Drawing.Point(12, 24);
             this.selectAreaDataListBox.Name = "selectAreaDataListBox";
-            this.selectAreaDataListBox.Size = new System.Drawing.Size(156, 212);
+            this.selectAreaDataListBox.Size = new System.Drawing.Size(156, 199);
             this.selectAreaDataListBox.TabIndex = 0;
             this.selectAreaDataListBox.SelectedIndexChanged += new System.EventHandler(this.selectAreaDataListBox_SelectedIndexChanged);
-            // 
-            // texturePictureBox
-            // 
-            this.texturePictureBox.BackColor = System.Drawing.Color.White;
-            this.texturePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.texturePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.texturePictureBox.Image = global::LiTRE.Properties.Resources.alphabgCheckerboard;
-            this.texturePictureBox.invertDrag = true;
-            this.texturePictureBox.Location = new System.Drawing.Point(745, 52);
-            this.texturePictureBox.Name = "texturePictureBox";
-            this.texturePictureBox.Size = new System.Drawing.Size(256, 256);
-            this.texturePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.texturePictureBox.TabIndex = 43;
-            this.texturePictureBox.TabStop = false;
             // 
             // NsbtxEditor
             // 
@@ -593,6 +670,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.areaDataDynamicTexturesNumericUpDown)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.texturePictureBox)).EndInit();
             this.tableLayoutPanel37.ResumeLayout(false);
             this.tableLayoutPanel37.PerformLayout();
             this.groupBox35.ResumeLayout(false);
@@ -602,12 +680,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.scalingTrackBar)).EndInit();
             this.areaDataGroupBox.ResumeLayout(false);
             this.areaDataGroupBox.PerformLayout();
+            this.seasonTilesetGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.springTextureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.winterTilesetUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fallTilesetUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.summerTilesetUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataMapTilesetUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataBuildingTilesetUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.texturePictureBox)).EndInit();
             this.ResumeLayout(false);
-
         }
+
+        private System.Windows.Forms.PictureBox springTextureBox;
+
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+
+        public System.Windows.Forms.NumericUpDown summerTilesetUpDown;
+        public System.Windows.Forms.NumericUpDown fallTilesetUpDown;
+        public System.Windows.Forms.NumericUpDown winterTilesetUpDown;
+        private System.Windows.Forms.PictureBox pictureBox1;
+
+        private System.Windows.Forms.GroupBox seasonTilesetGroupBox;
 
         #endregion
 
@@ -641,9 +737,8 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ComboBox areaDataLightTypeComboBox;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
-        private OffsetPictureBox texturePictureBox;
+        private LiTRE.OffsetPictureBox texturePictureBox;
         public System.Windows.Forms.ListBox selectAreaDataListBox;
         public System.Windows.Forms.ListBox texturesListBox;
         public System.Windows.Forms.ListBox palettesListBox;

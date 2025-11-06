@@ -327,7 +327,7 @@ namespace LiTRE.Editors {
                 return blank;
             }
 
-            Helpers.MW_LoadModelTextures(currentMapFile, areaData.mapTileset);
+            Helpers.MW_LoadModelTextures(currentMapFile, areaData.mapTilesetSpring);
 
             bool isInteriorMap = false;
             if (RomInfo.gameFamily == RomInfo.GameFamilies.HGSS && areaData.areaType == AreaData.TYPE_INDOOR) {

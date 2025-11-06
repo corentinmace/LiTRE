@@ -11,27 +11,36 @@ namespace LiTRE.ROMFiles {
 
         #region Fields (2)
         public ushort buildingsTileset;
-        public ushort mapTileset;
-        public ushort dynamicTextureType;
-        public ushort unknown1;
-        public byte areaType = TYPE_OUTDOOR; //HGSS ONLY
+        public sbyte mapTilesetSpring;
+        public sbyte mapTilesetSummer;
+        public sbyte mapTilesetFall;
+        public sbyte mapTilesetWinter;
         public ushort lightType; //using an overabundant size. HGSS only needs a byte
+
+   
+        public byte areaType = TYPE_OUTDOOR; //HGSS ONLY
+        public ushort dynamicTextureType;
+      
         #endregion
 
         #region Constructors (1)
         public AreaData(Stream data) {
             using (BinaryReader reader = new BinaryReader(data)) {
                 buildingsTileset = reader.ReadUInt16();
-                mapTileset = reader.ReadUInt16();
+                mapTilesetSpring = reader.ReadSByte();
+                
 
                 if (RomInfo.gameFamily == GameFamilies.HGSS) {
                     dynamicTextureType = reader.ReadUInt16();
                     areaType = reader.ReadByte();
                     lightType = reader.ReadByte();
                 } else {
-                    unknown1 = reader.ReadUInt16();
+                    mapTilesetSummer = reader.ReadSByte();
+                    mapTilesetFall = reader.ReadSByte();
+                    mapTilesetWinter = reader.ReadSByte();
                     lightType = reader.ReadUInt16();
                 }
+
             }
         }
         public AreaData (byte ID) : this(new FileStream(RomInfo.gameDirs[DirNames.areaData].unpackedDir + "//" + ID.ToString("D4"), FileMode.Open)) {}
@@ -42,14 +51,16 @@ namespace LiTRE.ROMFiles {
             MemoryStream newData = new MemoryStream();
             using (BinaryWriter writer = new BinaryWriter(newData)) {
                 writer.Write(buildingsTileset);
-                writer.Write(mapTileset);
+                writer.Write((sbyte)mapTilesetSpring);
 
                 if (RomInfo.gameFamily == GameFamilies.HGSS) {
                     writer.Write(dynamicTextureType);
                     writer.Write(areaType);
                     writer.Write((byte)lightType);
                 } else {
-                    writer.Write(unknown1);
+                    writer.Write((sbyte)mapTilesetSummer);
+                    writer.Write((sbyte)mapTilesetFall);
+                    writer.Write((sbyte)mapTilesetWinter);
                     writer.Write((ushort)lightType);
                 }
             }

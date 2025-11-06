@@ -354,7 +354,34 @@ namespace LiTRE.Editors
             {
                 return;
             }
-            currentAreaData.mapTileset = (ushort)areaDataMapTilesetUpDown.Value;
+            currentAreaData.mapTilesetSpring = (sbyte)areaDataMapTilesetUpDown.Value;
+        }
+        
+        private void summerTilesetUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (Helpers.HandlersDisabled)
+            {
+                return;
+            }
+            currentAreaData.mapTilesetSummer = (sbyte)summerTilesetUpDown.Value;
+        }
+
+        private void winterTilesetUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (Helpers.HandlersDisabled)
+            {
+                return;
+            }
+            currentAreaData.mapTilesetWinter = (sbyte)winterTilesetUpDown.Value;
+        }
+
+        private void fallTilesetUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (Helpers.HandlersDisabled)
+            {
+                return;
+            }
+            currentAreaData.mapTilesetFall = (sbyte)fallTilesetUpDown.Value;
         }
         private void saveAreaDataButton_Click(object sender, EventArgs e)
         {
@@ -365,7 +392,10 @@ namespace LiTRE.Editors
             currentAreaData = new AreaData((byte)selectAreaDataListBox.SelectedIndex);
 
             areaDataBuildingTilesetUpDown.Value = currentAreaData.buildingsTileset;
-            areaDataMapTilesetUpDown.Value = currentAreaData.mapTileset;
+            areaDataMapTilesetUpDown.Value = currentAreaData.mapTilesetSpring;
+            summerTilesetUpDown.Value = currentAreaData.mapTilesetSummer;
+            fallTilesetUpDown.Value = currentAreaData.mapTilesetFall;
+            winterTilesetUpDown.Value = currentAreaData.mapTilesetWinter;
             areaDataLightTypeComboBox.SelectedIndex = currentAreaData.lightType;
 
             Helpers.DisableHandlers();

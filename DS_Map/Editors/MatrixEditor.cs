@@ -982,7 +982,7 @@ namespace LiTRE.Editors
 
                 AreaData areaData = new AreaData(h.areaDataID);
                 EditorPanels.mapEditor.selectMapComboBox.SelectedIndex = currentMatrix.maps[e.RowIndex, e.ColumnIndex];
-                EditorPanels.mapEditor.mapTextureComboBox.SelectedIndex = areaData.mapTileset + 1;
+                EditorPanels.mapEditor.mapTextureComboBox.SelectedIndex = areaData.mapTilesetSpring + 1;
                 EditorPanels.mapEditor.buildTextureComboBox.SelectedIndex = areaData.buildingsTileset + 1;
                 _parent.mainTabControl.SelectedTab = EditorPanels.mapEditorTabPage;
 

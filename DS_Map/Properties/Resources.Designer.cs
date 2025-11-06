@@ -352,6 +352,16 @@ namespace LiTRE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cherry_blossom {
+            get {
+                object obj = ResourceManager.GetObject("cherry_blossom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap code_70x70 {
             get {
                 object obj = ResourceManager.GetObject("code_70x70", resourceCulture);
@@ -1342,6 +1352,16 @@ namespace LiTRE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap leaf_fall {
+            get {
+                object obj = ResourceManager.GetObject("leaf_fall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LeftClick {
             get {
                 object obj = ResourceManager.GetObject("LeftClick", resourceCulture);
@@ -2132,6 +2152,16 @@ namespace LiTRE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap snowflake {
+            get {
+                object obj = ResourceManager.GetObject("snowflake", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sortAscending {
             get {
                 object obj = ResourceManager.GetObject("sortAscending", resourceCulture);
@@ -2155,6 +2185,16 @@ namespace LiTRE.Properties {
         internal static System.Drawing.Bitmap spawnCoordsMatrixeditorIcon {
             get {
                 object obj = ResourceManager.GetObject("spawnCoordsMatrixeditorIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sun {
+            get {
+                object obj = ResourceManager.GetObject("sun", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
