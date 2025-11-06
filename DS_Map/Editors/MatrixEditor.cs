@@ -982,8 +982,19 @@ namespace LiTRE.Editors
 
                 AreaData areaData = new AreaData(h.areaDataID);
                 EditorPanels.mapEditor.selectMapComboBox.SelectedIndex = currentMatrix.maps[e.RowIndex, e.ColumnIndex];
-                EditorPanels.mapEditor.mapTextureComboBox.SelectedIndex = areaData.mapTilesetSpring + 1;
-                EditorPanels.mapEditor.buildTextureComboBox.SelectedIndex = areaData.buildingsTileset + 1;
+                var mapTileset = areaData.mapTilesetSpring + 1;
+                var buildingTileset = areaData.buildingsTileset + 1;
+                if (areaData.mapTilesetWinter == 255)
+                {
+                    mapTileset = areaData.mapBaseTileset + 1;
+                }
+
+                if (areaData.buildingsTileset == ushort.MaxValue)
+                {
+                    buildingTileset = mapTileset;
+                }
+                EditorPanels.mapEditor.mapTextureComboBox.SelectedIndex = mapTileset;
+                EditorPanels.mapEditor.buildTextureComboBox.SelectedIndex = buildingTileset;
                 _parent.mainTabControl.SelectedTab = EditorPanels.mapEditorTabPage;
 
                 if (areaData.areaType == AreaData.TYPE_INDOOR)
