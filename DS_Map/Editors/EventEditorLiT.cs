@@ -453,8 +453,13 @@ namespace LiTRE.Editors
 
                 for (int i = 0; i < eventMapFile.buildings.Count; i++)
                 {
+                    var buildingTilesetIdx = areaData.buildingsTileset;
+                    if (areaData.buildingsTileset == ushort.MaxValue)
+                    {
+                        buildingTilesetIdx = areaData.mapTilesetSpring;
+                    }
                     eventMapFile.buildings[i].LoadModelData(_parent.romInfo.GetBuildingModelsDirPath(isInteriorMap)); // Load building nsbmd
-                    Helpers.MW_LoadModelTextures(eventMapFile.buildings[i].NSBMDFile, RomInfo.gameDirs[DirNames.buildingTextures].unpackedDir, areaData.buildingsTileset); // Load building textures                
+                    Helpers.MW_LoadModelTextures(eventMapFile.buildings[i].NSBMDFile, RomInfo.gameDirs[DirNames.buildingTextures].unpackedDir, buildingTilesetIdx); // Load building textures                
                 }
 
                     Helpers.RenderMap(ref eventMapRenderer, ref eventBuildingsRenderer, ref eventMapFile, 0f, 115.0f, 90f, 4f, eventOpenGlControl.Width, eventOpenGlControl.Height, true, true);
