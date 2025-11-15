@@ -124,7 +124,17 @@ namespace LiTRE.Editors
         private void buildingsTilesetRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             FillTilesetBox();
-            texturePacksListBox.SelectedIndex = (int)areaDataBuildingTilesetUpDown.Value;
+            int indexToSelect = 0;
+            if (areaDataBuildingTilesetUpDown.Value == ushort.MaxValue)
+            {
+                indexToSelect = (int)areaDataMapTilesetUpDown.Value;
+            }
+            else
+            {
+                indexToSelect = (int)areaDataBuildingTilesetUpDown.Value;
+            }
+            
+            texturePacksListBox.SelectedIndex = indexToSelect;
             if (texturesListBox.Items.Count > 0)
             {
                 texturesListBox.SelectedIndex = 0;
@@ -133,6 +143,8 @@ namespace LiTRE.Editors
             {
                 palettesListBox.SelectedIndex = 0;
             }
+            
+
         }
         private void exportNSBTXButton_Click(object sender, EventArgs e)
         {
