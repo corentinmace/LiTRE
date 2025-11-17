@@ -805,7 +805,7 @@ namespace LiTRE.Editors
             EditorPanels.nsbtxEditor.SetupNSBTXEditor(_parent);
 
             EditorPanels.nsbtxEditor.selectAreaDataListBox.SelectedIndex = (int)areaDataUpDown.Value;
-            EditorPanels.nsbtxEditor.texturePacksListBox.SelectedIndex = (EditorPanels.nsbtxEditor.mapTilesetRadioButton.Checked ? (int)EditorPanels.nsbtxEditor.areaDataMapTilesetUpDown.Value : (int)EditorPanels.nsbtxEditor.areaDataBuildingTilesetUpDown.Value);
+            // EditorPanels.nsbtxEditor.texturePacksListBox.SelectedIndex = (EditorPanels.nsbtxEditor.mapTilesetRadioButton.Checked ? (int)EditorPanels.nsbtxEditor.areaDataMapTilesetUpDown.Value : (int)EditorPanels.nsbtxEditor.areaDataBuildingTilesetUpDown.Value);
             if (EditorPanels.PopoutRegistry.TryGetHost(EditorPanels.nsbtxEditor, out var host))
             {
                 host.Focus();

@@ -286,11 +286,12 @@
             // areaDataDynamicTexturesNumericUpDown
             // 
             this.areaDataDynamicTexturesNumericUpDown.Enabled = false;
-            this.areaDataDynamicTexturesNumericUpDown.Location = new System.Drawing.Point(420, 147);
+            this.areaDataDynamicTexturesNumericUpDown.Location = new System.Drawing.Point(334, 143);
             this.areaDataDynamicTexturesNumericUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.areaDataDynamicTexturesNumericUpDown.Name = "areaDataDynamicTexturesNumericUpDown";
             this.areaDataDynamicTexturesNumericUpDown.Size = new System.Drawing.Size(82, 20);
             this.areaDataDynamicTexturesNumericUpDown.TabIndex = 7;
+            this.areaDataDynamicTexturesNumericUpDown.Visible = false;
             this.areaDataDynamicTexturesNumericUpDown.ValueChanged += new System.EventHandler(this.areaDataDynamicTexturesUpDown_ValueChanged);
             // 
             // texturePacksListBox
@@ -564,6 +565,7 @@
             this.locateCurrentAreaData.TabIndex = 42;
             this.locateCurrentAreaData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.locateCurrentAreaData.UseVisualStyleBackColor = true;
+            this.locateCurrentAreaData.Click += new System.EventHandler(this.locateCurrentNsbtx_Click);
             // 
             // exportAreaDataButton
             // 
@@ -607,11 +609,12 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(420, 131);
+            this.label35.Location = new System.Drawing.Point(334, 127);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(76, 13);
             this.label35.TabIndex = 8;
             this.label35.Text = "Global NSBTA";
+            this.label35.Visible = false;
             // 
             // label34
             // 
@@ -635,7 +638,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(326, 131);
+            this.label32.Location = new System.Drawing.Point(417, 127);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(88, 13);
             this.label32.TabIndex = 2;
@@ -643,7 +646,7 @@
             // 
             // areaDataBuildingTilesetUpDown
             // 
-            this.areaDataBuildingTilesetUpDown.Location = new System.Drawing.Point(329, 147);
+            this.areaDataBuildingTilesetUpDown.Location = new System.Drawing.Point(420, 143);
             this.areaDataBuildingTilesetUpDown.Maximum = new decimal(new int[] { 65535, 0, 0, 0 });
             this.areaDataBuildingTilesetUpDown.Name = "areaDataBuildingTilesetUpDown";
             this.areaDataBuildingTilesetUpDown.Size = new System.Drawing.Size(82, 20);

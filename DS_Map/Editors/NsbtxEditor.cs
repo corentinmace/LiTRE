@@ -91,6 +91,8 @@ namespace LiTRE.Editors
                 default:
                     lightTypes = new string[3] { "Model's light", "Day/Night Light", "Unknown Light" };
                     areaDataDynamicTexturesNumericUpDown.Enabled = true;
+                    areaDataDynamicTexturesNumericUpDown.Visible = true;
+                    label35.Visible = true;
                     areaTypeGroupbox.Enabled = true;
                     break;
             };
@@ -354,7 +356,16 @@ namespace LiTRE.Editors
             {
                 return;
             }
-            currentAreaData.mapTilesetSpring = (sbyte)areaDataMapTilesetUpDown.Value;
+
+            if (currentAreaData.mapTilesetWinter == byte.MaxValue)
+            {
+                currentAreaData.mapBaseTileset = (ushort)areaDataMapTilesetUpDown.Value;
+            }
+            else
+            {
+                currentAreaData.mapTilesetSpring = (byte)areaDataMapTilesetUpDown.Value;
+            }
+
         }
         
         private void summerTilesetUpDown_ValueChanged(object sender, EventArgs e)
@@ -363,7 +374,7 @@ namespace LiTRE.Editors
             {
                 return;
             }
-            currentAreaData.mapTilesetSummer = (sbyte)summerTilesetUpDown.Value;
+            currentAreaData.mapTilesetSummer = (byte)summerTilesetUpDown.Value;
         }
 
         private void winterTilesetUpDown_ValueChanged(object sender, EventArgs e)
@@ -372,7 +383,8 @@ namespace LiTRE.Editors
             {
                 return;
             }
-            currentAreaData.mapTilesetWinter = (sbyte)winterTilesetUpDown.Value;
+            currentAreaData.mapTilesetWinter = (byte)winterTilesetUpDown.Value;
+            CheckTilesetIdSize();
         }
 
         private void fallTilesetUpDown_ValueChanged(object sender, EventArgs e)
@@ -381,23 +393,41 @@ namespace LiTRE.Editors
             {
                 return;
             }
-            currentAreaData.mapTilesetFall = (sbyte)fallTilesetUpDown.Value;
+            currentAreaData.mapTilesetFall = (byte)fallTilesetUpDown.Value;
         }
         private void saveAreaDataButton_Click(object sender, EventArgs e)
         {
             currentAreaData.SaveToFileDefaultDir(selectAreaDataListBox.SelectedIndex);
         }
+
+        private void CheckTilesetIdSize()
+        {
+            if (currentAreaData.mapTilesetWinter == 255)
+            {
+                summerTilesetUpDown.Enabled = false;
+                fallTilesetUpDown.Enabled = false;
+                areaDataMapTilesetUpDown.Maximum = ushort.MaxValue;
+                areaDataMapTilesetUpDown.Value = currentAreaData.mapBaseTileset;
+            }
+            else
+            {
+                summerTilesetUpDown.Enabled = true;
+                fallTilesetUpDown.Enabled = true;
+                areaDataMapTilesetUpDown.Value = currentAreaData.mapTilesetSpring;
+                areaDataMapTilesetUpDown.Maximum = byte.MaxValue;
+                summerTilesetUpDown.Value = currentAreaData.mapTilesetSummer;
+            }
+
+        }
         private void selectAreaDataListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentAreaData = new AreaData((byte)selectAreaDataListBox.SelectedIndex);
-
+            CheckTilesetIdSize();
+            
             areaDataBuildingTilesetUpDown.Value = currentAreaData.buildingsTileset;
-            areaDataMapTilesetUpDown.Value = currentAreaData.mapTilesetSpring;
-            summerTilesetUpDown.Value = currentAreaData.mapTilesetSummer;
+            areaDataLightTypeComboBox.SelectedIndex = currentAreaData.lightType;
             fallTilesetUpDown.Value = currentAreaData.mapTilesetFall;
             winterTilesetUpDown.Value = currentAreaData.mapTilesetWinter;
-            areaDataLightTypeComboBox.SelectedIndex = currentAreaData.lightType;
-
             Helpers.DisableHandlers();
             if (RomInfo.gameFamily == GameFamilies.HGSS)
             {

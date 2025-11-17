@@ -11,10 +11,11 @@ namespace LiTRE.ROMFiles {
 
         #region Fields (2)
         public ushort buildingsTileset;
-        public sbyte mapTilesetSpring;
-        public sbyte mapTilesetSummer;
-        public sbyte mapTilesetFall;
-        public sbyte mapTilesetWinter;
+        public ushort mapBaseTileset;
+        public byte mapTilesetSpring;
+        public byte mapTilesetSummer;
+        public byte mapTilesetFall;
+        public byte mapTilesetWinter;
         public ushort lightType; //using an overabundant size. HGSS only needs a byte
 
    
@@ -24,10 +25,17 @@ namespace LiTRE.ROMFiles {
         #endregion
 
         #region Constructors (1)
-        public AreaData(Stream data) {
+        public AreaData(Stream data)
+        {
+            var tempBuildingTileset = 0;
+            var tempMapBaseTileset = 0;
+            var tempMapTilesetSummer = 0;
+            var tempMapTilesetFall = 0;
+            var tempMapTilesetWinter = 0;
+            var tempLightType = 0;
             using (BinaryReader reader = new BinaryReader(data)) {
-                buildingsTileset = reader.ReadUInt16();
-                mapTilesetSpring = reader.ReadSByte();
+                tempBuildingTileset = reader.ReadUInt16();
+                tempMapBaseTileset = reader.ReadByte();
                 
 
                 if (RomInfo.gameFamily == GameFamilies.HGSS) {
@@ -35,13 +43,31 @@ namespace LiTRE.ROMFiles {
                     areaType = reader.ReadByte();
                     lightType = reader.ReadByte();
                 } else {
-                    mapTilesetSummer = reader.ReadSByte();
-                    mapTilesetFall = reader.ReadSByte();
-                    mapTilesetWinter = reader.ReadSByte();
-                    lightType = reader.ReadUInt16();
+                    tempMapTilesetSummer = reader.ReadByte();
+                    tempMapTilesetFall = reader.ReadByte();
+                    tempMapTilesetWinter = reader.ReadByte();
+                    tempLightType = reader.ReadUInt16();
                 }
-
             }
+            
+            buildingsTileset = (ushort)tempBuildingTileset;
+            lightType = (ushort)tempLightType;
+            if (tempMapTilesetWinter == 255)
+            {
+                mapBaseTileset = (ushort)((tempMapBaseTileset << 8) | tempMapTilesetSummer);
+                mapTilesetSpring = 0;
+                mapTilesetSummer = 0;
+                
+            }
+            else
+            {
+                mapBaseTileset = 0;
+                mapTilesetSpring = (byte)tempMapBaseTileset;
+                mapTilesetSummer = (byte)tempMapTilesetSummer;
+            }
+            
+            mapTilesetFall = (byte)tempMapTilesetFall;
+            mapTilesetWinter = (byte)tempMapTilesetWinter;
         }
         public AreaData (byte ID) : this(new FileStream(RomInfo.gameDirs[DirNames.areaData].unpackedDir + "//" + ID.ToString("D4"), FileMode.Open)) {}
         #endregion
@@ -51,14 +77,22 @@ namespace LiTRE.ROMFiles {
             MemoryStream newData = new MemoryStream();
             using (BinaryWriter writer = new BinaryWriter(newData)) {
                 writer.Write(buildingsTileset);
-                writer.Write((sbyte)mapTilesetSpring);
+                if (mapTilesetWinter == byte.MaxValue)
+                {
+                    writer.Write((ushort)mapBaseTileset);
+                }
+                else
+                {
+                    writer.Write((sbyte)mapTilesetSpring);
+                    writer.Write((sbyte)mapTilesetSummer);
+                }
+
 
                 if (RomInfo.gameFamily == GameFamilies.HGSS) {
                     writer.Write(dynamicTextureType);
                     writer.Write(areaType);
                     writer.Write((byte)lightType);
                 } else {
-                    writer.Write((sbyte)mapTilesetSummer);
                     writer.Write((sbyte)mapTilesetFall);
                     writer.Write((sbyte)mapTilesetWinter);
                     writer.Write((ushort)lightType);
