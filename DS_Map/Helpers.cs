@@ -40,7 +40,7 @@ namespace LiTRE {
         public static void CheckForUpdates(bool silent = true)
         {
             AppLogger.Info("Checking for updates...");
-            var mgr = new UpdateManager(new GithubSource("https://github.com/Pokemon-Lost-in-Time/Lost-in-Time-Rom-Editor", "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", prerelease: false));
+            var mgr = new UpdateManager(new GithubSource("https://github.com/Pokemon-Lost-in-Time/Lost-in-Time-Rom-Editor", "", prerelease: false));
 
             var newVersion = mgr.CheckForUpdates();
             if (newVersion == null)
