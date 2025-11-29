@@ -54,7 +54,7 @@ namespace LiTRE.ROMFiles {
             lightType = (ushort)tempLightType;
             if (tempMapTilesetWinter == 255)
             {
-                mapBaseTileset = (ushort)((tempMapBaseTileset << 8) | tempMapTilesetSummer);
+                mapBaseTileset = (ushort)((tempMapTilesetSummer << 8) | tempMapBaseTileset);
                 mapTilesetSpring = 0;
                 mapTilesetSummer = 0;
                 
